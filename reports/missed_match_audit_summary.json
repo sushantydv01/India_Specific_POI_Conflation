@@ -1,18 +1,14 @@
 {
-  "audit_timestamp": "2026-11-17T09:20:00Z",
+  "audit_timestamp": "2026-11-17T09:35:00Z",
+  "search_procedure_version": "v1.1-radial-fuzzy-token",
+  "search_radius_meters": 1500.0,
   "total_entities_audited": 120,
-  "verdict_distribution": {
-    "NO_COUNTERPART_FOUND": 47,
-    "POTENTIAL_COUNTERPART_FOUND_OUTSIDE_BLOCKING": 24,
-    "INSUFFICIENT_EVIDENCE": 49
+  "diagnostic_status_distribution": {
+    "NO_COUNTERPART_FOUND_IN_SEARCH": 47,
+    "POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING": 24,
+    "HUMAN_CONFIRMED_MATCH_OUTSIDE_BLOCKING": 0,
+    "INSUFFICIENT_EVIDENCE": 49,
+    "SEARCH_REQUIRES_EXPANSION": 0
   },
-  "failure_reason_distribution": {
-    "SOURCE_COVERAGE_ABSENCE_IN_OVERTURE": 47,
-    "SPATIAL_DISTANCE_DISPLACEMENT_EXCEEDED_50M": 24,
-    "NAME_MISSING_IN_OSM_OR_OVERTURE": 49,
-    "LEXICAL_OR_TRANSLITERATION_GAP": 0,
-    "CATEGORY_FILTER_INCOMPATIBILITY": 0,
-    "AMBIGUOUS_EVIDENCE": 0
-  },
-  "key_finding": "Out of 120 unrepresented/weak OSM POIs, 47 (39.2%) have no counterpart in Overture (true source coverage absence), 24 (20.0%) were genuine matches missed by candidate blocking, and 49 had insufficient evidence."
+  "methodology_disclaimer": "This is a diagnostic sample of 120 unrepresented/weak OSM records designed to inspect failure modes. It does NOT constitute a statistically valid estimate of global candidate blocking recall across the 49,036 OSM universe. Potential counterparts found outside blocking are hypotheses pending human adjudication."
 }

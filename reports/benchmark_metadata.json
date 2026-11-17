@@ -1,8 +1,10 @@
 {
-  "benchmark_schema_version": "1.0.0",
-  "manifest_timestamp": "2026-11-17T09:21:30.039743+00:00",
+  "benchmark_schema_version": "1.1.0",
+  "manifest_timestamp": "2026-11-17T09:32:47.888501+00:00",
   "target_city": "Bengaluru (BBMP), Karnataka, India",
   "boundary_relation_id": 7902476,
+  "lifecycle_state": "QUEUE_GENERATED",
+  "is_frozen": false,
   "source_snapshots": {
     "overture_places_release": "2026-10-21.0",
     "osm_geofabrik_extract": "2026-11-16T21:22:36Z",
@@ -12,27 +14,35 @@
   "candidate_generation_commit": "2a1e60f",
   "sampling_parameters": {
     "population_size": 605428,
-    "sample_size": 500,
+    "main_queue_size": 500,
+    "pilot_batch_size": 50,
     "strata_count": 10,
-    "target_per_stratum": 50,
     "random_seed": 42,
-    "sampling_strategy": "Deterministic stratified random sampling across 10 difficulty strata"
+    "sampling_strategy": "Mutually Exclusive Priority Stratification (50 pairs per stratum)"
   },
   "files": {
     "annotation_queue_csv": "data/processed/benchmark/annotation_queue.csv",
     "annotation_queue_records": 500,
+    "pilot_batch_csv": "data/processed/benchmark/pilot_batch_50.csv",
+    "pilot_batch_records": 50,
     "adjudication_queue_csv": "data/processed/benchmark/adjudication_queue.csv",
     "adjudication_queue_records": 0,
     "missed_match_audit_csv": "data/processed/benchmark/missed_match_audit.csv",
     "missed_match_audit_records": 120,
     "annotator_files": {}
   },
-  "known_limitations": [
-    "Annotation queue is a stratified diagnostic sample (500 pairs) and is not representative of random pair distribution.",
-    "Candidate pairs do not constitute matches; ground truth decisions must not be inferred automatically.",
-    "Missed-match audit demonstrates that ~39% of unrepresented OSM POIs have zero presence in Overture directories.",
-    "Cohen's Kappa is sensitive to category prevalence and class imbalance."
+  "lifecycle_definitions": {
+    "QUEUE_GENERATED": "Review queue generated; awaiting human annotator review.",
+    "ANNOTATION_IN_PROGRESS": "Human annotator sessions in progress.",
+    "ANNOTATION_COMPLETED": "Full queue reviewed by primary annotator.",
+    "ADJUDICATION_PENDING": "Inter-annotator conflicts queued for adjudication.",
+    "ADJUDICATED": "All conflicts adjudicated by consensus.",
+    "BENCHMARK_FROZEN": "Benchmark locked and approved for model evaluation."
+  },
+  "known_methodology_constraints": [
+    "The 500-pair queue is a diagnostic difficulty-stratified sample, NOT a representative estimate of natural candidate prevalence.",
+    "Benchmark remains in QUEUE_GENERATED status until human annotator review commences.",
+    "Missed-match diagnostic audit (120 records) cannot be extrapolated to a global blocking recall metric without complete universe verification."
   ],
-  "benchmark_status": "QUEUE_GENERATED_AND_INITIALIZED",
-  "notes": "Initial Milestone 5 human ground truth benchmark initialization."
+  "notes": "Milestone 6 benchmark integrity, mutually exclusive stratification, and pilot batch preparation."
 }

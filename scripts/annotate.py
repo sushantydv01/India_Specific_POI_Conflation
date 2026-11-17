@@ -45,17 +45,29 @@ EVIDENCE_MAP = {
 def main():
     parser = argparse.ArgumentParser(description="Interactive Human Annotation CLI")
     parser.add_argument("--annotator", type=str, default="annotator_1", help="Annotator identifier")
+    parser.add_argument("--pilot", action="store_true", help="Annotate the 50-pair pilot batch specifically")
+    parser.add_argument("--queue", type=str, default=None, help="Explicit path to queue CSV")
     args = parser.parse_args()
 
-    workflow = AnnotationWorkflow()
+    if args.queue:
+        queue_path = args.queue
+    elif args.pilot:
+        queue_path = "data/processed/benchmark/pilot_batch_50.csv"
+    else:
+        queue_path = "data/processed/benchmark/annotation_queue.csv"
+
+    workflow = AnnotationWorkflow(queue_csv=queue_path)
     unannotated = workflow.get_unannotated_items(args.annotator)
     total_queue = len(workflow.load_queue())
     completed = total_queue - len(unannotated)
 
+    mode_label = "PILOT BATCH (50 pairs)" if args.pilot or "pilot" in queue_path else "MAIN QUEUE (500 pairs)"
+
     print("=" * 70)
-    print("POI CONFLATION BENCHMARK — INTERACTIVE ANNOTATION TOOL")
+    print(f"POI CONFLATION BENCHMARK — INTERACTIVE ANNOTATION TOOL [{mode_label}]")
     print("=" * 70)
     print(f"Annotator:          {args.annotator}")
+    print(f"Queue File:         {queue_path}")
     print(f"Completed / Total:  {completed} / {total_queue}")
     print(f"Remaining in Queue: {len(unannotated)}")
     print("=" * 70)

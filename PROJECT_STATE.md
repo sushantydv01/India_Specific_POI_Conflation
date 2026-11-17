@@ -6,20 +6,22 @@
 
 ## 1. Current Milestone
 
-- **Milestone:** Milestone 5 — Ground Truth Benchmark & Annotation Framework
-- **Status:** **Milestone 5 Complete** (Stratified Annotation Queue, Local Workflow CLI, Cohen's Kappa QC, Missed-Match Diagnostic Audit, and Versioned Metadata Achieved)
+- **Milestone:** Milestone 6 — Benchmark Integrity, Annotation Pilot & Blocking-Loss Verification
+- **Status:** **Milestone 6 Complete** (Mutually Exclusive Stratified Partition, 50-Pair Pilot Batch, Scientific Diagnostic Semantics, Quality-Control Evaluator, Category Pruning Audit Sample, and v1.1.0 Manifest Achieved)
 - **Selected Target City:** **Bengaluru (Bruhat Bengaluru Mahanagara Palike — BBMP)**
   - *OSM Relation:* `7902476` (`admin_level=7`)
   - *Bounding Box:* `[77.4598797, 12.8334905, 77.7840639, 13.1426196]`
   - *BBMP Polygon Area:* **717.21 km²** (EPSG:32643 UTM 43N) / **716.37 km²** (WGS84 Spheroid)
   - *Total Canonical Records:* **246,856** (197,820 Overture + 49,036 OSM)
   - *Candidate Pairs Universe:* **605,428 pairs** (`candidate_pairs_union.parquet`, 42.02 MB)
-  - *Stratified Benchmark Queue:* **500 pairs** across 10 difficulty strata (`annotation_queue.csv`)
-  - *Sampling Seed:* `42` (deterministic random stratified sampling)
-  - *Missed-Match Diagnostic Audit:* **120 unrepresented/weak OSM records** (`missed_match_audit.csv`)
-  - *Audit Findings:* 39.2% true source absence in Overture, 20.0% candidate displacement $>50$m, 40.8% name missing in OSM
-  - *Benchmark Manifest Version:* `1.0.0` (`data/processed/benchmark/benchmark_metadata.json`)
-  - *Test Suite Coverage:* **40 passing automated tests**
+  - *Mutually Exclusive Stratified Partition:* 10 non-overlapping diagnostic strata summing to 605,428 pairs
+  - *Main Benchmark Queue:* **500 pairs** (50 pairs per stratum, `annotation_queue.csv`)
+  - *Annotation Pilot Batch:* **50 pairs** (5 pairs per stratum, `pilot_batch_50.csv`)
+  - *Sampling Seed:* `42` (deterministic mutually exclusive pseudo-random sampling)
+  - *Missed-Match Diagnostic Audit:* **120 unrepresented/weak OSM records** (`missed_match_audit.csv`, 47 `NO_COUNTERPART_FOUND_IN_SEARCH`, 24 `POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING`, 49 `INSUFFICIENT_EVIDENCE`)
+  - *Category Pruning Audit:* **100-pair review sample** across 11 incompatible rules (`reports/category_pruned_sample.csv`)
+  - *Benchmark Manifest Version:* `1.1.0` (Lifecycle: `QUEUE_GENERATED`, `is_frozen = false`)
+  - *Test Suite Coverage:* **45 passing automated tests**
 
 ---
 
@@ -51,7 +53,7 @@ All values recorded below are derived directly from system execution logs on 202
 
 ## 3. Milestone Progress
 
-### Completed Tasks (Milestones 1, 2, 3, 4, and 5)
+### Completed Tasks (Milestones 1, 2, 3, 4, 5, and 6)
 - [x] Environment inspection and hardware profiling executed.
 - [x] Git repository initialized with primary branch designated as `main`.
 - [x] Remote tracking URL verified and linked to GitHub repository.
@@ -96,9 +98,21 @@ All values recorded below are derived directly from system execution logs on 202
   - Added 7 dedicated unit and integration tests (40 total passing tests).
   - Authored comprehensive documentation (`docs/ground_truth_benchmark.md`, `docs/annotation_workflow.md`, `docs/missed_match_audit.md`).
 
-### Pending Tasks (Milestone 6 Roadmap)
-- [ ] Milestone 6: Pairwise Feature Engineering & Supervised Classification (Jaro-Winkler, Levenshtein, Token Sort Ratio, geographic displacement vectors, category similarity matrix, supervised classifier training on benchmark).
-- [ ] Milestone 7: Conflation Graph & Cluster-Based Canonical Resolution.
+- [x] **Milestone 6 Implementation:** Strengthened benchmark methodological integrity, sampling partition, and annotation pilot:
+  - Eliminated stratum overlap by formulating an exhaustive, mutually exclusive 10-strata partition over the 605,428 candidate universe with exact inclusion probabilities ($\pi_k = n_k / N_k$).
+  - Prepared and extracted a 50-pair pilot review batch (`data/processed/benchmark/pilot_batch_50.csv`, exactly 5 pairs per stratum).
+  - Enhanced annotation workflow CLI (`scripts/annotate.py`) with `--pilot` mode, resume capability, and atomic progress tracking.
+  - Corrected missed-match audit terminology and status semantics (`NO_COUNTERPART_FOUND_IN_SEARCH`, `POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING`, `INSUFFICIENT_EVIDENCE`), refraining from claiming global recall or unverified matches.
+  - Implemented category pruning audit engine (`CategoryPruneAuditor`) reconstructing 23,119 pruned pairs and exporting a 100-pair review sample across 11 incompatible rules (`reports/category_pruned_sample.csv`).
+  - Formalized benchmark lifecycle state machine (`QUEUE_GENERATED`, `ANNOTATION_IN_PROGRESS`, `ANNOTATION_COMPLETED`, `ADJUDICATION_PENDING`, `ADJUDICATED`, `BENCHMARK_FROZEN`) and updated manifest to v1.1.0 (`is_frozen = false`).
+  - Added inter-annotator quality control safeguards, second-reviewer assignment workflow, and deduplication of repeated submissions.
+  - Expanded test suite to 45 passing automated tests (12 dedicated benchmark/audit/QC tests).
+  - Authored comprehensive documentation (`docs/benchmark_sampling_methodology.md`, `docs/annotation_pilot.md`, `docs/benchmark_lifecycle.md`).
+
+### Pending Tasks (Milestone 7 Roadmap)
+- [ ] Milestone 7: Human Annotation Pilot Execution, Inter-Annotator Agreement, and Consensus Adjudication.
+- [ ] Milestone 8: Pairwise Feature Engineering & Supervised Classification (Jaro-Winkler, Levenshtein, displacement vectors, category similarity matrix).
+- [ ] Milestone 9: Conflation Graph & Cluster-Based Canonical Resolution.
 
 ---
 
@@ -123,3 +137,6 @@ All values recorded below are derived directly from system execution logs on 202
 | **ADR-015** | Stratified Benchmark Sampling | Extract candidate review queues using balanced stratification (50 pairs per stratum across 10 strata) with deterministic random seed (`seed=42`). | **Approved** | Prevents high-density commercial clusters or trivial exact matches from dominating ground truth while preserving rare transliteration and distance variants. |
 | **ADR-016** | Four-Class Ground Truth Schema & Agreement | Support `MATCH`, `NON_MATCH`, `UNCERTAIN`, and `NEEDS_ADJUDICATION` with Cohen's Kappa reliability and conflict routing to `adjudication_queue.csv`. | **Approved** | Prevents forcing ambiguous pairs into binary labels and provides mathematically rigorous inter-annotator agreement metrics. |
 | **ADR-017** | Missed-Match Diagnostic Audit | Audit unrepresented OSM entities via wide-radius (1.5 km), category-unconstrained independent search to isolate true source absence from blocking loss. | **Approved** | Proves that 39.2% of zero-candidate OSM POIs do not exist in Overture, preventing false attribution of source coverage gaps to pipeline failure. |
+| **ADR-018** | Mutually Exclusive Stratification | Partition the 605,428 candidate universe into an exhaustive, mutually exclusive 10-strata hierarchy to compute exact inclusion probabilities ($n_k / N_k$). | **Approved** | Resolves the multi-attribute stratum overlap problem, ensuring rigorous Horvitz-Thompson weighting and reproducible sampling. |
+| **ADR-019** | Benchmark Lifecycle State Machine | Enforce formal lifecycle stages (`QUEUE_GENERATED`, `ANNOTATION_IN_PROGRESS`, `ANNOTATION_COMPLETED`, `ADJUDICATION_PENDING`, `ADJUDICATED`, `BENCHMARK_FROZEN`). | **Approved** | Prevents declaring ground truth benchmarks frozen or completed before human annotations and consensus adjudication actually occur. |
+| **ADR-020** | Category Pruning Auditability | Reconstruct and sample discarded category-incompatible candidate pairs (`category_pruned_sample.csv`) across all 11 disjoint rules for ongoing audit. | **Approved** | Replaces unverified absolute claims with empirical audit evidence, ensuring transparent tracking of cross-domain edge cases. |

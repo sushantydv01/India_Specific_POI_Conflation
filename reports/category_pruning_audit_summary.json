@@ -1,0 +1,20 @@
+{
+  "audit_timestamp": "2026-11-17T09:40:00Z",
+  "total_pruned_pairs_spatial_50m": 23119,
+  "sample_size": 100,
+  "random_seed": 42,
+  "pruning_rule_distribution": {
+    "Hospital/clinic versus restaurant/cafe": 7554,
+    "Hospital/clinic versus bank/ATM": 2924,
+    "School/college versus restaurant/bar": 2456,
+    "Place of worship versus restaurant/bar": 2412,
+    "Bank/ATM versus hotel/lodging": 1779,
+    "Hospital/clinic versus hotel/lodging": 1464,
+    "Bank/ATM versus place of worship": 1158,
+    "Bank/ATM versus park/museum": 1039,
+    "Bank/ATM versus academic school/college": 975,
+    "Hospital/clinic versus place of worship": 875,
+    "School/college versus hotel/lodging": 483
+  },
+  "methodology_finding": "Reconstructed 23,119 category-incompatible candidate pairs across 11 disjoint domain rules. Manual inspection of the 100-pair stratified sample confirms that the overwhelming majority denote coincidental spatial co-locations (e.g. Bank ATM adjacent to school, clinic near restaurant). While primary commercial identities are effectively preserved, potential subsidiary co-locations (e.g. hospital cafeteria, university branch) remain intentionally pruned under 1-to-1 conflation."
+}

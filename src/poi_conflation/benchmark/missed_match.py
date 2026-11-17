@@ -4,20 +4,41 @@ Audits a diagnostic sample of 120 OSM records that are unrepresented or weakly
 represented in the candidate generation pool (e.g., zero candidates, Kannada script,
 peripheral wards, institutional campuses) using an independent search procedure.
 
-Classifies outcomes:
-- NO_COUNTERPART_FOUND: Overture does not catalog this entity (source coverage gap).
-- POTENTIAL_COUNTERPART_FOUND_OUTSIDE_BLOCKING: Entity exists in Overture but was missed by blocking.
-- INSUFFICIENT_EVIDENCE: Available information is ambiguous or cannot establish identity.
+Enforces precise scientific status semantics:
+- NO_COUNTERPART_FOUND_IN_SEARCH: The defined search procedure found no plausible candidate within the search radius.
+- POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING: A candidate counterpart was found outside blocking, pending human review.
+- HUMAN_CONFIRMED_MATCH_OUTSIDE_BLOCKING: Confirmed by human review to refer to the same POI.
+- INSUFFICIENT_EVIDENCE: Available record attributes are inadequate to perform linkage.
+- SEARCH_REQUIRES_EXPANSION: Search radius or parameters inadequate to reach a conclusion.
 """
 
+import csv
 import json
+from enum import Enum
 from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 
 import duckdb
 from rapidfuzz import fuzz
 
-from src.poi_conflation.benchmark.schema import EvidenceType
+SEARCH_PROCEDURE_VERSION = "v1.1-radial-fuzzy-token"
+SEARCH_RADIUS_METERS = 1500.0
+
+
+class DiagnosticStatus(str, Enum):
+    """Scientific classification of diagnostic search outcomes."""
+    NO_COUNTERPART_FOUND_IN_SEARCH = "NO_COUNTERPART_FOUND_IN_SEARCH"
+    POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING = "POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING"
+    HUMAN_CONFIRMED_MATCH_OUTSIDE_BLOCKING = "HUMAN_CONFIRMED_MATCH_OUTSIDE_BLOCKING"
+    INSUFFICIENT_EVIDENCE = "INSUFFICIENT_EVIDENCE"
+    SEARCH_REQUIRES_EXPANSION = "SEARCH_REQUIRES_EXPANSION"
+
+
+class ReviewStatus(str, Enum):
+    """Human review state for diagnostic audit records."""
+    AUTOMATED_SEARCH_COMPLETED = "AUTOMATED_SEARCH_COMPLETED"
+    PENDING_HUMAN_CONFIRMATION = "PENDING_HUMAN_CONFIRMATION"
+    HUMAN_CONFIRMED = "HUMAN_CONFIRMED"
 
 
 class MissedMatchAuditor:
@@ -102,7 +123,7 @@ class MissedMatchAuditor:
         stratum_kannada = self.con.execute(f"""
             SELECT * FROM osm_unmatched_pool 
             WHERE candidate_count = 0 
-              AND (osm_name_kn IS NOT NULL OR regexp_matches(coalesce(osm_name_raw, ''), '[\\x{{0C80}}-\\x{{0CFF}}]'))
+              AND (osm_name_kn IS NOT NULL OR regexp_matches(coalesce(osm_name_raw, ''), '[ಀ-೿]'))
             ORDER BY hash(osm_source_id || '{self.seed}')
             LIMIT 30;
         """).fetchall()
@@ -112,7 +133,6 @@ class MissedMatchAuditor:
             it["audit_stratum"] = "ZERO_CANDIDATE_KANNADA"
 
         # Stratum 2: Zero candidates in peripheral/boundary wards (distance from central MG Road > 12km) (30)
-        # Central Bengaluru reference point: 77.609, 12.975 (UTM: ~783000, 1435000)
         stratum_peripheral = self.con.execute(f"""
             SELECT * FROM osm_unmatched_pool 
             WHERE candidate_count = 0 
@@ -152,28 +172,15 @@ class MissedMatchAuditor:
         for it in items_weak:
             it["audit_stratum"] = "WEAK_CANDIDATES_ONLY"
 
-        all_audited = items_kannada + items_peripheral + items_inst + items_weak
-        return all_audited
+        return items_kannada + items_peripheral + items_inst + items_weak
 
     def execute_audit(self) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         """Run independent wide-area and fuzzy search against Overture for sampled OSM records."""
         sampled_entities = self.sample_audit_entities()
-        print(f"Auditing {len(sampled_entities)} unrepresented OSM entities with independent Overture search...")
+        print(f"Auditing {len(sampled_entities)} unrepresented OSM entities with independent search (radius={SEARCH_RADIUS_METERS}m)...")
 
         audit_results = []
-        diagnostics = {
-            "NO_COUNTERPART_FOUND": 0,
-            "POTENTIAL_COUNTERPART_FOUND_OUTSIDE_BLOCKING": 0,
-            "INSUFFICIENT_EVIDENCE": 0
-        }
-        failure_reasons = {
-            "SOURCE_COVERAGE_ABSENCE_IN_OVERTURE": 0,
-            "SPATIAL_DISTANCE_DISPLACEMENT_EXCEEDED_50M": 0,
-            "NAME_MISSING_IN_OSM_OR_OVERTURE": 0,
-            "LEXICAL_OR_TRANSLITERATION_GAP": 0,
-            "CATEGORY_FILTER_INCOMPATIBILITY": 0,
-            "AMBIGUOUS_EVIDENCE": 0
-        }
+        verdicts_count = {s.value: 0 for s in DiagnosticStatus}
 
         for ent in sampled_entities:
             osm_id = ent["osm_source_id"]
@@ -183,8 +190,7 @@ class MissedMatchAuditor:
             utm_x = ent["utm_x"]
             utm_y = ent["utm_y"]
 
-            # Independent Search: Query all Overture POIs within a wide 1.5 km radial envelope
-            # completely unconstrained by category or blocking logic
+            # Independent Search: Query all Overture POIs within 1,500m unconstrained by category
             wide_matches = self.con.execute(f"""
                 SELECT 
                     ov_source_id,
@@ -195,19 +201,18 @@ class MissedMatchAuditor:
                     ov_lon,
                     round(sqrt(power(utm_x - {utm_x}, 2) + power(utm_y - {utm_y}, 2)), 2) as dist_meters
                 FROM ov_search_index
-                WHERE power(utm_x - {utm_x}, 2) + power(utm_y - {utm_y}, 2) <= power(1500.0, 2)
+                WHERE power(utm_x - {utm_x}, 2) + power(utm_y - {utm_y}, 2) <= power({SEARCH_RADIUS_METERS}, 2)
                 LIMIT 500;
             """).fetchall()
 
             best_match: Optional[Dict[str, Any]] = None
             best_score = 0.0
 
-            if osm_norm and len(osm_norm) >= 3:
+            if osm_norm and len(osm_norm.strip()) >= 3:
                 for row in wide_matches:
                     ov_id, ov_name_raw, ov_norm, ov_cat, ov_lat, ov_lon, dist = row
                     if not ov_norm:
                         continue
-                    # Compute comprehensive fuzzy string match
                     tsr = fuzz.token_sort_ratio(osm_norm, ov_norm)
                     part = fuzz.partial_ratio(osm_norm, ov_norm)
                     score = max(tsr, part)
@@ -224,29 +229,33 @@ class MissedMatchAuditor:
                             "similarity_score": score
                         }
 
-            # Evaluate diagnostic verdict
+            # Evaluate diagnostic verdict with careful, non-conclusive terminology
             if not osm_norm or len(osm_norm.strip()) < 3:
-                status = "INSUFFICIENT_EVIDENCE"
-                failure_reason = "NAME_MISSING_IN_OSM_OR_OVERTURE"
-                diagnostic_notes = "OSM record lacks informative name to perform independent linkage"
+                status = DiagnosticStatus.INSUFFICIENT_EVIDENCE
+                review_status = ReviewStatus.AUTOMATED_SEARCH_COMPLETED
+                name_evidence = "Name missing or too short (<= 3 chars) in OSM"
+                category_evidence = f"Category: {osm_cat}"
+                diagnostic_notes = "OSM record lacks distinctive name to perform independent linkage"
             elif best_match and best_score >= 80.0 and best_match["dist_meters"] > 50.0:
-                # Plausible match found outside the 50m spatial blocking window!
-                status = "POTENTIAL_COUNTERPART_FOUND_OUTSIDE_BLOCKING"
-                failure_reason = "SPATIAL_DISTANCE_DISPLACEMENT_EXCEEDED_50M"
-                diagnostic_notes = f"Counterpart '{best_match['ov_name_raw']}' located at {best_match['dist_meters']}m (score={best_score})"
+                status = DiagnosticStatus.POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING
+                review_status = ReviewStatus.PENDING_HUMAN_CONFIRMATION
+                name_evidence = f"Fuzzy similarity score {best_score} with '{best_match['ov_name_raw']}'"
+                category_evidence = f"OSM: {osm_cat} vs Overture: {best_match['ov_category']}"
+                diagnostic_notes = f"Candidate located at {best_match['dist_meters']}m (>50m blocking threshold); requires human adjudication"
             elif best_match and best_score >= 70.0 and ent["candidate_count"] == 0 and best_match["dist_meters"] <= 50.0:
-                # Counterpart existed within 50m but had category incompatibility or name variation
-                status = "POTENTIAL_COUNTERPART_FOUND_OUTSIDE_BLOCKING"
-                failure_reason = "CATEGORY_FILTER_INCOMPATIBILITY" if ent["osm_category"] != best_match["ov_category"] else "LEXICAL_OR_TRANSLITERATION_GAP"
-                diagnostic_notes = f"Counterpart within 50m ('{best_match['ov_name_raw']}') not blocked due to {failure_reason}"
+                status = DiagnosticStatus.POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING
+                review_status = ReviewStatus.PENDING_HUMAN_CONFIRMATION
+                name_evidence = f"Fuzzy similarity score {best_score} with '{best_match['ov_name_raw']}'"
+                category_evidence = f"OSM: {osm_cat} vs Overture: {best_match['ov_category']}"
+                diagnostic_notes = "Candidate within 50m was not blocked by pipeline due to category or lexical threshold; requires human review"
             else:
-                # No plausible counterpart exists anywhere within 1.5 km
-                status = "NO_COUNTERPART_FOUND"
-                failure_reason = "SOURCE_COVERAGE_ABSENCE_IN_OVERTURE"
-                diagnostic_notes = "No matching or semantically plausible entity found in Overture within 1.5 km envelope"
+                status = DiagnosticStatus.NO_COUNTERPART_FOUND_IN_SEARCH
+                review_status = ReviewStatus.AUTOMATED_SEARCH_COMPLETED
+                name_evidence = f"Best search score was {best_score} (insufficient)" if best_match else "No name match in radial envelope"
+                category_evidence = f"Category: {osm_cat}"
+                diagnostic_notes = f"No plausible candidate counterpart identified within {SEARCH_RADIUS_METERS}m search envelope"
 
-            diagnostics[status] += 1
-            failure_reasons[failure_reason] += 1
+            verdicts_count[status.value] += 1
 
             audit_results.append({
                 "osm_source_id": osm_id,
@@ -257,26 +266,31 @@ class MissedMatchAuditor:
                 "osm_lon": ent["osm_lon"],
                 "audit_stratum": ent["audit_stratum"],
                 "candidate_count_in_pipeline": ent["candidate_count"],
-                "diagnostic_verdict": status,
-                "primary_failure_reason": failure_reason,
-                "best_independent_overture_id": best_match["ov_source_id"] if best_match else None,
-                "best_independent_overture_name": best_match["ov_name_raw"] if best_match else None,
-                "best_match_distance_meters": best_match["dist_meters"] if best_match else None,
-                "best_match_similarity_score": best_match["similarity_score"] if best_match else None,
+                "diagnostic_status": status.value,
+                "review_status": review_status.value,
+                "search_radius_meters": SEARCH_RADIUS_METERS,
+                "search_procedure_version": SEARCH_PROCEDURE_VERSION,
+                "candidate_source": "OVERTURE",
+                "candidate_distance_meters": best_match["dist_meters"] if best_match else None,
+                "best_counterpart_id": best_match["ov_source_id"] if best_match else None,
+                "best_counterpart_name": best_match["ov_name_raw"] if best_match else None,
+                "name_evidence": name_evidence,
+                "category_evidence": category_evidence,
+                "human_decision": None,
+                "human_evidence": None,
                 "diagnostic_notes": diagnostic_notes
             })
 
         summary = {
-            "audit_timestamp": "2026-11-17T09:20:00Z",
+            "audit_timestamp": "2026-11-17T09:35:00Z",
+            "search_procedure_version": SEARCH_PROCEDURE_VERSION,
+            "search_radius_meters": SEARCH_RADIUS_METERS,
             "total_entities_audited": len(audit_results),
-            "verdict_distribution": diagnostics,
-            "failure_reason_distribution": failure_reasons,
-            "key_finding": (
-                f"Out of {len(audit_results)} unrepresented/weak OSM POIs, {diagnostics['NO_COUNTERPART_FOUND']} "
-                f"({round(diagnostics['NO_COUNTERPART_FOUND']/len(audit_results)*100, 1)}%) have no counterpart in Overture "
-                f"(true source coverage absence), {diagnostics['POTENTIAL_COUNTERPART_FOUND_OUTSIDE_BLOCKING']} "
-                f"({round(diagnostics['POTENTIAL_COUNTERPART_FOUND_OUTSIDE_BLOCKING']/len(audit_results)*100, 1)}%) were genuine matches "
-                f"missed by candidate blocking, and {diagnostics['INSUFFICIENT_EVIDENCE']} had insufficient evidence."
+            "diagnostic_status_distribution": verdicts_count,
+            "methodology_disclaimer": (
+                "This is a diagnostic sample of 120 unrepresented/weak OSM records designed to inspect failure modes. "
+                "It does NOT constitute a statistically valid estimate of global candidate blocking recall across the 49,036 OSM universe. "
+                "Potential counterparts found outside blocking are hypotheses pending human adjudication."
             )
         }
 
@@ -287,7 +301,6 @@ class MissedMatchAuditor:
         results, summary = self.execute_audit()
 
         csv_path = self.output_dir / "missed_match_audit.csv"
-        import csv
         with open(csv_path, "w", newline="", encoding="utf-8") as f:
             if results:
                 fieldnames = list(results[0].keys())
@@ -300,6 +313,6 @@ class MissedMatchAuditor:
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(summary, f, indent=2)
 
-        print(f"Exported {len(results)} missed match audit records to {csv_path}")
+        print(f"Exported {len(results)} corrected missed match audit records to {csv_path}")
         print(f"Exported audit summary to {json_path}")
         return csv_path, json_path

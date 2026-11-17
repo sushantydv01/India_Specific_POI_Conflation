@@ -85,7 +85,8 @@ To enforce structured reasoning rather than intuitive guessing, annotators must 
 The benchmark is organized under `data/processed/benchmark/`:
 ```text
 data/processed/benchmark/
-├── annotation_queue.csv       # 500 stratified candidate pairs
+├── annotation_queue.csv       # 500 mutually exclusive stratified candidate pairs
+├── pilot_batch_50.csv         # 50-pair pilot batch (5 pairs per stratum)
 ├── annotations/               # Completed annotator decision files
 │   └── annotations_<id>.csv
 ├── adjudication_queue.csv     # Disagreed or uncertain pairs requiring review
@@ -94,5 +95,6 @@ data/processed/benchmark/
 ```
 
 * **Candidate Generation Snapshot:** Commit `2a1e60f`.
-* **Sampling Seed:** `42` (deterministic stratified random sampling).
+* **Sampling Seed:** `42` (deterministic mutually exclusive stratified random sampling).
+* **Metadata Manifest Version:** `1.1.0` (Lifecycle state: `QUEUE_GENERATED`, `is_frozen = false`).
 * **Metadata Manifest:** Synchronized to [reports/benchmark_metadata.json](file:///Users/sushantydv01/Desktop/India_Specific_POI_Conflation/reports/benchmark_metadata.json).

@@ -1,6 +1,6 @@
 # Missed-Match Diagnostic Audit & Recall Methodology
 
-This document details the independent search methodology, sampling design, and empirical findings of the **Missed-Match Diagnostic Audit** conducted as part of Milestone 5 of the **India-Specific POI Conflation** project.
+This document details the independent search methodology, sampling design, and empirical findings of the **Missed-Match Diagnostic Audit** in the **India-Specific POI Conflation** project.
 
 ---
 
@@ -10,7 +10,7 @@ A common methodological fallacy in record linkage literature is evaluating block
 
 $$\text{Candidate Set } C \subset (N_{\text{OSM}} \times N_{\text{OVERTURE}})$$
 
-If a human annotates pairs sampled exclusively from $C$, the true positive rate among those pairs measures **candidate precision**, not **candidate recall**. True matches that were completely discarded by the blocking pipeline cannot be labelled from $C$.
+If human annotators label pairs sampled exclusively from $C$, the true positive rate among those pairs measures **candidate precision**, not **candidate recall**. True matches that were completely discarded by the blocking pipeline cannot be labelled from $C$.
 
 To diagnose candidate-generation blind spots, an **independent search procedure** must be executed that deliberately departs from the blocking engine's assumptions.
 
@@ -40,28 +40,29 @@ The 120 audited entities were sampled across four distinct vulnerability strata:
 
 ---
 
-## 4. Empirical Audit Results
+## 4. Scientific Status Semantics & Empirical Audit Results
 
-The empirical results from [reports/missed_match_audit_summary.json](file:///Users/sushantydv01/Desktop/India_Specific_POI_Conflation/reports/missed_match_audit_summary.json) are summarized below:
+The audit enforces standardized scientific classifications to prevent premature conclusions:
+
+| Diagnostic Status | Definition | Operational Meaning | Count in Audit | Percentage |
+| :--- | :--- | :--- | :---: | :---: |
+| **`NO_COUNTERPART_FOUND_IN_SEARCH`** | Search procedure identified no plausible counterpart within 1.5 km. | Plausible data absence in Overture commercial directory; entity mapped by OSM community not present in Overture. | **47** | **39.2%** |
+| **`POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING`** | Candidate counterpart identified with fuzzy similarity $\ge 70\%$, but displaced $>50$m. | Candidate hypothesis pending human adjudication; illustrates spatial displacement. | **24** | **20.0%** |
+| **`INSUFFICIENT_EVIDENCE`** | OSM record has missing or uninformative short name ($\le 3$ chars). | Attribute sparsity prevents automated or human linkage without field survey. | **49** | **40.8%** |
+| **`HUMAN_CONFIRMED_MATCH_OUTSIDE_BLOCKING`** | Human reviewer confirmed identity co-reference. | True confirmed blocking loss (populated during human review phase). | **0** | **0.0%** |
+| **`SEARCH_REQUIRES_EXPANSION`** | Search envelope inadequate to form hypothesis. | Further regional search required. | **0** | **0.0%** |
 
 ```
-Missed-Match Diagnostic Verdict Distribution (N = 120):
-  NO_COUNTERPART_FOUND                          : [===================] 47 (39.2%)
-  POTENTIAL_COUNTERPART_FOUND_OUTSIDE_BLOCKING  : [==========] 24 (20.0%)
+Diagnostic Verdict Distribution (N = 120):
+  NO_COUNTERPART_FOUND_IN_SEARCH                : [===================] 47 (39.2%)
+  POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING        : [==========] 24 (20.0%)
   INSUFFICIENT_EVIDENCE                         : [====================] 49 (40.8%)
 ```
 
-### Detailed Failure Mode Analysis
-
-| Primary Failure Reason | Count | Percentage | Architectural Insight |
-| :--- | :---: | :---: | :--- |
-| **`SOURCE_COVERAGE_ABSENCE_IN_OVERTURE`** | **47** | **39.2%** | **True Data Absence:** The physical entity mapped by OSM community members (e.g., small local temple, municipal borewell, community hall) is completely absent from Overture's commercial directory data. No candidate blocker could ever find a match because the entity does not exist in the counterpart dataset. |
-| **`SPATIAL_DISTANCE_DISPLACEMENT_EXCEEDED_50M`** | **24** | **20.0%** | **Blocking Recall Loss:** Genuine matching entities existed in Overture, but were displaced by **$55\text{m}$ to $820\text{m}$**. Typical examples include large engineering colleges (entrance gate in OSM vs admin building in Overture) or multi-acre hospital campuses. |
-| **`NAME_MISSING_IN_OSM_OR_OVERTURE`** | **49** | **40.8%** | **Attribute Sparsity:** The OSM node was tagged with an amenity code (e.g., `amenity=school` or `amenity=place_of_worship`) but the `name` tag was completely blank or generic (e.g., "Shop"). Linking is impossible without external field surveys. |
-
 ---
 
-## 5. Methodological Limitations
+## 5. Methodological Limitations & Proper Interpretation
 
-1. **Diagnostic Rather than Statistical Recall:** This audit provides an essential qualitative diagnostic of failure modes. It does **not** constitute a global statistically unbiased estimate of blocking recall across the entire 49,036 OSM universe because the sample was deliberately enriched with high-risk records.
-2. **Centroid vs. Polygon Geometry:** Coordinate displacement beyond 50m in institutional campuses highlights the necessity of polygon-aware matching in future iterations rather than naive point centroid Euclidean distance.
+1. **Diagnostic Rather than Statistical Recall:** This audit is an initial diagnostic tool designed to illuminate failure modes. It does **not** constitute a statistically valid global blocking-recall estimate across the 49,036 OSM universe because the sample was deliberately enriched with high-risk unrepresented records.
+2. **Never Equate Search Failure with Proof:** An outcome of `NO_COUNTERPART_FOUND_IN_SEARCH` within 1,500m indicates that the defined procedure did not find a match; it is not proof that Overture completely lacks a counterpart in regional corporate tables.
+3. **Never Equate Fuzzy Scores with Confirmation:** A status of `POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING` is an unverified hypothesis; genuine identity can only be confirmed by human review (`HUMAN_CONFIRMED_MATCH_OUTSIDE_BLOCKING`).

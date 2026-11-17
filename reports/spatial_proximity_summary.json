@@ -1,5 +1,5 @@
 {
-  "analysis_timestamp": "2026-11-17T09:24:59Z",
+  "analysis_timestamp": "2026-11-17T09:36:40Z",
   "total_osm_universe": 49036,
   "total_overture_universe": 197820,
   "distance_thresholds": [
@@ -80,6 +80,6 @@
     "mean_meters": 123.18,
     "std_dev_meters": 51.76
   },
-  "execution_duration_seconds": 1.58,
+  "execution_duration_seconds": 1.56,
   "research_notes": "Spatial proximity provides candidate blocking evidence, not proof of entity identity. Multiple distinct businesses operate in close physical proximity (e.g., multistory shopping complexes). Counts represent unique record pairs (OSM POI, Overture Place) unless explicitly stated as unique records."
 }
