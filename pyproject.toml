@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "poi-conflation"
+version = "0.1.0"
+description = "India-Specific POI Conflation: OSM and Overture Maps Entity Resolution Pipeline"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "duckdb>=2.0.0",
+    "pyarrow>=15.0.0",
+    "shapely>=2.0.0",
+    "pyproj>=3.6.0",
+    "pyosmium>=4.0.0",
+    "pyyaml>=6.0",
+    "pytest>=8.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,33 @@
+# Geography Configuration: Bengaluru BBMP Administrative Scope
+
+city: "Bengaluru"
+state: "Karnataka"
+country: "India"
+iso_country_code: "IN"
+
+boundary:
+  name: "Bruhat Bengaluru Mahanagara Palike (BBMP)"
+  local_name: "ಬೆಂಗಳೂರು ಮಹಾನಗರ ಪಾಲಿಕೆ"
+  source: "OpenStreetMap Relation 7902476"
+  osm_id: 7902476
+  osm_type: "relation"
+  admin_level: 7
+  wikidata_id: "Q1355"
+  boundary_file: "configs/bbmp_boundary.geojson"
+  retrieval_date: "2026-11-17"
+
+spatial_reference:
+  geographic_crs: "EPSG:4326"
+  projected_crs: "EPSG:32643"  # WGS 84 / UTM Zone 43N (Standard for Bengaluru longitude 77.59E)
+  national_grid_crs: "EPSG:7760" # India National Grid
+
+metrics:
+  projected_area_km2: 717.21
+  ellipsoidal_area_km2: 716.37
+  bounding_envelope_area_km2: 1204.25
+
+bounding_box:
+  min_longitude: 77.4598797
+  min_latitude: 12.8334905
+  max_longitude: 77.7840639
+  max_latitude: 13.1426196

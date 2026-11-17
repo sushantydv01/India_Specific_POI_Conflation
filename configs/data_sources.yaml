@@ -1,0 +1,49 @@
+# Data Sources Configuration: Ingestion Parameters & Provenance
+
+overture:
+  name: "Overture Maps Foundation"
+  theme: "places"
+  type: "place"
+  release: "2026-10-21.0"
+  stac_catalog_url: "https://stac.overturemaps.org/catalog.json"
+  s3_bucket: "overturemaps-us-west-2"
+  s3_uri_pattern: "s3://overturemaps-us-west-2/release/2026-10-21.0/theme=places/type=place/*.parquet"
+  license: "Community Data License Agreement – Permissive – Version 2.0 (CDLA-Permissive-2.0)"
+  raw_output_dir: "data/raw/overture"
+  raw_output_file: "data/raw/overture/bengaluru_overture_places.parquet"
+  metadata_file: "data/raw/overture/extraction_metadata.json"
+
+osm:
+  name: "OpenStreetMap"
+  provider: "Geofabrik GmbH"
+  catalog_url: "https://download.geofabrik.de/asia/india.html"
+  regional_extract: "southern-zone"
+  download_url: "https://download.geofabrik.de/asia/india/southern-zone-latest.osm.pbf"
+  expected_size_mb: 533.8
+  license: "Open Database License 1.0 (ODbL 1.0)"
+  attribution: "© OpenStreetMap contributors"
+  raw_output_dir: "data/raw/osm"
+  extracted_pbf_file: "data/raw/osm/bengaluru_bbmp.osm.pbf"
+  raw_output_file: "data/raw/osm/bengaluru_osm_pois.parquet"
+  metadata_file: "data/raw/osm/extraction_metadata.json"
+  poi_primary_keys:
+    - "amenity"
+    - "shop"
+    - "tourism"
+    - "healthcare"
+    - "leisure"
+    - "office"
+    - "craft"
+    - "historic"
+  multilingual_keys:
+    - "name"
+    - "name:en"
+    - "name:kn"
+    - "name:hi"
+    - "alt_name"
+    - "official_name"
+    - "short_name"
+
+canonical:
+  target_file: "data/processed/canonical_pois.parquet"
+  metadata_file: "data/processed/canonical_metadata.json"

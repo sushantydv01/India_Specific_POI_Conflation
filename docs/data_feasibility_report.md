@@ -20,9 +20,25 @@ Rather than relying on popularity or demographic assumptions, this study queried
 **Bengaluru is conclusively recommended as the initial focus city.**
 1. **Highest OSM POI Density:** In the identical $3.6\text{ km}^2$ central commercial core, Bengaluru contains **1,900 OSM POIs** (527 POIs/$\text{km}^2$), substantially exceeding Delhi (1,390 POIs; 386 POIs/$\text{km}^2$), Pune (550 POIs; 152 POIs/$\text{km}^2$), and Hyderabad (195 POIs; 54 POIs/$\text{km}^2$).
 2. **Richest Transliteration & Multilingual Challenge:** Bengaluru features 212 POIs explicitly tagged with Indic script (`name:kn` in Kannada) alongside Latin names in the core sample, presenting realistic transliteration and phonetic variation challenges essential for research without the excessive sparsity observed in Hyderabad or the boundary ambiguity of Delhi NCR.
-3. **High Overture Volume & Quality:** Across the greater municipal boundary (BBMP), Overture contains **206,752 POI records** (100% named, 92.8% complete addresses), with **5,247 POIs** in the core test envelope.
-4. **Clean Boundary Definition:** Unlike Delhi (where state borders create severe boundary contamination across Haryana and Uttar Pradesh), Bengaluru’s Bruhat Bengaluru Mahanagara Palike (BBMP) administrative boundary is clearly defined and compact (~$709\text{ km}^2$).
-5. **Hardware Feasibility (8 GB RAM):** Total citywide candidate volume (~207k Overture records, ~35k–50k estimated OSM POIs) fits comfortably in memory when processed as columnar Parquet and streamed via DuckDB.
+3. **High Overture Volume & Quality:** Across the BBMP municipal polygon, Overture contains **197,820 strictly contained POI records** (100% named, 92.8% complete addresses), with **5,247 POIs** in the core test envelope.
+4. **Clean Boundary Definition:** Unlike Delhi (where state borders create severe boundary contamination across Haryana and Uttar Pradesh), Bengaluru’s Bruhat Bengaluru Mahanagara Palike (BBMP) administrative boundary is clearly defined and compact (~$717.21\text{ km}^2$).
+5. **Hardware Feasibility (8 GB RAM):** Total citywide candidate volume (~198k Overture records, ~49k OSM POIs) fits comfortably in memory when processed as columnar Parquet and streamed via DuckDB.
+
+---
+
+## 1.1 Pre-Implementation Audit & Metric Calibration Note (Milestone 2 Validation)
+
+During the Phase 1 audit of Milestone 2, all preliminary metrics reported in this document were subjected to rigorous empirical verification. The findings and refinements are documented below:
+
+1. **Bounding Box vs. Municipal Polygon Containment:**
+   - The preliminary figure of **206,752 Overture records** corresponded to a rectangular axis-aligned bounding envelope spanning `[77.4598797, 12.8334905, 77.7840639, 13.1426196]`, covering **1,204.25 km²**.
+   - The verified spheroidal / projected surface area of the Bruhat Bengaluru Mahanagara Palike (BBMP) municipal boundary (OSM Relation `7902476`) is **717.21 km²** (EPSG:32643 UTM 43N) / **716.37 km²** (WGS84 Spheroid). The earlier estimate of ~709 km² was an unprojected planar approximation.
+   - When rigorous point-in-polygon containment (`ST_Within`) against the official 717.21 km² BBMP polygon is enforced, exactly **197,820 Overture Places** reside strictly inside BBMP. The remaining 8,966 records (4.34%) were located outside the municipal boundary in adjacent peri-urban taluks (e.g., Nelamangala, Hoskote, Anekal).
+2. **OpenStreetMap Citywide POI Count Calibration:**
+   - Slicing the Geofabrik Southern Zone regional extract (`southern-zone-latest.osm.pbf`) strictly with the BBMP municipal polygon via `osmium extract` and parsing all nodes and way centroids across the 8 standard POI keys (`amenity`, `shop`, `tourism`, `healthcare`, `leisure`, `office`, `craft`, `historic`) yields exactly **49,036 contained OSM POIs**.
+   - This validates the initial feasibility estimate (projected at 35k–50k) with exact empirical extraction.
+3. **Canonical Benchmark Scale:**
+   - Ingestion of both datasets into the canonical POI schema produces a unified benchmark dataset of **246,856 canonical POI records** (197,820 Overture + 49,036 OSM).
 
 ---
 
