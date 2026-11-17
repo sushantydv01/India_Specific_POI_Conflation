@@ -1,0 +1,39 @@
+{
+  "execution_timestamp": "2026-11-17T09:07:44Z",
+  "total_osm_universe": 49036,
+  "total_overture_universe": 197820,
+  "theoretical_pair_space": 9700301520,
+  "final_candidate_pairs": 605428,
+  "reduction_ratio_pct": 99.99376,
+  "unique_osm_records_reached": 43075,
+  "osm_coverage_pct": 87.84,
+  "unique_overture_records_reached": 113959,
+  "overture_coverage_pct": 57.61,
+  "osm_records_zero_candidates": 5961,
+  "candidates_per_osm_distribution": {
+    "avg_per_matched_osm": 14.06,
+    "median_per_matched_osm": 9.0,
+    "max_per_matched_osm": 969
+  },
+  "strategy_breakdown": {
+    "spatial_50m_generated": 620814,
+    "exact_name_generated": 10303,
+    "token_containment_generated": 9954,
+    "transliteration_phonetic_generated": 1103,
+    "incompatible_category_pairs_pruned": 23155
+  },
+  "distance_metrics": {
+    "min_meters": 0.0,
+    "avg_meters": 41.83,
+    "median_meters": 32.68,
+    "max_meters": 1999.95
+  },
+  "category_compatibility_distribution": {
+    "strongly_compatible": 101490,
+    "potentially_compatible": 181279,
+    "compatible_unknown": 322659
+  },
+  "runtime_seconds": 5.03,
+  "output_file": "data/processed/candidate_pairs/candidate_pairs_union.parquet",
+  "output_size_mb": 42.02
+}

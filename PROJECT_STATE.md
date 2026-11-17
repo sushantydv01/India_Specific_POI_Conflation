@@ -6,17 +6,21 @@
 
 ## 1. Current Milestone
 
-- **Milestone:** Milestone 3 — Exploratory Data Analysis & Spatial Indexing Foundation
-- **Status:** **Milestone 3 Complete** (Spatially Indexed Canonical Dataset, Cross-Source Proximity Profiling, and Naming Analysis Achieved)
+- **Milestone:** Milestone 4 — Candidate Generation & Multi-Attribute Blocking
+- **Status:** **Milestone 4 Complete** (Multi-Strategy Candidate Engine, Category Pruning Matrix, Multilingual Transliteration, and Deduplicated Candidate Union Parquet Achieved)
 - **Selected Target City:** **Bengaluru (Bruhat Bengaluru Mahanagara Palike — BBMP)**
   - *OSM Relation:* `7902476` (`admin_level=7`)
   - *Bounding Box:* `[77.4598797, 12.8334905, 77.7840639, 13.1426196]`
   - *BBMP Polygon Area:* **717.21 km²** (EPSG:32643 UTM 43N) / **716.37 km²** (WGS84 Spheroid)
   - *Total Canonical Records:* **246,856** (197,820 Overture + 49,036 OSM)
   - *Spatially Indexed Artifact:* `data/processed/canonical_pois_h3.parquet` (31.68 MB)
-  - *H3 Unique Cells:* 996 (Res 8), 6,042 (Res 9), 29,902 (Res 10)
-  - *Candidate Pairs within 50m:* **620,892 pairs** (reaching 87.57% of OSM POIs)
-  - *Kannada Script Presence:* 6,223 in OSM (12.69%) vs 400 in Overture (0.20%)
+  - *Theoretical Cross-Source Space:* **9,700,301,520 pairs**
+  - *Final Deduplicated Candidate Pairs:* **605,428 pairs** (`data/processed/candidate_pairs/candidate_pairs_union.parquet`, 42.02 MB)
+  - *Pair Space Reduction Ratio:* **99.99376%**
+  - *OSM POI Reach / Coverage:* **43,075 (87.84%)** (+137 records recovered over spatial alone)
+  - *Overture POI Reach / Coverage:* **113,959 (57.61%)**
+  - *Strictly Incompatible Pairs Pruned:* **23,155 pairs**
+  - *End-to-End Pipeline Runtime:* **5.03 seconds**
 
 ---
 
@@ -73,10 +77,20 @@ All values recorded below are derived directly from system execution logs on 202
 - [x] Rendered 6 publication-quality analytical visualizations in `reports/figures/`.
 - [x] Authored comprehensive documentation (`docs/spatial_indexing.md`, `docs/eda_report.md`, `docs/name_and_transliteration_analysis.md`).
 - [x] Built automated test suite covering H3 indexing, lexical similarity, and EDA consistency (26 passing tests).
+- [x] **Milestone 4 Implementation:** Implemented multi-strategy candidate generation engine (`src/poi_conflation/blocking/`):
+  - Spatial proximity grid blocking ($\le 50$m via UTM Zone 43N metric grid bins).
+  - Exact normalized name blocking (excluding generic national banking chains).
+  - Distinctive token containment blocking ($\le 100$m, stripping Indian urban stopwords).
+  - Multilingual Kannada-to-Latin transliteration via `indic-transliteration` Sanscript and Indian English phonetic normalization.
+- [x] Implemented 4-tier Category Compatibility Matrix (`CategoryCompatibilityClassifier`), pruning 23,155 strictly incompatible pairs while retaining potential adjacencies.
+- [x] Generated deterministic candidate union dataset (`data/processed/candidate_pairs/candidate_pairs_union.parquet`, 605,428 pairs, 42.02 MB) with reduction ratio of **99.99376%**.
+- [x] Produced stratified review sample (`reports/candidate_review_sample.csv`, 300 pairs across 6 strata) and machine-readable comparison artifacts (`reports/blocking_strategy_comparison.json`, `reports/candidate_generation_summary.json`).
+- [x] Expanded test suite with 7 dedicated candidate blocking tests (33 total passing tests).
+- [x] Authored comprehensive blocking documentation (`docs/candidate_generation.md`, `docs/blocking_strategy_evaluation.md`, `docs/multilingual_blocking.md`).
 
-### Pending Tasks (Milestone 4 Roadmap)
-- [ ] Milestone 4: Candidate Generation & Multi-Attribute Blocking (H3 k-ring cell blocking, metric spatial proximity filtering, phonetic double-metaphone blocking, and category compatibility pruning).
-- [ ] Milestone 5: Pairwise Feature Engineering & Classification Pipeline.
+### Pending Tasks (Milestone 5 Roadmap)
+- [ ] Milestone 5: Pairwise Feature Engineering & Classification Pipeline (Jaro-Winkler, Levenshtein, Token Sort Ratio, geographic displacement vectors, category similarity matrix, active learning ground truth generation).
+- [ ] Milestone 6: Conflation Graph & Cluster-Based Canonical Resolution.
 
 ---
 
@@ -95,3 +109,6 @@ All values recorded below are derived directly from system execution logs on 202
 | **ADR-009** | H3 Spatial Indexing | Index all canonical POIs simultaneously at H3 resolutions 8 (~461m), 9 (~174m), and 10 (~66m) in `canonical_pois_h3.parquet`. | **Approved** | Multi-scale discrete global grid partitions enable hierarchical blocking: macro-neighborhoods (Res 8), commercial blocks (Res 9), and immediate parcel adjacencies (Res 10). |
 | **ADR-010** | Spatial Grid Equi-Join | Implement spatial proximity candidate generation via metric grid cell binning ($200\text{m} \times 200\text{m}$) and 9-neighbor offset equi-joins in DuckDB. | **Approved** | Reduces spatial proximity pair search from 63.2s quadratic bounding-box scan down to 0.09s hash equi-join, processing 5.49 million candidate pairs in under 1 second. |
 | **ADR-011** | Indic Unicode Normalization | Implement Unicode category filtering (`unicodedata.category` matching `L*`, `M*`, `N*`) rather than ASCII/alphanumeric regex `\w`. | **Approved** | Preserves Indic vowel matras (Mn/Mc), halant/virama (0x0CCD), and numerals without transliteration or character mangling. |
+| **ADR-012** | Multi-Strategy Candidate Generation | Union orthogonal blocking strategies (spatial $\le 50$m, exact name, distinctive token containment $\le 100$m, and multilingual transliteration) with full provenance tracking. | **Approved** | Recovers geographically displaced POIs (+137 OSM records over spatial alone) while maintaining a 99.99376% reduction ratio. |
+| **ADR-013** | Category Compatibility Matrix | Enforce a 4-tier category compatibility matrix over the 10 canonical categories, pruning strictly incompatible cross-domain pairs (e.g. Healthcare vs Sustenance). | **Approved** | Eliminates 23,155 false-positive candidate pairs without discarding plausible adjacencies (e.g. Retail with Sustenance). |
+| **ADR-014** | Kannada Transliteration & Phonetic Normalization | Transliterate Kannada script via `indic-transliteration` Sanscript (ISO 15919) and apply Indian English phonetic rules (`udapi` $\rightarrow$ `udupi`, `shree` $\rightarrow$ `sri`, `bhavana` $\rightarrow$ `bhavan`). | **Approved** | Bridges the linguistic divide between vernacular OSM mapping (12.69% Kannada) and English Overture data (0.20% Kannada) while maintaining source immutability. |
