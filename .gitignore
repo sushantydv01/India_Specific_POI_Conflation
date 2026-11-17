@@ -1,0 +1,124 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Environment variables, credentials, and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.crt
+secrets/
+
+# Operating System specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor configurations
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Geospatial and Raw / Intermediate Datasets
+# Exclude raw OSM, Overture Places, and extracted extracts
+data/
+raw/
+staging/
+processed/
+intermediate/
+exports/
+*.osm
+*.pbf
+*.osm.pbf
+*.geojson
+*.gpkg
+*.geoparquet
+*.parquet
+*.orc
+*.avro
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+# Local analytical and transactional databases
+*.duckdb
+*.duckdb.wal
+*.duckdb.tmp
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.db-wal
+
+# Compressed archives of source dumps
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.bz2
+*.7z
+
+# Logs, diagnostics, and experiment tracking
+*.log
+logs/
+experiments/runs/
+experiments/outputs/
+mlruns/
+wandb/
+
+# Testing, typing, and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
