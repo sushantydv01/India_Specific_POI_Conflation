@@ -6,21 +6,20 @@
 
 ## 1. Current Milestone
 
-- **Milestone:** Milestone 4 — Candidate Generation & Multi-Attribute Blocking
-- **Status:** **Milestone 4 Complete** (Multi-Strategy Candidate Engine, Category Pruning Matrix, Multilingual Transliteration, and Deduplicated Candidate Union Parquet Achieved)
+- **Milestone:** Milestone 5 — Ground Truth Benchmark & Annotation Framework
+- **Status:** **Milestone 5 Complete** (Stratified Annotation Queue, Local Workflow CLI, Cohen's Kappa QC, Missed-Match Diagnostic Audit, and Versioned Metadata Achieved)
 - **Selected Target City:** **Bengaluru (Bruhat Bengaluru Mahanagara Palike — BBMP)**
   - *OSM Relation:* `7902476` (`admin_level=7`)
   - *Bounding Box:* `[77.4598797, 12.8334905, 77.7840639, 13.1426196]`
   - *BBMP Polygon Area:* **717.21 km²** (EPSG:32643 UTM 43N) / **716.37 km²** (WGS84 Spheroid)
   - *Total Canonical Records:* **246,856** (197,820 Overture + 49,036 OSM)
-  - *Spatially Indexed Artifact:* `data/processed/canonical_pois_h3.parquet` (31.68 MB)
-  - *Theoretical Cross-Source Space:* **9,700,301,520 pairs**
-  - *Final Deduplicated Candidate Pairs:* **605,428 pairs** (`data/processed/candidate_pairs/candidate_pairs_union.parquet`, 42.02 MB)
-  - *Pair Space Reduction Ratio:* **99.99376%**
-  - *OSM POI Reach / Coverage:* **43,075 (87.84%)** (+137 records recovered over spatial alone)
-  - *Overture POI Reach / Coverage:* **113,959 (57.61%)**
-  - *Strictly Incompatible Pairs Pruned:* **23,155 pairs**
-  - *End-to-End Pipeline Runtime:* **5.03 seconds**
+  - *Candidate Pairs Universe:* **605,428 pairs** (`candidate_pairs_union.parquet`, 42.02 MB)
+  - *Stratified Benchmark Queue:* **500 pairs** across 10 difficulty strata (`annotation_queue.csv`)
+  - *Sampling Seed:* `42` (deterministic random stratified sampling)
+  - *Missed-Match Diagnostic Audit:* **120 unrepresented/weak OSM records** (`missed_match_audit.csv`)
+  - *Audit Findings:* 39.2% true source absence in Overture, 20.0% candidate displacement $>50$m, 40.8% name missing in OSM
+  - *Benchmark Manifest Version:* `1.0.0` (`data/processed/benchmark/benchmark_metadata.json`)
+  - *Test Suite Coverage:* **40 passing automated tests**
 
 ---
 
@@ -52,7 +51,7 @@ All values recorded below are derived directly from system execution logs on 202
 
 ## 3. Milestone Progress
 
-### Completed Tasks (Milestones 1, 2, and 3)
+### Completed Tasks (Milestones 1, 2, 3, 4, and 5)
 - [x] Environment inspection and hardware profiling executed.
 - [x] Git repository initialized with primary branch designated as `main`.
 - [x] Remote tracking URL verified and linked to GitHub repository.
@@ -87,10 +86,19 @@ All values recorded below are derived directly from system execution logs on 202
 - [x] Produced stratified review sample (`reports/candidate_review_sample.csv`, 300 pairs across 6 strata) and machine-readable comparison artifacts (`reports/blocking_strategy_comparison.json`, `reports/candidate_generation_summary.json`).
 - [x] Expanded test suite with 7 dedicated candidate blocking tests (33 total passing tests).
 - [x] Authored comprehensive blocking documentation (`docs/candidate_generation.md`, `docs/blocking_strategy_evaluation.md`, `docs/multilingual_blocking.md`).
+- [x] **Milestone 5 Implementation:** Designed and established human-labelled ground truth benchmark framework (`src/poi_conflation/benchmark/`):
+  - Formulated formal annotation schema with 4 label classes (`MATCH`, `NON_MATCH`, `UNCERTAIN`, `NEEDS_ADJUDICATION`), 3 confidence levels, and 10 structured evidence categories.
+  - Built reproducible stratified sampling pipeline (`BenchmarkSampler`) generating a balanced 500-pair review queue across 10 difficulty strata (`data/processed/benchmark/annotation_queue.csv`).
+  - Implemented local terminal-based review CLI (`scripts/annotate.py`) and workflow engine with atomic persistence and resume capabilities.
+  - Implemented quality control and inter-annotator agreement engine (`AgreementEvaluator`) calculating observed agreement, expected agreement, Cohen's Kappa ($\kappa$), and automated conflict routing to `adjudication_queue.csv`.
+  - Conducted independent missed-match diagnostic audit (`MissedMatchAuditor`) across 120 unrepresented/weak OSM records, identifying that 39.2% of unrepresented records are truly absent from Overture, 20.0% represent spatial displacement beyond 50m, and 40.8% lack names.
+  - Created versioned benchmark manifest v1.0.0 (`benchmark_metadata.json`).
+  - Added 7 dedicated unit and integration tests (40 total passing tests).
+  - Authored comprehensive documentation (`docs/ground_truth_benchmark.md`, `docs/annotation_workflow.md`, `docs/missed_match_audit.md`).
 
-### Pending Tasks (Milestone 5 Roadmap)
-- [ ] Milestone 5: Pairwise Feature Engineering & Classification Pipeline (Jaro-Winkler, Levenshtein, Token Sort Ratio, geographic displacement vectors, category similarity matrix, active learning ground truth generation).
-- [ ] Milestone 6: Conflation Graph & Cluster-Based Canonical Resolution.
+### Pending Tasks (Milestone 6 Roadmap)
+- [ ] Milestone 6: Pairwise Feature Engineering & Supervised Classification (Jaro-Winkler, Levenshtein, Token Sort Ratio, geographic displacement vectors, category similarity matrix, supervised classifier training on benchmark).
+- [ ] Milestone 7: Conflation Graph & Cluster-Based Canonical Resolution.
 
 ---
 
@@ -112,3 +120,6 @@ All values recorded below are derived directly from system execution logs on 202
 | **ADR-012** | Multi-Strategy Candidate Generation | Union orthogonal blocking strategies (spatial $\le 50$m, exact name, distinctive token containment $\le 100$m, and multilingual transliteration) with full provenance tracking. | **Approved** | Recovers geographically displaced POIs (+137 OSM records over spatial alone) while maintaining a 99.99376% reduction ratio. |
 | **ADR-013** | Category Compatibility Matrix | Enforce a 4-tier category compatibility matrix over the 10 canonical categories, pruning strictly incompatible cross-domain pairs (e.g. Healthcare vs Sustenance). | **Approved** | Eliminates 23,155 false-positive candidate pairs without discarding plausible adjacencies (e.g. Retail with Sustenance). |
 | **ADR-014** | Kannada Transliteration & Phonetic Normalization | Transliterate Kannada script via `indic-transliteration` Sanscript (ISO 15919) and apply Indian English phonetic rules (`udapi` $\rightarrow$ `udupi`, `shree` $\rightarrow$ `sri`, `bhavana` $\rightarrow$ `bhavan`). | **Approved** | Bridges the linguistic divide between vernacular OSM mapping (12.69% Kannada) and English Overture data (0.20% Kannada) while maintaining source immutability. |
+| **ADR-015** | Stratified Benchmark Sampling | Extract candidate review queues using balanced stratification (50 pairs per stratum across 10 strata) with deterministic random seed (`seed=42`). | **Approved** | Prevents high-density commercial clusters or trivial exact matches from dominating ground truth while preserving rare transliteration and distance variants. |
+| **ADR-016** | Four-Class Ground Truth Schema & Agreement | Support `MATCH`, `NON_MATCH`, `UNCERTAIN`, and `NEEDS_ADJUDICATION` with Cohen's Kappa reliability and conflict routing to `adjudication_queue.csv`. | **Approved** | Prevents forcing ambiguous pairs into binary labels and provides mathematically rigorous inter-annotator agreement metrics. |
+| **ADR-017** | Missed-Match Diagnostic Audit | Audit unrepresented OSM entities via wide-radius (1.5 km), category-unconstrained independent search to isolate true source absence from blocking loss. | **Approved** | Proves that 39.2% of zero-candidate OSM POIs do not exist in Overture, preventing false attribution of source coverage gaps to pipeline failure. |

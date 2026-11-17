@@ -1,0 +1,80 @@
+{
+  "sampling_timestamp": "2026-11-17T09:15:00Z",
+  "total_candidate_population": 605428,
+  "target_sample_size": 500,
+  "actual_sample_size": 500,
+  "random_seed": 42,
+  "strata": {
+    "EXACT_NAME_MATCH": {
+      "stratum": "EXACT_NAME_MATCH",
+      "population_size": 4471,
+      "sampled_count": 50,
+      "inclusion_probability": 0.011183,
+      "description": "Exact normalized string agreement within 50 meters"
+    },
+    "KANNADA_TRANSLITERATION": {
+      "stratum": "KANNADA_TRANSLITERATION",
+      "population_size": 86537,
+      "sampled_count": 50,
+      "inclusion_probability": 0.000578,
+      "description": "Native Kannada script in OSM matched against Latin Overture name"
+    },
+    "PHONETIC_VARIANTS": {
+      "stratum": "PHONETIC_VARIANTS",
+      "population_size": 37320,
+      "sampled_count": 50,
+      "inclusion_probability": 0.00134,
+      "description": "Phonetic spelling variation common in Indian English commercial signage"
+    },
+    "MULTI_STRATEGY_OVERLAP": {
+      "stratum": "MULTI_STRATEGY_OVERLAP",
+      "population_size": 9170,
+      "sampled_count": 50,
+      "inclusion_probability": 0.005453,
+      "description": "Candidates corroborated simultaneously by multiple independent blocking strategies"
+    },
+    "CATEGORY_ADJACENCY": {
+      "stratum": "CATEGORY_ADJACENCY",
+      "population_size": 180748,
+      "sampled_count": 50,
+      "inclusion_probability": 0.000277,
+      "description": "Semantically adjacent cross-domain categories (e.g. Sustenance \u2194 Hospitality)"
+    },
+    "CLOSE_SPATIAL_DISTINCT_NAMES": {
+      "stratum": "CLOSE_SPATIAL_DISTINCT_NAMES",
+      "population_size": 68691,
+      "sampled_count": 50,
+      "inclusion_probability": 0.000728,
+      "description": "Close physical proximity (<= 15m) with distinct, non-matching business names"
+    },
+    "STRONG_LEXICAL_SIMILARITY": {
+      "stratum": "STRONG_LEXICAL_SIMILARITY",
+      "population_size": 1694,
+      "sampled_count": 50,
+      "inclusion_probability": 0.029516,
+      "description": "High string similarity (Token Sort Ratio >= 85) without exact name equality"
+    },
+    "LARGE_DISTANCE_CANDIDATES": {
+      "stratum": "LARGE_DISTANCE_CANDIDATES",
+      "population_size": 7733,
+      "sampled_count": 50,
+      "inclusion_probability": 0.006466,
+      "description": "Candidates generated via non-spatial strategies with distance > 50m"
+    },
+    "MISSING_OR_GENERIC_NAME": {
+      "stratum": "MISSING_OR_GENERIC_NAME",
+      "population_size": 91674,
+      "sampled_count": 50,
+      "inclusion_probability": 0.000545,
+      "description": "Pairs with null, unclassified, or uninformative short names"
+    },
+    "HIGH_DENSITY_HOTSPOTS": {
+      "stratum": "HIGH_DENSITY_HOTSPOTS",
+      "population_size": 51426,
+      "sampled_count": 50,
+      "inclusion_probability": 0.000972,
+      "description": "Dense commercial core markets (Chickpet, MG Road, Indiranagar) with high POI congestion"
+    }
+  },
+  "sampling_method": "Stratified random sampling across 10 disjoint/ordered evidence categories"
+}
