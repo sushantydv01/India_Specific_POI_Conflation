@@ -3,6 +3,7 @@
 import json
 import re
 import time
+import unicodedata
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 import pyarrow as pa
@@ -16,13 +17,24 @@ from src.poi_conflation.models.categories import (
 
 
 def normalize_name_string(name: Optional[str]) -> str:
-    """Normalize POI name string for matching and indexing."""
+    """Normalize POI name string preserving Latin and Indic scripts.
+    
+    Preserves:
+    - Letters (Unicode 'L*')
+    - Combining Marks / Matras (Unicode 'M*': Mn, Mc, Me)
+    - Numbers (Unicode 'N*')
+    Replaces punctuation and symbols with space, collapses whitespace.
+    Does NOT perform transliteration.
+    """
     if not name:
         return ""
-    # Lowercase, replace non-alphanumeric (except basic spaces) with space, normalize whitespace
-    s = name.lower()
-    s = re.sub(r"[^\w\s]", " ", s, flags=re.UNICODE)
-    return " ".join(s.split())
+    # NFC normalization ensures composed characters are consistent
+    s = unicodedata.normalize("NFC", name).lower()
+    cleaned = [
+        c if unicodedata.category(c).startswith(("L", "M", "N")) else " "
+        for c in s
+    ]
+    return " ".join("".join(cleaned).split())
 
 
 class CanonicalTransformer:

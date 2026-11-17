@@ -60,3 +60,9 @@ def test_name_normalization():
     assert normalize_name_string("M/s Sri Krishna & Sons") == "m s sri krishna sons"
     assert normalize_name_string(None) == ""
     assert normalize_name_string("") == ""
+    # Indic script preservation tests
+    assert normalize_name_string("ಶ್ರೀ ಲಕ್ಷ್ಮಿ ಪ್ರೊವಿಷನ್ ಸ್ಟೋರ್") == "ಶ್ರೀ ಲಕ್ಷ್ಮಿ ಪ್ರೊವಿಷನ್ ಸ್ಟೋರ್"
+    assert normalize_name_string("ಬೆಂಗಳೂರು") == "ಬೆಂಗಳೂರು"
+    assert normalize_name_string("ಅನ್ನಪೂರ್ಣೇಶ್ವರಿ") == "ಅನ್ನಪೂರ್ಣೇಶ್ವರಿ"
+    assert normalize_name_string("A2B - Adyar Ananda Bhavan") == "a2b adyar ananda bhavan"
+    assert normalize_name_string("ಶ್ರೀ ಲಕ್ಷ್ಮಿ (ಶಾಖೆ ೧)") == "ಶ್ರೀ ಲಕ್ಷ್ಮಿ ಶಾಖೆ ೧"

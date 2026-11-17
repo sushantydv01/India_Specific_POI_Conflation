@@ -1,0 +1,85 @@
+{
+  "analysis_timestamp": "2026-11-17T08:57:25Z",
+  "total_osm_universe": 49036,
+  "total_overture_universe": 197820,
+  "distance_thresholds": [
+    {
+      "distance_threshold_meters": 10.0,
+      "total_candidate_pairs": 46568,
+      "osm_records_with_candidates": 19902,
+      "osm_coverage_pct": 40.59,
+      "overture_records_with_candidates": 29848,
+      "overture_coverage_pct": 15.09,
+      "avg_candidates_per_matched_osm": 2.34,
+      "median_candidates_per_matched_osm": 2.0,
+      "max_candidates_per_matched_osm": 41,
+      "avg_distance_meters": 6.3,
+      "median_distance_meters": 6.59
+    },
+    {
+      "distance_threshold_meters": 25.0,
+      "total_candidate_pairs": 201891,
+      "osm_records_with_candidates": 34304,
+      "osm_coverage_pct": 69.96,
+      "overture_records_with_candidates": 71998,
+      "overture_coverage_pct": 36.4,
+      "avg_candidates_per_matched_osm": 5.89,
+      "median_candidates_per_matched_osm": 4.0,
+      "max_candidates_per_matched_osm": 957,
+      "avg_distance_meters": 15.48,
+      "median_distance_meters": 16.32
+    },
+    {
+      "distance_threshold_meters": 50.0,
+      "total_candidate_pairs": 620892,
+      "osm_records_with_candidates": 42941,
+      "osm_coverage_pct": 87.57,
+      "overture_records_with_candidates": 114821,
+      "overture_coverage_pct": 58.04,
+      "avg_candidates_per_matched_osm": 14.46,
+      "median_candidates_per_matched_osm": 9.0,
+      "max_candidates_per_matched_osm": 969,
+      "avg_distance_meters": 30.89,
+      "median_distance_meters": 32.48
+    },
+    {
+      "distance_threshold_meters": 100.0,
+      "total_candidate_pairs": 1816159,
+      "osm_records_with_candidates": 47437,
+      "osm_coverage_pct": 96.74,
+      "overture_records_with_candidates": 157831,
+      "overture_coverage_pct": 79.79,
+      "avg_candidates_per_matched_osm": 38.29,
+      "median_candidates_per_matched_osm": 25.0,
+      "max_candidates_per_matched_osm": 1337,
+      "avg_distance_meters": 60.94,
+      "median_distance_meters": 63.94
+    },
+    {
+      "distance_threshold_meters": 200.0,
+      "total_candidate_pairs": 5492994,
+      "osm_records_with_candidates": 48819,
+      "osm_coverage_pct": 99.56,
+      "overture_records_with_candidates": 186638,
+      "overture_coverage_pct": 94.35,
+      "avg_candidates_per_matched_osm": 112.52,
+      "median_candidates_per_matched_osm": 83.0,
+      "max_candidates_per_matched_osm": 1533,
+      "avg_distance_meters": 123.18,
+      "median_distance_meters": 130.29
+    }
+  ],
+  "distance_distribution_200m": {
+    "min_meters": 0.0,
+    "p10_meters": 46.31,
+    "p25_meters": 83.47,
+    "p50_median_meters": 130.29,
+    "p75_meters": 167.77,
+    "p90_meters": 187.61,
+    "max_meters": 200.0,
+    "mean_meters": 123.18,
+    "std_dev_meters": 51.76
+  },
+  "execution_duration_seconds": 1.48,
+  "research_notes": "Spatial proximity provides candidate blocking evidence, not proof of entity identity. Multiple distinct businesses operate in close physical proximity (e.g., multistory shopping complexes). Counts represent unique record pairs (OSM POI, Overture Place) unless explicitly stated as unique records."
+}

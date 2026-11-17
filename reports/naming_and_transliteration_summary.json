@@ -1,0 +1,241 @@
+{
+  "analysis_timestamp": "2026-11-17T08:54:54Z",
+  "script_distribution": {
+    "OSM": {
+      "poi_source": "OSM",
+      "total_records": 49036,
+      "has_kannada_script": 6223,
+      "has_english_latin": 34891,
+      "has_both_kannada_and_english": 6190,
+      "kannada_only": 33,
+      "english_only": 28701,
+      "unnamed_or_empty": 14171,
+      "kannada_pct": 12.69,
+      "english_pct": 71.15,
+      "bilingual_pct": 12.62
+    },
+    "OVERTURE": {
+      "poi_source": "OVERTURE",
+      "total_records": 197820,
+      "has_kannada_script": 400,
+      "has_english_latin": 197478,
+      "has_both_kannada_and_english": 159,
+      "kannada_only": 241,
+      "english_only": 197319,
+      "unnamed_or_empty": 0,
+      "kannada_pct": 0.2,
+      "english_pct": 99.83,
+      "bilingual_pct": 0.08
+    }
+  },
+  "token_and_pattern_profiling": {
+    "total_analyzed_names": 232685,
+    "avg_tokens_per_name": 3.13,
+    "avg_chars_per_name": 20.95,
+    "top_25_tokens": {
+      "and": 12900,
+      "sri": 8143,
+      "bank": 6923,
+      "bangalore": 6127,
+      "school": 5258,
+      "ltd": 5110,
+      "the": 4862,
+      "india": 4509,
+      "centre": 4309,
+      "pvt": 3943,
+      "limited": 3931,
+      "store": 3689,
+      "enterprises": 3491,
+      "clinic": 3383,
+      "temple": 2844,
+      "services": 2756,
+      "private": 2691,
+      "care": 2561,
+      "studio": 2560,
+      "solutions": 2522,
+      "hotel": 2474,
+      "salon": 2444,
+      "atm": 2389,
+      "center": 2349,
+      "hospital": 2292
+    },
+    "common_commercial_keywords": {
+      "sri": 8143,
+      "shri": 844,
+      "shree": 1152,
+      "bhavan": 340,
+      "bhavana": 88,
+      "sagar": 480,
+      "store": 3689,
+      "stores": 1196,
+      "bakery": 862,
+      "hotel": 2474,
+      "restaurant": 1762,
+      "medical": 924,
+      "pharmacy": 870,
+      "clinic": 3383,
+      "hospital": 2292,
+      "enterprises": 3491,
+      "traders": 910,
+      "supermarket": 222,
+      "provision": 561,
+      "cafe": 1829,
+      "coffee": 1055,
+      "tea": 328,
+      "point": 795,
+      "corner": 471,
+      "center": 2349,
+      "centre": 4309
+    }
+  },
+  "lexical_similarity_baseline": {
+    "sample_size": 326,
+    "jaccard_similarity": {
+      "mean": 0.051,
+      "median": 0.0,
+      "p25": 0.0,
+      "p75": 0.0,
+      "pct_above_80": 3.07,
+      "pct_below_30": 93.87
+    },
+    "char_3gram_similarity": {
+      "mean": 0.0615,
+      "median": 0.0,
+      "p25": 0.0,
+      "p75": 0.0119,
+      "pct_above_80": 3.37,
+      "pct_below_30": 93.25
+    },
+    "rapidfuzz_ratio": {
+      "mean": 0.3314,
+      "median": 0.2989,
+      "p25": 0.2424,
+      "p75": 0.36,
+      "pct_above_80": 4.6,
+      "pct_below_30": 50.31
+    },
+    "rapidfuzz_token_sort_ratio": {
+      "mean": 0.3282,
+      "median": 0.2963,
+      "p25": 0.2439,
+      "p75": 0.359,
+      "pct_above_80": 4.29,
+      "pct_below_30": 51.53
+    },
+    "rapidfuzz_token_set_ratio": {
+      "mean": 0.3375,
+      "median": 0.2963,
+      "p25": 0.2462,
+      "p75": 0.359,
+      "pct_above_80": 6.44,
+      "pct_below_30": 50.92
+    },
+    "plausible_match_candidates_count": 20,
+    "plausible_match_candidates_sample": [
+      {
+        "osm_name": "Udupi Grand",
+        "ov_name": "Udapi grand",
+        "distance_meters": 24.87,
+        "token_set_ratio": 0.91,
+        "token_sort_ratio": 0.91
+      },
+      {
+        "osm_name": "Gualbert Bhavan",
+        "ov_name": "Gualbert Bhavan",
+        "distance_meters": 45.35,
+        "token_set_ratio": 1.0,
+        "token_sort_ratio": 1.0
+      },
+      {
+        "osm_name": "Christ the King Public School",
+        "ov_name": "Christ The King Public School",
+        "distance_meters": 9.67,
+        "token_set_ratio": 1.0,
+        "token_sort_ratio": 1.0
+      },
+      {
+        "osm_name": "Brahma Kumaris",
+        "ov_name": "Brahma Kumaris Bengaluru Jakkur",
+        "distance_meters": 37.7,
+        "token_set_ratio": 1.0,
+        "token_sort_ratio": 0.62
+      },
+      {
+        "osm_name": "Kensri School",
+        "ov_name": "Kensri School",
+        "distance_meters": 20.86,
+        "token_set_ratio": 1.0,
+        "token_sort_ratio": 1.0
+      },
+      {
+        "osm_name": "St Joseph's College of Law",
+        "ov_name": "St Joseph's College of Business Administration",
+        "distance_meters": 48.87,
+        "token_set_ratio": 0.92,
+        "token_sort_ratio": 0.61
+      },
+      {
+        "osm_name": "Cambridge Public School",
+        "ov_name": "Cambridge Public School",
+        "distance_meters": 30.6,
+        "token_set_ratio": 1.0,
+        "token_sort_ratio": 1.0
+      },
+      {
+        "osm_name": "Apollo Cradle",
+        "ov_name": "Apollo Cradle Hospital",
+        "distance_meters": 24.52,
+        "token_set_ratio": 1.0,
+        "token_sort_ratio": 0.74
+      },
+      {
+        "osm_name": "SS Sparsh Hospital",
+        "ov_name": "SS Sparsh Hospital",
+        "distance_meters": 12.08,
+        "token_set_ratio": 1.0,
+        "token_sort_ratio": 1.0
+      },
+      {
+        "osm_name": "Rainbow Children's Hospital",
+        "ov_name": "Dr Seema Gonsalves - Pediatric Allergy Rainbow Children's Hospital Bannerghatta",
+        "distance_meters": 35.26,
+        "token_set_ratio": 1.0,
+        "token_sort_ratio": 0.51
+      }
+    ],
+    "spatial_noise_sample": [
+      {
+        "osm_name": "Udupi Grand",
+        "ov_name": "Sobha PalmCourt",
+        "distance_meters": 42.95,
+        "token_set_ratio": 0.15
+      },
+      {
+        "osm_name": "Karnataka State Agricultural Produce Processing and Export Corporation Limited",
+        "ov_name": "Global Connect",
+        "distance_meters": 47.95,
+        "token_set_ratio": 0.2
+      },
+      {
+        "osm_name": "Motherhood Whitefield",
+        "ov_name": "Cafezinho",
+        "distance_meters": 41.82,
+        "token_set_ratio": 0.2
+      },
+      {
+        "osm_name": "Karnataka State Agricultural Produce Processing and Export Corporation Limited",
+        "ov_name": "ACO India",
+        "distance_meters": 48.77,
+        "token_set_ratio": 0.18
+      },
+      {
+        "osm_name": "Karnataka State Agricultural Produce Processing and Export Corporation Limited",
+        "ov_name": "Fia's Lounge",
+        "distance_meters": 40.91,
+        "token_set_ratio": 0.18
+      }
+    ],
+    "evaluation_duration_seconds": 0.01
+  },
+  "execution_duration_seconds": 0.2
+}

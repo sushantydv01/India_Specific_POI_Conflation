@@ -1,0 +1,252 @@
+{
+  "audit_timestamp": "2026-11-17T08:47:52Z",
+  "boundary": {
+    "source_file": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/configs/bbmp_boundary.geojson",
+    "relation_id": 7902476,
+    "bounds": [
+      77.4598797,
+      12.8334905,
+      77.7840639,
+      13.1426196
+    ],
+    "polygon_valid": true
+  },
+  "datasets": {
+    "raw_overture": {
+      "record_count": 197820,
+      "file_size_bytes": 20084765,
+      "columns": [
+        "id",
+        "name_primary",
+        "names_rules",
+        "basic_category",
+        "taxonomy_primary",
+        "taxonomy_alternates",
+        "confidence",
+        "addresses",
+        "addr_freeform",
+        "addr_locality",
+        "addr_postcode",
+        "sources",
+        "operating_status",
+        "version",
+        "longitude",
+        "latitude",
+        "geometry_wkt"
+      ],
+      "null_counts": {
+        "id": 0,
+        "name_primary": 0,
+        "names_rules": 196034,
+        "basic_category": 6036,
+        "taxonomy_primary": 6120,
+        "taxonomy_alternates": 197425,
+        "confidence": 0,
+        "addresses": 0,
+        "addr_freeform": 8106,
+        "addr_locality": 238,
+        "addr_postcode": 11034,
+        "sources": 0,
+        "operating_status": 197393,
+        "version": 0,
+        "longitude": 0,
+        "latitude": 0,
+        "geometry_wkt": 0
+      },
+      "id_uniqueness": {
+        "id_column": "id",
+        "unique_ids": 197820,
+        "duplicate_ids": 0,
+        "is_unique": true
+      },
+      "coordinates": {
+        "latitude_range": [
+          12.83507493,
+          13.13731557
+        ],
+        "longitude_range": [
+          77.4617206,
+          77.776207
+        ],
+        "within_bbmp_bbox": true
+      },
+      "independent_containment": {
+        "outside_bbox_count": 0,
+        "outside_poly_count": 0,
+        "containment_rate_pct": 100.0,
+        "all_strictly_contained": true
+      },
+      "name_distribution": {
+        "empty_or_null_names": 0,
+        "populated_names": 197820,
+        "distinct_names": 166401
+      },
+      "top_categories": {
+        "shopping": 23064,
+        "restaurant": 9763,
+        "fashion_and_apparel_store": 8670,
+        "real_estate_service": 7184,
+        "event_or_party_service": 6765,
+        "NULL": 6036,
+        "professional_service": 5247,
+        "historic_site": 4654,
+        "hardware_home_and_garden_store": 4314,
+        "electronics_store": 4288,
+        "home_service": 4239,
+        "financial_service": 3978,
+        "bank_or_credit_union": 3844,
+        "personal_or_beauty_service": 3699,
+        "hotel": 3428
+      },
+      "audit_duration_seconds": 1.08
+    },
+    "raw_osm": {
+      "record_count": 49036,
+      "file_size_bytes": 4030551,
+      "columns": [
+        "osm_type",
+        "osm_id",
+        "numeric_id",
+        "version",
+        "timestamp",
+        "latitude",
+        "longitude",
+        "geometry_wkt",
+        "name",
+        "name_en",
+        "name_kn",
+        "name_hi",
+        "category_original",
+        "matched_keys",
+        "addr_freeform",
+        "addr_locality",
+        "addr_postcode",
+        "phone",
+        "website",
+        "raw_tags_json"
+      ],
+      "null_counts": {
+        "osm_type": 0,
+        "osm_id": 0,
+        "numeric_id": 0,
+        "version": 0,
+        "timestamp": 0,
+        "latitude": 0,
+        "longitude": 0,
+        "geometry_wkt": 0,
+        "name": 14171,
+        "name_en": 47273,
+        "name_kn": 42824,
+        "name_hi": 48741,
+        "category_original": 0,
+        "matched_keys": 0,
+        "addr_freeform": 41989,
+        "addr_locality": 44350,
+        "addr_postcode": 43011,
+        "phone": 45787,
+        "website": 45809,
+        "raw_tags_json": 0
+      },
+      "id_uniqueness": {
+        "id_column": "osm_id",
+        "unique_ids": 49036,
+        "duplicate_ids": 0,
+        "is_unique": true
+      },
+      "coordinates": {
+        "latitude_range": [
+          12.838682700000001,
+          13.13901215
+        ],
+        "longitude_range": [
+          77.46165504285715,
+          77.77610566000001
+        ],
+        "within_bbmp_bbox": true
+      },
+      "independent_containment": {
+        "outside_bbox_count": 0,
+        "outside_poly_count": 0,
+        "containment_rate_pct": 100.0,
+        "all_strictly_contained": true
+      },
+      "name_distribution": {
+        "empty_or_null_names": 14171,
+        "populated_names": 34865,
+        "distinct_names": 26171
+      },
+      "top_categories": {
+        "amenity=restaurant": 3206,
+        "amenity=place_of_worship": 2106,
+        "amenity=bench": 1845,
+        "leisure=park": 1774,
+        "amenity=fast_food": 1751,
+        "shop=clothes": 1476,
+        "amenity=school": 1459,
+        "amenity=bank": 1429,
+        "leisure=pitch": 1354,
+        "office=company": 1343,
+        "amenity=parking": 1289,
+        "leisure=swimming_pool": 1183,
+        "amenity=cafe": 1140,
+        "amenity=atm": 1116,
+        "amenity=hospital": 1069
+      },
+      "audit_duration_seconds": 0.15
+    },
+    "canonical_pois": {
+      "record_count": 246856,
+      "file_size_bytes": 25949084,
+      "overture_records": 197820,
+      "osm_records": 49036,
+      "composite_id_uniqueness": {
+        "unique_ids": 246856,
+        "duplicate_ids": 0,
+        "is_unique": true
+      },
+      "independent_containment": {
+        "outside_poly_count": 0,
+        "containment_rate_pct": 100.0,
+        "all_strictly_contained": true
+      },
+      "canonical_categories": {
+        "other": 105128,
+        "sustenance": 23460,
+        "leisure_tourism": 8601,
+        "civic_religious": 6587,
+        "education": 7706,
+        "hospitality": 8014,
+        "retail": 47625,
+        "commercial_services": 21920,
+        "financial": 9811,
+        "healthcare": 8004
+      },
+      "null_counts": {
+        "poi_source": 0,
+        "source_record_id": 0,
+        "source_release": 0,
+        "name_original": 0,
+        "name_normalized": 0,
+        "alternate_names": 0,
+        "name_en": 245093,
+        "name_kn": 240644,
+        "latitude": 0,
+        "longitude": 0,
+        "geometry_wkt": 0,
+        "category_original": 0,
+        "category_normalized": 0,
+        "address_original": 50095,
+        "address_locality": 44588,
+        "address_postcode": 54045,
+        "phone": 243607,
+        "website": 243629,
+        "confidence": 0,
+        "source_timestamp": 197820,
+        "ingestion_timestamp": 0,
+        "provenance_metadata": 0
+      },
+      "audit_duration_seconds": 0.82
+    }
+  },
+  "total_audit_duration_seconds": 2.14
+}

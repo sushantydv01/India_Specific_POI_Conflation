@@ -1,0 +1,501 @@
+osm_source_id,osm_name,osm_category,ov_source_id,ov_name,ov_category,distance_meters
+way/1149213001,Dr Agarwal's Eye Hospital,healthcare,d218a532-cba4-42d2-80ca-337d9d95d770,HDFC ERGO Insurance Agent: Naveen Joseph Fernandes,financial,41.23
+way/1180658039,Udupi Grand,sustenance,953a8547-5634-45e6-a649-edc71be321a7,Sri Sai Mart  super Market,retail,42.95
+way/1066868600,Sivanchetti Garden Post Office,civic_religious,c67819fc-66d9-45bf-b1c8-df8606e91084,Deputy Directors Office,civic_religious,32.07
+way/1180658039,Udupi Grand,sustenance,dfdd4f64-49ce-463c-a858-81182e69f5dd,Sobha PalmCourt,commercial_services,42.95
+way/1068844251,"",other,7accf262-aba4-4a73-9b5f-0d6dbd549d17,The Meat Pantry by Cambay Tiger,other,44.15
+way/1180658039,Udupi Grand,sustenance,1f8fbb66-3751-4720-9c19-411e44b67155,Udapi grand,sustenance,24.87
+way/1068844251,"",other,ecd8d257-fc91-45ce-ac22-c20680485950,OYO 649 Hotel Ajantha Trinity Inn,hospitality,40.36
+way/1180658039,Udupi Grand,sustenance,cf83d05c-be3e-4ee2-96c8-675348110c98,Greenply - Shivam Timber,other,38.68
+way/1196104393,Gualbert Bhavan,other,211d65bd-e2b7-4381-ae7d-0c6ba379f63a,Gualbert Bhavan,other,45.35
+way/1086046636,"",leisure_tourism,77c5f9c3-71a9-49ea-9cca-b35461a5dca6,Packers And Movers Bangalore,other,45.9
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,2eb02bb4-2b26-4f39-b5fa-a55b9d54b79c,Global Connect,other,47.95
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,bcbdaba2-4159-4295-af38-bc6b75595c8a,Prathibha Jewellery House Rr Road Richmond Circle Bangalore,retail,48.53
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,79b4796c-419f-40a7-af74-ef55dfd995b4,Global Choice Immigration,other,46.18
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,aa6201ec-10bf-4932-9efe-8cf2fa5a259a,Unlisted Bull,financial,47.45
+way/1093290443,"",education,e325ee2f-1477-43b3-a6cb-fd90add63645,Kod Architect,other,45.09
+way/1075362335,Motherhood Whitefield,healthcare,969af50a-1178-4893-91d4-b838dedbfe3d,"Bodycraft Salon, Spa and Clinic",retail,48.75
+way/1075362335,Motherhood Whitefield,healthcare,3221854a-17c6-4072-b55a-a6d2a79c14da,Cafezinho,sustenance,41.82
+way/1078183230,Premier Suites Serviced Apartments,hospitality,e9872c37-8414-4de6-809a-0ff50605eae0,Productiva Group,commercial_services,34.59
+way/1075362335,Motherhood Whitefield,healthcare,cc595510-09f5-40a9-b53f-acd1a2903b6e,Femiint Health,other,24.29
+way/1075362335,Motherhood Whitefield,healthcare,122ed8c8-ce83-4b4b-8fc2-576f9c3e9cd4,Sorse,sustenance,34.37
+way/1075362335,Motherhood Whitefield,healthcare,456bc604-3626-4c12-9c21-23c17c8b0fc9,"Floating Walls Furnishing - Whitefield, Bengaluru",retail,37.36
+way/796463146,Sampangi Tank Park,leisure_tourism,1b7bd8ec-455f-40cd-b04a-31105f65e677,Beachhouse Project,other,31.7
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,3f8f8783-8d3b-4d78-92ad-c414ed18096a,Zeenu's Pet Spa,other,44.64
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,15f9c056-f135-4a24-b982-2593d7a4d768,ACO India,other,48.77
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,45159913-de8e-48ad-bd90-6750c9b6749c,India Today Group,other,28.96
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,54e4ab0e-5b84-494a-abfd-06c22b642a37,Mystic Investments,commercial_services,29.58
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,2d4ad319-20a0-45b1-9b29-f633e35e222d,Fia's Lounge,sustenance,40.91
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,fb23c3e1-a57c-44b6-bc49-6a0bb931d605,a Star Solutions,other,41.37
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,e7fc3442-9a5e-43ac-b4ae-d10f847e8b9d,"Bovilla Sreelatha Laser, Skin and Hair Care Centre",other,41.54
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,04455ca8-19d9-4f0e-a273-158a60b3c384,Daniel Bauer Academy,other,41.6
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,f41115a4-2b10-498e-8547-931a7cc644a8,I Cap Financial Services,financial,44.54
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,63adb2a6-38de-47fa-97ad-0b76ec2a7db6,FIA's Food Flavours,sustenance,41.2
+way/1071630512,CULT Fitness center,leisure_tourism,aa25738e-8878-4d45-8d58-67b294bf7085,Blueronics.com,other,49.47
+way/805155174,outdoor seating,other,0e504304-30e7-4186-83ab-1ab094ecbc9d,Cafe Coffee Day,sustenance,38.41
+way/867498324,"",other,c868761f-4252-484b-9344-9e171db5f456,Geojit Financial Services Limited,other,44.25
+way/909240053,"",leisure_tourism,dbe52829-e544-4feb-bf64-357a0c5a3eb5,Swara Audio,other,46.45
+way/909240054,"",leisure_tourism,dbe52829-e544-4feb-bf64-357a0c5a3eb5,Swara Audio,other,49.97
+way/1038754353,HP Fuel Station,other,26de50ca-a827-45c8-8173-7dbcdeacbde2,Bangalore Car Wash,other,48.2
+way/1052008920,"",commercial_services,e99dc496-2f48-476f-8860-bf46cd8cd029,Forever New,retail,45.95
+way/1060953963,"",other,5ebd9c71-b657-4b88-a658-0c03d27111eb,Green Igloo,other,35.1
+way/1064408593,Clubhouse,civic_religious,c8c15486-2cb3-41ef-85fc-17e61cba2b1b,Bajaj Finance Limited,retail,27.4
+way/1065072656,Indian Auto Gas,other,ece02ad3-7b07-447c-b954-c79deb0639ef,V Smile Family Dental,healthcare,38.67
+way/1071262161,Bellandur Traffic Police Station,civic_religious,6ba9b380-3d7a-4eaa-af26-064541cb6ea1,Au Bon Pain India,sustenance,27.71
+way/1071863773,Oyo Town House 363,hospitality,02c84960-0456-42a1-b836-609a7a30d704,Nikhar Aventino,commercial_services,28.71
+way/1072738480,Sri Shaneswara Swamy Temple,civic_religious,a56b765e-35a8-498b-ba4e-4c0698368865,Patanjali Gramin Arogya Kendra,other,15.98
+way/1072948584,Iron Hill Bengaluru,sustenance,7e94780f-8f83-40f6-84ee-3c7d93cc896b,Melange,sustenance,47.41
+way/1073368066,Mats Fuel Park,other,bc8f98cc-7e54-46fe-be15-b96438da0b07,"Dr. Sangeetha Anand, 12+ yrs of Exp | Best Infertility Specialist | Fertility Treatment | Ivf",other,38.86
+way/1077744675,Christ the King Public School,other,afd031fc-cdc8-47a5-8ac5-aebad1c306c3,Christ The King Public School,other,9.67
+way/1082139631,Apollo Cradle,healthcare,bc8f98cc-7e54-46fe-be15-b96438da0b07,"Dr. Sangeetha Anand, 12+ yrs of Exp | Best Infertility Specialist | Fertility Treatment | Ivf",other,11.08
+way/1095440452,HMT Heritage Center and Museum,leisure_tourism,edefbfae-8e42-44cb-9343-b1f34a4e98c0,Presidency University Accredited Partner,other,12.5
+way/1106402218,"",other,8f912716-04ad-4873-b2f3-c8007b707039,M9 Design Studio,other,24.64
+way/1121011649,Suprad Badminton,other,d30a8efe-672c-44c7-a902-ebf021da6764,ICICI Bank,financial,45.71
+way/1148279219,"",other,2468f67b-0430-4ce3-9598-ef14b30a9977,The Bird's Park,other,43.62
+way/1153736762,"",other,800ac3a2-ab35-4f98-8061-c6af5c6d822b,Bike Boost,other,27.29
+way/1180658039,Udupi Grand,sustenance,465f036f-f025-466f-81c7-495cbd3e944e,Hindustan Petroleum Corporation Limited,other,40.19
+way/1182968252,Brahma Kumaris,healthcare,c7c19333-f09d-44dc-b8e0-499037e2ebe1,Brahma Kumaris Bengaluru Jakkur,other,37.7
+way/1186887020,Kensri School,education,834a0658-e719-49f2-9fdc-7eab2f487522,Kensri School,education,20.86
+way/1199532064,Bangalore One,commercial_services,dbe4e949-3d8b-42a0-b516-ba20096576a4,Goli Vada Pav,sustenance,25.93
+way/1202598190,"",civic_religious,e3c9e295-97e9-493c-9b70-b9e29ef679c3,Raghavendra Temple,civic_religious,21.93
+way/1205497361,"",other,7703ab84-f0ab-44a0-9629-86ecf08cbf7e,Mythri Sarva Seva Samithi,other,43.45
+way/794445339,"",other,2151eb4f-ed5b-4a69-94c5-bbc765d29eaf,InAutumn Technologies,other,30.92
+way/867498324,"",other,4f281114-54c8-4d50-a1a2-4474701f367b,India Design Institute Yelahanka,other,43.13
+way/892243916,"",other,c8ddfc85-d5d6-486c-907d-200c1ea2adfb,Haralur Lake,other,47.96
+way/918523254,Westside,retail,ea22fcc1-a1f9-4dbb-b4df-a3c93f848c71,Aishwarya Departmental Stores,retail,41.24
+way/918523255,"",other,ea22fcc1-a1f9-4dbb-b4df-a3c93f848c71,Aishwarya Departmental Stores,retail,49.9
+way/1065048410,"",other,7b579eee-db65-4a72-916b-fbe94155e5e6,Citi Bank,financial,26.76
+way/1065072656,Indian Auto Gas,other,f2d5512a-c631-4d4a-a5d4-4c58d1b6b897,I Care Security Systems,retail,37.47
+way/1066915258,Anand Diagnostic Lab,healthcare,ca904182-c0b3-467b-8acb-7e554023acae,BDI System and Technologies Pvt Ltd,commercial_services,48.96
+way/1071262161,Bellandur Traffic Police Station,civic_religious,b82c68fa-31c2-46a1-a4c7-0aabb55d9b7c,Gynecologist and laparoscopy In Bangalore,healthcare,21.87
+way/1075362335,Motherhood Whitefield,healthcare,f6ad9884-54ab-407a-8a7b-dc38f8fa7b71,Sky Medical Corporation,other,42.22
+way/1076876048,Mojatel by Icon,hospitality,6ea27b3e-7afa-4bc4-9ec8-84bd64f801d7,Elina Montessori | Best Preschool & Daycare in brookefield,education,36.33
+way/1083394762,"",other,180852b6-256d-4bd8-bcff-508b9046750f,Real Estate Architecture and Interiors Photography,other,39.73
+way/1087826092,"",leisure_tourism,d21021ce-a466-458b-923e-692f3b775613,Baitho Restaurant,sustenance,48.0
+way/1089884368,Phoenix Hospital,healthcare,57be9e46-43a6-4f16-b8c7-bed5da12b359,NBR Developers,commercial_services,32.65
+way/1097526523,Little Millenium Preschool,education,27c744d0-4da4-457b-9d2e-6adbf6dd7258,TechConPro,other,15.89
+way/1106402218,"",other,6453b206-ca1b-4aa3-b715-9bba5d9b305b,Sattur Hospital,healthcare,38.29
+way/1116730314,"",other,ea22fcc1-a1f9-4dbb-b4df-a3c93f848c71,Aishwarya Departmental Stores,retail,38.69
+way/1135851061,"",other,e4feb267-2618-4806-9cdc-ba800b17ff34,Zonasha Paradise,retail,19.98
+way/1147342239,"",leisure_tourism,e97ae814-2723-4384-81c1-fef96b3d834e,Dr.Solanki Eye Hospital,healthcare,24.87
+way/1150351162,"",other,97914266-bed6-43e7-a7b5-38d168704fd9,Math Tuition Classes - Cuemath,other,40.56
+way/1180658039,Udupi Grand,sustenance,acca5bcd-fecf-4c0b-a175-807c842e2761,Sai Nandeeshwar Naturopathic Clinic,healthcare,20.11
+way/1182315656,SS Sparsh Hospital,healthcare,8a5093eb-83e5-4e44-b949-548f41ca70de,Brains Neuro Spine Centre,healthcare,31.0
+way/1188254675,LOCL LOCAL Colive & Work,hospitality,21843284-7315-4bd6-bca3-79fd8be9cd18,ARA Beauty Salon for Women,retail,35.51
+way/1193082966,Zodiac Bar and Kitchen,sustenance,b2343386-a43b-4db8-8f7e-50ad0fc567be,Citrus Serviced Apartments,hospitality,22.62
+way/867498324,"",other,76a954fd-888c-4f70-922b-9e719108e346,Seshadripuram Institute of Management Studies,other,46.12
+way/892243909,"",other,84a61e0b-cfdc-4a85-abb3-5478d5a7ca76,Sobha Eternia,leisure_tourism,49.99
+way/918523254,Westside,retail,bdb11129-6503-4101-b50b-406242c20386,Kotak Mahindra,financial,43.49
+way/918523255,"",other,bdb11129-6503-4101-b50b-406242c20386,Kotak Mahindra,financial,28.0
+way/1038754353,HP Fuel Station,other,e6f682f4-d49d-4e69-9965-85d135759bb8,Hindustan Petroleum Corporation Limited,other,9.26
+way/1065072656,Indian Auto Gas,other,c4ef3444-7685-4f1e-be41-c0a1ac65cf8d,Muthoot Finance Gold Loan,other,44.02
+way/1066960399,St Joseph's College of Law,education,2ce4651a-a7f0-4eca-bbdb-41d227581724,St Joseph's College of Business Administration,other,48.87
+way/1070483717,Mango Hypermarket,retail,94aaf976-89b0-4198-ac85-6a0c4f509981,Mango Super Market,retail,42.42
+way/1070483720,"",other,94aaf976-89b0-4198-ac85-6a0c4f509981,Mango Super Market,retail,38.78
+way/1071262161,Bellandur Traffic Police Station,civic_religious,d7aab3f8-e0a4-4960-8acf-05f6d4895a77,Dhara Spa,other,21.87
+way/1073368066,Mats Fuel Park,other,cdd254aa-b3c3-41f0-845c-f038b4f56198,Apollo Cradle Hospital,healthcare,41.86
+way/1079068582,Cambridge Public School,education,839c74d5-3e51-4167-869a-196844dfdcf5,Cambridge Public School,other,30.6
+way/1082139631,Apollo Cradle,healthcare,cdd254aa-b3c3-41f0-845c-f038b4f56198,Apollo Cradle Hospital,healthcare,24.52
+way/1083566590,Khan's Convention Hall,civic_religious,20a57be3-2241-4c31-a11a-38b93ee2ef25,Surya Auto Garage,retail,49.52
+way/1083566591,Milan Hall,civic_religious,20a57be3-2241-4c31-a11a-38b93ee2ef25,Surya Auto Garage,retail,36.41
+way/1089884368,Phoenix Hospital,healthcare,5bd2dc52-95c5-4ac6-9fc8-a92ebde8e27b,"Dr. Sanjit Gogoi - Piles, Hernia, Circumcision Surgeon",other,22.32
+way/1106402201,"",leisure_tourism,b368c16c-78bb-4047-9b0a-3cabcca56e75,ZenTara Productions,other,45.34
+way/1116730314,"",other,bdb11129-6503-4101-b50b-406242c20386,Kotak Mahindra,financial,41.58
+way/1134091914,"",civic_religious,99b2ab2c-a588-40a5-afc3-4771b6b8e9b0,Kumaraswamy Temple,civic_religious,33.99
+way/1147342239,"",leisure_tourism,4f58d079-5810-4391-a1f0-2cab72b5b8da,BBMP Sankey Park,leisure_tourism,48.38
+way/1176579522,"",leisure_tourism,9c9e137c-6389-4438-94e0-37bab6a17751,Saree Tales,other,47.58
+way/1180658039,Udupi Grand,sustenance,89efcac3-c152-4ae1-8345-0e94ee820b2e,SLV Golden Towers,commercial_services,21.2
+way/1182315656,SS Sparsh Hospital,healthcare,513425e2-12bc-417a-be70-1e7be540596f,SS Sparsh Hospital,healthcare,12.08
+way/1186494035,Manipal Institute of Regenerative Medicine,education,6ea30d31-e545-4e19-9a1d-2729d3ceff02,Multi Cars and spa (car and bike washing),other,46.48
+way/1186887011,Manpho Convention Centre,other,c73aa3ec-fb0a-4401-9d96-d39ff878e642,Manpho Media Corp,commercial_services,47.37
+way/1191458810,"",other,937150f6-1532-497b-84bb-a663e91db536,Goodwill English High School,education,43.08
+way/918523255,"",other,197cf95d-2c0e-488c-b709-7efac5b8640f,Social Panache,commercial_services,41.7
+way/1038754353,HP Fuel Station,other,aad04620-4362-4ce5-9f6d-ea7a8fc6573b,ArtistConnect.in,commercial_services,28.3
+way/1050578228,Kanva Diagnostics,healthcare,030d5ad9-cc32-496e-b468-b549d6c04d00,Samrudhi properties,commercial_services,48.66
+way/1065072656,Indian Auto Gas,other,f7258346-7f28-4555-a0e2-8c624c9955d1,Bata,retail,45.73
+way/1070483717,Mango Hypermarket,retail,d9a224f7-e125-4109-9565-66c78ea809cc,Cuppa,sustenance,36.83
+way/1070818624,Enzyme Offices,commercial_services,6baac4d7-f967-48c8-ac73-93762ffb22a9,The Glare Designer Boutique,other,46.25
+way/1071262161,Bellandur Traffic Police Station,civic_religious,41b6247b-cad9-493b-9d9c-4b3084fe71f1,Page Industries Limited,other,21.87
+way/1072948584,Iron Hill Bengaluru,sustenance,551827fb-d59e-4eab-a16e-ccb0f18002d7,Limles Technologies,other,44.09
+way/1082139631,Apollo Cradle,healthcare,45097fff-57c6-4dd4-a51a-b85f4cd796ac,KCB - Kapoor's Chaat Bhandaar - Main Branch,sustenance,33.18
+way/1083566594,Al-Ameen Kambal Posh,education,e78e7b93-2bf2-498d-9d38-515142d017b5,Lassi & Juice,other,49.59
+way/1084382251,Adugodi Police Station,civic_religious,fd9e645f-bd2a-40cb-9f98-0d06816a251a,OYO 26708 Sky Palace,hospitality,31.74
+way/1088209015,Karunalayam Hospital,healthcare,7849aea4-1cb2-452e-9bcd-b3381101b411,Nirjhari Conference Centre and Study Centre,commercial_services,24.45
+way/1089884358,Rashtrakutas,sustenance,261bebb1-a870-4546-bfe1-fede35a7faf2,Soul Staje,other,39.52
+way/1089884368,Phoenix Hospital,healthcare,f14e4ac4-9477-415f-bb4b-1e38879a71c3,MTR,sustenance,39.02
+way/1091791759,"",civic_religious,d5dcf2b8-bfb7-4199-90dc-5057ae480830,Cafe Macha,sustenance,41.59
+way/1108934944,Rainbow Children's Hospital,healthcare,f97599cb-72c4-4e39-96f4-0399925e41f7,Dr Seema Gonsalves - Pediatric Allergy Rainbow Children's Hospital Bannerghatta,other,35.26
+way/1135846628,"",leisure_tourism,c4154232-10bc-4a61-b53d-38125da988c6,Apple Kids International Preschool,education,35.14
+way/1147342239,"",leisure_tourism,5539668e-71e0-4da6-bcb6-e4d02e75d137,Enrich Salon,other,29.83
+way/1153736762,"",other,4322e0b9-456f-4c65-ba33-990c17d1bdfe,AR Trading Company Ashirvad CPVC & Pvc Pipes and Fittings Wholesaler,other,26.37
+way/1157152189,Bangalore Sports Academy,leisure_tourism,c0a9e3dd-2868-442a-a126-855baf558e24,New Gurukul Sports Club,other,27.79
+way/1176579522,"",leisure_tourism,1fd1824a-17c5-442c-a90c-fb84142a8d13,Darshan Medicare and Old age home,other,47.58
+way/1180658039,Udupi Grand,sustenance,2b434fc6-56d0-4c67-9889-b56948cbf2ea,Yokohama Club Network,other,34.56
+way/1182315656,SS Sparsh Hospital,healthcare,0d36c9de-7596-49c7-b4cf-5eb0c731dbc2,SSNMC Super Specialty Hospital,healthcare,17.26
+way/1186132066,"",other,7b2d346e-8499-4bef-a4f7-554f6fe62ecd,Alps Estate,leisure_tourism,36.77
+way/1186361836,"",other,7352be45-61b8-4e58-b867-6998ddf41880,Excitel Broadband,retail,44.75
+way/799457103,Canara Bank,financial,abc6d014-a3b5-4f1c-8bb4-d2bb5f899746,NIG Motor and Service Station,other,49.82
+way/805155174,outdoor seating,other,f35c2b3e-f21e-4f55-baa1-c6a8c91b49c4,AA Visiting School Bengaluru,other,33.22
+way/816978768,Chetan Dhaba,sustenance,dc6e1251-af5e-493d-a992-c5cc595fb97f,"Kia Car Showroom - PPS Kia, Mysore Road",other,41.11
+way/837409468,Northern Suites,hospitality,23f4087a-c23f-47f9-9558-29275ded5717,Tuitions Classes,other,49.38
+way/892243908,"",other,4d1ee2ab-fd70-4559-8931-1a0d29957f97,Excitel Broadband,retail,46.18
+way/918523255,"",other,dbdf2cb5-dba3-433b-a9ee-244ce4c1f3f6,Sridevi Industries,commercial_services,37.6
+way/1038754353,HP Fuel Station,other,889ed4cb-d011-4f87-be68-f9267004d685,Sri Sai Vintage Apartments,leisure_tourism,40.14
+way/1065072656,Indian Auto Gas,other,8f3a4f04-cb14-4e31-bec9-542de73cdb08,Vividh Sarees,other,25.33
+way/1071262161,Bellandur Traffic Police Station,civic_religious,21ce157e-15b3-4c8a-8bea-dd43f6fd5768,Get It SMS Services,commercial_services,21.87
+way/1071630512,CULT Fitness center,leisure_tourism,801e71cc-ec26-4cea-979c-452c636d8050,Gombe Mane,other,47.21
+way/1072948584,Iron Hill Bengaluru,sustenance,702e682f-7e5a-4122-9929-c323e29f9e00,My Paint My Home,other,27.37
+way/1075804988,"",other,ee554cb5-6e80-4981-b181-9b675f5611d0,Excitel Broadband,retail,46.72
+way/1079266919,Lux Living,hospitality,800ef9e8-374a-4d70-98a1-770c24dc8cda,Mammal Nest,other,41.02
+way/1083566591,Milan Hall,civic_religious,f79678fa-4848-44ff-bc22-76b3543ec99d,HKGN Car AC Works,other,33.16
+way/1084382251,Adugodi Police Station,civic_religious,7293707d-0b8b-4de4-8471-f86126c16b8c,Target Integration,other,32.26
+way/1087820285,"",leisure_tourism,42508728-cb03-4691-a58d-175e1d8f6d63,Golden Grand,leisure_tourism,31.72
+way/1089884358,Rashtrakutas,sustenance,801e71cc-ec26-4cea-979c-452c636d8050,Gombe Mane,other,38.05
+way/1091791759,"",civic_religious,bbeb6bf2-a23c-4fe3-ad0b-0ce4e75eadf1,Tattoo Stadium,other,38.84
+way/1101376580,Indira Canteen,sustenance,83674ca8-0ea3-4752-a30d-afa4311106d3,Kay Bee Bio-Organics Pvt Ltd - Karnataka,other,49.42
+way/1115399976,Karnataka State Warehousing Corporation,commercial_services,ca879291-e4d3-465b-bd40-90f7a862d8ce,Karnataka State Warehousing Corporation,commercial_services,16.17
+way/1119221389,Bangalore Creative Circus,other,e4416198-51af-442e-bf8f-d1c977c75ef4,Regent Graneto Pvt. Ltd.,commercial_services,39.61
+way/1119921711,St. Ignatius Loyola Church,civic_religious,c4e8a953-ae5c-47cb-92c4-c8e6a72b0b3f,Sri Veerupaksheshwara Temple,civic_religious,46.26
+way/1121455997,Doddanekkundi BBMP Office,commercial_services,6d008d93-c40a-4b97-8bf1-aeedb5799e7a,Lenskart.com,retail,42.48
+way/1157152189,Bangalore Sports Academy,leisure_tourism,b6d9831d-4211-45fd-91bb-7dc2b4dacec8,Chez Mariannick,sustenance,41.4
+way/1180658039,Udupi Grand,sustenance,0f83b77a-6e1a-4865-977d-4032216e359a,i Sapthagiri Traders,other,46.72
+way/1193088448,"",other,2afd2c14-60c1-4abe-8879-0b27180cc935,Math Tuition Classes - Cuemath,other,49.38
+way/1202565697,The Mar Thoma Syrian Church,civic_religious,ca879291-e4d3-465b-bd40-90f7a862d8ce,Karnataka State Warehousing Corporation,commercial_services,30.15
+way/799457103,Canara Bank,financial,363f0f5b-0b23-4330-8d9f-f2dcdd4b196c,Ratan Enterprises,retail,45.92
+way/892243918,"",other,389ed873-e4f0-4832-8e64-07c3a081c3d4,Math Tuition Classes - Cuemath,other,42.03
+way/1038754353,HP Fuel Station,other,6c844422-d83e-4c92-8125-b897b2b4e064,Macsonhealthcare,other,38.79
+way/1060953963,"",other,8aeb84f1-c5bb-4e79-b580-e6bfd2f6d538,Excitel Broadband,retail,43.47
+way/1065072656,Indian Auto Gas,other,0c92f378-556e-4d4d-96b9-23b1fa3a9992,Bhartiya City Nikoo Homes,commercial_services,19.46
+way/1071262161,Bellandur Traffic Police Station,civic_religious,1d427244-b9c0-4950-9041-e0d72b2b21d3,Motherhood India,healthcare,21.87
+way/1071630512,CULT Fitness center,leisure_tourism,d06ca578-1c3d-472b-8f17-bd6db119f6dd,Rashtrakutas,sustenance,22.19
+way/1072948584,Iron Hill Bengaluru,sustenance,94b781b7-26cf-4245-aee0-4b69c205873f,Sholoana Restro,sustenance,27.37
+way/1075362335,Motherhood Whitefield,healthcare,478f2c6e-4cd3-4007-8b93-e19818df5781,Kaira Design and Construction,other,47.38
+way/1083566594,Al-Ameen Kambal Posh,education,ca44af1f-53a1-41d5-80ed-f07b11793d40,National Glass House,retail,29.82
+way/1087820285,"",leisure_tourism,27e7715e-b4e1-4263-bf04-8baa6ad6c03b,Math Tuition Classes - Cuemath,other,45.63
+way/1089884358,Rashtrakutas,sustenance,d06ca578-1c3d-472b-8f17-bd6db119f6dd,Rashtrakutas,sustenance,11.72
+way/1106630231,"",civic_religious,9d545227-b7b5-4ce3-b4af-ab3c8583f1dd,Sri Circle Mahaganapathi Temple,civic_religious,33.66
+way/1119221389,Bangalore Creative Circus,other,82ff857e-f5e8-4aa4-aa25-07ac137647a5,Bangalore Creative Circus,other,41.98
+way/1157119897,"",civic_religious,60471611-e3c0-445e-ab2d-10d1737f2137,Sri Maha Vishnu Vishwaroopam,civic_religious,21.21
+way/1180658039,Udupi Grand,sustenance,f5e62b77-ed1e-4631-a86c-b92429b3b4f3,Vandana Gardenia Restaurants,sustenance,10.39
+way/1193088448,"",other,cdbaa64d-0769-4363-af12-f5fe8bb1bc93,US Pizza,sustenance,28.33
+way/1023657481,"",education,d5680f2a-426b-4642-83b0-aec5cbd05795,Government Urdu Modern Higher Primary School,education,45.67
+way/1065072656,Indian Auto Gas,other,5b212867-a2e9-4754-8d80-35eb61bce38d,Meezan Furniture,other,24.99
+way/1070970723,Aishwarya Value Mart,retail,0490a168-a189-4ac1-8c93-ea7a406b984c,"Domino's Pizza | Kasavanahalli, Bangalore, Karnataka",sustenance,49.77
+way/1071262161,Bellandur Traffic Police Station,civic_religious,89388590-b256-40fa-96bd-836680d8b35e,Acn Healthcare RCM Services Pvt LTD,healthcare,21.87
+way/1071630512,CULT Fitness center,leisure_tourism,86fc7056-86a8-4c94-98dc-8bf253cd04a6,Fabco Premium Laundry,other,33.63
+way/1072948584,Iron Hill Bengaluru,sustenance,2886aa1c-4273-4137-98e4-6d8f3dfd8084,SGV Fashion Jewellery,other,27.37
+way/1089884358,Rashtrakutas,sustenance,86fc7056-86a8-4c94-98dc-8bf253cd04a6,Fabco Premium Laundry,other,28.86
+way/1097526523,Little Millenium Preschool,education,f78ffa91-72b3-4bd5-bd6c-c0b92ef7ac16,Workolix Healthcare Private Limited,other,35.94
+way/1106630231,"",civic_religious,de3956a0-a6d0-4f74-9fa6-bd16d46723d8,Shiva Temple,civic_religious,33.79
+way/1135846658,EuroSchool Whitefield,education,a5a686aa-213a-438b-a024-67625dfcc580,EuroSchool Whitefield - CBSE School,other,21.79
+way/1180658039,Udupi Grand,sustenance,733f230b-0af3-4977-b8ef-b165f17cee68,Quetzal Air Hostess & Hospitality Academy,other,11.17
+way/909240053,"",leisure_tourism,f023c1fa-f5df-4d30-a8a9-3d07f1d7c3f8,"Pizza Hut | Basaveshwar Nagar, Bangalore",sustenance,38.56
+way/909240054,"",leisure_tourism,f023c1fa-f5df-4d30-a8a9-3d07f1d7c3f8,"Pizza Hut | Basaveshwar Nagar, Bangalore",sustenance,38.95
+way/917838861,"",other,d4e4b6cd-c3ec-4363-949a-70f6781a0927,Biryani Bungalow,sustenance,39.45
+way/917838862,"",other,d4b29d29-c09c-4a92-ba8d-3401d9207ab3,Malabar Land Developers ,commercial_services,48.27
+way/1065072656,Indian Auto Gas,other,2d40a32b-df64-47ef-b734-dfda39d329f9,AK Power Tools,retail,13.66
+way/1066396961,Colive Palmer,hospitality,d4debab9-2b4e-47c4-b040-1f102536744c,Colive,commercial_services,37.77
+way/1070970723,Aishwarya Value Mart,retail,af12def9-6f96-4230-bf82-e781fba6ebb4,"Polar Bear, Kasavanahalli",sustenance,44.68
+way/1071262161,Bellandur Traffic Police Station,civic_religious,41a5907c-b44c-4282-b386-0f9f7b0d582b,Royal Enfield Showroom - Teknik Motorcycles,other,19.76
+way/1072948584,Iron Hill Bengaluru,sustenance,551108c9-794d-4a0e-9c30-1824f41dde01,Spicy House,sustenance,27.37
+way/1075362335,Motherhood Whitefield,healthcare,845e43d6-7140-4384-849d-68246b10135f,DGTG Marketing and Retail,retail,28.66
+way/1083566594,Al-Ameen Kambal Posh,education,ec74c7b3-4c9d-4d31-89ee-819340d32d03,AN Caterers,other,46.27
+way/1101376580,Indira Canteen,sustenance,4cb7e014-7c89-45f6-bd69-2175ba19d854,ITOrizon India Pvt Ltd,other,46.68
+way/1199532064,Bangalore One,commercial_services,cdb961ef-dccf-45dc-87aa-bb64affec473,Lakshmi Textiles,retail,40.19
+way/799457103,Canara Bank,financial,9e18d87a-04aa-4c24-bce8-4c0a957e2adc,Sanskrithi Foundation,education,41.51
+way/909240053,"",leisure_tourism,6b6ae063-d0b9-4cfc-9de7-d9c46679db66,HP India,retail,44.77
+way/909240054,"",leisure_tourism,6b6ae063-d0b9-4cfc-9de7-d9c46679db66,HP India,retail,41.73
+way/917838861,"",other,5c61706b-f3cb-4b73-a459-fbb22bd66cf8,Samvic Systems and Services Pvt. Ltd.,commercial_services,44.75
+way/917838862,"",other,c33660d8-65e2-4ce0-add2-cb8f170a020c,Lenskart.com Flagship Store,other,5.9
+way/961651327,"",education,98668a78-d590-4270-9a4f-bf0981ec1aeb,Access Pharma and Dental Supplies,other,40.05
+way/1066506652,St. Anthony's Church,civic_religious,4dfd8aa5-d8fc-4d7d-b142-df110018afc7,KMF Pouch Film Plant Milk Producers,other,48.05
+way/1071262161,Bellandur Traffic Police Station,civic_religious,38e1bbe8-64d0-4f02-a165-fd7581ac924f,Teknik Motorcycles,other,18.75
+way/1074881570,"",other,c8d3cb24-d017-4467-98a1-60a81b9f9f05,Wow! Momo,sustenance,37.25
+way/1075362335,Motherhood Whitefield,healthcare,0e962681-305b-4533-997a-35441e209fb8,Prestige EverGreen,commercial_services,36.69
+way/1083566591,Milan Hall,civic_religious,b41a1d4d-bebd-4349-ab09-42768879d2cd,Milan Hall,commercial_services,17.82
+way/1101376580,Indira Canteen,sustenance,1ab108a6-5348-4b52-9072-4312bdb1b1e1,WisdomTooths Consultancy LLP,commercial_services,44.99
+way/1121455997,Doddanekkundi BBMP Office,commercial_services,27c6d49c-5916-4763-9acd-64376a719d4e,Clove Dental,other,46.2
+way/1135846628,"",leisure_tourism,37373447-1541-4850-bddc-a3ba8019d399,Aisha Beauty Parlour,retail,49.78
+way/1199532064,Bangalore One,commercial_services,e07d8339-88ac-46cc-9e43-134d5b888822,Green Trends Sahakaranagar,retail,41.8
+way/1203069043,"",other,654871a1-1c45-4fd8-a33f-ec63c74c80a7,Dr. Anand KC Pediatric Oncologist Hematologist BMT Physician,other,46.14
+way/891226347,GTHPS Austintown,education,f8d51093-35a8-452d-8382-9aeb2e85cbe5,Kotak Mahindra Bank,other,41.36
+way/1075362335,Motherhood Whitefield,healthcare,81538a7d-5cd4-4bf8-8e72-16fecd8f7b99,Modern Realty,commercial_services,27.07
+way/1079506839,Bradford Aviation Academy,commercial_services,7af5e9df-c156-4ad3-84b7-e43498502e39,"ICICI Bank Bagalur, Bangalore-Branch & ATM",other,49.16
+way/1101376580,Indira Canteen,sustenance,4c9ce3a9-1b22-4c8b-9e49-570371968c41,Globalite,other,44.85
+way/1119921711,St. Ignatius Loyola Church,civic_religious,a2215882-5d7e-4107-9029-be819df909a9,St. Teresa's School,education,36.87
+way/1172708184,Shri Gundlu Muneshwara Swamy Devasthana,civic_religious,59bdb3a3-9aa8-45a3-9421-efc0ad657bee,Edupoint Kerala,other,32.46
+way/822175220,Sardar Vallabh Bhai Academy,commercial_services,902e1902-11b2-4e89-9637-df9d57ed89a4,Amarjyoti Apartment,leisure_tourism,48.08
+way/909240054,"",leisure_tourism,694c4a47-a2ae-4da8-90d5-62c9f8f3e9d3,Dreamz Design Studio,other,43.13
+way/1076876048,Mojatel by Icon,hospitality,de0755b4-e03e-4130-976d-d69b9d18e3a7,Karnataka School of Chess,education,49.8
+way/1086017970,"",hospitality,bc3aadb2-41c1-4e23-a730-1733c1c2aa53,Satakarni Restaurant,sustenance,38.25
+way/1101376580,Indira Canteen,sustenance,f397dae9-2c4e-46e5-aca6-0fbeb32581f5,Bridgekeys,commercial_services,44.7
+way/1125341518,"",other,d4d1c3d7-5187-4389-a5c9-3f5bb13e5121,Britannia Industries,other,45.57
+way/1155057714,"",other,80fa2f9e-04ce-4155-a0b8-c9f6d3d3240f,18th Maun Park,leisure_tourism,45.25
+way/1171722760,Sri Chandraprabhu Jain Temple,civic_religious,90f0ed15-acc9-49d0-aa1c-c59749f0bb1a,Bearys Acacia Lakeview Apartments,leisure_tourism,14.87
+way/909240054,"",leisure_tourism,870cb5ec-a9cc-4511-a339-f212ebed5a1d,President Dry Cleaners,other,47.7
+way/1084363602,Dhobi Ghat,retail,310305ea-cbc1-4e49-a536-be01bea5f7cb,Diamond Villa PG,hospitality,35.85
+way/1101376580,Indira Canteen,sustenance,a82466c4-12a3-49f9-81e9-6daa089d6289,Weba Technology Services Private Limited,other,41.77
+way/1207060125,"",leisure_tourism,cd3eb492-7343-49b7-a268-cd06adda02db,Feliz Studio,other,48.32
+way/817544806,"",other,7e1998d9-9e33-4753-a3d3-806374920f96,Value Bazaar,retail,29.22
+way/1065567994,Vijaya Kousalya,commercial_services,e20853bd-70e6-4073-8d5c-6cad1cfbb33d,Golden Palms Hotel and Spa,hospitality,24.84
+way/1070970723,Aishwarya Value Mart,retail,dfa709bf-eab8-4704-8336-b326fb72625b,"ICICI Bank-Kasavanahalli, Bangalore-Branch & ATM",other,28.42
+way/1052012963,Karnataka College of Pharmacy,education,c4becb1e-ee43-43d6-a12d-82550551c150,Santhosh Business Limited,retail,33.56
+way/1070970723,Aishwarya Value Mart,retail,788fd0b5-f19f-497d-8ea4-ec85f68e1a85,GD Goenka Health Academy (Best Paramedical Institute in Bangalore),other,40.51
+way/1084382246,Adugodi Traffic Police Station,civic_religious,7ad76277-64fb-459b-ba88-832307a8b088,Stonarts,other,48.92
+way/1101376580,Indira Canteen,sustenance,7d6aa174-6b1a-49a7-a8c7-e70d174eb176,Learn n Rise,other,29.23
+way/1151983204,"",other,a8b4eb0f-c576-4a97-b785-4cd9d4135e72,Vegbay,other,37.94
+way/1155059808,"",other,c7923f73-443f-48bd-8993-761d34139d15,India Post Office Koramangala VI Block,civic_religious,39.73
+way/1199489892,"",leisure_tourism,3c3ccea1-3776-4ddd-8461-d93fbe7a3607,Math Tuition Classes - Cuemath,other,46.48
+way/851795158,VVS Girls College,education,64e337f4-f88b-45b7-9581-80c2e2f98010,Play School,other,42.93
+way/917838862,"",other,b116eb66-ca46-4620-8a65-98020d7857e5,Indian Oil Corporation Ltd.,other,46.59
+way/1052012963,Karnataka College of Pharmacy,education,79255db7-27f5-4c58-ae4d-5fcf39379034,Karnataka College of Nursing,other,41.95
+way/1070970723,Aishwarya Value Mart,retail,302879ef-2ab2-4191-a9bc-1d92f00e8c1c,GymX,other,26.26
+way/1101376580,Indira Canteen,sustenance,f56b5275-0eb8-4a65-947e-9b50e288691d,Cloud Software Solution - Software Development and Digital Marketing Company,other,37.41
+way/897512106,"",other,4a81ca46-d6bf-4cb8-9a83-9a831da457f8,Johnson Market,sustenance,49.58
+way/917838862,"",other,3cd5d878-43f1-4f25-8af8-97d5ef3ae872,Rozana.app,other,45.72
+way/1070970723,Aishwarya Value Mart,retail,037e2f8f-ba7b-49d6-9fad-e5ab67600906,Specsmakers - Kasavanahalli,retail,31.52
+way/1071630512,CULT Fitness center,leisure_tourism,0f2da5c2-6b9b-435b-9d12-61ab4161834a,Ink for mee Tattoo Studio,other,43.5
+way/1099665394,Indian Oil,other,aa5d8995-1445-4587-aad0-da20043098c3,The Chocolate Room,sustenance,24.58
+way/1101376580,Indira Canteen,sustenance,f8992ceb-73b6-40be-981e-60f85832d934,Corporate Gift Club,other,33.86
+way/1149213001,Dr Agarwal's Eye Hospital,healthcare,e152df21-49e9-46d1-bb1d-a5deeb269bc8,Kaash,other,49.58
+way/1194928870,Mandava,retail,6814f4c2-4969-4be3-9c2b-336ee4f807a8,Testing Campus Infotech,other,34.04
+way/865340987,Xcel Travel,commercial_services,aa1f599a-1f5b-448f-a56e-44b49cfe3fe2,Wheelers Pride,commercial_services,46.27
+way/1028927427,Sakshara,commercial_services,36591d99-2b40-4826-8e12-71349b4096f3,Cakemaniac by soumya - Homebaker,sustenance,40.55
+way/1066943970,HP Petrol / Gas Station,other,6776bbf4-624a-4c9c-8d31-c3af64d1e923,Domino's Pizza,sustenance,49.94
+way/1070970723,Aishwarya Value Mart,retail,83fd8884-8a8b-470d-9098-750522b9fa80,Darjeeling Homemade momos,sustenance,37.04
+way/1071630512,CULT Fitness center,leisure_tourism,1f5f44f8-d6f0-47e0-b6e3-74f0bcecbf05,Sankalp Nethralaya and Polyclinic,other,27.93
+way/1089884358,Rashtrakutas,sustenance,1f5f44f8-d6f0-47e0-b6e3-74f0bcecbf05,Sankalp Nethralaya and Polyclinic,other,42.44
+way/1099665394,Indian Oil,other,8d3dc4bd-36eb-4e25-9a9d-3f1f4b7023b6,Holistic Homeopathy Clinic,other,25.16
+way/1101376580,Indira Canteen,sustenance,f3b4a602-49a3-490f-9e47-41b17895f8d0,Olympiad Helper,other,33.46
+way/1125877411,"",other,5865c9c5-1011-4f2b-a658-6d2d12a34a78,The Brothers of Holy Cross,other,35.31
+way/1147338815,"",leisure_tourism,a735305e-733e-4660-a215-84815e111aac,DeepBrainz AI & Labs,other,43.74
+way/1149213001,Dr Agarwal's Eye Hospital,healthcare,dfb847a5-11c4-46e2-ad6b-65c52be4ff69,Shantinagar Cemetery,other,40.32
+way/1193373907,"",other,919ea17c-3c1c-487e-a9dc-a2b43f87ab6a,Autoclan,other,45.47
+way/865340987,Xcel Travel,commercial_services,55aef2ad-e828-4444-8206-b99a7651b03f,Thiru Margadarshi Construction,other,40.62
+way/1028927427,Sakshara,commercial_services,3e050f03-f019-431e-ab79-6d56cf49382d,Lakshmi Electrical,retail,26.15
+way/1070970723,Aishwarya Value Mart,retail,cd5d93f6-cc9d-4c80-903a-4dbe1080cb2e,Kidz Club Kasavanahalli,commercial_services,34.58
+way/1071630512,CULT Fitness center,leisure_tourism,c7fe1ed6-87c8-437f-87fc-002b4c292461,Bottle Store,other,38.04
+way/1080541309,"",civic_religious,8c1803a8-fddf-4713-b61d-3b904658f9c4,Printech Solutions India  Pvt Ltd,other,30.29
+way/1084382251,Adugodi Police Station,civic_religious,293e5abf-a0a9-4334-b818-a82eb270dcdd,ICICI Bank,financial,40.93
+way/1097526523,Little Millenium Preschool,education,3e6914cd-ea30-4478-87a6-85adb7cd9048,Hive Preschool and Day Care,education,48.08
+way/1099665394,Indian Oil,other,8e4460bf-0142-4901-b970-442beb5c0a0e,Saahi Boutique | Designer Boutique,other,18.27
+way/1101376580,Indira Canteen,sustenance,f5e84d36-f1e8-4e43-a5c4-862de7ac3517,Bangalore Animation College,other,36.69
+way/1104753187,Rashtrotthana Arogya Sankeerna,leisure_tourism,d5cb2799-f2ae-42b0-8ca6-03ae406dca9d,HDFC Bank ATM,financial,45.37
+way/1147338815,"",leisure_tourism,b25efd0a-8039-4f4f-9f90-6ab8c91cd28d,Shri Jayamaruthi Temple,civic_religious,26.39
+way/1207646952,Amphitheater,leisure_tourism,8debe247-3e64-489b-a437-bb7e4120352a,Lenskart,other,46.11
+way/865340987,Xcel Travel,commercial_services,bb26962a-b8f3-43a2-9fde-9579ccc49f54,PMHS Physio Rehab Center,other,40.34
+way/1065072656,Indian Auto Gas,other,25fe5212-e514-45a5-97b7-c7713a9159ce,Thanisandra,leisure_tourism,48.53
+way/1071630512,CULT Fitness center,leisure_tourism,06e92ed3-1cb2-4e6f-9ade-f5ec24282478,MP Jewellers,retail,41.2
+way/1097526523,Little Millenium Preschool,education,5e126f80-290b-4b4b-8f45-5527245d997e,Sudha Reddy,other,36.48
+way/1099665394,Indian Oil,other,1fd57ed9-c90c-47c1-b39c-c7a54f41a5dc,IndianOil,other,17.46
+way/1101376580,Indira Canteen,sustenance,a6ab7c04-e45c-4230-9eb3-0d9a9b6f5fad,Milmila Tech India Pvt Ltd,other,26.2
+way/1149213001,Dr Agarwal's Eye Hospital,healthcare,b0bbfe80-f16e-4b00-89e4-0ef088465395,Doctor Aggarwal Eye Hospital,other,7.52
+way/865340987,Xcel Travel,commercial_services,c714a3eb-a2fa-4535-9acc-afba6c9e242e,PMHS Smart Health ,other,40.34
+way/1065072656,Indian Auto Gas,other,e77d2f12-4b50-4daa-890b-403a1da0dad9,Tata Motors Trucks,other,48.53
+way/1071630512,CULT Fitness center,leisure_tourism,3e2113b9-3037-4f64-acdf-35cbcfc9fd21,SVB Developers,commercial_services,45.69
+way/1080541309,"",civic_religious,d157e7e9-b161-4169-b365-b0b5df221c95,SellerGiants Pvt Ltd,other,37.3
+way/1099665394,Indian Oil,other,51785b1d-d32a-48ee-b6c0-f2067d6ccd40,Studio Eves,retail,29.21
+way/1101376580,Indira Canteen,sustenance,4c35beab-a940-41cc-8191-974e92f586e7,MilMila,other,26.2
+way/865340987,Xcel Travel,commercial_services,9138c3ea-3432-4770-a608-bebdda6d051f,London Pain Management Centre,healthcare,27.03
+way/1064840025,St Philomena's Parking Lot,other,b0916461-89f6-4c71-b03f-e1bc92f06c1c,"Alisa Dental Care | Dental Clinic in Richmond Town, Bangalore",other,41.93
+way/1070970723,Aishwarya Value Mart,retail,62ed4dc9-06f0-4a4e-b577-4e2878d27be3,KFC,sustenance,27.1
+way/1071630512,CULT Fitness center,leisure_tourism,ddd0cf98-1184-48ab-b4b7-90ad93111b50,cult.Fit,other,45.57
+way/1080541309,"",civic_religious,421da462-ff95-4dc0-bcf3-525baaa7464e,Brainyhub,other,36.19
+way/1099665394,Indian Oil,other,2d7be7b2-960c-42db-85c5-9a26cac67afc,The Color Factory,other,40.2
+way/1101376580,Indira Canteen,sustenance,56559c61-cbfa-4dec-a152-6a7159515f68,GoAbrigo Hospitalities,commercial_services,24.5
+way/1188254675,LOCL LOCAL Colive & Work,hospitality,a1d67fb8-5142-4f66-9799-c8304df84302,Mana Regency,leisure_tourism,42.16
+way/865340987,Xcel Travel,commercial_services,a6cac163-bd6c-42f8-8386-7c909a549f4a,Basha Departmental Stores,retail,28.56
+way/1080541309,"",civic_religious,56355122-8a0a-40f6-8031-f7867e0c24f5,AgilizTech Software Services,other,38.76
+way/1099665394,Indian Oil,other,07f3f793-8369-4118-aa40-c0e12160f99e,DevDen - A Metaverse (AR VR 3D) Content Creator Company,other,35.84
+way/1104753187,Rashtrotthana Arogya Sankeerna,leisure_tourism,49149dc4-fa48-4a52-b2d4-aa0a347329f2,Gynaaecare,other,49.58
+way/1124828992,"",other,62cbcd10-fd8b-47e5-9dfb-2a088df1dd32,Chick Inn,sustenance,39.02
+way/1053086130,Kendriya Vidhyalaya DRDO,education,b50966e7-5801-4d4c-8218-92e2fa73e1d1,Lipara By Ritika,other,49.93
+way/1064618417,"",other,022b9b84-b67b-44e1-8672-ef7ddb47ffc5,Krispy Kreme Doughnuts,other,46.02
+way/1089884374,"",other,e8fa3ebf-54b9-489a-bf9b-85a957a648b6,EZkirana,retail,48.08
+way/1101376580,Indira Canteen,sustenance,2c626968-5c50-4d55-8f16-1e3011a602f1,Grabstance Technologies Pvt Ltd,commercial_services,35.81
+way/1206400799,"",other,e8fa3ebf-54b9-489a-bf9b-85a957a648b6,EZkirana,retail,48.47
+way/865340987,Xcel Travel,commercial_services,10846cc4-3fa7-43a2-b7e3-8f60e2004444,Fresh flowers,other,47.23
+way/1089884374,"",other,b0556e5b-3cae-434b-abf0-08e41d71bc34,Sector 2,commercial_services,48.08
+way/1101376580,Indira Canteen,sustenance,f08c5c49-982c-4eaa-b2ed-8e1c0e600792,Excitel Broadband,retail,13.63
+way/1104753187,Rashtrotthana Arogya Sankeerna,leisure_tourism,2641808d-440e-4167-9a22-83714d9333e3,Aecs Dental,other,49.11
+way/1206400799,"",other,b0556e5b-3cae-434b-abf0-08e41d71bc34,Sector 2,commercial_services,48.47
+way/865340987,Xcel Travel,commercial_services,97889932-b76f-4f77-9cf7-d7753abfb45d,Healthmate Medical Services Pvt Ltd,other,46.58
+way/1067072819,Bharat Petroleum,other,960c120f-7442-404a-8a9b-4d47725914f3,Network Protocol Systems,commercial_services,45.85
+way/1080541309,"",civic_religious,f4cb075d-deb7-4335-8ff3-61fad25a3815,Sri Manjunatha Enterprises - Bharat Fuel,other,34.67
+way/1089884374,"",other,cc1500d8-0816-4bdc-8032-ad725f181e85,Reiki Rays.in,other,48.08
+way/1093290443,"",education,cd698d86-470d-4761-9092-d9f2c6b94d28,Alphonsa NAET Allergy Clinic,other,38.04
+way/1101376580,Indira Canteen,sustenance,ddec8b8d-a241-440e-905c-54d55057b1d4,EPrognoX Tech Pvt Ltd,other,39.66
+way/1113050872,"",leisure_tourism,bc6f9ebc-f0ba-4ae8-adbb-a80036ddb8e3,Fai Pharmaceuticals,other,46.65
+way/1193373907,"",other,0162b219-e560-4b9d-90ac-4e09f05eaba4,Infant Automobile Garrage,other,36.93
+way/1194928870,Mandava,retail,86243371-f0a5-43d0-b260-45b7408aa538,Ranav Group,commercial_services,48.64
+way/1206400799,"",other,cc1500d8-0816-4bdc-8032-ad725f181e85,Reiki Rays.in,other,48.47
+way/865340987,Xcel Travel,commercial_services,c79a221a-8c50-4eca-9402-71b289db2e6c,Dr. Nidhi's Dental,other,45.78
+way/917838861,"",other,d088246c-81ac-4d15-80db-8b50d2ee1c4a,Twinklezz Paediatric Therapy Center,healthcare,41.51
+way/1070970723,Aishwarya Value Mart,retail,aac2588e-61dc-4ac6-a50b-28d898006eb3,La Casa Brewery and Kitchen,other,46.92
+way/1078183230,Premier Suites Serviced Apartments,hospitality,51b51f13-2a1c-4e31-bcef-2388474762e2,Highsky Whitefield,hospitality,46.75
+way/1080541309,"",civic_religious,c0d11166-f3f0-49d7-9545-956f469ef810,Gradding - Study Abroad Consultants in Bangalore,other,36.62
+way/1101376580,Indira Canteen,sustenance,00dbccff-ee40-4865-be9d-bdffcd6797b5,Growton Martech,other,39.31
+way/1113050872,"",leisure_tourism,9365b4ed-271e-4633-9134-0eb15b8d3a2c,Sri Sai Mahakali Astrologer Remedy,other,42.58
+way/917838861,"",other,6fb0c492-f328-464d-975d-42d62c3e474f,Bhajarangi Multy gym,other,41.51
+way/1069253451,Carmel High School,education,2189e0f0-d94a-4ff7-9ed2-6d7ba52c542e,Plotprosper,commercial_services,48.54
+way/1080541309,"",civic_religious,ac076a19-4f23-4f82-8236-2f41277d801a,Roundtree Realty,financial,34.52
+way/1089884374,"",other,48c23e37-1d63-46e3-aa1e-0317ac075120,"RentoMojo | Rent Furniture, AC & Fridge, Washing Machine, TV & More in HSR - 2",other,34.57
+way/1101376580,Indira Canteen,sustenance,1ef2e0c9-597a-4863-b622-0d0d8d5a567d,Magalan Travel and Tours,other,39.75
+way/1080541309,"",civic_religious,6b6507e9-1cd0-4f6a-974e-f2c0bcd78316,Pawspace,other,34.59
+way/1089884374,"",other,7b7c1855-67e4-4d7b-9a4a-ed945f3cafee,Silk thread designers ,other,48.86
+way/1080541309,"",civic_religious,e5848d80-943e-44ed-9149-1872efc7b21a,Agratix,other,41.94
+way/1089884374,"",other,eac9a8fb-021f-4211-b2c8-af76d92d835c,Cloud Tutors by CTD,other,48.86
+way/1172683417,PMJ Jewelers,retail,b72054fb-172b-4dcb-b170-0fdd67deaf03,Panchkesari Badera,retail,16.27
+way/1099882755,Koramangala Police Station,civic_religious,2c3130b3-4325-4569-854c-a67038589bce,Sundari International Spa,other,41.43
+way/1089884374,"",other,b720c2f4-0e65-4c66-ab65-b2585f483226,Neo Nippon Paint (India) Private Limited,other,48.74
+way/1172683417,PMJ Jewelers,retail,67f2b7a3-7449-45e0-a4f2-fbe40790efbd,Cafe Coffee Day,sustenance,48.37
+way/1194928868,"",other,9cb5960c-26c9-4e0e-862d-c428639e2430,Paint My Walls,other,41.1
+way/1172683417,PMJ Jewelers,retail,7f44d82b-4315-44b1-8f58-dda9b439e181,Arth Farms,other,47.46
+way/990830460,"",leisure_tourism,5d568786-8ffe-4830-b281-9c7050f71de7,Karavali Bag Agency,other,47.31
+way/1066943970,HP Petrol / Gas Station,other,36f9ce85-298d-4bc1-aa13-3d8edef79176,HP Petrol Bunk Emission Testing,other,21.65
+way/1125669868,"",leisure_tourism,c94ed0a9-5732-4e8e-81ac-83cdca0cbb03,Jaded Siddappa and Company,commercial_services,47.1
+way/1199657417,Bangalore One,commercial_services,3aa735e5-4dc4-4148-997a-5d848bb9575f,Dr. Vishnuvardhana Park,leisure_tourism,41.7
+way/1199657419,"",other,3aa735e5-4dc4-4148-997a-5d848bb9575f,Dr. Vishnuvardhana Park,leisure_tourism,30.67
+way/803346374,Indira Canteen,sustenance,9b2e1b6c-8f36-4eb1-87e1-7f1110070486,Oven Theory Pizza,sustenance,40.28
+way/1125669868,"",leisure_tourism,d401e2d9-c828-4bc7-b26a-2c3696fd1154,Bank of Baroda ATM,financial,46.95
+way/1066868600,Sivanchetti Garden Post Office,civic_religious,9256a871-6c5a-4740-a65e-290fba5107ae,Idol Melodies Singing Academy ,other,43.28
+way/1084458372,Royal Oak,retail,a91910ef-78cd-4835-9dae-deea7b8eaa99,Hoodi Circle @ Whitefield,retail,46.94
+way/803346374,Indira Canteen,sustenance,f182ef15-658a-494a-9b71-9bcea5d3f8bf,Smartphone Garage,retail,44.75
+way/1068844251,"",other,8ab5b259-c217-44d6-8b43-9d697c1ad8c5,Jiva Spa,other,47.88
+way/803346374,Indira Canteen,sustenance,634709bf-2c63-44bf-8f31-26f1e8864113,Varalakshmi Hospital,healthcare,44.9
+way/1157218004,Shivajinagar Traffic Police Station,civic_religious,f220bf65-7699-43bb-a3a8-b0c274cabd9d,BBMP,civic_religious,47.4
+way/1078183230,Premier Suites Serviced Apartments,hospitality,7d4aba66-343e-4b19-94aa-8d3dcc010e7f,Family Fruits and Vegetables,other,13.84
+way/990830460,"",leisure_tourism,6aedf652-5874-4d03-997a-ab1cee0704ff,Veta Basavangudi,education,49.33
+way/1124828992,"",other,29e1eec7-b0af-4811-8c6c-d0885a34616d,A.S.Traders,other,38.77
+way/1067072819,Bharat Petroleum,other,2f77cebf-e5ab-41d8-8e70-f35379bf46e8,Maruthi Infotech Centre,commercial_services,47.99
+way/1125877411,"",other,4c4bb4bf-9add-4e54-bc03-db0f8a899baf,Jyothi Mahal,commercial_services,43.46
+way/1086335536,Prishti Pre School,education,566ebdea-9a7e-4869-aa93-ae8cb448183f,European Classics Home,other,41.87
+way/1066854627,RBANMS Middle School,education,682f41a2-d25e-4cf8-b716-6277ea454399,Ammas Pastries,sustenance,35.07
+way/1119196151,Prestige Srihari Khoday Centre for Performing Arts,leisure_tourism,39a906e1-b0fd-4cb3-8a6c-d6cc932536b0,Aurelia - Konanakunte,retail,44.93
+way/1125692662,"",other,5b4d40d9-8abd-4eee-8e0f-1c5c1d8029a3,OYO 9925 The Ocea International,hospitality,42.77
+way/1125692662,"",other,16889a89-712f-4a23-a90f-e5e2f2050139,St Antony's Shrine,other,44.47
+way/1194928868,"",other,686eb3fb-4d33-459c-8378-12c74601aa4e,Capital O 11903 Southern Hotels,other,47.59
+way/1082139631,Apollo Cradle,healthcare,986c2b5d-480d-43be-b79d-c6f41b7c7814,XGT Bangalore,other,37.71
+way/1125692662,"",other,21dbe66c-7214-4ad5-abdf-ca9ce0a090fe,Phones Captain,other,43.74
+way/1125692662,"",other,569b0686-61c1-4452-b4d9-d97aeff414fb,South Indian Bank,other,33.63
+way/1194928868,"",other,51ad2cdb-5631-4b76-b834-9fcfa63e3d96,Surgi World,other,46.17
+way/1082139631,Apollo Cradle,healthcare,6a67c7e2-a5e2-484b-ad1c-8111be67af59,Bellasot Pharmaceuticals,other,44.32
+way/1082139631,Apollo Cradle,healthcare,32d28fc6-9635-4983-9ddd-8adecd8d32cf,Dr. Mir Zeeshan Ali - Piles | Circumcision | Hernia | Bariatric Surgery | Hydrocele,other,44.14
+way/1082139631,Apollo Cradle,healthcare,6a657fad-5630-4fc9-b660-234d696d9c6c,Kyno Health | Home Visit Doctor & General Physician in Brookefield,retail,28.11
+way/1082139631,Apollo Cradle,healthcare,53f1068d-7ecd-460a-9342-5c531fca88c1,KAGS Funzone,other,41.2
+way/1125692662,"",other,139afe02-2819-4847-af55-95e65347273c,Nescafe,other,47.03
+way/1082139631,Apollo Cradle,healthcare,a000ef9c-1598-4c1f-887f-765b31258977,Brookefield Hospital,healthcare,47.28
+way/1125692662,"",other,79f00bda-c7a9-4db3-88ef-4b9f25d46395,Fusion LuX,other,47.34
+way/1125692662,"",other,37107967-76c1-4640-a841-fc58c6452d01,Pogo Travels,other,47.34
+way/1125692662,"",other,f87fd4c0-155a-4f78-806a-a51319490e2f,Middle East Travel and Tourism - India,other,47.34
+way/1125692662,"",other,4487b526-a2fc-445f-b3f2-a96720cc84f5,JD Institute of Fashion Technology - Brigade Road,other,47.34
+way/1154805390,Narayana,education,477a8ea2-cc8c-499b-b1e1-5d5a5b56d8fa,FitKube,other,40.06
+way/1113050872,"",leisure_tourism,12380d64-5123-4aef-b167-7958ed443e82,Sri Vignesh Naidu Hotel,sustenance,47.25
+way/1113050872,"",leisure_tourism,ebeb593a-da91-4574-9df6-16e29d0cfff4,Devanga Military HOTEL,hospitality,34.56
+way/1113050872,"",leisure_tourism,af13200b-703c-4993-84f6-e2c34029bfc4,Hi Life Batteries,retail,29.26
+way/1113050872,"",leisure_tourism,7d440eaf-ebfc-4ac0-84b3-829639c7d548,RK Gifts,retail,29.21
+way/1173114177,Naturals,sustenance,49cdae43-90b3-4fb2-ba1a-a070211d4f71,Plan B,sustenance,48.98
+way/1125877411,"",other,4c3ce163-f934-421e-9978-b351bf1d32ae,Bank of India Cantonment,other,44.03
+way/1066868600,Sivanchetti Garden Post Office,civic_religious,55a7bea5-cf16-493b-8cb2-54e366dc9efc,Sivanchetty Garden Post Office,civic_religious,17.35
+way/1047676478,"",other,815affb1-3443-4c70-92dd-2dbe810399f0,Lady Jehangir Kothari Memorial Hall,commercial_services,26.47
+way/1156198072,The Bangalore Parsee Zoroastrian Anjuman,civic_religious,815affb1-3443-4c70-92dd-2dbe810399f0,Lady Jehangir Kothari Memorial Hall,commercial_services,24.64
+way/1156198072,The Bangalore Parsee Zoroastrian Anjuman,civic_religious,3d43c907-ecca-4224-aa3d-949e16ab41ab,Karnataka State Khadi and Village Industries Boards,civic_religious,47.52
+way/1066868600,Sivanchetti Garden Post Office,civic_religious,3f0b8ba3-8071-4db6-a2a6-761a77a998eb,Sri Nagamma Devi Temple Trust (Reg),civic_religious,34.65
+way/1156198072,The Bangalore Parsee Zoroastrian Anjuman,civic_religious,462b8edb-041c-471c-932c-ebbfb4f0d875,Jagati Publications Pvt. Ltd.,other,47.52
+way/1064418710,5th Avenue Mall,retail,a33c8a27-b9a8-415f-9cc9-24331e22bbe8,Cafe Saranghae,sustenance,46.69
+way/1047676478,"",other,81e7f710-4622-498d-8120-bfda3c93ddf8,Balekundri Circle Indian Express,retail,35.08
+way/1093292149,Sacred Heart Nursery School,education,ab0338eb-36b2-4054-8fc3-64a18614179d,CerraGlobe,other,42.63
+way/1156198072,The Bangalore Parsee Zoroastrian Anjuman,civic_religious,81e7f710-4622-498d-8120-bfda3c93ddf8,Balekundri Circle Indian Express,retail,34.61
+way/1093292149,Sacred Heart Nursery School,education,65754cc4-f827-4514-83df-a3d56718cf22,South Asia Council Community and Children in Crisis,other,39.17
+way/1047676478,"",other,b2afb237-d40e-41d7-92bc-297c71c91b08,Y-Axis,commercial_services,27.74
+way/1156198072,The Bangalore Parsee Zoroastrian Anjuman,civic_religious,b2afb237-d40e-41d7-92bc-297c71c91b08,Y-Axis,commercial_services,30.63
+way/990830460,"",leisure_tourism,ee0d26df-42a3-4b0b-93d9-c621be54428f,Times and Trends,retail,48.38
+way/1036043470,New Horizon Public School,education,5722a50e-235e-4793-a5fe-3c663856c6cf,Eca,other,47.06
+way/1093292149,Sacred Heart Nursery School,education,43fa0ec1-afab-4e45-a03f-a863418f6a33,Gito Hubli,other,35.25
+way/1164638921,Swimming Pool Extension Park,leisure_tourism,a3928662-e26f-499f-8f80-7666e4651059,Mahaveer Hardware,retail,49.47
+way/1173114177,Naturals,sustenance,b8df3110-5e44-4455-8784-951976d45185,"Bodycraft Salon, Spa, & Clinic - New BEL Road",other,49.07
+way/1093292149,Sacred Heart Nursery School,education,ef4a1da4-7a9a-401b-b838-d8ed3b579f2e,Nirmala English Primary School,education,40.42
+way/1127579498,Stanza Living Brussels House,hospitality,48ab5c19-9e58-4631-962b-e9875669c3ea,Hidden Huts Dhaba,sustenance,40.73
+way/990830460,"",leisure_tourism,6c5e78e0-8a9e-4f4b-a2cd-02b14d069fd9,Vijay Darshan Collection,retail,40.52
+way/1127579498,Stanza Living Brussels House,hospitality,4bb78e0c-9ea0-4fa2-9fc2-aa29051692f1,Hampton Court Apartment,leisure_tourism,26.19
+way/990830460,"",leisure_tourism,dc8414ef-3eb8-46cb-8977-0c80acdbea87,VeePee HI-Fashion,other,40.03
+way/1127579498,Stanza Living Brussels House,hospitality,468095dd-aab4-4423-bf59-64eb1484c809,Sri Vinayaka Medical and General Stores,healthcare,35.05
+way/990830460,"",leisure_tourism,b6979224-dcd2-48f0-ac7c-0d5730d1c04d,Gokul,sustenance,32.2
+way/990830460,"",leisure_tourism,b8a61258-ae88-4b67-916c-2e36ede897bc,A to Z In Gifts,other,31.97
+way/1036043470,New Horizon Public School,education,d0d8ab9d-7000-404e-b305-5cd10aa281eb,Good Lines,other,45.88
+way/1036043470,New Horizon Public School,education,c8c01b2a-032c-4d29-a55b-ee4f00a84e2d,Stanley Boutique,other,45.57
+way/1089884374,"",other,e0877f28-6577-475b-96f6-4f0d97ce81d1,"Clara Dental, HSR Layout",other,28.76
+way/1071446000,Atal Bihari Vajpayee Sports Complex,leisure_tourism,1cb70472-b56f-4108-a09a-d6f93dbb292f,New HSR Ground,other,13.47
+way/1089884374,"",other,1cb70472-b56f-4108-a09a-d6f93dbb292f,New HSR Ground,other,28.55
+way/1089884375,"",other,1cb70472-b56f-4108-a09a-d6f93dbb292f,New HSR Ground,other,21.87
+way/1071446000,Atal Bihari Vajpayee Sports Complex,leisure_tourism,6d9afea8-2c41-4734-a83f-5e9d727c4f41,HSR Play Ground,other,13.47
+way/1089884374,"",other,6d9afea8-2c41-4734-a83f-5e9d727c4f41,HSR Play Ground,other,28.55
+way/1089884375,"",other,6d9afea8-2c41-4734-a83f-5e9d727c4f41,HSR Play Ground,other,21.87
+way/867500409,SFGC Hostel,hospitality,c868761f-4252-484b-9344-9e171db5f456,Geojit Financial Services Limited,other,48.48
+way/1072561557,Godess PG For Ladies,hospitality,3161cb14-b188-4ec4-94ee-6d83a03393a2,Capital O 35572 La Brook,hospitality,45.43
+way/1150343714,Gunjur Palya Children's Park,leisure_tourism,865bcaa6-646b-4ceb-978f-610591dee040,Redeemer Evangelical Assembly of God Prayer House,other,31.02
+way/867500409,SFGC Hostel,hospitality,4f281114-54c8-4d50-a1a2-4474701f367b,India Design Institute Yelahanka,other,49.44
+way/1071262161,Bellandur Traffic Police Station,civic_religious,f7890def-c971-4d1e-b939-30153452945f,MecHa Motors,other,48.05
+way/1065567994,Vijaya Kousalya,commercial_services,beb1f4e1-73ca-401a-a92b-73be7dcd5894,Fortue Trading Academy: Stock Market Training,other,47.67
+way/1071262161,Bellandur Traffic Police Station,civic_religious,454acb55-d6c9-4851-842f-c52137d167b4,Royal Enfield Teknik Motorcycles Service Centre,other,24.16
+way/892243909,"",other,4d1ee2ab-fd70-4559-8931-1a0d29957f97,Excitel Broadband,retail,43.95
+way/1093292155,Sacred Heart Girls' High School,education,de79c5d9-c17c-4d5b-a2b8-ab4ec2b2ded6,Reliance Digital,retail,46.38
+way/1087693700,"",other,19d44ccc-78e7-48d7-99f9-a5902f748980,Excitel Broadband,retail,40.65
+way/1125669871,"",other,0aff3634-0ae8-4024-908e-8396aefaa226,Lakshman Rao Park,leisure_tourism,42.7
+way/1193082966,Zodiac Bar and Kitchen,sustenance,76af5f28-bf85-425d-8b72-8c86427130bb,FYS Unisex Salon,retail,39.11
+way/1193082966,Zodiac Bar and Kitchen,sustenance,1ea8cd09-483a-445e-b4cd-19ca98935270,Indiqsoft Solutions,other,39.76
+way/1089884368,Phoenix Hospital,healthcare,4aed93d5-efec-4239-9724-8bf425ef3c65,Virgio Experiences,other,44.18
+way/1193082966,Zodiac Bar and Kitchen,sustenance,e4ca78e2-f0ac-41ac-9b2b-d15a1937c579,Hoffmann Bewirtung India,commercial_services,49.95
+way/1089884368,Phoenix Hospital,healthcare,18f8f861-24da-4331-b49d-29cf5dd98b03,Amodira,other,44.18
+way/1193082966,Zodiac Bar and Kitchen,sustenance,673d9d57-19e0-4bab-add4-2fc99035665c,3M Car Care,other,45.67
+way/1089884368,Phoenix Hospital,healthcare,88390676-000a-4350-b8a2-e40b8359ad18,Beyond The Curve ,other,44.18
+way/1089884368,Phoenix Hospital,healthcare,877fbc6d-be59-465a-ba9f-d02a2895bd8e,Shree Muthahalli Party Hall,commercial_services,38.32
+way/1089884368,Phoenix Hospital,healthcare,eed07716-b236-4703-9690-2c4b1c83cdce,Lapis & Oak Spa and Health - Bangalore - HSR Layout,other,47.98
+way/1193082966,Zodiac Bar and Kitchen,sustenance,c5a30c3b-f39f-4866-b012-641f37cfc355,Saroj Square,commercial_services,47.21
+way/1193082966,Zodiac Bar and Kitchen,sustenance,53798040-26c5-4a3e-a1bd-57d879d21a34,Satva Fitness,other,47.23
+way/1172683417,PMJ Jewelers,retail,c8221793-1cc6-4207-a87a-db3175a5cc7b,Sri Varalakshmi Electricals and Electronics,retail,44.55
+way/1193082966,Zodiac Bar and Kitchen,sustenance,ec576766-8a1a-4765-8f98-1dca10bb3144,Institute of Baking and Cake Art,retail,46.57
+way/1047676476,BBMP PU College,education,3294e4b6-293c-482b-9c72-45151cfa0e06,CloudTailor Shivaji Nagar,other,45.57
+way/1077580399,"Government Lower Primary School, Thubarahalli",education,b8cd1092-2ac2-4b24-b8e6-284bb023da3e,Health and Glow,other,47.37
+way/1047676476,BBMP PU College,education,3e4fb89f-d465-49dd-ae23-b51278e6ef98,Bhuvaneswari Lines and Logistics,other,46.03
+way/1099665394,Indian Oil,other,c1588bf1-894f-44a7-b72b-4921f500d911,Farm Fresh,sustenance,35.26
+way/1099665394,Indian Oil,other,24eab72c-8ed9-41c9-bd99-109826b11b62,Opto Galaxy,retail,49.14
+way/1099665394,Indian Oil,other,c9fb27cd-699d-4d08-b592-9579abaa81c3,Kings Realtors,commercial_services,40.53
+way/1127578173,Stanza Living Seattle House,hospitality,4bb78e0c-9ea0-4fa2-9fc2-aa29051692f1,Hampton Court Apartment,leisure_tourism,47.83
+way/1127578173,Stanza Living Seattle House,hospitality,468095dd-aab4-4423-bf59-64eb1484c809,Sri Vinayaka Medical and General Stores,healthcare,49.6
+way/791095271,"",other,9cedbef2-1e86-40a0-a0f9-dbe55f74481c,Natural Ice Cream,other,43.93
+way/796463146,Sampangi Tank Park,leisure_tourism,597ff0fd-98a8-40b4-981a-ca1dc048d6d0,Thogata Veera Kshatriya Sangha,commercial_services,46.8
+way/796463148,Stracey Memorial High School,education,fe7ab2b7-3e56-4d85-a5e5-45cc9527e9a2,Bookflightstrip,other,31.43
+way/917838861,"",other,0b9e6c2d-1470-4938-9159-9993f8a670a8,Ujjivan Small Finance Bank - Sarjapur Road Branch,other,33.57
+way/926854577,"",other,77af8cff-35d8-445a-b2f3-becc50ea88f1,Cosmopolitan Club,other,40.07
+way/955012326,Wine House,retail,928a5729-881b-49c6-883c-d7ab0f6f6418,New National PU College,other,43.72
+way/995864557,RG Royal Convention Hall,civic_religious,c8a5ebcc-6f3f-44a7-a7ad-e041b2502135,Sash Sky,other,42.9
+way/997966839,"",other,f402ac12-713d-445f-ba08-f6e492516cfe,Primrose Women's Clinic,other,15.18
+way/1033609970,"",other,6d6e94f3-8469-427b-9d8d-366d5c14c9ba,KFC,sustenance,46.83
+way/1039668741,"",other,67abf1c2-54c6-4238-901d-09f1b6ce7493,Barco Electronic Systems Pvt. Ltd.,other,34.74
+way/1040899005,Aster CMI Hospital,healthcare,4406b1d4-f3e9-4216-a77d-0d20d5b7842c,Subway,sustenance,46.53
+way/1041053814,Coolulu TurfPark Sports,leisure_tourism,173dfcd8-71a0-4437-b8c1-04f060976359,NAMMA Training,other,41.98
+way/1051886124,"",leisure_tourism,b4af235b-2ae4-464a-b57d-60179ff46c9a,Wink Salon and Spa,retail,40.34
+way/1051886139,Wesley English Church,civic_religious,ab1625e0-7e16-4cdc-b32b-b955d9cdb695,Property Management,commercial_services,48.82
+way/1053086135,"",leisure_tourism,bc405325-af05-450b-a208-bed072c94c6c,Bhuvaneshwari Shiva Temple,civic_religious,32.42
+way/1066006344,Shell,other,5ae1fdd8-70b4-4be0-8cd5-bf1993114d11,Shell,other,8.98
+way/1068844251,"",other,fdde18be-e4b2-47e8-a8a8-f2c9e14be824,Lakme Absolute Salon,retail,44.29
+way/1069253452,Carmel PUC,education,769fca0f-30a9-4e18-b417-b2675f5d78b0,Sampada Homestay,hospitality,47.51
+way/1078862118,"",other,920d4fda-3628-4524-b92d-cd5773179152,Main Building IISc,other,24.81
+way/1083590220,"",civic_religious,d03d406b-0a27-43a7-b754-f55200d9f740,AKR School of Art,other,10.85
+way/1085949509,"",other,de37d7a6-ec82-4f18-a7b2-2f841f14632e,Cognizant,other,39.27
+way/1085949518,"",other,de37d7a6-ec82-4f18-a7b2-2f841f14632e,Cognizant,other,49.36
+way/1089884377,"",other,28985e04-8405-4322-9aba-9874b9191eca,BBMP Playground,other,32.36
+way/1092668717,Karnataka State Agricultural Produce Processing and Export Corporation Limited,commercial_services,599b7f7a-0721-4e9c-a9bb-0444c8b37368,smallcase,financial,47.1
+way/1099659545,Nandini,retail,b801fd7b-7bce-4f7c-9396-fe0fef6258f5,Write Wing Media,other,40.79
+way/1116445058,"",other,7e45cdd1-a4ea-41b6-8043-7127509a40ba,"NMR Research Centre, Indian Institute of Science, Bengaluru.",other,36.18
+way/1119921719,BBMP Dry Waste Collection Centre,other,53e5dafa-6f13-44f5-befd-f070e1213f64,Excitel Broadband,retail,45.7
+way/1124838112,IndiQube Penta,commercial_services,599b7f7a-0721-4e9c-a9bb-0444c8b37368,smallcase,financial,20.21
+way/1135846653,"",other,04dc357f-f47f-40ad-8d71-ce7bd53f4444,SLS Square,leisure_tourism,34.73
+way/1160844600,Mukhtar Manzil Convention Hall,civic_religious,f34b15ec-c56b-4e42-b7eb-450cec2b0b60,Masjid-E-Khadria,other,45.8
+way/1173114174,Sri Manjunatha Condiments,retail,2aa0fa55-f6dc-44ab-81fa-97f31212e5f0,GVK Edutech Bangalore,other,36.15
+way/1184849335,"",leisure_tourism,b0496274-1b29-44ef-a741-4d90528a3982,L M Enterprises,retail,32.62
+way/1184849340,Press Club,commercial_services,b0496274-1b29-44ef-a741-4d90528a3982,L M Enterprises,retail,27.92
+way/1187678803,"",other,b1b9c1a4-1a87-4b65-89f6-a96466d7be46,Essentials spa & salon,retail,42.1
+way/1193373906,Bharat Petroleum,other,b500081f-7c36-4ce4-99cc-de7757ac2d04,WudBell Interiors,other,46.85
+way/1195527478,"",other,47594f80-7515-4622-a188-397d0d1c1225,IISc Statistical Signal Processing Lab,other,37.8
