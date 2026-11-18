@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "timestamp": "2026-11-18T12:37:46Z"
+  },
+  "ambiguity_analysis": {
+    "total_ambiguous_clusters": 1658,
+    "conflict_counts_by_type": {
+      "COMPETING_HIGH_SCORE_EDGES": 1578,
+      "CATEGORY_CONTRADICTION": 12,
+      "EXCESSIVE_GEOGRAPHIC_SPREAD": 32,
+      "MULTIPLE_BRANCHES_SAME_BRAND": 0,
+      "PARENT_CHILD_RELATION": 0,
+      "SAME_BUILDING_DISTINCT_BUSINESSES": 0,
+      "TRANSITIVE_BRIDGE_EDGE": 1773
+    },
+    "total_review_items_queued": 1033,
+    "priority_tier_counts": {
+      "priority_1_category_contradiction": 12,
+      "priority_2_competing_edges": 989,
+      "priority_3_excessive_spread": 32
+    }
+  }
+}

@@ -1,0 +1,1394 @@
+{
+  "schema_version": "1.0.0",
+  "policy_version": "canonical_resolution_v1",
+  "sample_count": 40,
+  "samples": [
+    {
+      "canonical_entity_id": "a84bb162-2df7-5ddb-9a41-e3b9cfcf9095",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/14247233587"
+      ],
+      "contributing_ov_ids": [
+        "00088e0e-a18c-4289-a094-1d8a2c9a04e4"
+      ],
+      "primary_name": "Cafe Coffee Club",
+      "source_names": {
+        "OSM": [
+          "Cafe Coffee Club"
+        ],
+        "OVERTURE": [
+          "Coffee Club"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OSM": [
+          "sustenance"
+        ],
+        "OVERTURE": [
+          "sustenance"
+        ]
+      },
+      "latitude": 13.0036718,
+      "longitude": 77.662791,
+      "utm_x": 788846.5294375698,
+      "utm_y": 1439052.862317996,
+      "cluster_id": "CLUSTER-000001",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "1:1 Equivalence: Score=0.70, Dist=16.3m",
+        "Categories: OSM='sustenance', Overture='sustenance'"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "5e933ed4-825b-5629-bc39-7847f8219c88",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/11468397654"
+      ],
+      "contributing_ov_ids": [
+        "000a3f7f-225c-42e2-b1d8-3fa04c3b7e64"
+      ],
+      "primary_name": "Lili Ladies Beauty Parlour",
+      "source_names": {
+        "OSM": [
+          "Lili Ladies Beauty Parlour"
+        ],
+        "OVERTURE": [
+          "Li Li Beauty Parlour"
+        ]
+      },
+      "primary_category": "retail",
+      "source_categories": {
+        "OSM": [
+          "retail"
+        ],
+        "OVERTURE": [
+          "retail"
+        ]
+      },
+      "latitude": 12.9103781,
+      "longitude": 77.6099068,
+      "utm_x": 783211.8283117982,
+      "utm_y": 1428666.7235261917,
+      "cluster_id": "CLUSTER-000002",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "1:1 Equivalence: Score=0.81, Dist=8.2m",
+        "Categories: OSM='retail', Overture='retail'"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "e5b34d9a-c91a-5be3-a8ff-a4fb556d96f4",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "way/169825730"
+      ],
+      "contributing_ov_ids": [
+        "00174e8d-b80d-4e51-975f-e6c693096400"
+      ],
+      "primary_name": "Sapna Book House",
+      "source_names": {
+        "OSM": [
+          "Sapna Book House"
+        ],
+        "OVERTURE": [
+          "Sapna Book House"
+        ]
+      },
+      "primary_category": "retail",
+      "source_categories": {
+        "OSM": [
+          "retail"
+        ],
+        "OVERTURE": [
+          "other"
+        ]
+      },
+      "latitude": 12.97640902,
+      "longitude": 77.57817852,
+      "utm_x": 779693.0253140168,
+      "utm_y": 1435940.629775642,
+      "cluster_id": "CLUSTER-000005",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "1:1 Equivalence: Score=0.76, Dist=23.0m",
+        "Categories: OSM='retail', Overture='other'"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "4fb5d249-88c5-537d-91a9-3a2bbbfcd6bd",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/4516854289"
+      ],
+      "contributing_ov_ids": [
+        "00427e9a-a9a3-45db-a5e6-7b80b794ec17"
+      ],
+      "primary_name": "Royal Mart",
+      "source_names": {
+        "OSM": [
+          "Royal Mart"
+        ],
+        "OVERTURE": [
+          "Royalmart Super Market"
+        ]
+      },
+      "primary_category": "retail",
+      "source_categories": {
+        "OSM": [
+          "retail"
+        ],
+        "OVERTURE": [
+          "retail"
+        ]
+      },
+      "latitude": 12.985304,
+      "longitude": 77.4798633,
+      "utm_x": 769011.5952856613,
+      "utm_y": 1436819.2802811707,
+      "cluster_id": "CLUSTER-000012",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "1:1 Equivalence: Score=0.73, Dist=8.0m",
+        "Categories: OSM='retail', Overture='retail'"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "8f40cd36-dc59-503b-b658-1519b2d5a602",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/11303765166"
+      ],
+      "contributing_ov_ids": [
+        "004aa85c-dec5-428f-888f-0d92ffa886e7"
+      ],
+      "primary_name": "Chetan Hardware",
+      "source_names": {
+        "OSM": [
+          "Chetan Hardware"
+        ],
+        "OVERTURE": [
+          "Nandi hardware"
+        ]
+      },
+      "primary_category": "retail",
+      "source_categories": {
+        "OSM": [
+          "retail"
+        ],
+        "OVERTURE": [
+          "retail"
+        ]
+      },
+      "latitude": 12.906458,
+      "longitude": 77.5899535,
+      "utm_x": 781049.6551792234,
+      "utm_y": 1428210.8347725389,
+      "cluster_id": "CLUSTER-000015",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "1:1 Equivalence: Score=0.71, Dist=6.1m",
+        "Categories: OSM='retail', Overture='retail'"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "6df7f173-07f4-54c7-ab51-92a2fe495396",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "way/38832006"
+      ],
+      "contributing_ov_ids": [
+        "0055a82b-da27-4333-a44d-b0174b9d5e08"
+      ],
+      "primary_name": "Kendriya Vidyalaya Malleswaram",
+      "source_names": {
+        "OSM": [
+          "Kendriya Vidyalaya Malleswaram"
+        ],
+        "OVERTURE": [
+          "Kendriya Vidyalaya Malleshwaram"
+        ]
+      },
+      "primary_category": "education",
+      "source_categories": {
+        "OSM": [
+          "education"
+        ],
+        "OVERTURE": [
+          "education"
+        ]
+      },
+      "latitude": 13.009384514285713,
+      "longitude": 77.56864975714286,
+      "utm_x": 778621.8569057205,
+      "utm_y": 1439580.142990256,
+      "cluster_id": "CLUSTER-000018",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "1:1 Equivalence: Score=0.74, Dist=21.4m",
+        "Categories: OSM='education', Overture='education'"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "c204ccb7-b726-5837-8ef3-622d98af5780",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/11290812041"
+      ],
+      "contributing_ov_ids": [
+        "00630d86-c5f0-4f16-965f-545653e68ba1"
+      ],
+      "primary_name": "Third Wave Coffee",
+      "source_names": {
+        "OSM": [
+          "Third Wave Coffee"
+        ],
+        "OVERTURE": [
+          "Third Wave Coffee"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OSM": [
+          "sustenance"
+        ],
+        "OVERTURE": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.9136855,
+      "longitude": 77.6051806,
+      "utm_x": 782694.9257406828,
+      "utm_y": 1429027.5950476318,
+      "cluster_id": "CLUSTER-000023",
+      "cluster_pattern": "MANY_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Dominant star edge resolved: Score=1.00, Margin=0.36 over runner-up (0.64)"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "0a6f9dcf-df95-5e0a-91f9-9bd9c789e30c",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/1474819896"
+      ],
+      "contributing_ov_ids": [
+        "007bcc0d-f2a4-4ae8-87a0-025a0f7c7eb2"
+      ],
+      "primary_name": "Citi Hospital",
+      "source_names": {
+        "OSM": [
+          "Citi Hospital"
+        ],
+        "OVERTURE": [
+          "Citi Hospital"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OSM": [
+          "healthcare"
+        ],
+        "OVERTURE": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.9956506,
+      "longitude": 77.5510696,
+      "utm_x": 776729.028521625,
+      "utm_y": 1438040.7943679332,
+      "cluster_id": "CLUSTER-000025",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "1:1 Equivalence: Score=1.00, Dist=8.4m",
+        "Categories: OSM='healthcare', Overture='healthcare'"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "c2cf81d6-d885-56ff-9fc9-82b3e317b821",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/6938912267"
+      ],
+      "contributing_ov_ids": [
+        "00a53526-d97c-4850-bca0-72ed46ee6c7c"
+      ],
+      "primary_name": "Sunayana Eye Hospital",
+      "source_names": {
+        "OSM": [
+          "Sunayana Eye Hospital"
+        ],
+        "OVERTURE": [
+          "Sunayana Eye Hospital"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OSM": [
+          "healthcare"
+        ],
+        "OVERTURE": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.9255233,
+      "longitude": 77.5937748,
+      "utm_x": 781443.2127990373,
+      "utm_y": 1430325.3352986206,
+      "cluster_id": "CLUSTER-000031",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "1:1 Equivalence: Score=1.00, Dist=12.4m",
+        "Categories: OSM='healthcare', Overture='healthcare'"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "8bf26678-67c4-55a6-9023-90367da68314",
+      "resolution_decision": "RESOLVED_EQUIVALENCE",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/6771722367"
+      ],
+      "contributing_ov_ids": [
+        "00bb0161-ac6f-4c76-834c-76b58ff73063"
+      ],
+      "primary_name": "Gayathri Sweets",
+      "source_names": {
+        "OSM": [
+          "Gayathri Sweets"
+        ],
+        "OVERTURE": [
+          "Gayatri Sweets"
+        ]
+      },
+      "primary_category": "retail",
+      "source_categories": {
+        "OSM": [
+          "retail"
+        ],
+        "OVERTURE": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.9747854,
+      "longitude": 77.6786161,
+      "utm_x": 790597.9131416245,
+      "utm_y": 1435873.2949444607,
+      "cluster_id": "CLUSTER-000036",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "1:1 Equivalence: Score=0.76, Dist=7.7m",
+        "Categories: OSM='retail', Overture='sustenance'"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "da0f2d49-d549-5b75-aa24-c48548bd3cd9",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/10571082049"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Bulwark Authorized Motorcycle Riding Gears",
+      "source_names": {
+        "OSM": [
+          "Bulwark Authorized Motorcycle Riding Gears"
+        ]
+      },
+      "primary_category": "retail",
+      "source_categories": {
+        "OSM": [
+          "retail"
+        ]
+      },
+      "latitude": 12.9905041,
+      "longitude": 77.5580505,
+      "utm_x": 777492.4633500767,
+      "utm_y": 1437478.7510947345,
+      "cluster_id": "CLUSTER-000003",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "1b88b614-bc12-54a1-82c6-8c4be6eb711c",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "000cf1c4-5472-4413-af87-8390fe8b6e98"
+      ],
+      "primary_name": "Nursery Teacher Training",
+      "source_names": {
+        "OVERTURE": [
+          "Nursery Teacher Training"
+        ]
+      },
+      "primary_category": "education",
+      "source_categories": {
+        "OVERTURE": [
+          "education"
+        ]
+      },
+      "latitude": 12.99053765,
+      "longitude": 77.55799406,
+      "utm_x": 777486.2998691569,
+      "utm_y": 1437482.4030851696,
+      "cluster_id": "CLUSTER-000003",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "a4338a67-10dd-5737-afe6-60d4c6187c75",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "way/477485293"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "CSI KCD Memorial Church",
+      "source_names": {
+        "OSM": [
+          "CSI KCD Memorial Church"
+        ]
+      },
+      "primary_category": "civic_religious",
+      "source_categories": {
+        "OSM": [
+          "civic_religious"
+        ]
+      },
+      "latitude": 12.97115695,
+      "longitude": 77.74978273571428,
+      "utm_x": 798328.2755113563,
+      "utm_y": 1435553.8572577527,
+      "cluster_id": "CLUSTER-000004",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "ad237edc-cc2a-57af-8df6-ff0fbfb5b00c",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "00120262-092f-4d18-9664-6ec54d39c7df"
+      ],
+      "primary_name": "Memorial Church",
+      "source_names": {
+        "OVERTURE": [
+          "Memorial Church"
+        ]
+      },
+      "primary_category": "other",
+      "source_categories": {
+        "OVERTURE": [
+          "other"
+        ]
+      },
+      "latitude": 12.97110864,
+      "longitude": 77.74972409,
+      "utm_x": 798321.9661749757,
+      "utm_y": 1435548.4406332253,
+      "cluster_id": "CLUSTER-000004",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "13098ebf-3c4a-5096-8b99-ee97c733da22",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/5820280254"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Bangalore World Trade Center",
+      "source_names": {
+        "OSM": [
+          "Bangalore World Trade Center"
+        ]
+      },
+      "primary_category": "leisure_tourism",
+      "source_categories": {
+        "OSM": [
+          "leisure_tourism"
+        ]
+      },
+      "latitude": 13.0122926,
+      "longitude": 77.5562115,
+      "utm_x": 777268.6296001885,
+      "utm_y": 1439888.4268570037,
+      "cluster_id": "CLUSTER-000006",
+      "cluster_pattern": "AMBIGUOUS_CLUSTER",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": [
+        "Competing edges with close scores (2)",
+        "Contains hard-rejected candidate edges between members"
+      ]
+    },
+    {
+      "canonical_entity_id": "54de321c-9f99-5174-a10d-0e8fdba20f67",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/8294027508"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Consulate General of Canada",
+      "source_names": {
+        "OSM": [
+          "Consulate General of Canada"
+        ]
+      },
+      "primary_category": "commercial_services",
+      "source_categories": {
+        "OSM": [
+          "commercial_services"
+        ]
+      },
+      "latitude": 13.0122776,
+      "longitude": 77.556274,
+      "utm_x": 777275.429647691,
+      "utm_y": 1439886.8347555287,
+      "cluster_id": "CLUSTER-000006",
+      "cluster_pattern": "AMBIGUOUS_CLUSTER",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": [
+        "Competing edges with close scores (2)",
+        "Contains hard-rejected candidate edges between members"
+      ]
+    },
+    {
+      "canonical_entity_id": "18b6ae7f-26b2-565b-a5dc-803c03321a4f",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "001803d8-5904-4a0c-8cb3-b088b81c41d5"
+      ],
+      "primary_name": "Amazon, World Trade Center, Bangalore",
+      "source_names": {
+        "OVERTURE": [
+          "Amazon, World Trade Center, Bangalore"
+        ]
+      },
+      "primary_category": "other",
+      "source_categories": {
+        "OVERTURE": [
+          "other"
+        ]
+      },
+      "latitude": 13.012251083772059,
+      "longitude": 77.55597505399318,
+      "utm_x": 777243.0134256955,
+      "utm_y": 1439883.5736436206,
+      "cluster_id": "CLUSTER-000006",
+      "cluster_pattern": "AMBIGUOUS_CLUSTER",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": [
+        "Competing edges with close scores (2)",
+        "Contains hard-rejected candidate edges between members"
+      ]
+    },
+    {
+      "canonical_entity_id": "4fb9d485-d982-56b4-a8b9-66ae4b10115d",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "1fedc669-087a-4aa1-b133-ed78114fd7c5"
+      ],
+      "primary_name": "Cluny convent high school, Malleswaram, Bangalore ",
+      "source_names": {
+        "OVERTURE": [
+          "Cluny convent high school, Malleswaram, Bangalore "
+        ]
+      },
+      "primary_category": "education",
+      "source_categories": {
+        "OVERTURE": [
+          "education"
+        ]
+      },
+      "latitude": 13.012179835376145,
+      "longitude": 77.55614253820707,
+      "utm_x": 777261.2703821319,
+      "utm_y": 1439875.870159418,
+      "cluster_id": "CLUSTER-000006",
+      "cluster_pattern": "AMBIGUOUS_CLUSTER",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": [
+        "Competing edges with close scores (2)",
+        "Contains hard-rejected candidate edges between members"
+      ]
+    },
+    {
+      "canonical_entity_id": "9eb064d2-610a-5486-8373-09f9aae86993",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "ba97cb18-5d28-4dc7-a404-c2c0dbd10eb9"
+      ],
+      "primary_name": "NazzTec Private Limited",
+      "source_names": {
+        "OVERTURE": [
+          "NazzTec Private Limited"
+        ]
+      },
+      "primary_category": "commercial_services",
+      "source_categories": {
+        "OVERTURE": [
+          "commercial_services"
+        ]
+      },
+      "latitude": 13.0122879,
+      "longitude": 77.55622682,
+      "utm_x": 777270.2975661834,
+      "utm_y": 1439887.9233470599,
+      "cluster_id": "CLUSTER-000006",
+      "cluster_pattern": "AMBIGUOUS_CLUSTER",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": [
+        "Competing edges with close scores (2)",
+        "Contains hard-rejected candidate edges between members"
+      ]
+    },
+    {
+      "canonical_entity_id": "4959ebd1-d95d-5e5c-9236-26070dad8b14",
+      "resolution_decision": "UNRESOLVED_AMBIGUOUS",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "d688b86d-8ca2-492e-9858-9a85e6e6d163"
+      ],
+      "primary_name": "Hamza Consultancy Services",
+      "source_names": {
+        "OVERTURE": [
+          "Hamza Consultancy Services"
+        ]
+      },
+      "primary_category": "commercial_services",
+      "source_categories": {
+        "OVERTURE": [
+          "commercial_services"
+        ]
+      },
+      "latitude": 13.01228062,
+      "longitude": 77.55622005,
+      "utm_x": 777269.5708928676,
+      "utm_y": 1439887.1101670866,
+      "cluster_id": "CLUSTER-000006",
+      "cluster_pattern": "AMBIGUOUS_CLUSTER",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Held in UNRESOLVED_AMBIGUOUS status pending adjudication"
+      ],
+      "conflict_notes": [
+        "Competing edges with close scores (2)",
+        "Contains hard-rejected candidate edges between members"
+      ]
+    },
+    {
+      "canonical_entity_id": "793e8d97-6964-5238-9ae7-da930d76c45b",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/12247899718"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "The Koi",
+      "source_names": {
+        "OSM": [
+          "The Koi"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OSM": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.9137236,
+      "longitude": 77.6051894,
+      "utm_x": 782695.8383641057,
+      "utm_y": 1429031.8220211708,
+      "cluster_id": "CLUSTER-000023",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "a57dd255-ed19-5e8f-a6eb-585e159d8970",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/12995187523"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Sri Sai Chil",
+      "source_names": {
+        "OSM": [
+          "Sri Sai Chil"
+        ]
+      },
+      "primary_category": "retail",
+      "source_categories": {
+        "OSM": [
+          "retail"
+        ]
+      },
+      "latitude": 12.9690912,
+      "longitude": 77.7500283,
+      "utm_x": 798357.4011215285,
+      "utm_y": 1435325.4632926476,
+      "cluster_id": "CLUSTER-000045",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "07ed9653-628f-5965-b17e-dabf25e1c691",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/4683003989"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Burger King",
+      "source_names": {
+        "OSM": [
+          "Burger King"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OSM": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.9831856,
+      "longitude": 77.6071236,
+      "utm_x": 782827.4051439437,
+      "utm_y": 1436722.6762531218,
+      "cluster_id": "CLUSTER-000061",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "dbb1edf2-7a01-5818-b032-701f3f6c0ed4",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "015acef7-f354-4a79-a561-2d14ccd06fb4"
+      ],
+      "primary_name": "Vintage Shack",
+      "source_names": {
+        "OVERTURE": [
+          "Vintage Shack"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OVERTURE": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.91189024,
+      "longitude": 77.63818395,
+      "utm_x": 786280.5317743883,
+      "utm_y": 1428865.5456904923,
+      "cluster_id": "CLUSTER-000062",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "fc4e938d-fdc1-517e-80ec-25be83686e59",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "fa31331c-bc64-4155-bf7a-1c5636f29eec"
+      ],
+      "primary_name": "YFC CCD Cool Restaurants",
+      "source_names": {
+        "OVERTURE": [
+          "YFC CCD Cool Restaurants"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OVERTURE": [
+          "sustenance"
+        ]
+      },
+      "latitude": 13.07317903,
+      "longitude": 77.50284978,
+      "utm_x": 771410.7134695044,
+      "utm_y": 1446569.8545998055,
+      "cluster_id": "CLUSTER-000067",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "8e3b93f0-ea2c-51a4-81bb-81b87c0d0426",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/5306751763"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Sri Krishna Darshini",
+      "source_names": {
+        "OSM": [
+          "Sri Krishna Darshini"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OSM": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.9524087,
+      "longitude": 77.5773087,
+      "utm_x": 779625.4326374036,
+      "utm_y": 1433283.1445954423,
+      "cluster_id": "CLUSTER-000068",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "8b0ed505-6bb9-5bb8-a27d-ded38c2cbce4",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "01863862-e596-400f-9008-b1c23e6326f3"
+      ],
+      "primary_name": "Pizza Hut | Shanti Nagar, Bangalore",
+      "source_names": {
+        "OVERTURE": [
+          "Pizza Hut | Shanti Nagar, Bangalore"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OVERTURE": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.9624098,
+      "longitude": 77.59911075,
+      "utm_x": 781981.0448210204,
+      "utm_y": 1434414.1376425626,
+      "cluster_id": "CLUSTER-000073",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "44266f53-9629-50f8-8211-7fdec15cd6ae",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "b87d9cdf-82cb-419a-8b29-e92723b99ea3"
+      ],
+      "primary_name": "Barista Lavazza",
+      "source_names": {
+        "OVERTURE": [
+          "Barista Lavazza"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OVERTURE": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.96241024,
+      "longitude": 77.59911229,
+      "utm_x": 781981.2115056047,
+      "utm_y": 1434414.1880480563,
+      "cluster_id": "CLUSTER-000073",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "fbccfd01-81a2-5547-abfd-114691478ea4",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "fa7a04d8-9ba1-44c6-9b8f-41384bb8fd39"
+      ],
+      "primary_name": "Hotel Junior Kuppanna",
+      "source_names": {
+        "OVERTURE": [
+          "Hotel Junior Kuppanna"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OVERTURE": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.93586767,
+      "longitude": 77.62147991,
+      "utm_x": 784439.5764365933,
+      "utm_y": 1431501.0043469726,
+      "cluster_id": "CLUSTER-000104",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "a816b689-7d59-5ebc-bed6-fade164ff90f",
+      "resolution_decision": "DISAMBIGUATED_SINGLETON",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "5a1ee983-0cff-43b8-922d-ebe3dad7ec48"
+      ],
+      "primary_name": "Tandoori Taal - Indiranagar",
+      "source_names": {
+        "OVERTURE": [
+          "Tandoori Taal - Indiranagar"
+        ]
+      },
+      "primary_category": "sustenance",
+      "source_categories": {
+        "OVERTURE": [
+          "sustenance"
+        ]
+      },
+      "latitude": 12.96993065,
+      "longitude": 77.63804492,
+      "utm_x": 786199.1431977476,
+      "utm_y": 1435289.9982626378,
+      "cluster_id": "CLUSTER-000123",
+      "cluster_pattern": null,
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Single-source entity; no valid counterpart edge found"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "6690d803-a69e-5c23-aaff-00b21e7704d8",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "023835b6-da40-4530-b717-8b3151e486c8"
+      ],
+      "primary_name": "Primary Health Centre Vibhutipura",
+      "source_names": {
+        "OVERTURE": [
+          "Primary Health Centre Vibhutipura"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OVERTURE": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.96475965,
+      "longitude": 77.67790177,
+      "utm_x": 790532.0159799657,
+      "utm_y": 1434762.6759606528,
+      "cluster_id": "CLUSTER-000106",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Container entity parent (Primary Health Centre Vibhutipura)"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "30d4c7c8-9101-5bf8-ad6e-6d7b96feb955",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/7202935788"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Vibuthipura PHC",
+      "source_names": {
+        "OSM": [
+          "Vibuthipura PHC"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OSM": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.964719,
+      "longitude": 77.677864,
+      "utm_x": 790527.9627365314,
+      "utm_y": 1434758.1331655108,
+      "cluster_id": "CLUSTER-000106",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": "6690d803-a69e-5c23-aaff-00b21e7704d8",
+      "resolution_evidence": [
+        "Collocated child establishment (Vibuthipura PHC) inside Primary Health Centre Vibhutipura"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "a63838fb-3479-5295-9eee-abeeb493c494",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "0c8db0bb-f725-4f1e-9f01-539f3ddfbf66"
+      ],
+      "primary_name": "Dr.  Vishwannath Hiremath Hospital",
+      "source_names": {
+        "OVERTURE": [
+          "Dr.  Vishwannath Hiremath Hospital"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OVERTURE": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.97391,
+      "longitude": 77.5304699,
+      "utm_x": 774517.0362727281,
+      "utm_y": 1435612.1509808004,
+      "cluster_id": "CLUSTER-000615",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Container entity parent (Dr.  Vishwannath Hiremath Hospital)"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "ec845b72-42f9-550c-a0ca-4fae42a7176e",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/3861909164"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Megha Medicals and General Stores",
+      "source_names": {
+        "OSM": [
+          "Megha Medicals and General Stores"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OSM": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.9739047,
+      "longitude": 77.5305291,
+      "utm_x": 774523.4681642808,
+      "utm_y": 1435611.6281169634,
+      "cluster_id": "CLUSTER-000615",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": "a63838fb-3479-5295-9eee-abeeb493c494",
+      "resolution_evidence": [
+        "Collocated child establishment (Megha Medicals and General Stores) inside Dr.  Vishwannath Hiremath Hospital"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "94afc466-5650-5ac4-ba23-d19edc9b3f6a",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/7576958097"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Novel Hearing Care Centre",
+      "source_names": {
+        "OSM": [
+          "Novel Hearing Care Centre"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OSM": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.9386485,
+      "longitude": 77.5545065,
+      "utm_x": 777165.2357861467,
+      "utm_y": 1431735.2267159512,
+      "cluster_id": "CLUSTER-000773",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Container entity parent (Novel Hearing Care Centre)"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "66ab3ece-80fe-5831-ab4f-5c6a65f34b41",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "0fbb1107-a1ae-4579-acc3-d033834353f3"
+      ],
+      "primary_name": "Novel Speech and Hearing Care",
+      "source_names": {
+        "OVERTURE": [
+          "Novel Speech and Hearing Care"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OVERTURE": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.93861597,
+      "longitude": 77.55449944,
+      "utm_x": 777164.5052808272,
+      "utm_y": 1431731.618465164,
+      "cluster_id": "CLUSTER-000773",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": "94afc466-5650-5ac4-ba23-d19edc9b3f6a",
+      "resolution_evidence": [
+        "Collocated child establishment (Novel Speech and Hearing Care) inside Novel Hearing Care Centre"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "07888810-e34e-507a-8ec3-32715d3d9ef8",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "1989549f-b107-4371-930a-ae8a248d4f22"
+      ],
+      "primary_name": "Magadi Road Maternity Hospital",
+      "source_names": {
+        "OVERTURE": [
+          "Magadi Road Maternity Hospital"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OVERTURE": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.97415972,
+      "longitude": 77.56184429,
+      "utm_x": 777922.4388494729,
+      "utm_y": 1435673.7922585357,
+      "cluster_id": "CLUSTER-001304",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Container entity parent (Magadi Road Maternity Hospital)"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "94a79ac1-5191-5f5e-adeb-1228c329812b",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/6947003707"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Magadi Road Maternity Home",
+      "source_names": {
+        "OSM": [
+          "Magadi Road Maternity Home"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OSM": [
+          "healthcare"
+        ]
+      },
+      "latitude": 12.9741253,
+      "longitude": 77.561823,
+      "utm_x": 777920.1660739002,
+      "utm_y": 1435669.9592260942,
+      "cluster_id": "CLUSTER-001304",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": "07888810-e34e-507a-8ec3-32715d3d9ef8",
+      "resolution_evidence": [
+        "Collocated child establishment (Magadi Road Maternity Home) inside Magadi Road Maternity Hospital"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "574ee58c-1283-54c7-a383-c969bc43102c",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [
+        "node/4446876066"
+      ],
+      "contributing_ov_ids": [],
+      "primary_name": "Herbocare Hospital Pvt",
+      "source_names": {
+        "OSM": [
+          "Herbocare Hospital Pvt"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OSM": [
+          "healthcare"
+        ]
+      },
+      "latitude": 13.0204424,
+      "longitude": 77.6440607,
+      "utm_x": 786794.1452927098,
+      "utm_y": 1440888.0480015199,
+      "cluster_id": "CLUSTER-001510",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": null,
+      "resolution_evidence": [
+        "Container entity parent (Herbocare Hospital Pvt)"
+      ],
+      "conflict_notes": []
+    },
+    {
+      "canonical_entity_id": "305b350f-5d31-5d73-bf5a-0922a3c2fc40",
+      "resolution_decision": "PARENT_CHILD",
+      "resolution_policy": "canonical_resolution_v1",
+      "contributing_osm_ids": [],
+      "contributing_ov_ids": [
+        "1da9cf87-c3b4-4ea5-8075-bdb59f83d71e"
+      ],
+      "primary_name": "Herbocare",
+      "source_names": {
+        "OVERTURE": [
+          "Herbocare"
+        ]
+      },
+      "primary_category": "healthcare",
+      "source_categories": {
+        "OVERTURE": [
+          "healthcare"
+        ]
+      },
+      "latitude": 13.02035381,
+      "longitude": 77.64377155,
+      "utm_x": 786762.863842271,
+      "utm_y": 1440877.9151992197,
+      "cluster_id": "CLUSTER-001510",
+      "cluster_pattern": "ONE_TO_ONE",
+      "parent_entity_id": "574ee58c-1283-54c7-a383-c969bc43102c",
+      "resolution_evidence": [
+        "Collocated child establishment (Herbocare) inside Herbocare Hospital Pvt"
+      ],
+      "conflict_notes": []
+    }
+  ]
+}

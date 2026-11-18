@@ -6,8 +6,8 @@
 
 ## 1. Current Milestone
 
-- **Milestone:** Milestone 9 — Pairwise Feature Engineering & Explainable POI Matching Engine
-- **Status:** **Milestone 9 Complete** (M8 Provenance & Manifest Reconciliation, 44-Dimensional Pairwise Feature Engineering Pipeline across 605,428 Candidate Pairs, Snappy-Compressed Parquet Storage, Explainable Rule Baseline v1 Engine with Contradiction Guardrails, Diagnostic Universe Evaluation, 93 Passing Automated Tests)
+- **Milestone:** Milestone 10 — Conflation Graph & Cluster-Based Canonical POI Resolution
+- **Status:** **Milestone 10 Complete** (Bipartite Conflation Graph, 4-Tier Edge Classification, Connected Component Clustering across 11,449 Clusters, Conservative Canonical Entity Resolution with 100% Record Preservation, Parent-Child Separation, Structural Ambiguity Analysis, Ranked Human Review Queue, and 107 Passing Automated Tests)
 - **Selected Target City:** **Bengaluru (Bruhat Bengaluru Mahanagara Palike — BBMP)**
   - *OSM Relation:* `7902476` (`admin_level=7`)
   - *Bounding Box:* `[77.4598797, 12.8334905, 77.7840639, 13.1426196]`
@@ -15,12 +15,13 @@
   - *Total Canonical Records:* **246,856** (197,820 Overture + 49,036 OSM)
   - *Candidate Pairs Universe:* **605,428 pairs** (`candidate_pairs_union.parquet`, 42.02 MB)
   - *Pairwise Features Extracted:* **605,428 records, 44 features** (`data/processed/features/pairwise_features.parquet`, 70.4 MB, schema v1.0.0)
-  - *Feature Extraction Runtime:* **19.58 seconds** (throughput: **30,922.6 pairs/sec**, peak memory: **855.77 MB**)
-  - *Explainable Matching Engine:* `explainable_rule_baseline_v1` (`configs/matching_baseline.yaml`)
-  - *Universe Decision Breakdown:* **5,543 MATCH** (0.92%), **523,003 NON_MATCH** (86.39%), **76,882 UNCERTAIN** (12.70%)
-  - *Matching Engine Runtime:* **4.07 seconds** across 605,428 pairs (**148,897.6 pairs/sec**)
-  - *Contradiction Guardrail Overrides:* **188,256 pairs** (`SAME_BUILDING_DIFFERENT_BUSINESS`: 95,544, `INSUFFICIENT_NAME_EVIDENCE`: 82,107, `SAME_BRAND_DIFFERENT_BRANCH`: 5,668, `EXCESSIVE_SPATIAL_SEPARATION`: 4,937)
-  - *Test Suite Coverage:* **93 passing automated tests** (20 new tests covering pairwise features, schema, and matching engine)
+  - *Graph Edge Classification:* **5,543 STRONG_MATCH_CANDIDATE** (0.92%), **13,390 POSSIBLE_MATCH** (2.21%), **63,492 UNCERTAIN** (10.49%), **523,003 REJECTED** (86.39%)
+  - *Connected Components / Clusters:* **11,449 active clusters** (8,432 `ONE_TO_ONE`, 907 `ONE_TO_MANY`, 337 `MANY_TO_ONE`, 115 `MANY_TO_MANY`, 1,658 `AMBIGUOUS_CLUSTER`)
+  - *Canonical Entities Resolved:* **242,243 entities** (`RESOLVED_EQUIVALENCE`: 4,613, `PARENT_CHILD`: 104, `DISAMBIGUATED_SINGLETON`: 217,531, `UNRESOLVED_AMBIGUOUS`: 19,995)
+  - *Source POI Preservation:* **100.00%** (246,856 source records accounted for across 242,243 canonical entities)
+  - *Prioritized Human Review Queue:* **1,033 ranked cases** (`reports/review_prioritization_queue.json`, 12 Tier-1 category contradictions, 989 Tier-2 competing edges, 32 Tier-3 excessive spread)
+  - *Graph & Resolution Runtime:* Graph construction: **6.99 seconds**; Canonical resolution: **8.71 seconds**; Peak memory: **1,237.89 MB RSS**
+  - *Test Suite Coverage:* **107 passing automated tests** (14 new graph and canonical resolution tests)
 
 ---
 
@@ -142,9 +143,21 @@ All values recorded below are derived directly from system execution logs on 202
   - Expanded test suite to 93 passing automated tests (20 dedicated feature engineering and matching engine tests).
   - Authored comprehensive technical documentation in `docs/pairwise_features.md` and `docs/matching_baseline_evaluation.md`.
 
+- [x] **Milestone 10 Implementation:** Conflation Graph & Cluster-Based Canonical Resolution (`src/poi_conflation/graph/`):
+  - Formulated bipartite graph architecture ($V_{\text{osm}}$: 49,036 nodes, $V_{\text{ov}}$: 197,820 nodes, 605,428 candidate edges).
+  - Implemented 4-tier edge classification (`STRONG_MATCH_CANDIDATE`: 5,543, `POSSIBLE_MATCH`: 13,390, `UNCERTAIN`: 63,492, `REJECTED`: 523,003).
+  - Discovered 11,449 active connected components in 0.14 seconds, categorizing topological patterns: 8,432 `ONE_TO_ONE`, 907 `ONE_TO_MANY`, 337 `MANY_TO_ONE`, 115 `MANY_TO_MANY`, and 1,658 `AMBIGUOUS_CLUSTER`.
+  - Implemented conservative canonical resolution (`CanonicalEntityResolver`, `canonical_resolution_v1`), resolving 242,243 canonical POI entities (4,613 `RESOLVED_EQUIVALENCE`, 104 `PARENT_CHILD`, 217,531 `DISAMBIGUATED_SINGLETON`, 19,995 `UNRESOLVED_AMBIGUOUS`).
+  - Achieved 100.00% source POI accounting (all 246,856 source records preserved with complete provenance).
+  - Isolated parent-child commercial containers (e.g. shopping complexes containing stores, hospitals containing pharmacies) from identity equivalence.
+  - Built conflict and ambiguity analyzer (`AmbiguityAnalyzer`) identifying 1,578 competing edges, 12 category contradictions, and 32 excessive spread clusters.
+  - Generated prioritized human review queue (`reports/review_prioritization_queue.json`, 1,033 ranked cases across 3 priority tiers).
+  - Added 14 dedicated automated tests (107 total passing tests across repository).
+  - Authored comprehensive technical documentation in `docs/conflation_graph.md` and `docs/canonical_entity_resolution.md`.
+
 ### Pending Tasks (Future Milestones)
-- [ ] Milestone 10: Conflation Graph & Cluster-Based Canonical Resolution.
-- [ ] Milestone 11: Scaled Evaluation, Error Analysis, and Canonical Export.
+- [ ] Milestone 11: Scaled Human Active Learning, Adjudication & Supervised Classification Evaluation.
+- [ ] Milestone 12: Production Conflation Pipeline, Delta Ingestion & Canonical Export.
 
 ---
 
@@ -163,7 +176,7 @@ All values recorded below are derived directly from system execution logs on 202
 | **ADR-009** | H3 Spatial Indexing | Index all canonical POIs simultaneously at H3 resolutions 8 (~461m), 9 (~174m), and 10 (~66m) in `canonical_pois_h3.parquet`. | **Approved** | Multi-scale discrete global grid partitions enable hierarchical blocking: macro-neighborhoods (Res 8), commercial blocks (Res 9), and immediate parcel adjacencies (Res 10). |
 | **ADR-010** | Spatial Grid Equi-Join | Implement spatial proximity candidate generation via metric grid cell binning ($200\text{m} \times 200\text{m}$) and 9-neighbor offset equi-joins in DuckDB. | **Approved** | Reduces spatial proximity pair search from 63.2s quadratic bounding-box scan down to 0.09s hash equi-join, processing 5.49 million candidate pairs in under 1 second. |
 | **ADR-011** | Indic Unicode Normalization | Implement Unicode category filtering (`unicodedata.category` matching `L*`, `M*`, `N*`) rather than ASCII/alphanumeric regex `\w`. | **Approved** | Preserves Indic vowel matras (Mn/Mc), halant/virama (0x0CCD), and numerals without transliteration or character mangling. |
-| **ADR-012** | Multi-Strategy Candidate Generation | Union orthogonal blocking strategies (spatial $\le 50$m, exact name, distinctive token containment $\le 100$m, and multilingual transliteration) with full provenance tracking. | **Approved** | Recovers geographically displaced POIs (+137 OSM records over spatial alone) while maintaining a 99.99376% reduction ratio. |
+| **ADR-012** | Multi-Strategy Candidate Generation | Union orthogonal blocking strategies (spatial $\le 50$m, exact name, distinctive token containment $\le 100$m, and multilingual transliteration) with full provenance tracking. | **Approved** | Recovers geographically displaced POIs (+137 OSM records over spatial alone) while maintaining a 99.99376% reduction ratio over the theoretical Cartesian space ($49,036 \times 197,820 = 9,700,301,520$). |
 | **ADR-013** | Category Compatibility Matrix | Enforce a 4-tier category compatibility matrix over the 10 canonical categories, pruning strictly incompatible cross-domain pairs (e.g. Healthcare vs Sustenance). | **Approved** | Eliminates 23,155 false-positive candidate pairs without discarding plausible adjacencies (e.g. Retail with Sustenance). |
 | **ADR-014** | Kannada Transliteration & Phonetic Normalization | Transliterate Kannada script via `indic-transliteration` Sanscript (ISO 15919) and apply Indian English phonetic rules (`udapi` $\rightarrow$ `udupi`, `shree` $\rightarrow$ `sri`, `bhavana` $\rightarrow$ `bhavan`). | **Approved** | Bridges the linguistic divide between vernacular OSM mapping (12.69% Kannada) and English Overture data (0.20% Kannada) while maintaining source immutability. |
 | **ADR-015** | Stratified Benchmark Sampling | Extract candidate review queues using balanced stratification (50 pairs per stratum across 10 strata) with deterministic random seed (`seed=42`). | **Approved** | Prevents high-density commercial clusters or trivial exact matches from dominating ground truth while preserving rare transliteration and distance variants. |
@@ -176,3 +189,4 @@ All values recorded below are derived directly from system execution logs on 202
 | **ADR-022** | Storage Separation & Audit Trail for AI Recommendations | Separate storage of AI suggestions (`pilot_ai_suggestions.jsonl`), human annotations (`annotations_<reviewer>.csv`), and human actions (`audit_trail.csv`), while enforcing blind second-reviewer isolation. | **Approved** | Guarantees lossless auditability, transparent human-AI consensus tracking, and valid, uncompromised inter-annotator agreement baselines. |
 | **ADR-023** | Automated AI Suggestion Adoption & Provenance Taxonomy | Implement automated non-interactive adoption of heuristic suggestions for the 50-pair pilot queue while enforcing a three-tier provenance model (`AI_GENERATED`, `AUTO_ADOPTED_AI`, `HUMAN_VERIFIED`). | **Approved** | Enables rapid pipeline iteration and risk analysis while preserving existing human records and forbidding representation of AI outputs as human ground truth. |
 | **ADR-024** | Pairwise Feature Engineering & Explainable Matching Baseline Engine | Extract 44-dimensional feature vector across all 605,428 pairs in streaming Parquet batches and evaluate against deterministic transparent weighted scoring with contradiction guardrails (`explainable_rule_baseline_v1`). | **Approved** | Provides high-throughput (148k pairs/s), auditable entity resolution with zero black-box hallucination, preserving memory within 855 MB on Apple Silicon M3. |
+| **ADR-025** | Bipartite Conflation Graph & Conservative Canonical Entity Resolution | Model cross-source relationships as a bipartite graph ($V_{\text{osm}}, V_{\text{ov}}$), classify edges into 4 tiers, compute active connected components, and enforce conservative canonical resolution preventing transitive over-merging. | **Approved** | Resolves 4,613 high-confidence equivalences while safely preserving 217,531 singletons, isolating parent-child commercial containers, and routing 1,033 ambiguous conflicts for human review. |

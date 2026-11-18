@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "graph_schema_version": "1.0.0",
+    "policy_version": "explainable_rule_baseline_v1",
+    "timestamp": "2026-11-18T12:37:15Z",
+    "study_area": "BBMP Bengaluru, Karnataka, India"
+  },
+  "universe_summary": {
+    "total_canonical_pois": 246856,
+    "osm_nodes_total": 49036,
+    "overture_nodes_total": 197820,
+    "total_candidate_edges": 605428,
+    "execution_time_seconds": 6.99,
+    "peak_memory_mb": 1224.44
+  },
+  "edge_classification_distribution": {
+    "STRONG_MATCH_CANDIDATE": 5543,
+    "POSSIBLE_MATCH": 13390,
+    "UNCERTAIN": 63492,
+    "REJECTED": 523003
+  },
+  "node_connectivity": {
+    "osm_nodes_in_active_clusters": 14027,
+    "osm_nodes_isolated": 35009,
+    "overture_nodes_in_active_clusters": 15717,
+    "overture_nodes_isolated": 182103
+  },
+  "cluster_summary": {
+    "total_active_clusters": 11449,
+    "structural_patterns": {
+      "ONE_TO_ONE": 8432,
+      "AMBIGUOUS_CLUSTER": 1658,
+      "ONE_TO_MANY": 907,
+      "MANY_TO_ONE": 337,
+      "MANY_TO_MANY": 115
+    },
+    "cluster_size_stats": {
+      "min": 2,
+      "max": 144,
+      "mean": 2.6
+    },
+    "geographic_spread_stats_meters": {
+      "min": 0.0,
+      "max": 284.31,
+      "mean": 18.71
+    },
+    "ambiguous_cluster_count": 1658
+  },
+  "methodological_safeguards": [
+    "Candidate equivalence components are constructed from active match edges (STRONG + POSSIBLE), not the full Cartesian candidate list, preventing whole-city transitive collapse.",
+    "All REJECTED and UNCERTAIN edges are preserved in graph adjacency for conflict and competing-edge detection.",
+    "No entities are merged merely due to shared building footprint or identical brand names."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "canonical_schema_version": "1.0.0",
+    "resolution_policy_version": "canonical_resolution_v1",
+    "timestamp": "2026-11-18T12:37:46Z",
+    "study_area": "BBMP Bengaluru, Karnataka, India"
+  },
+  "universe_accounting": {
+    "total_input_canonical_pois": 246856,
+    "osm_source_records": 49036,
+    "overture_source_records": 197820,
+    "total_candidate_edges": 605428,
+    "total_output_canonical_entities": 242243,
+    "execution_time_seconds": 8.71,
+    "peak_memory_mb": 1237.89
+  },
+  "resolution_decision_distribution": {
+    "RESOLVED_EQUIVALENCE": 4613,
+    "PARENT_CHILD": 104,
+    "DISAMBIGUATED_SINGLETON": 217531,
+    "UNRESOLVED_AMBIGUOUS": 19995
+  },
+  "singleton_accounting": {
+    "total_singletons": 217531,
+    "isolated_osm_singletons": 35009,
+    "isolated_overture_singletons": 182103,
+    "clustered_disambiguated_singletons": 419
+  },
+  "resolved_equivalence_metrics": {
+    "total_merged_entities": 4613,
+    "source_osm_records_conflated": 4613,
+    "source_overture_records_conflated": 4613
+  },
+  "parent_child_metrics": {
+    "total_parent_child_entities": 104
+  },
+  "unresolved_ambiguity_metrics": {
+    "total_unresolved_entities": 19995
+  },
+  "resolution_policies": [
+    "1:1 clean equivalence requires score >= 0.70, distance <= 50m, and mutually compatible categories.",
+    "Star clusters (1:N, N:1) require score >= 0.75 and margin >= 0.25 over runner-up to resolve dominant match; runners-up remain distinct singletons.",
+    "Parent-child relationships (shopping malls, hospitals, commercial plazas) are isolated from identity equivalence.",
+    "All multi-node clusters with category contradictions, excessive spread (>100m), or close competing scores are conservatively preserved as UNRESOLVED_AMBIGUOUS without premature merging.",
+    "100% of input source POIs are fully preserved in canonical entities with complete provenance."
+  ]
+}

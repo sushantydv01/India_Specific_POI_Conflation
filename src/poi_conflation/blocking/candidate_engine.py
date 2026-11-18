@@ -367,7 +367,7 @@ class CandidateEngine:
 
         total_osm = 49036
         total_overture = 197820
-        theoretical_pairs = total_osm * total_overture  # 9,700,281,520
+        theoretical_pairs = total_osm * total_overture  # 9,700,301,520
         reduction_ratio = 1.0 - (metrics["total_candidates"] / theoretical_pairs)
 
         # Candidates per OSM record distribution

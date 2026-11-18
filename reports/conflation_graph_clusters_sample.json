@@ -1,0 +1,1593 @@
+{
+  "schema_version": "1.0.0",
+  "sample_count": 26,
+  "clusters": [
+    {
+      "cluster_id": "CLUSTER-000001",
+      "osm_node_ids": [
+        "node/14247233587"
+      ],
+      "ov_node_ids": [
+        "00088e0e-a18c-4289-a094-1d8a2c9a04e4"
+      ],
+      "edge_pair_ids": [
+        "node/14247233587::00088e0e-a18c-4289-a094-1d8a2c9a04e4"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.7015,
+      "score_max": 0.7015,
+      "score_mean": 0.7015,
+      "geographic_spread_meters": 16.3,
+      "category_consistent": true,
+      "categories_present": [
+        "sustenance"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/14247233587",
+          "name": "Cafe Coffee Club",
+          "category": "sustenance"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00088e0e-a18c-4289-a094-1d8a2c9a04e4",
+          "name": "Coffee Club",
+          "category": "sustenance"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000002",
+      "osm_node_ids": [
+        "node/11468397654"
+      ],
+      "ov_node_ids": [
+        "000a3f7f-225c-42e2-b1d8-3fa04c3b7e64"
+      ],
+      "edge_pair_ids": [
+        "node/11468397654::000a3f7f-225c-42e2-b1d8-3fa04c3b7e64"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.8086,
+      "score_max": 0.8086,
+      "score_mean": 0.8086,
+      "geographic_spread_meters": 8.22,
+      "category_consistent": true,
+      "categories_present": [
+        "retail"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/11468397654",
+          "name": "Lili Ladies Beauty Parlour",
+          "category": "retail"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "000a3f7f-225c-42e2-b1d8-3fa04c3b7e64",
+          "name": "Li Li Beauty Parlour",
+          "category": "retail"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000003",
+      "osm_node_ids": [
+        "node/10571082049"
+      ],
+      "ov_node_ids": [
+        "000cf1c4-5472-4413-af87-8390fe8b6e98"
+      ],
+      "edge_pair_ids": [
+        "node/10571082049::000cf1c4-5472-4413-af87-8390fe8b6e98"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.5567,
+      "score_max": 0.5567,
+      "score_mean": 0.5567,
+      "geographic_spread_meters": 7.16,
+      "category_consistent": true,
+      "categories_present": [
+        "education",
+        "retail"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/10571082049",
+          "name": "Bulwark Authorized Motorcycle Riding Gears",
+          "category": "retail"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "000cf1c4-5472-4413-af87-8390fe8b6e98",
+          "name": "Nursery Teacher Training",
+          "category": "education"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000004",
+      "osm_node_ids": [
+        "way/477485293"
+      ],
+      "ov_node_ids": [
+        "00120262-092f-4d18-9664-6ec54d39c7df"
+      ],
+      "edge_pair_ids": [
+        "way/477485293::00120262-092f-4d18-9664-6ec54d39c7df"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.6871,
+      "score_max": 0.6871,
+      "score_mean": 0.6871,
+      "geographic_spread_meters": 8.32,
+      "category_consistent": true,
+      "categories_present": [
+        "civic_religious",
+        "other"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "way/477485293",
+          "name": "CSI KCD Memorial Church",
+          "category": "civic_religious"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00120262-092f-4d18-9664-6ec54d39c7df",
+          "name": "Memorial Church",
+          "category": "other"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000005",
+      "osm_node_ids": [
+        "way/169825730"
+      ],
+      "ov_node_ids": [
+        "00174e8d-b80d-4e51-975f-e6c693096400"
+      ],
+      "edge_pair_ids": [
+        "way/169825730::00174e8d-b80d-4e51-975f-e6c693096400"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.76,
+      "score_max": 0.76,
+      "score_mean": 0.76,
+      "geographic_spread_meters": 23.05,
+      "category_consistent": true,
+      "categories_present": [
+        "other",
+        "retail"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "way/169825730",
+          "name": "Sapna Book House",
+          "category": "retail"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00174e8d-b80d-4e51-975f-e6c693096400",
+          "name": "Sapna Book House",
+          "category": "other"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000006",
+      "osm_node_ids": [
+        "node/5820280254",
+        "node/8294027508"
+      ],
+      "ov_node_ids": [
+        "001803d8-5904-4a0c-8cb3-b088b81c41d5",
+        "1fedc669-087a-4aa1-b133-ed78114fd7c5",
+        "ba97cb18-5d28-4dc7-a404-c2c0dbd10eb9",
+        "d688b86d-8ca2-492e-9858-9a85e6e6d163",
+        "ff59cc0e-d010-4ad0-a1ef-41e3d81ff216"
+      ],
+      "edge_pair_ids": [
+        "node/5820280254::001803d8-5904-4a0c-8cb3-b088b81c41d5",
+        "node/5820280254::1fedc669-087a-4aa1-b133-ed78114fd7c5",
+        "node/5820280254::ff59cc0e-d010-4ad0-a1ef-41e3d81ff216",
+        "node/8294027508::ba97cb18-5d28-4dc7-a404-c2c0dbd10eb9",
+        "node/8294027508::d688b86d-8ca2-492e-9858-9a85e6e6d163",
+        "node/8294027508::ff59cc0e-d010-4ad0-a1ef-41e3d81ff216"
+      ],
+      "pattern": "AMBIGUOUS_CLUSTER",
+      "score_min": 0.5694,
+      "score_max": 0.7138,
+      "score_mean": 0.6212,
+      "geographic_spread_meters": 32.58,
+      "category_consistent": true,
+      "categories_present": [
+        "commercial_services",
+        "education",
+        "leisure_tourism",
+        "other"
+      ],
+      "competing_edge_count": 2,
+      "has_rejected_edges": true,
+      "is_ambiguous": true,
+      "osm_details": [
+        {
+          "id": "node/5820280254",
+          "name": "Bangalore World Trade Center",
+          "category": "leisure_tourism"
+        },
+        {
+          "id": "node/8294027508",
+          "name": "Consulate General of Canada",
+          "category": "commercial_services"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "001803d8-5904-4a0c-8cb3-b088b81c41d5",
+          "name": "Amazon, World Trade Center, Bangalore",
+          "category": "other"
+        },
+        {
+          "id": "1fedc669-087a-4aa1-b133-ed78114fd7c5",
+          "name": "Cluny convent high school, Malleswaram, Bangalore ",
+          "category": "education"
+        },
+        {
+          "id": "ba97cb18-5d28-4dc7-a404-c2c0dbd10eb9",
+          "name": "NazzTec Private Limited",
+          "category": "commercial_services"
+        },
+        {
+          "id": "d688b86d-8ca2-492e-9858-9a85e6e6d163",
+          "name": "Hamza Consultancy Services",
+          "category": "commercial_services"
+        },
+        {
+          "id": "ff59cc0e-d010-4ad0-a1ef-41e3d81ff216",
+          "name": "World Trade Center",
+          "category": "commercial_services"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000007",
+      "osm_node_ids": [
+        "way/1233754516"
+      ],
+      "ov_node_ids": [
+        "001ad62b-b136-43ea-b3c1-2a979d0111fb"
+      ],
+      "edge_pair_ids": [
+        "way/1233754516::001ad62b-b136-43ea-b3c1-2a979d0111fb"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.6182,
+      "score_max": 0.6182,
+      "score_mean": 0.6182,
+      "geographic_spread_meters": 9.77,
+      "category_consistent": true,
+      "categories_present": [
+        "civic_religious"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "way/1233754516",
+          "name": "Office of the Assisstant Commisioner of the Police",
+          "category": "civic_religious"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "001ad62b-b136-43ea-b3c1-2a979d0111fb",
+          "name": "Yelahanka New Town Police Station",
+          "category": "civic_religious"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000008",
+      "osm_node_ids": [
+        "node/11078702996",
+        "node/11078702997"
+      ],
+      "ov_node_ids": [
+        "001e5a2b-27ce-4996-a55c-bfdb6d221f8d",
+        "ee19ba42-4810-4bdf-8b0c-f48d4cb2d216"
+      ],
+      "edge_pair_ids": [
+        "node/11078702996::001e5a2b-27ce-4996-a55c-bfdb6d221f8d",
+        "node/11078702996::ee19ba42-4810-4bdf-8b0c-f48d4cb2d216",
+        "node/11078702997::001e5a2b-27ce-4996-a55c-bfdb6d221f8d"
+      ],
+      "pattern": "AMBIGUOUS_CLUSTER",
+      "score_min": 0.5582,
+      "score_max": 0.6085,
+      "score_mean": 0.5864,
+      "geographic_spread_meters": 13.72,
+      "category_consistent": true,
+      "categories_present": [
+        "retail",
+        "sustenance"
+      ],
+      "competing_edge_count": 1,
+      "has_rejected_edges": false,
+      "is_ambiguous": true,
+      "osm_details": [
+        {
+          "id": "node/11078702996",
+          "name": "Jai Plywoods",
+          "category": "retail"
+        },
+        {
+          "id": "node/11078702997",
+          "name": "Vijayalakshmi Hardware",
+          "category": "retail"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "001e5a2b-27ce-4996-a55c-bfdb6d221f8d",
+          "name": "Surup Kaya Salon",
+          "category": "retail"
+        },
+        {
+          "id": "ee19ba42-4810-4bdf-8b0c-f48d4cb2d216",
+          "name": "Bhagwat's Food",
+          "category": "sustenance"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000009",
+      "osm_node_ids": [
+        "way/132910904"
+      ],
+      "ov_node_ids": [
+        "0021355f-dda0-4ccb-8721-fe8f55b8ed06"
+      ],
+      "edge_pair_ids": [
+        "way/132910904::0021355f-dda0-4ccb-8721-fe8f55b8ed06"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.6365,
+      "score_max": 0.6365,
+      "score_mean": 0.6365,
+      "geographic_spread_meters": 40.01,
+      "category_consistent": true,
+      "categories_present": [
+        "education"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "way/132910904",
+          "name": "Sri Aurobindo Memorial School",
+          "category": "education"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "0021355f-dda0-4ccb-8721-fe8f55b8ed06",
+          "name": "Sri Aurobindo Memorial",
+          "category": "education"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000010",
+      "osm_node_ids": [
+        "node/5915195079"
+      ],
+      "ov_node_ids": [
+        "003cce50-d91d-4319-80d3-22eb66c15693"
+      ],
+      "edge_pair_ids": [
+        "node/5915195079::003cce50-d91d-4319-80d3-22eb66c15693"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.6096,
+      "score_max": 0.6096,
+      "score_mean": 0.6096,
+      "geographic_spread_meters": 13.55,
+      "category_consistent": true,
+      "categories_present": [
+        "sustenance"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/5915195079",
+          "name": "Avon Bar And Kitchen",
+          "category": "sustenance"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "003cce50-d91d-4319-80d3-22eb66c15693",
+          "name": "Food and You",
+          "category": "sustenance"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000011",
+      "osm_node_ids": [
+        "way/256695413"
+      ],
+      "ov_node_ids": [
+        "003d66d0-50ae-4569-a3ba-ef12a5f03a59",
+        "8fe7e436-801e-4529-a315-fef4789f54a7"
+      ],
+      "edge_pair_ids": [
+        "way/256695413::003d66d0-50ae-4569-a3ba-ef12a5f03a59",
+        "way/256695413::8fe7e436-801e-4529-a315-fef4789f54a7"
+      ],
+      "pattern": "AMBIGUOUS_CLUSTER",
+      "score_min": 0.6477,
+      "score_max": 0.6645,
+      "score_mean": 0.6561,
+      "geographic_spread_meters": 36.93,
+      "category_consistent": true,
+      "categories_present": [
+        "commercial_services",
+        "retail"
+      ],
+      "competing_edge_count": 1,
+      "has_rejected_edges": false,
+      "is_ambiguous": true,
+      "osm_details": [
+        {
+          "id": "way/256695413",
+          "name": "AKR Textiles",
+          "category": "commercial_services"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "003d66d0-50ae-4569-a3ba-ef12a5f03a59",
+          "name": "GRS Towers",
+          "category": "commercial_services"
+        },
+        {
+          "id": "8fe7e436-801e-4529-a315-fef4789f54a7",
+          "name": "AKR Textile",
+          "category": "retail"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000012",
+      "osm_node_ids": [
+        "node/4516854289"
+      ],
+      "ov_node_ids": [
+        "00427e9a-a9a3-45db-a5e6-7b80b794ec17"
+      ],
+      "edge_pair_ids": [
+        "node/4516854289::00427e9a-a9a3-45db-a5e6-7b80b794ec17"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.7301,
+      "score_max": 0.7301,
+      "score_mean": 0.7301,
+      "geographic_spread_meters": 7.97,
+      "category_consistent": true,
+      "categories_present": [
+        "retail"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/4516854289",
+          "name": "Royal Mart",
+          "category": "retail"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00427e9a-a9a3-45db-a5e6-7b80b794ec17",
+          "name": "Royalmart Super Market",
+          "category": "retail"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000013",
+      "osm_node_ids": [
+        "node/12050533224",
+        "node/12145301110",
+        "node/6114925247"
+      ],
+      "ov_node_ids": [
+        "00478ab2-4866-4c53-8759-bc41ded23c59",
+        "62faf1e1-f672-4e69-9a24-acf4fe7586b9",
+        "7080153e-41b7-4d54-9edf-c38142eaf7ff",
+        "c30c570f-af0a-4878-a5a0-f7e0e7d90c50",
+        "fa1f9db4-f4d6-48a9-9580-f02805f45b95"
+      ],
+      "edge_pair_ids": [
+        "node/12050533224::00478ab2-4866-4c53-8759-bc41ded23c59",
+        "node/12050533224::62faf1e1-f672-4e69-9a24-acf4fe7586b9",
+        "node/12050533224::c30c570f-af0a-4878-a5a0-f7e0e7d90c50",
+        "node/12145301110::fa1f9db4-f4d6-48a9-9580-f02805f45b95",
+        "node/6114925247::00478ab2-4866-4c53-8759-bc41ded23c59",
+        "node/6114925247::62faf1e1-f672-4e69-9a24-acf4fe7586b9",
+        "node/6114925247::7080153e-41b7-4d54-9edf-c38142eaf7ff",
+        "node/6114925247::fa1f9db4-f4d6-48a9-9580-f02805f45b95"
+      ],
+      "pattern": "AMBIGUOUS_CLUSTER",
+      "score_min": 0.5617,
+      "score_max": 0.6603,
+      "score_mean": 0.611,
+      "geographic_spread_meters": 22.71,
+      "category_consistent": true,
+      "categories_present": [
+        "hospitality",
+        "sustenance"
+      ],
+      "competing_edge_count": 5,
+      "has_rejected_edges": true,
+      "is_ambiguous": true,
+      "osm_details": [
+        {
+          "id": "node/12050533224",
+          "name": "blrpods.com",
+          "category": "hospitality"
+        },
+        {
+          "id": "node/12145301110",
+          "name": "The Bench",
+          "category": "sustenance"
+        },
+        {
+          "id": "node/6114925247",
+          "name": "Imperio hotel",
+          "category": "sustenance"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00478ab2-4866-4c53-8759-bc41ded23c59",
+          "name": "OYO Hotel",
+          "category": "hospitality"
+        },
+        {
+          "id": "62faf1e1-f672-4e69-9a24-acf4fe7586b9",
+          "name": "FabHotel ICloud Labrook",
+          "category": "hospitality"
+        },
+        {
+          "id": "7080153e-41b7-4d54-9edf-c38142eaf7ff",
+          "name": "Imperio Restaurant Brookfield",
+          "category": "sustenance"
+        },
+        {
+          "id": "c30c570f-af0a-4878-a5a0-f7e0e7d90c50",
+          "name": "Royal Rooms",
+          "category": "hospitality"
+        },
+        {
+          "id": "fa1f9db4-f4d6-48a9-9580-f02805f45b95",
+          "name": "Turnip The Beat",
+          "category": "sustenance"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000014",
+      "osm_node_ids": [
+        "node/3846361462"
+      ],
+      "ov_node_ids": [
+        "00483ce4-78ce-4990-92f8-91c6d3f23d3c"
+      ],
+      "edge_pair_ids": [
+        "node/3846361462::00483ce4-78ce-4990-92f8-91c6d3f23d3c"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.67,
+      "score_max": 0.67,
+      "score_mean": 0.67,
+      "geographic_spread_meters": 41.02,
+      "category_consistent": true,
+      "categories_present": [
+        "commercial_services",
+        "other"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/3846361462",
+          "name": "Udayavani",
+          "category": "commercial_services"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00483ce4-78ce-4990-92f8-91c6d3f23d3c",
+          "name": "Udayavani",
+          "category": "other"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000015",
+      "osm_node_ids": [
+        "node/11303765166"
+      ],
+      "ov_node_ids": [
+        "004aa85c-dec5-428f-888f-0d92ffa886e7"
+      ],
+      "edge_pair_ids": [
+        "node/11303765166::004aa85c-dec5-428f-888f-0d92ffa886e7"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.714,
+      "score_max": 0.714,
+      "score_mean": 0.714,
+      "geographic_spread_meters": 6.08,
+      "category_consistent": true,
+      "categories_present": [
+        "retail"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/11303765166",
+          "name": "Chetan Hardware",
+          "category": "retail"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "004aa85c-dec5-428f-888f-0d92ffa886e7",
+          "name": "Nandi hardware",
+          "category": "retail"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000016",
+      "osm_node_ids": [
+        "node/11662082265"
+      ],
+      "ov_node_ids": [
+        "0051015e-8b3d-4c67-979a-b6f467094e48"
+      ],
+      "edge_pair_ids": [
+        "node/11662082265::0051015e-8b3d-4c67-979a-b6f467094e48"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.551,
+      "score_max": 0.551,
+      "score_mean": 0.551,
+      "geographic_spread_meters": 4.92,
+      "category_consistent": true,
+      "categories_present": [
+        "healthcare",
+        "other"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/11662082265",
+          "name": "Cosmo Imaging and Diagnostic Center",
+          "category": "healthcare"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "0051015e-8b3d-4c67-979a-b6f467094e48",
+          "name": "GiGA Innovation Center",
+          "category": "other"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000017",
+      "osm_node_ids": [
+        "node/11304774637",
+        "node/4487996362",
+        "node/5225695421",
+        "node/5225695521",
+        "node/5225695621",
+        "node/6418984604",
+        "node/6418985026",
+        "node/6418985027",
+        "node/6418987487",
+        "node/6418988790",
+        "node/6418988791",
+        "node/6419006085",
+        "node/6419006086",
+        "node/6419006088",
+        "node/6419006185",
+        "node/6419007388",
+        "node/6419007390",
+        "node/6419008285",
+        "node/6419008686",
+        "node/6419008687",
+        "node/6419008688",
+        "node/6419008689",
+        "node/6419008690",
+        "node/6419008691",
+        "node/6419011487",
+        "node/6419011488",
+        "node/6419011490",
+        "node/6419011491",
+        "node/6419011492",
+        "node/6419015585",
+        "node/6419015586",
+        "node/6419015589",
+        "node/6419015590",
+        "node/6419015591",
+        "node/6419015592",
+        "node/6419015593",
+        "node/6419015786",
+        "node/6419015787",
+        "node/6419015790",
+        "node/6419024185",
+        "node/6419024186",
+        "node/6419024192",
+        "node/6419024193",
+        "node/6419024194",
+        "node/6419027090",
+        "node/6419027091",
+        "node/6419027092",
+        "node/6419027095",
+        "node/6419027186",
+        "node/6419027190",
+        "node/6419027194",
+        "node/6419027195",
+        "node/6419027196",
+        "node/6419027197",
+        "node/6419027486",
+        "node/6419027487",
+        "node/6419028086",
+        "node/6419048785",
+        "node/6419048786"
+      ],
+      "ov_node_ids": [
+        "00513dd1-3c04-45b1-a421-ba5be8e380af",
+        "05ca3281-f418-4a31-811c-e02120e56017",
+        "065f1243-500c-498d-b23b-ae06dc61dbf4",
+        "0bdf22f5-9b19-4a9e-ba93-d9bcdab3d160",
+        "0c6efb98-1e97-462d-b82e-6f80d580cfba",
+        "0c719c13-9421-489f-83b6-eb098f60f68f",
+        "1028eec0-f5ef-42c1-bd4e-6f5bdfb09161",
+        "118ace31-3274-4f50-b859-462ca426c22e",
+        "13cc2b82-be69-4b05-abd0-d0cfa5947751",
+        "18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "19987cf4-07c5-4ce8-851b-451a701b785e",
+        "1ca74bf9-a48a-4e55-a4a8-05d91c0aec0c",
+        "21e11aed-a1be-4bed-bfc6-178a05cd6e7e",
+        "2990fadf-212c-4d3c-a2af-9f5329a65ee7",
+        "2a60bbd6-c776-4f0f-acdc-f2d8c2a4da85",
+        "2d0e01d8-3399-4e11-9ad7-2dfdeb5b1557",
+        "2e06b0a8-3cc5-41d8-939b-d49385fa358f",
+        "2e236336-85b6-40e7-b49a-47020a20029b",
+        "32fbfe8f-74c2-4ce4-aef3-d68f47c075a5",
+        "349cc793-735e-4d0d-9be3-9a85fe1258ef",
+        "3b5536d0-46db-468c-a0ee-c0688b30e75f",
+        "3cb4f128-774a-4141-a5a0-47c65f43d205",
+        "3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "3e657f55-86f0-4748-ac26-df7ae133f2ac",
+        "3efe83f5-d5b8-4143-af40-08be3cb7e2d2",
+        "433021b9-d707-4cce-9a88-fdb8ca4a54d6",
+        "47565b01-0e1b-4993-abf9-46abd0a13aa2",
+        "48694e08-166e-41e1-814c-18348665885d",
+        "4e092227-cc03-4a8c-bc68-c36096fd0f13",
+        "50a783d5-5b79-494a-a500-124d80882e44",
+        "57d1bc0b-d2d2-4982-8df4-e6f6b45537c2",
+        "5affaf5e-8faa-40ca-8fe7-bcd3fdd71438",
+        "5eb15735-67f7-4642-8fae-8e8efcb32551",
+        "61b3001c-7240-4345-b4d2-50fad2f4d274",
+        "62f1f9e9-a77f-49ea-b60c-efa20a17aaa8",
+        "6317603a-1577-4c36-9d9c-a3fe485108aa",
+        "64bcbb17-1a19-45a9-b47b-76f7d21074ec",
+        "65b74669-dfe4-451c-813c-4b79bcade064",
+        "68e86969-49bc-4afd-a7ad-a2db279093fa",
+        "6abeec9c-6433-4d7f-a5cf-6dc1b8b296d1",
+        "6b90aabf-dcac-434c-b222-acd63b2afe2d",
+        "6ccbd959-cc60-45b8-be0d-ed45ae222f0c",
+        "78555683-2130-411b-a300-97942654ea5d",
+        "807894b6-53ba-4d0d-b2b2-d8128d519e4f",
+        "870da7aa-1fb9-42ab-8929-81601c2b40bf",
+        "8784c924-a0ca-434b-891c-ae923aeaa6b1",
+        "8833ad08-6b0a-4cd6-b460-1cf623e70154",
+        "888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "91ea3dfb-51dd-4770-adfa-fe31fb9799d2",
+        "92079cb9-e36f-4383-aebc-af233cba2072",
+        "99c387c1-cb2c-4b6e-9d1f-789260863725",
+        "9ed47b77-d131-4f65-8680-9982d21a2ee0",
+        "a4a753ad-2cda-483e-9581-4a69a7dfcdea",
+        "a93552ab-6e67-430b-b3fb-3c8b49cee715",
+        "ab25fb13-d0db-4243-8527-735bdf0a9493",
+        "acad575d-705b-4b61-87df-fe49844ca9d4",
+        "ad3f0fab-0c34-48d4-8c8c-2c47634dc460",
+        "b177945c-b87b-490e-8ece-f65bb3d46ece",
+        "b1f5e8d9-7bb8-44d3-ad0b-f87404eb50c9",
+        "b28a7944-b382-43de-a408-a41fd3ff6316",
+        "b69ae34a-a853-4f6f-a3a2-0957aa09f84d",
+        "b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "bcf2f090-981a-41a7-b2fb-b9824a85607c",
+        "c0518b3d-aba5-4699-ab5d-429e34ec1301",
+        "c9c7d6e0-67ea-4a4d-bf78-6752c32aaffc",
+        "cf218c5c-48cc-4594-913b-1f207b3f9db9",
+        "d4c30c4b-7c1c-4b36-a7b1-f055beb84a3e",
+        "d59c56e3-a7c1-4c1d-962e-33a1e5c04a93",
+        "d6d7dfea-a7eb-435e-9495-966f47621a44",
+        "da3e769d-6034-42ac-b104-85b13c95bcae",
+        "dc058fe4-c831-4016-b93c-65ac0ae69455",
+        "e7eb057b-69a5-4249-818d-122f5440e0e1",
+        "e85ce12e-6a74-4083-b816-9a2d9e992f21",
+        "edb750dd-8a5f-4df8-b769-527f72aabb4f",
+        "f0694334-e529-454c-b5a7-4452312f13f2",
+        "f4946f04-521a-43ab-b4cd-c497c46271f7",
+        "f602fc05-adae-4d39-bae2-06adafd2551f",
+        "f636329f-9389-4e03-81c7-71fbb31fc5b2",
+        "f86cb868-c046-4fc7-bc4d-f41fcb9c3b26",
+        "f8d3124a-eee8-40ea-a5f6-ffcc21592424",
+        "fafe771b-58b6-4121-859f-30a09483cb2c",
+        "fb97dbff-7c41-4791-8594-d5d40baa0e24",
+        "fc476e8f-e6ce-430e-9d6c-1b87cd3045da",
+        "fe694b33-7c02-4207-8fea-5f18edfc048c",
+        "ff8188a1-f8c2-4a6b-9db4-fd1adf01f18c"
+      ],
+      "edge_pair_ids": [
+        "node/11304774637::3cb4f128-774a-4141-a5a0-47c65f43d205",
+        "node/11304774637::d6d7dfea-a7eb-435e-9495-966f47621a44",
+        "node/4487996362::8784c924-a0ca-434b-891c-ae923aeaa6b1",
+        "node/5225695421::e7eb057b-69a5-4249-818d-122f5440e0e1",
+        "node/5225695421::edb750dd-8a5f-4df8-b769-527f72aabb4f",
+        "node/5225695421::f4946f04-521a-43ab-b4cd-c497c46271f7",
+        "node/5225695421::fb97dbff-7c41-4791-8594-d5d40baa0e24",
+        "node/5225695521::acad575d-705b-4b61-87df-fe49844ca9d4",
+        "node/5225695521::b28a7944-b382-43de-a408-a41fd3ff6316",
+        "node/5225695621::acad575d-705b-4b61-87df-fe49844ca9d4",
+        "node/5225695621::cf218c5c-48cc-4594-913b-1f207b3f9db9",
+        "node/5225695621::fafe771b-58b6-4121-859f-30a09483cb2c",
+        "node/6418984604::9ed47b77-d131-4f65-8680-9982d21a2ee0",
+        "node/6418984604::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6418985026::118ace31-3274-4f50-b859-462ca426c22e",
+        "node/6418985026::3b5536d0-46db-468c-a0ee-c0688b30e75f",
+        "node/6418985026::5eb15735-67f7-4642-8fae-8e8efcb32551",
+        "node/6418985027::3b5536d0-46db-468c-a0ee-c0688b30e75f",
+        "node/6418985027::5eb15735-67f7-4642-8fae-8e8efcb32551",
+        "node/6418985027::6b90aabf-dcac-434c-b222-acd63b2afe2d",
+        "node/6418987487::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6418987487::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6418987487::99c387c1-cb2c-4b6e-9d1f-789260863725",
+        "node/6418988790::47565b01-0e1b-4993-abf9-46abd0a13aa2",
+        "node/6418988791::99c387c1-cb2c-4b6e-9d1f-789260863725",
+        "node/6419006085::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419006085::3e657f55-86f0-4748-ac26-df7ae133f2ac",
+        "node/6419006085::6b90aabf-dcac-434c-b222-acd63b2afe2d",
+        "node/6419006085::8784c924-a0ca-434b-891c-ae923aeaa6b1",
+        "node/6419006085::d4c30c4b-7c1c-4b36-a7b1-f055beb84a3e",
+        "node/6419006086::00513dd1-3c04-45b1-a421-ba5be8e380af",
+        "node/6419006086::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419006086::3e657f55-86f0-4748-ac26-df7ae133f2ac",
+        "node/6419006086::8784c924-a0ca-434b-891c-ae923aeaa6b1",
+        "node/6419006088::00513dd1-3c04-45b1-a421-ba5be8e380af",
+        "node/6419006088::0c6efb98-1e97-462d-b82e-6f80d580cfba",
+        "node/6419006088::1028eec0-f5ef-42c1-bd4e-6f5bdfb09161",
+        "node/6419006088::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419006088::6b90aabf-dcac-434c-b222-acd63b2afe2d",
+        "node/6419006088::8833ad08-6b0a-4cd6-b460-1cf623e70154",
+        "node/6419006088::f636329f-9389-4e03-81c7-71fbb31fc5b2",
+        "node/6419006185::21e11aed-a1be-4bed-bfc6-178a05cd6e7e",
+        "node/6419006185::8784c924-a0ca-434b-891c-ae923aeaa6b1",
+        "node/6419006185::dc058fe4-c831-4016-b93c-65ac0ae69455",
+        "node/6419007388::8784c924-a0ca-434b-891c-ae923aeaa6b1",
+        "node/6419007390::acad575d-705b-4b61-87df-fe49844ca9d4",
+        "node/6419007390::b1f5e8d9-7bb8-44d3-ad0b-f87404eb50c9",
+        "node/6419007390::d6d7dfea-a7eb-435e-9495-966f47621a44",
+        "node/6419008285::3e657f55-86f0-4748-ac26-df7ae133f2ac",
+        "node/6419008686::1ca74bf9-a48a-4e55-a4a8-05d91c0aec0c",
+        "node/6419008686::91ea3dfb-51dd-4770-adfa-fe31fb9799d2",
+        "node/6419008686::b1f5e8d9-7bb8-44d3-ad0b-f87404eb50c9",
+        "node/6419008686::f4946f04-521a-43ab-b4cd-c497c46271f7",
+        "node/6419008686::fb97dbff-7c41-4791-8594-d5d40baa0e24",
+        "node/6419008687::0c719c13-9421-489f-83b6-eb098f60f68f",
+        "node/6419008687::3cb4f128-774a-4141-a5a0-47c65f43d205",
+        "node/6419008687::6ccbd959-cc60-45b8-be0d-ed45ae222f0c",
+        "node/6419008688::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419008688::6b90aabf-dcac-434c-b222-acd63b2afe2d",
+        "node/6419008688::d59c56e3-a7c1-4c1d-962e-33a1e5c04a93",
+        "node/6419008689::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419008689::57d1bc0b-d2d2-4982-8df4-e6f6b45537c2",
+        "node/6419008690::2990fadf-212c-4d3c-a2af-9f5329a65ee7",
+        "node/6419008690::2a60bbd6-c776-4f0f-acdc-f2d8c2a4da85",
+        "node/6419008690::b177945c-b87b-490e-8ece-f65bb3d46ece",
+        "node/6419008690::f8d3124a-eee8-40ea-a5f6-ffcc21592424",
+        "node/6419008691::065f1243-500c-498d-b23b-ae06dc61dbf4",
+        "node/6419008691::ab25fb13-d0db-4243-8527-735bdf0a9493",
+        "node/6419008691::e85ce12e-6a74-4083-b816-9a2d9e992f21",
+        "node/6419011487::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419011487::6b90aabf-dcac-434c-b222-acd63b2afe2d",
+        "node/6419011487::d59c56e3-a7c1-4c1d-962e-33a1e5c04a93",
+        "node/6419011488::d59c56e3-a7c1-4c1d-962e-33a1e5c04a93",
+        "node/6419011490::0bdf22f5-9b19-4a9e-ba93-d9bcdab3d160",
+        "node/6419011490::48694e08-166e-41e1-814c-18348665885d",
+        "node/6419011490::bcf2f090-981a-41a7-b2fb-b9824a85607c",
+        "node/6419011490::d6d7dfea-a7eb-435e-9495-966f47621a44",
+        "node/6419011490::fafe771b-58b6-4121-859f-30a09483cb2c",
+        "node/6419011491::13cc2b82-be69-4b05-abd0-d0cfa5947751",
+        "node/6419011491::3cb4f128-774a-4141-a5a0-47c65f43d205",
+        "node/6419011491::47565b01-0e1b-4993-abf9-46abd0a13aa2",
+        "node/6419011491::a93552ab-6e67-430b-b3fb-3c8b49cee715",
+        "node/6419011492::00513dd1-3c04-45b1-a421-ba5be8e380af",
+        "node/6419011492::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419011492::6b90aabf-dcac-434c-b222-acd63b2afe2d",
+        "node/6419011492::d59c56e3-a7c1-4c1d-962e-33a1e5c04a93",
+        "node/6419015585::2e236336-85b6-40e7-b49a-47020a20029b",
+        "node/6419015585::433021b9-d707-4cce-9a88-fdb8ca4a54d6",
+        "node/6419015585::6317603a-1577-4c36-9d9c-a3fe485108aa",
+        "node/6419015585::807894b6-53ba-4d0d-b2b2-d8128d519e4f",
+        "node/6419015585::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419015585::f86cb868-c046-4fc7-bc4d-f41fcb9c3b26",
+        "node/6419015585::ff8188a1-f8c2-4a6b-9db4-fd1adf01f18c",
+        "node/6419015586::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419015589::ad3f0fab-0c34-48d4-8c8c-2c47634dc460",
+        "node/6419015589::f602fc05-adae-4d39-bae2-06adafd2551f",
+        "node/6419015589::ff8188a1-f8c2-4a6b-9db4-fd1adf01f18c",
+        "node/6419015590::3efe83f5-d5b8-4143-af40-08be3cb7e2d2",
+        "node/6419015590::6317603a-1577-4c36-9d9c-a3fe485108aa",
+        "node/6419015590::f602fc05-adae-4d39-bae2-06adafd2551f",
+        "node/6419015591::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419015591::57d1bc0b-d2d2-4982-8df4-e6f6b45537c2",
+        "node/6419015591::92079cb9-e36f-4383-aebc-af233cba2072",
+        "node/6419015591::a4a753ad-2cda-483e-9581-4a69a7dfcdea",
+        "node/6419015591::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419015592::2e236336-85b6-40e7-b49a-47020a20029b",
+        "node/6419015592::68e86969-49bc-4afd-a7ad-a2db279093fa",
+        "node/6419015592::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419015593::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419015593::2e236336-85b6-40e7-b49a-47020a20029b",
+        "node/6419015593::433021b9-d707-4cce-9a88-fdb8ca4a54d6",
+        "node/6419015593::68e86969-49bc-4afd-a7ad-a2db279093fa",
+        "node/6419015593::807894b6-53ba-4d0d-b2b2-d8128d519e4f",
+        "node/6419015593::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419015593::92079cb9-e36f-4383-aebc-af233cba2072",
+        "node/6419015593::b69ae34a-a853-4f6f-a3a2-0957aa09f84d",
+        "node/6419015593::f86cb868-c046-4fc7-bc4d-f41fcb9c3b26",
+        "node/6419015593::ff8188a1-f8c2-4a6b-9db4-fd1adf01f18c",
+        "node/6419015786::6b90aabf-dcac-434c-b222-acd63b2afe2d",
+        "node/6419015786::d59c56e3-a7c1-4c1d-962e-33a1e5c04a93",
+        "node/6419015787::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419015790::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419015790::2e236336-85b6-40e7-b49a-47020a20029b",
+        "node/6419015790::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419015790::6abeec9c-6433-4d7f-a5cf-6dc1b8b296d1",
+        "node/6419015790::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419015790::d59c56e3-a7c1-4c1d-962e-33a1e5c04a93",
+        "node/6419024185::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419024185::65b74669-dfe4-451c-813c-4b79bcade064",
+        "node/6419024185::99c387c1-cb2c-4b6e-9d1f-789260863725",
+        "node/6419024185::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419024186::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419024186::57d1bc0b-d2d2-4982-8df4-e6f6b45537c2",
+        "node/6419024186::65b74669-dfe4-451c-813c-4b79bcade064",
+        "node/6419024186::99c387c1-cb2c-4b6e-9d1f-789260863725",
+        "node/6419024186::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419024192::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419024192::3df41b1b-fa6a-44e2-a262-fe52e2fa065d",
+        "node/6419024192::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419024192::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419024193::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419024193::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419024193::92079cb9-e36f-4383-aebc-af233cba2072",
+        "node/6419024193::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419024193::c9c7d6e0-67ea-4a4d-bf78-6752c32aaffc",
+        "node/6419024194::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419024194::2e236336-85b6-40e7-b49a-47020a20029b",
+        "node/6419024194::4e092227-cc03-4a8c-bc68-c36096fd0f13",
+        "node/6419024194::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419024194::92079cb9-e36f-4383-aebc-af233cba2072",
+        "node/6419024194::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419024194::c9c7d6e0-67ea-4a4d-bf78-6752c32aaffc",
+        "node/6419027090::6abeec9c-6433-4d7f-a5cf-6dc1b8b296d1",
+        "node/6419027090::78555683-2130-411b-a300-97942654ea5d",
+        "node/6419027090::99c387c1-cb2c-4b6e-9d1f-789260863725",
+        "node/6419027090::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419027091::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419027091::92079cb9-e36f-4383-aebc-af233cba2072",
+        "node/6419027091::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419027092::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419027092::fc476e8f-e6ce-430e-9d6c-1b87cd3045da",
+        "node/6419027095::05ca3281-f418-4a31-811c-e02120e56017",
+        "node/6419027095::19987cf4-07c5-4ce8-851b-451a701b785e",
+        "node/6419027095::ad3f0fab-0c34-48d4-8c8c-2c47634dc460",
+        "node/6419027095::c0518b3d-aba5-4699-ab5d-429e34ec1301",
+        "node/6419027186::3efe83f5-d5b8-4143-af40-08be3cb7e2d2",
+        "node/6419027190::2a60bbd6-c776-4f0f-acdc-f2d8c2a4da85",
+        "node/6419027190::62f1f9e9-a77f-49ea-b60c-efa20a17aaa8",
+        "node/6419027190::da3e769d-6034-42ac-b104-85b13c95bcae",
+        "node/6419027190::f8d3124a-eee8-40ea-a5f6-ffcc21592424",
+        "node/6419027194::2e236336-85b6-40e7-b49a-47020a20029b",
+        "node/6419027194::870da7aa-1fb9-42ab-8929-81601c2b40bf",
+        "node/6419027194::ad3f0fab-0c34-48d4-8c8c-2c47634dc460",
+        "node/6419027194::b28a7944-b382-43de-a408-a41fd3ff6316",
+        "node/6419027194::f602fc05-adae-4d39-bae2-06adafd2551f",
+        "node/6419027194::ff8188a1-f8c2-4a6b-9db4-fd1adf01f18c",
+        "node/6419027195::2a60bbd6-c776-4f0f-acdc-f2d8c2a4da85",
+        "node/6419027195::349cc793-735e-4d0d-9be3-9a85fe1258ef",
+        "node/6419027195::f0694334-e529-454c-b5a7-4452312f13f2",
+        "node/6419027195::f8d3124a-eee8-40ea-a5f6-ffcc21592424",
+        "node/6419027196::05ca3281-f418-4a31-811c-e02120e56017",
+        "node/6419027196::64bcbb17-1a19-45a9-b47b-76f7d21074ec",
+        "node/6419027197::065f1243-500c-498d-b23b-ae06dc61dbf4",
+        "node/6419027197::2d0e01d8-3399-4e11-9ad7-2dfdeb5b1557",
+        "node/6419027197::50a783d5-5b79-494a-a500-124d80882e44",
+        "node/6419027197::5affaf5e-8faa-40ca-8fe7-bcd3fdd71438",
+        "node/6419027197::61b3001c-7240-4345-b4d2-50fad2f4d274",
+        "node/6419027197::ab25fb13-d0db-4243-8527-735bdf0a9493",
+        "node/6419027197::e85ce12e-6a74-4083-b816-9a2d9e992f21",
+        "node/6419027197::f0694334-e529-454c-b5a7-4452312f13f2",
+        "node/6419027197::fe694b33-7c02-4207-8fea-5f18edfc048c",
+        "node/6419027486::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419027486::4e092227-cc03-4a8c-bc68-c36096fd0f13",
+        "node/6419027486::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419027486::c9c7d6e0-67ea-4a4d-bf78-6752c32aaffc",
+        "node/6419027487::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419027487::4e092227-cc03-4a8c-bc68-c36096fd0f13",
+        "node/6419027487::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419027487::92079cb9-e36f-4383-aebc-af233cba2072",
+        "node/6419027487::c9c7d6e0-67ea-4a4d-bf78-6752c32aaffc",
+        "node/6419028086::18d5a4e1-2688-4ad1-ab96-61a544333c56",
+        "node/6419028086::2e236336-85b6-40e7-b49a-47020a20029b",
+        "node/6419028086::4e092227-cc03-4a8c-bc68-c36096fd0f13",
+        "node/6419028086::888b6700-93c1-4e62-8a71-3c9ce33d2aeb",
+        "node/6419028086::92079cb9-e36f-4383-aebc-af233cba2072",
+        "node/6419028086::b9cff042-0950-44a3-a3c8-a3845d099ea2",
+        "node/6419028086::c9c7d6e0-67ea-4a4d-bf78-6752c32aaffc",
+        "node/6419028086::d59c56e3-a7c1-4c1d-962e-33a1e5c04a93",
+        "node/6419028086::f86cb868-c046-4fc7-bc4d-f41fcb9c3b26",
+        "node/6419048785::2e06b0a8-3cc5-41d8-939b-d49385fa358f",
+        "node/6419048785::32fbfe8f-74c2-4ce4-aef3-d68f47c075a5",
+        "node/6419048785::64bcbb17-1a19-45a9-b47b-76f7d21074ec",
+        "node/6419048785::da3e769d-6034-42ac-b104-85b13c95bcae",
+        "node/6419048786::065f1243-500c-498d-b23b-ae06dc61dbf4",
+        "node/6419048786::61b3001c-7240-4345-b4d2-50fad2f4d274",
+        "node/6419048786::ab25fb13-d0db-4243-8527-735bdf0a9493"
+      ],
+      "pattern": "AMBIGUOUS_CLUSTER",
+      "score_min": 0.55,
+      "score_max": 1.0,
+      "score_mean": 0.6293,
+      "geographic_spread_meters": 284.31,
+      "category_consistent": true,
+      "categories_present": [
+        "commercial_services",
+        "other",
+        "retail"
+      ],
+      "competing_edge_count": 83,
+      "has_rejected_edges": true,
+      "is_ambiguous": true,
+      "osm_details": [
+        {
+          "id": "node/11304774637",
+          "name": "Sudarshan Silks",
+          "category": "retail"
+        },
+        {
+          "id": "node/4487996362",
+          "name": "Shree Sudarshan Light And Appliances",
+          "category": "retail"
+        },
+        {
+          "id": "node/5225695421",
+          "name": "Kuberan silks",
+          "category": "retail"
+        },
+        {
+          "id": "node/5225695521",
+          "name": "Pradeep fashion",
+          "category": "retail"
+        },
+        {
+          "id": "node/5225695621",
+          "name": "Pradeep Fabrics",
+          "category": "retail"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00513dd1-3c04-45b1-a421-ba5be8e380af",
+          "name": "Cona Electricals",
+          "category": "retail"
+        },
+        {
+          "id": "05ca3281-f418-4a31-811c-e02120e56017",
+          "name": "Manoj Garments",
+          "category": "retail"
+        },
+        {
+          "id": "065f1243-500c-498d-b23b-ae06dc61dbf4",
+          "name": "Gold Style",
+          "category": "retail"
+        },
+        {
+          "id": "0bdf22f5-9b19-4a9e-ba93-d9bcdab3d160",
+          "name": "Sardar Electric House",
+          "category": "retail"
+        },
+        {
+          "id": "0c6efb98-1e97-462d-b82e-6f80d580cfba",
+          "name": "Mangal Electric Corporation",
+          "category": "retail"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000018",
+      "osm_node_ids": [
+        "way/38832006"
+      ],
+      "ov_node_ids": [
+        "0055a82b-da27-4333-a44d-b0174b9d5e08"
+      ],
+      "edge_pair_ids": [
+        "way/38832006::0055a82b-da27-4333-a44d-b0174b9d5e08"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.7411,
+      "score_max": 0.7411,
+      "score_mean": 0.7411,
+      "geographic_spread_meters": 21.44,
+      "category_consistent": true,
+      "categories_present": [
+        "education"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "way/38832006",
+          "name": "Kendriya Vidyalaya Malleswaram",
+          "category": "education"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "0055a82b-da27-4333-a44d-b0174b9d5e08",
+          "name": "Kendriya Vidyalaya Malleshwaram",
+          "category": "education"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000019",
+      "osm_node_ids": [
+        "node/13288585573",
+        "node/9689539842"
+      ],
+      "ov_node_ids": [
+        "0055c7a1-1133-4932-b637-18170d00e464",
+        "679aa441-9d10-444a-9ee7-4d66f75d8315",
+        "b247d65d-9385-4619-8e2d-e6d2668cb588"
+      ],
+      "edge_pair_ids": [
+        "node/13288585573::0055c7a1-1133-4932-b637-18170d00e464",
+        "node/13288585573::679aa441-9d10-444a-9ee7-4d66f75d8315",
+        "node/9689539842::0055c7a1-1133-4932-b637-18170d00e464",
+        "node/9689539842::b247d65d-9385-4619-8e2d-e6d2668cb588"
+      ],
+      "pattern": "AMBIGUOUS_CLUSTER",
+      "score_min": 0.5924,
+      "score_max": 0.88,
+      "score_mean": 0.7172,
+      "geographic_spread_meters": 23.29,
+      "category_consistent": true,
+      "categories_present": [
+        "other",
+        "sustenance"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": true,
+      "is_ambiguous": true,
+      "osm_details": [
+        {
+          "id": "node/13288585573",
+          "name": "Acai Theory",
+          "category": "sustenance"
+        },
+        {
+          "id": "node/9689539842",
+          "name": "Chai Days",
+          "category": "sustenance"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "0055c7a1-1133-4932-b637-18170d00e464",
+          "name": "A\u00e7a\u00ed Theory",
+          "category": "sustenance"
+        },
+        {
+          "id": "679aa441-9d10-444a-9ee7-4d66f75d8315",
+          "name": "Little Italy",
+          "category": "sustenance"
+        },
+        {
+          "id": "b247d65d-9385-4619-8e2d-e6d2668cb588",
+          "name": "Chai Days",
+          "category": "other"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000020",
+      "osm_node_ids": [
+        "node/11676514098"
+      ],
+      "ov_node_ids": [
+        "00577a71-f46d-44bf-a1d9-d1bcc12d03d2",
+        "c66cc5fa-9a3c-47b0-8cc8-7b31482e64e8"
+      ],
+      "edge_pair_ids": [
+        "node/11676514098::00577a71-f46d-44bf-a1d9-d1bcc12d03d2",
+        "node/11676514098::c66cc5fa-9a3c-47b0-8cc8-7b31482e64e8"
+      ],
+      "pattern": "ONE_TO_MANY",
+      "score_min": 0.6049,
+      "score_max": 0.7137,
+      "score_mean": 0.6593,
+      "geographic_spread_meters": 16.67,
+      "category_consistent": true,
+      "categories_present": [
+        "sustenance"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/11676514098",
+          "name": "Chandrika Hotel",
+          "category": "sustenance"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00577a71-f46d-44bf-a1d9-d1bcc12d03d2",
+          "name": "Dolci Desserts ",
+          "category": "sustenance"
+        },
+        {
+          "id": "c66cc5fa-9a3c-47b0-8cc8-7b31482e64e8",
+          "name": "Hotel Chandrika",
+          "category": "sustenance"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000021",
+      "osm_node_ids": [
+        "node/13686424061"
+      ],
+      "ov_node_ids": [
+        "0060023d-a495-454e-b0f2-ce179f126790"
+      ],
+      "edge_pair_ids": [
+        "node/13686424061::0060023d-a495-454e-b0f2-ce179f126790"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.6133,
+      "score_max": 0.6133,
+      "score_mean": 0.6133,
+      "geographic_spread_meters": 1.95,
+      "category_consistent": true,
+      "categories_present": [
+        "other",
+        "retail"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/13686424061",
+          "name": "Hindware",
+          "category": "retail"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "0060023d-a495-454e-b0f2-ce179f126790",
+          "name": "Hindware Smart Appliances",
+          "category": "other"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000022",
+      "osm_node_ids": [
+        "way/1072674746"
+      ],
+      "ov_node_ids": [
+        "006040c9-2007-4aa1-8421-c7565be29fc5"
+      ],
+      "edge_pair_ids": [
+        "way/1072674746::006040c9-2007-4aa1-8421-c7565be29fc5"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 0.5846,
+      "score_max": 0.5846,
+      "score_mean": 0.5846,
+      "geographic_spread_meters": 18.05,
+      "category_consistent": true,
+      "categories_present": [
+        "hospitality"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "way/1072674746",
+          "name": "Hotel Zuri",
+          "category": "hospitality"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "006040c9-2007-4aa1-8421-c7565be29fc5",
+          "name": "The Zuri Whitefield",
+          "category": "hospitality"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000023",
+      "osm_node_ids": [
+        "node/11290812041",
+        "node/12247899718"
+      ],
+      "ov_node_ids": [
+        "00630d86-c5f0-4f16-965f-545653e68ba1"
+      ],
+      "edge_pair_ids": [
+        "node/11290812041::00630d86-c5f0-4f16-965f-545653e68ba1",
+        "node/12247899718::00630d86-c5f0-4f16-965f-545653e68ba1"
+      ],
+      "pattern": "MANY_TO_ONE",
+      "score_min": 0.6404,
+      "score_max": 1.0,
+      "score_mean": 0.8202,
+      "geographic_spread_meters": 6.05,
+      "category_consistent": true,
+      "categories_present": [
+        "sustenance"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/11290812041",
+          "name": "Third Wave Coffee",
+          "category": "sustenance"
+        },
+        {
+          "id": "node/12247899718",
+          "name": "The Koi",
+          "category": "sustenance"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00630d86-c5f0-4f16-965f-545653e68ba1",
+          "name": "Third Wave Coffee",
+          "category": "sustenance"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000024",
+      "osm_node_ids": [
+        "node/1107995720",
+        "node/1107995737",
+        "node/1568758585"
+      ],
+      "ov_node_ids": [
+        "007a4ba8-5a4c-4322-872c-059462aa23d8",
+        "030cc135-1ea1-4de7-ba52-0b5dc03c07ba",
+        "c8b5afe1-d31d-4a1f-bf56-8c5a70c1f5e0",
+        "d509e678-0ecd-478c-831c-29776056e16b"
+      ],
+      "edge_pair_ids": [
+        "node/1107995720::c8b5afe1-d31d-4a1f-bf56-8c5a70c1f5e0",
+        "node/1107995720::d509e678-0ecd-478c-831c-29776056e16b",
+        "node/1107995737::007a4ba8-5a4c-4322-872c-059462aa23d8",
+        "node/1107995737::030cc135-1ea1-4de7-ba52-0b5dc03c07ba",
+        "node/1107995737::d509e678-0ecd-478c-831c-29776056e16b",
+        "node/1568758585::030cc135-1ea1-4de7-ba52-0b5dc03c07ba"
+      ],
+      "pattern": "AMBIGUOUS_CLUSTER",
+      "score_min": 0.5504,
+      "score_max": 0.91,
+      "score_mean": 0.6474,
+      "geographic_spread_meters": 43.42,
+      "category_consistent": true,
+      "categories_present": [
+        "commercial_services",
+        "retail",
+        "sustenance"
+      ],
+      "competing_edge_count": 2,
+      "has_rejected_edges": true,
+      "is_ambiguous": true,
+      "osm_details": [
+        {
+          "id": "node/1107995720",
+          "name": "Bansuri Sweets",
+          "category": "retail"
+        },
+        {
+          "id": "node/1107995737",
+          "name": "Nature Fresh",
+          "category": "sustenance"
+        },
+        {
+          "id": "node/1568758585",
+          "name": "Ganga Sagar",
+          "category": "sustenance"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "007a4ba8-5a4c-4322-872c-059462aa23d8",
+          "name": "Fortune Projects",
+          "category": "commercial_services"
+        },
+        {
+          "id": "030cc135-1ea1-4de7-ba52-0b5dc03c07ba",
+          "name": "Swasthya Cafe",
+          "category": "sustenance"
+        },
+        {
+          "id": "c8b5afe1-d31d-4a1f-bf56-8c5a70c1f5e0",
+          "name": "Bansuri Sweets",
+          "category": "sustenance"
+        },
+        {
+          "id": "d509e678-0ecd-478c-831c-29776056e16b",
+          "name": "Sri Ramkrishna",
+          "category": "retail"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000025",
+      "osm_node_ids": [
+        "node/1474819896"
+      ],
+      "ov_node_ids": [
+        "007bcc0d-f2a4-4ae8-87a0-025a0f7c7eb2"
+      ],
+      "edge_pair_ids": [
+        "node/1474819896::007bcc0d-f2a4-4ae8-87a0-025a0f7c7eb2"
+      ],
+      "pattern": "ONE_TO_ONE",
+      "score_min": 1.0,
+      "score_max": 1.0,
+      "score_mean": 1.0,
+      "geographic_spread_meters": 8.37,
+      "category_consistent": true,
+      "categories_present": [
+        "healthcare"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/1474819896",
+          "name": "Citi Hospital",
+          "category": "healthcare"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "007bcc0d-f2a4-4ae8-87a0-025a0f7c7eb2",
+          "name": "Citi Hospital",
+          "category": "healthcare"
+        }
+      ]
+    },
+    {
+      "cluster_id": "CLUSTER-000037",
+      "osm_node_ids": [
+        "node/11119061505",
+        "node/11119061506"
+      ],
+      "ov_node_ids": [
+        "00bbe2bb-4e9e-48fb-89a6-496cdbf0d43c",
+        "cfb92160-b675-4f20-b3a3-1f7bf344fecd"
+      ],
+      "edge_pair_ids": [
+        "node/11119061505::00bbe2bb-4e9e-48fb-89a6-496cdbf0d43c",
+        "node/11119061506::00bbe2bb-4e9e-48fb-89a6-496cdbf0d43c",
+        "node/11119061506::cfb92160-b675-4f20-b3a3-1f7bf344fecd"
+      ],
+      "pattern": "MANY_TO_MANY",
+      "score_min": 0.5636,
+      "score_max": 0.6801,
+      "score_mean": 0.6193,
+      "geographic_spread_meters": 12.15,
+      "category_consistent": true,
+      "categories_present": [
+        "commercial_services",
+        "other",
+        "sustenance"
+      ],
+      "competing_edge_count": 0,
+      "has_rejected_edges": false,
+      "is_ambiguous": false,
+      "osm_details": [
+        {
+          "id": "node/11119061505",
+          "name": "Sri Udupi Grand",
+          "category": "sustenance"
+        },
+        {
+          "id": "node/11119061506",
+          "name": "Muthoot Finance",
+          "category": "commercial_services"
+        }
+      ],
+      "ov_details": [
+        {
+          "id": "00bbe2bb-4e9e-48fb-89a6-496cdbf0d43c",
+          "name": "Prism Lead India",
+          "category": "commercial_services"
+        },
+        {
+          "id": "cfb92160-b675-4f20-b3a3-1f7bf344fecd",
+          "name": "Muthoot Finance Corporation",
+          "category": "other"
+        }
+      ]
+    }
+  ]
+}
