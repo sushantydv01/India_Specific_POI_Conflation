@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "report_timestamp": "2026-11-18T12:41:16.973287+00:00",
+    "report_timestamp": "2026-11-18T13:03:41.517644+00:00",
     "queue_file": "data/processed/benchmark/pilot_batch_50.csv",
     "annotator_id": "ai_auto_adopter",
     "model_identifier": "heuristic_rule_v1",

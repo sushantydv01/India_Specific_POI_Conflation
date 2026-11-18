@@ -141,13 +141,21 @@ def main():
     parser.add_argument("--pilot", action="store_true", help="Annotate the 50-pair pilot batch specifically")
     parser.add_argument("--queue", type=str, default=None, help="Explicit path to queue CSV")
     parser.add_argument("--ai-assisted", action="store_true", help="Enable AI-assisted suggestions and review workflow")
+    parser.add_argument("--blind-second-review", action="store_true", help="Perform blind second review with AI assistance strictly disabled")
+    parser.add_argument("--adjudicate", action="store_true", help="Run senior adjudicator session resolving annotation conflicts")
+    parser.add_argument("--review-queue", action="store_true", help="Annotate the 50-pair prioritized review queue specifically")
     parser.add_argument("--auto-adopt-ai", action="store_true", help="Automatically adopt AI suggestions non-interactively")
     parser.add_argument("--suggestions", type=str, default=None, help="Explicit path to AI suggestions JSONL")
     parser.add_argument("--report", type=str, default="reports/pilot_auto_adoption_report.json", help="Path for adoption report JSON")
     args = parser.parse_args()
 
+    if args.blind_second_review:
+        args.ai_assisted = False
+
     if args.queue:
         queue_path = args.queue
+    elif args.review_queue:
+        queue_path = "data/processed/benchmark/review_queue_pilot_50.csv"
     elif args.pilot:
         queue_path = "data/processed/benchmark/pilot_batch_50.csv"
     else:
@@ -214,6 +222,77 @@ def main():
         print("Consolidated pilot annotations written to: data/processed/benchmark/pilot_annotations_adopted.csv")
         print("Lifecycle manifest updated to: AI_AUTO_ANNOTATED_PILOT")
         print("Execution complete.")
+        return
+
+    # Adjudication branch
+    if args.adjudicate:
+        from src.poi_conflation.benchmark.adjudication import AdjudicationWorkflow, AdjudicationRecord
+        from src.poi_conflation.benchmark.schema import AnnotationProvenance
+
+        adj_wf = AdjudicationWorkflow()
+        pending = adj_wf.load_queue_items()
+        existing_adj = adj_wf.load_adjudicated_records()
+        unadjudicated = [it for it in pending if it["pair_id"] not in existing_adj]
+
+        print("=" * 70)
+        print("POI CONFLATION BENCHMARK — SENIOR HUMAN ADJUDICATION CONSOLE")
+        print("=" * 70)
+        print(f"Adjudicator ID:       {args.annotator}")
+        print(f"Total Disagreements:  {len(pending)}")
+        print(f"Already Adjudicated:  {len(existing_adj)}")
+        print(f"Remaining in Queue:   {len(unadjudicated)}")
+        print("=" * 70)
+
+        if not unadjudicated:
+            print("\nNo pending disagreements require adjudication. All caught up!")
+            return
+
+        print("Controls: [q] Save & Quit | [s] Skip item\n")
+
+        for idx, item in enumerate(unadjudicated, 1):
+            pid = item["pair_id"]
+            print("-" * 70)
+            print(f"Dispute [{idx}/{len(unadjudicated)}] | Pair ID: {pid}")
+            print("-" * 70)
+            print(f"  OSM POI:      {item.get('osm_name_raw')} ({item.get('osm_category')})")
+            print(f"  Overture POI: {item.get('ov_name_raw')} ({item.get('ov_category')})")
+            print(f"  Distance:     {float(item.get('distance_meters', 0)):.2f}m")
+            print(f"  Notes/Diff:   {item.get('notes')}")
+            print()
+
+            dec = prompt_manual_decision()
+            if dec is None:
+                print("\nAdjudication session terminated.")
+                return
+            if dec == "skip":
+                print("Skipped.")
+                continue
+
+            conf = prompt_manual_confidence()
+            evd = prompt_manual_evidence()
+            rationale = input("Adjudication Rationale (required): ").strip()
+            while len(rationale) < 5:
+                print("Please provide a meaningful rationale (at least 5 characters).")
+                rationale = input("Adjudication Rationale: ").strip()
+
+            adj_rec = AdjudicationRecord(
+                pair_id=pid,
+                adjudicator_id=args.annotator,
+                primary_review={"notes": item.get("notes")},
+                secondary_review={},
+                final_decision=dec.value,
+                confidence=conf.value,
+                evidence_type=evd.value,
+                rationale=rationale,
+                provenance=AnnotationProvenance.HUMAN_ADJUDICATED.value,
+                osm_attributes={"name": item.get("osm_name_raw"), "category": item.get("osm_category")},
+                ov_attributes={"name": item.get("ov_name_raw"), "category": item.get("ov_category")},
+            )
+            adj_wf.record_adjudication(adj_rec)
+            print(f"Recorded adjudication for {pid} -> {dec.value}\n")
+
+        adj_wf.generate_adjudication_summary()
+        print("All pending items processed. Summary written to reports/adjudication_summary.json")
         return
 
     unannotated = workflow.get_unannotated_items(args.annotator)

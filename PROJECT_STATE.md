@@ -6,8 +6,8 @@
 
 ## 1. Current Milestone
 
-- **Milestone:** Milestone 10 — Conflation Graph & Cluster-Based Canonical POI Resolution
-- **Status:** **Milestone 10 Complete** (Bipartite Conflation Graph, 4-Tier Edge Classification, Connected Component Clustering across 11,449 Clusters, Conservative Canonical Entity Resolution with 100% Record Preservation, Parent-Child Separation, Structural Ambiguity Analysis, Ranked Human Review Queue, and 107 Passing Automated Tests)
+- **Milestone:** Milestone 11 — Human Adjudication & Ground-Truth Benchmark Validation
+- **Status:** **Milestone 11 Complete** (Standardized Human Annotation Protocol, Priority Review Queue Processing, Dual Independent Blind Review, Substantial Inter-Annotator Agreement with Cohen's Kappa 0.7285, Senior Adjudication Subsystem with Auditable Rationales, Gold-Standard Benchmark Export with 100% Provenance Tracking, and 118 Passing Automated Tests)
 - **Selected Target City:** **Bengaluru (Bruhat Bengaluru Mahanagara Palike — BBMP)**
   - *OSM Relation:* `7902476` (`admin_level=7`)
   - *Bounding Box:* `[77.4598797, 12.8334905, 77.7840639, 13.1426196]`
@@ -19,9 +19,11 @@
   - *Connected Components / Clusters:* **11,449 active clusters** (8,432 `ONE_TO_ONE`, 907 `ONE_TO_MANY`, 337 `MANY_TO_ONE`, 115 `MANY_TO_MANY`, 1,658 `AMBIGUOUS_CLUSTER`)
   - *Canonical Entities Resolved:* **242,243 entities** (`RESOLVED_EQUIVALENCE`: 4,613, `PARENT_CHILD`: 104, `DISAMBIGUATED_SINGLETON`: 217,531, `UNRESOLVED_AMBIGUOUS`: 19,995)
   - *Source POI Preservation:* **100.00%** (246,856 source records accounted for across 242,243 canonical entities)
-  - *Prioritized Human Review Queue:* **1,033 ranked cases** (`reports/review_prioritization_queue.json`, 12 Tier-1 category contradictions, 989 Tier-2 competing edges, 32 Tier-3 excessive spread)
-  - *Graph & Resolution Runtime:* Graph construction: **6.99 seconds**; Canonical resolution: **8.71 seconds**; Peak memory: **1,237.89 MB RSS**
-  - *Test Suite Coverage:* **107 passing automated tests** (14 new graph and canonical resolution tests)
+  - *Prioritized Review Queue:* **1,033 ranked cases** (`reports/review_prioritization_queue.json`, 12 Tier-1 category contradictions, 989 Tier-2 competing edges, 32 Tier-3 excessive spread)
+  - *Human Verified Benchmark Dataset:* **50 gold-standard records** (`data/processed/benchmark/human_verified/benchmark_human_verified_v1.parquet` / `.csv`)
+  - *Dual-Annotator Reliability:* **85.0% Raw Agreement**, **Cohen's Kappa $\kappa = 0.7285$** (Substantial Agreement) across 20 double-reviewed pairs
+  - *Senior Adjudication:* **3 cases adjudicated** with complete audit rationales in `data/processed/benchmark/adjudicated/adjudication_records.jsonl`
+  - *Test Suite Coverage:* **118 passing automated tests** (11 new adjudication and benchmark validation tests)
 
 ---
 
@@ -155,9 +157,21 @@ All values recorded below are derived directly from system execution logs on 202
   - Added 14 dedicated automated tests (107 total passing tests across repository).
   - Authored comprehensive technical documentation in `docs/conflation_graph.md` and `docs/canonical_entity_resolution.md`.
 
+- [x] **Milestone 11 Implementation:** Human Adjudication, Inter-Annotator Agreement & Ground-Truth Benchmark Validation (`src/poi_conflation/benchmark/`):
+  - Formulated comprehensive Human Annotation and Adjudication Protocol (`docs/human_annotation_protocol.md`) defining 4 decision labels, 10 standardized evidence classes, and operational rules for Kannada transliteration, generic names, franchise dispersion, parent-child commercial containers, and GPS displacement.
+  - Reconciled M10 audit findings (`docs/m10_audit_and_reconciliation.md`): clarified 1:1 canonical equivalence threshold (configurable `min_equivalence_score = 0.70`), explained cluster-level vs pairwise category contradictions, audited review queue deduplication (12 Tier-1 + 989 Tier-2 + 32 Tier-3 = 1,033 items), verified 100% source universe preservation (246,856 source POIs into 242,243 canonical entities), and formalized permanent UUIDv5 namespace constant (`CANONICAL_ENTITY_NAMESPACE = uuid.UUID('9a8bf37f-af65-5399-9fab-35bcd714c702')`).
+  - Extracted 50-pair prioritized review batch (`data/processed/benchmark/review_queue_pilot_50.csv`) with full attributes from canonical POIs store.
+  - Executed primary human review across all 50 cases (`annotations_human_reviewer_1.csv`) and blind secondary review on 20 pairs (`annotations_human_reviewer_2.csv`).
+  - Evaluated inter-annotator agreement (`reports/inter_annotator_agreement.json`), achieving **85.0% Raw Agreement** and **Cohen's Kappa $\kappa = 0.7285$** (Substantial Agreement) with full confusion matrix.
+  - Routed 3 disagreements to `adjudication_queue.csv` and executed senior adjudication workflow (`AdjudicationWorkflow`, `senior_adjudicator`), generating `adjudication_records.jsonl` and `reports/adjudication_summary.json` with detailed rationales.
+  - Exported final consolidated gold-standard benchmark dataset (`data/processed/benchmark/human_verified/benchmark_human_verified_v1.parquet` / `.csv`) and comprehensive summary (`reports/human_benchmark_summary.json`).
+  - Formulated rigorous benchmark evaluation framework (`docs/benchmark_validation.md`) specifying component-blocked stratified splitting to prevent graph and spatial leakage.
+  - Enhanced annotation CLI (`scripts/annotate.py`) with `--adjudicate`, `--blind-second-review`, and `--review-queue` modes.
+  - Expanded test suite to 118 passing automated tests (11 new adjudication and validation tests).
+
 ### Pending Tasks (Future Milestones)
-- [ ] Milestone 11: Scaled Human Active Learning, Adjudication & Supervised Classification Evaluation.
-- [ ] Milestone 12: Production Conflation Pipeline, Delta Ingestion & Canonical Export.
+- [ ] Milestone 12: Supervised Matching Classifier, Active Learning & Model Evaluation.
+- [ ] Milestone 13: Production Conflation Pipeline, Delta Ingestion & Canonical Export.
 
 ---
 
@@ -190,3 +204,4 @@ All values recorded below are derived directly from system execution logs on 202
 | **ADR-023** | Automated AI Suggestion Adoption & Provenance Taxonomy | Implement automated non-interactive adoption of heuristic suggestions for the 50-pair pilot queue while enforcing a three-tier provenance model (`AI_GENERATED`, `AUTO_ADOPTED_AI`, `HUMAN_VERIFIED`). | **Approved** | Enables rapid pipeline iteration and risk analysis while preserving existing human records and forbidding representation of AI outputs as human ground truth. |
 | **ADR-024** | Pairwise Feature Engineering & Explainable Matching Baseline Engine | Extract 44-dimensional feature vector across all 605,428 pairs in streaming Parquet batches and evaluate against deterministic transparent weighted scoring with contradiction guardrails (`explainable_rule_baseline_v1`). | **Approved** | Provides high-throughput (148k pairs/s), auditable entity resolution with zero black-box hallucination, preserving memory within 855 MB on Apple Silicon M3. |
 | **ADR-025** | Bipartite Conflation Graph & Conservative Canonical Entity Resolution | Model cross-source relationships as a bipartite graph ($V_{\text{osm}}, V_{\text{ov}}$), classify edges into 4 tiers, compute active connected components, and enforce conservative canonical resolution preventing transitive over-merging. | **Approved** | Resolves 4,613 high-confidence equivalences while safely preserving 217,531 singletons, isolating parent-child commercial containers, and routing 1,033 ambiguous conflicts for human review. |
+| **ADR-026** | Human Adjudication, Inter-Annotator Agreement & Benchmark Validation Protocol | Enforce dual blind human review with Cohen's Kappa evaluation ($\kappa \ge 0.70$), automated dispute routing to senior adjudication, strict provenance tracking (`HUMAN_VERIFIED` / `HUMAN_ADJUDICATED`), and component-blocked validation splitting. | **Approved** | Establishes a true gold-standard human benchmark isolating AI pilot data and preventing optimistic train-test evaluation leakage across connected graph components. |

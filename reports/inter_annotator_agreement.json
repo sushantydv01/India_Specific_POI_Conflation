@@ -1,0 +1,80 @@
+{
+  "evaluation_timestamp": "2026-11-18T13:00:20.768791+00:00",
+  "annotator_a": "human_reviewer_1",
+  "annotator_b": "human_reviewer_2",
+  "overlapping_pairs": 20,
+  "agreements": 17,
+  "disagreements": 3,
+  "raw_agreement_pct": 85.0,
+  "expected_agreement_pe": 0.4475,
+  "cohens_kappa": 0.7285,
+  "uncertain_pair_count": 2,
+  "confusion_matrix": {
+    "MATCH": {
+      "MATCH": 10,
+      "NON_MATCH": 0,
+      "UNCERTAIN": 2,
+      "NEEDS_ADJUDICATION": 1
+    },
+    "NON_MATCH": {
+      "MATCH": 0,
+      "NON_MATCH": 7,
+      "UNCERTAIN": 0,
+      "NEEDS_ADJUDICATION": 0
+    },
+    "UNCERTAIN": {
+      "MATCH": 0,
+      "NON_MATCH": 0,
+      "UNCERTAIN": 0,
+      "NEEDS_ADJUDICATION": 0
+    },
+    "NEEDS_ADJUDICATION": {
+      "MATCH": 0,
+      "NON_MATCH": 0,
+      "UNCERTAIN": 0,
+      "NEEDS_ADJUDICATION": 0
+    }
+  },
+  "disagreed_pairs": [
+    {
+      "pair_id": "node/1463555171::85732c67-24ee-4126-9b61-d33f4defee61",
+      "osm_source_id": "node/1463555171",
+      "ov_source_id": "85732c67-24ee-4126-9b61-d33f4defee61",
+      "annotator_a": "human_reviewer_1",
+      "decision_a": "MATCH",
+      "annotator_b": "human_reviewer_2",
+      "decision_b": "UNCERTAIN",
+      "osm_name": "ICICI Bank",
+      "ov_name": "ICICI Bank Limited, Bangalore-Rajarajeshwarinagar",
+      "distance_meters": 44.73
+    },
+    {
+      "pair_id": "node/6299172287::ebff2346-f02a-4ecc-a336-5db5f85e6cd1",
+      "osm_source_id": "node/6299172287",
+      "ov_source_id": "ebff2346-f02a-4ecc-a336-5db5f85e6cd1",
+      "annotator_a": "human_reviewer_1",
+      "decision_a": "MATCH",
+      "annotator_b": "human_reviewer_2",
+      "decision_b": "NEEDS_ADJUDICATION",
+      "osm_name": "Ujjivan Bank",
+      "ov_name": "Ujjivan Small Finance Bank, Bannergatta",
+      "distance_meters": 18.82
+    },
+    {
+      "pair_id": "node/710095029::944dee93-5dfa-44d8-8fd0-44f59615f1eb",
+      "osm_source_id": "node/710095029",
+      "ov_source_id": "944dee93-5dfa-44d8-8fd0-44f59615f1eb",
+      "annotator_a": "human_reviewer_1",
+      "decision_a": "MATCH",
+      "annotator_b": "human_reviewer_2",
+      "decision_b": "UNCERTAIN",
+      "osm_name": "Domlur Club",
+      "ov_name": "Domlur Club",
+      "distance_meters": 32.94
+    }
+  ],
+  "methodology_limitations": [
+    "Cohen's Kappa is sensitive to extreme prevalence asymmetry (high agreement with paradoxically low kappa).",
+    "Kappa requires at least 30 overlapping items to be statistically reliable."
+  ]
+}

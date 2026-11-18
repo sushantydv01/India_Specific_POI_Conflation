@@ -1,0 +1,38 @@
+{
+  "benchmark_metadata": {
+    "version": "1.0.0",
+    "release_tag": "human_verified_benchmark_v1",
+    "generated_at": "2026-11-18T13:00:20.866104+00:00",
+    "target_region": "BBMP, Bengaluru, Karnataka, India",
+    "total_verified_pairs": 50,
+    "double_reviewed_pairs": 20,
+    "adjudicated_pairs": 3
+  },
+  "decision_distribution": {
+    "NON_MATCH": 7,
+    "MATCH": 43
+  },
+  "provenance_distribution": {
+    "HUMAN_VERIFIED": 47,
+    "HUMAN_ADJUDICATED": 3
+  },
+  "confidence_distribution": {
+    "HIGH": 50
+  },
+  "evidence_type_distribution": {
+    "SAME_BUILDING_DIFFERENT_BUSINESS": 5,
+    "EXACT_NAME_AND_LOCATION": 43,
+    "CATEGORY_DISJOINT": 1,
+    "SAME_BRAND_DIFFERENT_BRANCH": 1
+  },
+  "inter_annotator_agreement": {
+    "raw_agreement_pct": 85.0,
+    "cohens_kappa": 0.7285,
+    "agreement_strength": "Substantial"
+  },
+  "data_artifacts": {
+    "csv_path": "data/processed/benchmark/human_verified/benchmark_human_verified_v1.csv",
+    "parquet_path": "data/processed/benchmark/human_verified/benchmark_human_verified_v1.parquet",
+    "queue_source": "data/processed/benchmark/review_queue_pilot_50.csv"
+  }
+}

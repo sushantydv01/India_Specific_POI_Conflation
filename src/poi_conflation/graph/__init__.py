@@ -24,6 +24,7 @@ from src.poi_conflation.graph.edge_classifier import (
 from src.poi_conflation.graph.bipartite_graph import BipartiteConflationGraph
 from src.poi_conflation.graph.canonical_resolver import (
     CanonicalEntityResolver,
+    CANONICAL_ENTITY_NAMESPACE,
     generate_canonical_uuid,
 )
 from src.poi_conflation.graph.ambiguity_analyzer import AmbiguityAnalyzer
@@ -40,6 +41,7 @@ __all__ = [
     "EntityCluster",
     "CanonicalEntity",
     "PrioritizedReviewItem",
+    "CANONICAL_ENTITY_NAMESPACE",
     "generate_canonical_uuid",
     "EdgeClassifier",
     "HARD_REJECTION_GUARDRAILS",

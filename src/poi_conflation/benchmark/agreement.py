@@ -190,7 +190,8 @@ class AgreementEvaluator:
             "osm_name_normalized", "ov_name_normalized", "osm_latitude", "osm_longitude",
             "ov_latitude", "ov_longitude", "distance_meters", "osm_category", "ov_category",
             "category_compatibility", "blocking_strategies", "sampling_stratum",
-            "decision", "annotator_id", "confidence", "evidence_type", "annotation_timestamp", "notes"
+            "decision", "annotator_id", "confidence", "evidence_type", "annotation_timestamp", "notes",
+            "provenance"
         ]
 
         appended = 0

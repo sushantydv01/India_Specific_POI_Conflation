@@ -24,6 +24,10 @@ from src.poi_conflation.benchmark.sampling import (
 )
 from src.poi_conflation.benchmark.workflow import AnnotationWorkflow
 from src.poi_conflation.benchmark.agreement import AgreementEvaluator
+from src.poi_conflation.benchmark.adjudication import (
+    AdjudicationRecord,
+    AdjudicationWorkflow,
+)
 from src.poi_conflation.benchmark.missed_match import (
     MissedMatchAuditor,
     DiagnosticStatus,
@@ -53,6 +57,8 @@ __all__ = [
     "TARGET_PER_STRATUM",
     "AnnotationWorkflow",
     "AgreementEvaluator",
+    "AdjudicationRecord",
+    "AdjudicationWorkflow",
     "MissedMatchAuditor",
     "DiagnosticStatus",
     "ReviewStatus",

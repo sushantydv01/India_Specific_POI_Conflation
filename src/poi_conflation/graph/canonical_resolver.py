@@ -18,7 +18,8 @@ from src.poi_conflation.graph.schema import (
     CANONICAL_RESOLUTION_POLICY_VERSION,
 )
 
-CANONICAL_NAMESPACE = uuid.uuid5(uuid.NAMESPACE_DNS, "poi-conflation.canonical.entity")
+CANONICAL_ENTITY_NAMESPACE = uuid.UUID("9a8bf37f-af65-5399-9fab-35bcd714c702")
+CANONICAL_NAMESPACE = CANONICAL_ENTITY_NAMESPACE
 
 # Container / Parent POI keywords common in Indian urban centers
 CONTAINER_KEYWORDS = {
@@ -30,7 +31,7 @@ CONTAINER_KEYWORDS = {
 def generate_canonical_uuid(osm_ids: List[str], ov_ids: List[str]) -> str:
     """Generate deterministic, collision-free UUIDv5 from sorted source constituent IDs."""
     key = f"osm:{','.join(sorted(osm_ids))}|ov:{','.join(sorted(ov_ids))}"
-    return str(uuid.uuid5(CANONICAL_NAMESPACE, key))
+    return str(uuid.uuid5(CANONICAL_ENTITY_NAMESPACE, key))
 
 
 class CanonicalEntityResolver:
@@ -41,10 +42,12 @@ class CanonicalEntityResolver:
         policy_version: str = CANONICAL_RESOLUTION_POLICY_VERSION,
         dominance_margin_threshold: float = 0.25,
         max_equivalence_distance: float = 50.0,
+        min_equivalence_score: float = 0.70,
     ):
         self.policy_version = policy_version
         self.dominance_margin_threshold = dominance_margin_threshold
         self.max_equivalence_distance = max_equivalence_distance
+        self.min_equivalence_score = min_equivalence_score
 
     def resolve_cluster(
         self,
@@ -125,7 +128,7 @@ class CanonicalEntityResolver:
             return [parent_entity, child_entity]
 
         # Equivalence resolution
-        if edge.matching_score >= 0.70 and edge.distance_meters <= self.max_equivalence_distance and cluster.category_consistent:
+        if edge.matching_score >= self.min_equivalence_score and edge.distance_meters <= self.max_equivalence_distance and cluster.category_consistent:
             can_id = generate_canonical_uuid([osm_id], [ov_id])
             # Primary name: prefer OSM name if available, else Overture
             prim_name = osm_node.name or ov_node.name or osm_node.normalized_name

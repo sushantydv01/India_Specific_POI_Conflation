@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "generated_at": "2026-11-18T13:00:20.770233+00:00",
+    "total_cases_adjudicated": 3,
+    "provenance_standard": "HUMAN_ADJUDICATED"
+  },
+  "decision_distribution": {
+    "MATCH": 3
+  },
+  "confidence_distribution": {
+    "HIGH": 3
+  },
+  "evidence_type_distribution": {
+    "EXACT_NAME_AND_LOCATION": 3
+  },
+  "annotator_resolution_breakdown": {
+    "upheld_primary_reviewer": 3,
+    "upheld_secondary_reviewer": 0,
+    "novel_or_independent_resolution": 0
+  },
+  "sample_adjudications": [
+    {
+      "pair_id": "node/1463555171::85732c67-24ee-4126-9b61-d33f4defee61",
+      "adjudicator_id": "senior_adjudicator",
+      "final_decision": "MATCH",
+      "confidence": "HIGH",
+      "evidence_type": "EXACT_NAME_AND_LOCATION",
+      "rationale": "Adjudicated as MATCH. Corroborated Rajarajeshwari Nagar branch of ICICI Bank. Planar distance of 44.7m in Bengaluru commercial zone represents typical OSM node street entrance versus Overture rooftop centroid displacement."
+    },
+    {
+      "pair_id": "node/6299172287::ebff2346-f02a-4ecc-a336-5db5f85e6cd1",
+      "adjudicator_id": "senior_adjudicator",
+      "final_decision": "MATCH",
+      "confidence": "HIGH",
+      "evidence_type": "EXACT_NAME_AND_LOCATION",
+      "rationale": "Adjudicated as MATCH. Confirmed Ujjivan Small Finance Bank branch on Bannerghatta Main Road. Distance of 18.8m is well within physical premise boundaries."
+    },
+    {
+      "pair_id": "node/710095029::944dee93-5dfa-44d8-8fd0-44f59615f1eb",
+      "adjudicator_id": "senior_adjudicator",
+      "final_decision": "MATCH",
+      "confidence": "HIGH",
+      "evidence_type": "EXACT_NAME_AND_LOCATION",
+      "rationale": "Adjudicated as MATCH. Domlur Club is a unique landmark recreational institution in Domlur. The category discrepancy (sustenance vs other) is a schema harmonization artifact. Spatial offset of 32.9m is consistent with the expansive club grounds."
+    }
+  ]
+}

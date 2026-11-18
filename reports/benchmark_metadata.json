@@ -1,6 +1,6 @@
 {
   "benchmark_schema_version": "1.1.0",
-  "manifest_timestamp": "2026-11-18T10:03:23.026781+00:00",
+  "manifest_timestamp": "2026-11-18T13:03:41.518547+00:00",
   "target_city": "Bengaluru (BBMP), Karnataka, India",
   "boundary_relation_id": 7902476,
   "lifecycle_state": "AI_AUTO_ANNOTATED_PILOT",
@@ -26,11 +26,13 @@
     "pilot_batch_csv": "data/processed/benchmark/pilot_batch_50.csv",
     "pilot_batch_records": 50,
     "adjudication_queue_csv": "data/processed/benchmark/adjudication_queue.csv",
-    "adjudication_queue_records": 0,
+    "adjudication_queue_records": 3,
     "missed_match_audit_csv": "data/processed/benchmark/missed_match_audit.csv",
     "missed_match_audit_records": 120,
     "annotator_files": {
       "annotations_reviewer_1": 1,
+      "annotations_human_reviewer_2": 20,
+      "annotations_human_reviewer_1": 50,
       "annotations_ai_auto_adopter": 50
     }
   },
