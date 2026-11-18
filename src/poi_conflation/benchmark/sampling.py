@@ -20,6 +20,7 @@ Every pair belongs to exactly one primary stratum (sum = 605,428), providing exa
 """
 
 import csv
+import hashlib
 import json
 import random
 from pathlib import Path
@@ -196,8 +197,8 @@ class BenchmarkSampler:
             pop_size = len(stratum_rows)
             # Deterministic pseudo-random shuffle
             shuffled = list(stratum_rows)
-            # Sort by deterministic hash with seed to ensure perfect platform reproducibility
-            shuffled.sort(key=lambda r: hash((r[0], self.seed)))
+            # Sort by deterministic cryptographic hash with seed to ensure perfect cross-process reproducibility
+            shuffled.sort(key=lambda r: hashlib.sha256(f"{r[0]}::{self.seed}".encode()).hexdigest())
             sampled_rows = shuffled[:TARGET_PER_STRATUM]
 
             for r in sampled_rows:

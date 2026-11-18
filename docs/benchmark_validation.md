@@ -80,3 +80,63 @@ To scale the benchmark beyond the 50-pair pilot:
 2. **Mandatory Dual-Annotation:** At least 20% of all newly sampled pairs must undergo blind second review.
 3. **Automated QC Gating:** If Cohen's Kappa drops below $0.70$ on any batch, annotation must pause for guideline retraining before continuing.
 4. **Immutable Audit Trail:** All adjudications and reviewer actions must append to `audit_trail.csv` and `adjudication_records.jsonl`.
+
+---
+
+## 6. Milestone 12 Empirical Evaluation of Baseline Matching Engine
+
+In Milestone 12, the frozen `explainable_rule_baseline_v1` matching engine was evaluated against the finalized human-verified benchmark (`benchmark_human_verified_v1.csv`):
+
+### 6.1 Performance Summary
+| Metric Mode | Precision | Recall | F1 Score | PR-AUC | Notes |
+|---|---|---|---|---|---|
+| **Definite Predictions Mode** | **1.0000** | **1.0000** | **1.0000** | — | Evaluated strictly on definite decisions (39 MATCH, 0 NON_MATCH). Zero false positives. |
+| **Strict Binary Mode** | **1.0000** | **0.9070** | **0.9512** | **0.2750** | UNCERTAIN treated as Non-Match (coverage-penalized). 4 false negatives (abstentions). |
+
+### 6.2 Three-Way Contingency Matrix
+```
+                  Predicted MATCH    Predicted NON_MATCH    Predicted UNCERTAIN
+True MATCH              39                    0                      4
+True NON_MATCH           0                    0                      7
+```
+* **True Positives (TP):** 39
+* **False Positives (FP):** 0
+* **False Negatives (FN, Strict):** 4 (model abstained with score in $[0.58, 0.70)$ due to corporate suffixes or event names)
+* **True Negatives (TN, Strict):** 7 (model abstained on close collocated businesses)
+* **Abstention Rate:** 22.0% (11 / 50 pairs)
+
+### 6.3 Brier Score Analysis & Calibration Caveat
+- **Uncalibrated Brier Score:** **0.1604**
+- **Methodological Caveat:** The baseline matching engine outputs a heuristic weighted score, not a calibrated posterior probability $P(\text{Match} \mid \mathbf{x})$. Calculating Brier score directly on heuristic scores reflects deviation from binary targets rather than true probabilistic miscalibration. Calibrated probability scoring must be deferred to supervised models trained on representative probability samples.
+
+---
+
+## 7. Component-Blocked Partitioning Audit Results
+
+The 500-pair representative benchmark queue was partitioned using `ComponentBlockedPartitioner` (H3 Resolution 7, seed 42):
+
+| Partition Split | Pair Count | Percentage | Component Count | OSM Nodes | Overture Nodes | Status |
+|---|---|---|---|---|---|---|
+| **TRAIN** | 274 | 54.8% | 255 | 256 | 273 | Active |
+| **VALIDATION** | 158 | 31.6% | 152 | 153 | 157 | Active |
+| **TEST** | 68 | 13.6% | 68 | 68 | 68 | **FROZEN** |
+
+### Leakage Verification
+- Cross-split connected components: **0** (strictly leakage-free)
+- Cross-split OSM nodes: **0**
+- Cross-split Overture nodes: **0**
+- Component precedence strictly guarantees that multi-pair clusters and collocated entities never cross train, validation, or test partitions.
+
+---
+
+## 8. Benchmark Readiness Quality Gate Assessment
+
+A formal multi-criteria readiness assessment was conducted in Milestone 12 (`reports/benchmark_readiness_assessment.json`):
+
+* **Verdict:** **`NOT_READY_FOR_SUPERVISED_TRAINING` / `CONDITIONAL_BLOCKED`**
+* **Score:** 6 of 9 criteria met.
+* **Technical Justification:**
+  1. The finalized gold standard currently contains 50 pairs selected from targeted ambiguity clusters (86% MATCH prevalence).
+  2. Training supervised classifiers (such as LightGBM or XGBoost) exclusively on targeted ambiguity data would induce extreme positive-class bias and distribution shift.
+  3. The representative 500-pair stratified queue (`annotation_queue.csv`) has 450 pairs pending human annotation.
+* **Mandatory Prerequisite:** Human review of the representative 500-pair queue must be completed before supervised training commences.

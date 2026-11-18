@@ -1,0 +1,44 @@
+{
+  "partitioning_metadata": {
+    "generated_at": "2026-11-18T13:12:57.200066+00:00",
+    "total_pairs": 500,
+    "total_connected_components": 475,
+    "h3_resolution": 7,
+    "target_ratios": {
+      "TRAIN": 0.6,
+      "VALIDATION": 0.2,
+      "TEST": 0.2
+    },
+    "random_seed": 42
+  },
+  "split_distribution": {
+    "TRAIN": {
+      "pair_count": 274,
+      "pair_percentage": 54.8,
+      "component_count": 255,
+      "unique_osm_nodes": 256,
+      "unique_ov_nodes": 273
+    },
+    "VALIDATION": {
+      "pair_count": 158,
+      "pair_percentage": 31.6,
+      "component_count": 152,
+      "unique_osm_nodes": 153,
+      "unique_ov_nodes": 157
+    },
+    "TEST": {
+      "pair_count": 68,
+      "pair_percentage": 13.6,
+      "component_count": 68,
+      "unique_osm_nodes": 68,
+      "unique_ov_nodes": 68,
+      "status": "FROZEN"
+    }
+  },
+  "leakage_verification": {
+    "cross_split_connected_components_leakage_count": 0,
+    "cross_split_osm_nodes_leakage_count": 0,
+    "cross_split_ov_nodes_leakage_count": 0,
+    "is_strictly_leakage_free": true
+  }
+}

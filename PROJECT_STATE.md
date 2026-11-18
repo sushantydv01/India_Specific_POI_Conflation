@@ -6,8 +6,8 @@
 
 ## 1. Current Milestone
 
-- **Milestone:** Milestone 11 — Human Adjudication & Ground-Truth Benchmark Validation
-- **Status:** **Milestone 11 Complete** (Standardized Human Annotation Protocol, Priority Review Queue Processing, Dual Independent Blind Review, Substantial Inter-Annotator Agreement with Cohen's Kappa 0.7285, Senior Adjudication Subsystem with Auditable Rationales, Gold-Standard Benchmark Export with 100% Provenance Tracking, and 118 Passing Automated Tests)
+- **Milestone:** Milestone 12 — Representative Benchmark Expansion & Baseline Evaluation
+- **Status:** **Milestone 12 Complete** (Population Sampling Audit Across 605,428 Universe, Dataset Separation Disjointness Verification, Representative Queue Progress Tracking, Component-Blocked Spatial H3-7 Partitioning with 0 Cross-Split Leakage, Matching Baseline Evaluation against Human Gold Standard [1.00 Definite Precision, 0.907 Strict Recall], Detailed Error Analysis, Formal Readiness Assessment [Verdict: CONDITIONAL_BLOCKED], and 128 Passing Automated Tests)
 - **Selected Target City:** **Bengaluru (Bruhat Bengaluru Mahanagara Palike — BBMP)**
   - *OSM Relation:* `7902476` (`admin_level=7`)
   - *Bounding Box:* `[77.4598797, 12.8334905, 77.7840639, 13.1426196]`
@@ -19,11 +19,13 @@
   - *Connected Components / Clusters:* **11,449 active clusters** (8,432 `ONE_TO_ONE`, 907 `ONE_TO_MANY`, 337 `MANY_TO_ONE`, 115 `MANY_TO_MANY`, 1,658 `AMBIGUOUS_CLUSTER`)
   - *Canonical Entities Resolved:* **242,243 entities** (`RESOLVED_EQUIVALENCE`: 4,613, `PARENT_CHILD`: 104, `DISAMBIGUATED_SINGLETON`: 217,531, `UNRESOLVED_AMBIGUOUS`: 19,995)
   - *Source POI Preservation:* **100.00%** (246,856 source records accounted for across 242,243 canonical entities)
-  - *Prioritized Review Queue:* **1,033 ranked cases** (`reports/review_prioritization_queue.json`, 12 Tier-1 category contradictions, 989 Tier-2 competing edges, 32 Tier-3 excessive spread)
-  - *Human Verified Benchmark Dataset:* **50 gold-standard records** (`data/processed/benchmark/human_verified/benchmark_human_verified_v1.parquet` / `.csv`)
-  - *Dual-Annotator Reliability:* **85.0% Raw Agreement**, **Cohen's Kappa $\kappa = 0.7285$** (Substantial Agreement) across 20 double-reviewed pairs
-  - *Senior Adjudication:* **3 cases adjudicated** with complete audit rationales in `data/processed/benchmark/adjudicated/adjudication_records.jsonl`
-  - *Test Suite Coverage:* **118 passing automated tests** (11 new adjudication and benchmark validation tests)
+  - *Dataset A (Representative Queue):* **500 pairs across 10 strata** (`annotation_queue.csv`, 1 human verified, 49 auto-adopted AI, 450 pending)
+  - *Dataset B (Targeted Review Queue):* **1,033 ranked cases** (`reports/review_prioritization_queue.json`, 12 Tier-1 category contradictions, 989 Tier-2 competing edges, 32 Tier-3 excessive spread)
+  - *Dataset C (Targeted Human Benchmark):* **50 gold-standard records** (`data/processed/benchmark/human_verified/benchmark_human_verified_v1.parquet` / `.csv`, 43 Match, 7 Non-Match)
+  - *Component-Blocked Partitions:* **Train:** 274 pairs (54.8%), **Validation:** 158 pairs (31.6%), **Test (Frozen):** 68 pairs (13.6%) with **0 cross-split components and 0 shared nodes**
+  - *Baseline Evaluation:* Definite Precision: **1.000**, Strict Recall: **0.907**, Strict F1: **0.9512**, PR-AUC: **0.275**
+  - *Benchmark Quality Gate:* **CONDITIONAL_BLOCKED** (6/9 criteria met; representative queue annotation required before supervised training)
+  - *Test Suite Coverage:* **128 passing automated tests** (10 new expansion, partitioning, evaluation, and readiness tests)
 
 ---
 
@@ -169,9 +171,21 @@ All values recorded below are derived directly from system execution logs on 202
   - Enhanced annotation CLI (`scripts/annotate.py`) with `--adjudicate`, `--blind-second-review`, and `--review-queue` modes.
   - Expanded test suite to 118 passing automated tests (11 new adjudication and validation tests).
 
+- [x] **Milestone 12 Implementation:** Representative Benchmark Expansion & Baseline Evaluation (`src/poi_conflation/benchmark/`, `src/poi_conflation/matching/`):
+  - Executed rigorous sampling population audit across all 605,428 candidate pairs (`reports/benchmark_sampling_audit.json`), verifying exact 10-strata partition completeness ($N_k$), inclusion probabilities ($\pi_k = n_k / N_k$), and Horvitz-Thompson sampling weights ($w_k$).
+  - Verified complete dataset separation: Dataset A (500-pair stratified queue) and Dataset C (M11 targeted benchmark) are 100% mutually disjoint (0 overlapping pairs).
+  - Built representative benchmark expansion manager (`RepresentativeBenchmarkManager`, `reports/representative_benchmark_summary.json`), tracking genuine human annotation completion (51 total human verified pairs; 450 pairs pending) without fabricating artificial human clicks.
+  - Assigned stratified 20% blind QC overlap queue (100 pairs) to `assigned_representative_qc_representative_reviewer_2.csv`.
+  - Implemented component-blocked spatial H3 Resolution 7 partitioner (`ComponentBlockedPartitioner`, `scripts/partition_dataset.py`), creating Train (274 pairs, 54.8%), Validation (158 pairs, 31.6%), and Test (68 pairs, 13.6%, frozen) manifests with **0 cross-split connected components and 0 shared nodes** (`reports/leakage_audit_report.json`).
+  - Evaluated `explainable_rule_baseline_v1` against human-verified gold standard (`BaselineEvaluator`, `reports/baseline_evaluation.json`): Definite Precision: **1.000**, Strict Recall: **0.907**, Strict F1: **0.9512**, PR-AUC: **0.275**, Brier Score: **0.1604** (with explicit heuristic calibration caveat).
+  - Computed stratified subgroup disaggregations across distance bands, Kannada script, transliteration availability, generic names, and strata.
+  - Authored comprehensive false-positive and false-negative root cause report (`reports/baseline_error_analysis.json`), categorizing all 11 error/abstention pairs.
+  - Conducted formal Benchmark Readiness Quality Gate (`reports/benchmark_readiness_assessment.json`), passing 6 of 9 criteria and establishing verdict: **`NOT_READY_FOR_SUPERVISED_TRAINING` / `CONDITIONAL_BLOCKED`** (mandating human completion of the 500-pair representative queue before supervised training to prevent severe positive match bias).
+  - Expanded test suite to 128 passing automated tests (10 new expansion, partitioning, evaluation, and readiness tests).
+
 ### Pending Tasks (Future Milestones)
-- [ ] Milestone 12: Supervised Matching Classifier, Active Learning & Model Evaluation.
-- [ ] Milestone 13: Production Conflation Pipeline, Delta Ingestion & Canonical Export.
+- [ ] Milestone 13: Scaled Representative Human Annotation & Supervised Matching Classifier.
+- [ ] Milestone 14: Production Conflation Pipeline, Delta Ingestion & Canonical Export.
 
 ---
 
@@ -205,3 +219,4 @@ All values recorded below are derived directly from system execution logs on 202
 | **ADR-024** | Pairwise Feature Engineering & Explainable Matching Baseline Engine | Extract 44-dimensional feature vector across all 605,428 pairs in streaming Parquet batches and evaluate against deterministic transparent weighted scoring with contradiction guardrails (`explainable_rule_baseline_v1`). | **Approved** | Provides high-throughput (148k pairs/s), auditable entity resolution with zero black-box hallucination, preserving memory within 855 MB on Apple Silicon M3. |
 | **ADR-025** | Bipartite Conflation Graph & Conservative Canonical Entity Resolution | Model cross-source relationships as a bipartite graph ($V_{\text{osm}}, V_{\text{ov}}$), classify edges into 4 tiers, compute active connected components, and enforce conservative canonical resolution preventing transitive over-merging. | **Approved** | Resolves 4,613 high-confidence equivalences while safely preserving 217,531 singletons, isolating parent-child commercial containers, and routing 1,033 ambiguous conflicts for human review. |
 | **ADR-026** | Human Adjudication, Inter-Annotator Agreement & Benchmark Validation Protocol | Enforce dual blind human review with Cohen's Kappa evaluation ($\kappa \ge 0.70$), automated dispute routing to senior adjudication, strict provenance tracking (`HUMAN_VERIFIED` / `HUMAN_ADJUDICATED`), and component-blocked validation splitting. | **Approved** | Establishes a true gold-standard human benchmark isolating AI pilot data and preventing optimistic train-test evaluation leakage across connected graph components. |
+| **ADR-027** | Representative Benchmark Sampling Audit, Component Partitioning & Supervised Readiness Gate | Enforce strict separation between population-representative sampling (Dataset A) and targeted ambiguity benchmarks (Dataset C), mandate component-blocked spatial H3-7 partitioning, and gate supervised training until representative human labeling completes. | **Approved** | Eliminates sampling conflation and graph leakage while preventing model training on severely skewed ambiguity subsets without population support. |

@@ -1,0 +1,86 @@
+{
+  "assessment_metadata": {
+    "generated_at": "2026-11-18T13:14:41.242657+00:00",
+    "target_city": "BBMP, Bengaluru, Karnataka, India",
+    "evaluated_milestone": "Milestone 12",
+    "benchmark_candidates_universe": 605428
+  },
+  "readiness_verdict": {
+    "decision": "NOT_READY_FOR_SUPERVISED_TRAINING",
+    "status_code": "CONDITIONAL_BLOCKED",
+    "criteria_passed": "6 / 9",
+    "decision_rationale": "Although the conflation infrastructure, graph partitioning, annotation protocol, and adjudication workflows are fully mature (6 of 9 criteria passing), the human-verified benchmark is NOT YET READY for training supervised machine learning models (such as LightGBM or XGBoost). Specifically:\n1. The current gold-standard benchmark comprises 50 targeted ambiguity cases rather than the 500-pair representative sample.\n2. The 86% MATCH prevalence in M11 reflects graph anomaly filtering, not natural population prevalence.\n3. Training a classifier on this dataset would cause severe distribution shift and overfit to targeted cluster conflicts.\nRECOMMENDATION: Complete human annotation across the remaining 450 pairs of the representative queue (Dataset A) before launching supervised model training."
+  },
+  "quality_gate_checklist": [
+    {
+      "criterion": "Volume of Finalized Human Labels",
+      "target": ">= 300 representative human-labelled pairs",
+      "current_status": "50 targeted human-verified pairs + 1 representative human pair (51 total human labels; 49 auto-adopted AI diagnostic)",
+      "passed": false,
+      "critical_gap": "Human annotation volume on representative 500-pair queue is incomplete (450 pairs pending)."
+    },
+    {
+      "criterion": "Class Balance & Diversity",
+      "target": "Balanced representation of Match, Non-Match, and Hard Negatives",
+      "current_status": "M11 benchmark is 86% MATCH (43/50) and 14% NON_MATCH (7/50)",
+      "passed": false,
+      "critical_gap": "Targeted ambiguity benchmark is heavily skewed towards positive matches. Training supervised ML on this alone would produce severe positive bias."
+    },
+    {
+      "criterion": "Sampling Representativeness",
+      "target": "Population-representative stratified coverage across all 10 candidate strata",
+      "current_status": "M11 benchmark covers only 2 strata (Tier-1 Contradictions and Tier-2 Competing Edges)",
+      "passed": false,
+      "critical_gap": "Lacks verified coverage across phonetic variants, large distance candidates, and generic names."
+    },
+    {
+      "criterion": "Inter-Annotator Agreement",
+      "target": "Cohen's Kappa >= 0.70 across >= 20 double-reviewed pairs",
+      "current_status": "Cohen's Kappa = 0.7285 (Substantial Agreement) across 20 pairs",
+      "passed": true,
+      "critical_gap": null
+    },
+    {
+      "criterion": "Adjudication Workflow & Audit Trail",
+      "target": "Formal adjudication mechanism with auditable rationales and strict provenance",
+      "current_status": "AdjudicationWorkflow fully implemented; 3 cases adjudicated with detailed rationales",
+      "passed": true,
+      "critical_gap": null
+    },
+    {
+      "criterion": "Uncertain & Ambiguity Preservation",
+      "target": "Explicit abstention tracking; no forcing of ambiguous pairs into binary labels",
+      "current_status": "UNCERTAIN class formally preserved in schema and evaluated in baseline",
+      "passed": true,
+      "critical_gap": null
+    },
+    {
+      "criterion": "Linguistic & Transliteration Representation",
+      "target": "Native Kannada script and transliterated pairs represented in evaluation",
+      "current_status": "Subgroup evaluation disaggregated by Kannada and transliteration status",
+      "passed": true,
+      "critical_gap": null
+    },
+    {
+      "criterion": "Leakage-Safe Partitioning",
+      "target": "Component-blocked and spatial H3-7 isolated Train/Val/Test splits",
+      "current_status": "ComponentBlockedPartitioner verified with 0 cross-split components and 0 shared nodes",
+      "passed": true,
+      "critical_gap": null
+    },
+    {
+      "criterion": "Provenance Integrity",
+      "target": "Strict physical and schema separation between AI-adopted diagnostic data and human ground truth",
+      "current_status": "Enforced via AnnotationProvenance enum and dedicated storage files",
+      "passed": true,
+      "critical_gap": null
+    }
+  ],
+  "prerequisites_for_supervised_modeling": [
+    "Complete primary human review for the remaining 450 unannotated pairs in data/processed/benchmark/annotation_queue.csv.",
+    "Execute blind secondary review on >= 100 representative pairs (20% sample in assigned_representative_qc_representative_reviewer_2.csv).",
+    "Resolve any dual-reviewer disagreements through senior adjudication.",
+    "Verify that representative benchmark captures at least 150 confirmed matches and 150 confirmed non-matches.",
+    "Re-run ComponentBlockedPartitioner on the finalized representative benchmark."
+  ]
+}

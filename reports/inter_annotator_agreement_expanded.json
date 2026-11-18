@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "evaluation_timestamp": "2026-11-18T13:14:41.242395+00:00",
+    "evaluation_scope": "Double-Reviewed Human Annotations",
+    "primary_reviewer": "human_reviewer_1",
+    "secondary_reviewer": "human_reviewer_2",
+    "double_reviewed_pairs_count": 20
+  },
+  "agreement_metrics": {
+    "raw_agreement_pct": 85.0,
+    "expected_agreement_pe": 0.4475,
+    "cohens_kappa": 0.7285,
+    "agreement_strength": "Substantial Agreement (0.7285 >= 0.70)",
+    "disagreements_count": 3,
+    "adjudications_required_count": 3
+  },
+  "per_label_reliability": {
+    "MATCH": {
+      "reviewer_1_count": 13,
+      "reviewer_2_count": 10,
+      "both_agreed_count": 10,
+      "precision_recall_alignment": 0.7692307692307693,
+      "notes": "Reviewer 1 marked MATCH on 3 displacement/category borderline cases that Reviewer 2 flagged UNCERTAIN or NEEDS_ADJUDICATION."
+    },
+    "NON_MATCH": {
+      "reviewer_1_count": 7,
+      "reviewer_2_count": 7,
+      "both_agreed_count": 7,
+      "precision_recall_alignment": 1.0,
+      "notes": "100% agreement on distinct businesses (collocated shops, parent-child, and category disjoints)."
+    },
+    "UNCERTAIN": {
+      "reviewer_1_count": 0,
+      "reviewer_2_count": 2,
+      "both_agreed_count": 0,
+      "notes": "Reviewer 2 conservatively marked 2 pairs UNCERTAIN due to coordinate spread (44.7m and 32.9m) without corroborating contact numbers."
+    },
+    "NEEDS_ADJUDICATION": {
+      "reviewer_1_count": 0,
+      "reviewer_2_count": 1,
+      "both_agreed_count": 0,
+      "notes": "Reviewer 2 requested adjudicator check on branch suffix specificity (Bannerghatta)."
+    }
+  },
+  "confusion_matrix": {
+    "MATCH": {
+      "MATCH": 10,
+      "NON_MATCH": 0,
+      "UNCERTAIN": 2,
+      "NEEDS_ADJUDICATION": 1
+    },
+    "NON_MATCH": {
+      "MATCH": 0,
+      "NON_MATCH": 7,
+      "UNCERTAIN": 0,
+      "NEEDS_ADJUDICATION": 0
+    },
+    "UNCERTAIN": {
+      "MATCH": 0,
+      "NON_MATCH": 0,
+      "UNCERTAIN": 0,
+      "NEEDS_ADJUDICATION": 0
+    },
+    "NEEDS_ADJUDICATION": {
+      "MATCH": 0,
+      "NON_MATCH": 0,
+      "UNCERTAIN": 0,
+      "NEEDS_ADJUDICATION": 0
+    }
+  },
+  "confidence_distribution_audit": {
+    "human_reviewer_1": {
+      "HIGH": 20,
+      "MEDIUM": 0,
+      "LOW": 0
+    },
+    "human_reviewer_2": {
+      "HIGH": 17,
+      "MEDIUM": 3,
+      "LOW": 0
+    },
+    "investigation_notes": "Reviewer 1 exhibited a 100% HIGH confidence distribution. Cross-examination showed that while Reviewer 1's decisions were ultimately upheld during senior adjudication, the lack of MEDIUM or LOW confidence ratings indicates a slight confidence calibration asymmetry compared to Reviewer 2, who appropriately downgraded confidence to MEDIUM on displacement cases."
+  },
+  "adjudicated_disagreements": [
+    {
+      "pair_id": "node/1463555171::85732c67-24ee-4126-9b61-d33f4defee61",
+      "osm_source_id": "node/1463555171",
+      "ov_source_id": "85732c67-24ee-4126-9b61-d33f4defee61",
+      "annotator_a": "human_reviewer_1",
+      "decision_a": "MATCH",
+      "annotator_b": "human_reviewer_2",
+      "decision_b": "UNCERTAIN",
+      "osm_name": "ICICI Bank",
+      "ov_name": "ICICI Bank Limited, Bangalore-Rajarajeshwarinagar",
+      "distance_meters": 44.73
+    },
+    {
+      "pair_id": "node/6299172287::ebff2346-f02a-4ecc-a336-5db5f85e6cd1",
+      "osm_source_id": "node/6299172287",
+      "ov_source_id": "ebff2346-f02a-4ecc-a336-5db5f85e6cd1",
+      "annotator_a": "human_reviewer_1",
+      "decision_a": "MATCH",
+      "annotator_b": "human_reviewer_2",
+      "decision_b": "NEEDS_ADJUDICATION",
+      "osm_name": "Ujjivan Bank",
+      "ov_name": "Ujjivan Small Finance Bank, Bannergatta",
+      "distance_meters": 18.82
+    },
+    {
+      "pair_id": "node/710095029::944dee93-5dfa-44d8-8fd0-44f59615f1eb",
+      "osm_source_id": "node/710095029",
+      "ov_source_id": "944dee93-5dfa-44d8-8fd0-44f59615f1eb",
+      "annotator_a": "human_reviewer_1",
+      "decision_a": "MATCH",
+      "annotator_b": "human_reviewer_2",
+      "decision_b": "UNCERTAIN",
+      "osm_name": "Domlur Club",
+      "ov_name": "Domlur Club",
+      "distance_meters": 32.94
+    }
+  ]
+}

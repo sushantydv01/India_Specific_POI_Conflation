@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "audit_timestamp": "2026-11-18T13:18:23.417480+00:00",
+    "queue_file": "data/processed/benchmark/annotation_queue.csv",
+    "total_target_records": 500,
+    "sampling_design": "10-Strata Mutually Exclusive Population Sample"
+  },
+  "overall_progress": {
+    "total_queue_size": 500,
+    "human_verified_count": 0,
+    "human_completion_pct": 0.0,
+    "auto_adopted_ai_diagnostic_count": 50,
+    "pending_unannotated_count": 450,
+    "status": "INCOMPLETE_HUMAN_ANNOTATION",
+    "integrity_statement": "In accordance with project integrity standards, artificial human activity was NOT fabricated. Only genuine human annotations are counted toward the gold standard. Currently 0 pairs are human-verified, 50 are diagnostic auto-adopted AI, and 450 remain pending human review."
+  },
+  "strata_progress": {
+    "KANNADA_TRANSLITERATION": {
+      "stratum_name": "KANNADA_TRANSLITERATION",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    },
+    "PHONETIC_VARIANTS": {
+      "stratum_name": "PHONETIC_VARIANTS",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    },
+    "LARGE_DISTANCE_CANDIDATES": {
+      "stratum_name": "LARGE_DISTANCE_CANDIDATES",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    },
+    "EXACT_NAME_MATCH": {
+      "stratum_name": "EXACT_NAME_MATCH",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    },
+    "MULTI_STRATEGY_OVERLAP": {
+      "stratum_name": "MULTI_STRATEGY_OVERLAP",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    },
+    "CATEGORY_ADJACENCY": {
+      "stratum_name": "CATEGORY_ADJACENCY",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    },
+    "MISSING_OR_GENERIC_NAME": {
+      "stratum_name": "MISSING_OR_GENERIC_NAME",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    },
+    "CLOSE_SPATIAL_DISTINCT_NAMES": {
+      "stratum_name": "CLOSE_SPATIAL_DISTINCT_NAMES",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    },
+    "HIGH_DENSITY_HOTSPOTS": {
+      "stratum_name": "HIGH_DENSITY_HOTSPOTS",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    },
+    "SPATIAL_CLUSTER_RESIDUAL": {
+      "stratum_name": "SPATIAL_CLUSTER_RESIDUAL",
+      "target_sample": 50,
+      "human_verified_count": 0,
+      "auto_adopted_ai_count": 5,
+      "pending_unannotated_count": 45,
+      "human_completion_pct": 0.0
+    }
+  }
+}

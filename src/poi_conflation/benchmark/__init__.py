@@ -38,6 +38,8 @@ from src.poi_conflation.benchmark.metadata import (
     BenchmarkLifecycleState,
     BENCHMARK_SCHEMA_VERSION,
 )
+from src.poi_conflation.benchmark.expansion import RepresentativeBenchmarkManager
+from src.poi_conflation.benchmark.partitioner import ComponentBlockedPartitioner
 from src.poi_conflation.benchmark.category_audit import CategoryPruneAuditor
 
 __all__ = [
@@ -59,6 +61,8 @@ __all__ = [
     "AgreementEvaluator",
     "AdjudicationRecord",
     "AdjudicationWorkflow",
+    "RepresentativeBenchmarkManager",
+    "ComponentBlockedPartitioner",
     "MissedMatchAuditor",
     "DiagnosticStatus",
     "ReviewStatus",

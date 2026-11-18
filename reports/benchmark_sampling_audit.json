@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "audit_timestamp": "2026-11-18T13:10:13.298718+00:00",
+    "target_region": "BBMP, Bengaluru, Karnataka, India",
+    "candidate_pairs_universe": 605428,
+    "sampling_design": "Mutually Exclusive Priority Hierarchy (Horvitz-Thompson Design)",
+    "audit_status": "VERIFIED_COMPLIANT"
+  },
+  "strata_partition_audit": {
+    "total_candidate_population": 605428,
+    "total_strata_count": 10,
+    "unassigned_candidates_count": 0,
+    "strata": {
+      "KANNADA_TRANSLITERATION": {
+        "priority_rank": 1,
+        "description": "Transliteration blocking fired OR native Kannada script [\u0c80-\u0cff] in OSM name",
+        "population_size": 86537,
+        "population_share_pct": 14.2935,
+        "sample_size": 50,
+        "inclusion_probability": 0.000578,
+        "sampling_weight": 1730.74,
+        "is_mutually_exclusive": true
+      },
+      "PHONETIC_VARIANTS": {
+        "priority_rank": 2,
+        "description": "Indian English phonetic variants (Sri/Shree, Udupi/Udapi, etc.) with non-exact name",
+        "population_size": 31065,
+        "population_share_pct": 5.1311,
+        "sample_size": 50,
+        "inclusion_probability": 0.00161,
+        "sampling_weight": 621.3,
+        "is_mutually_exclusive": true
+      },
+      "LARGE_DISTANCE_CANDIDATES": {
+        "priority_rank": 3,
+        "description": "Candidate pairs retrieved by non-spatial blocking with distance > 50m (up to 2km)",
+        "population_size": 4102,
+        "population_share_pct": 0.6775,
+        "sample_size": 50,
+        "inclusion_probability": 0.012189,
+        "sampling_weight": 82.04,
+        "is_mutually_exclusive": true
+      },
+      "EXACT_NAME_MATCH": {
+        "priority_rank": 4,
+        "description": "Exact normalized string agreement (distance <= 50m)",
+        "population_size": 3488,
+        "population_share_pct": 0.5761,
+        "sample_size": 50,
+        "inclusion_probability": 0.014335,
+        "sampling_weight": 69.76,
+        "is_mutually_exclusive": true
+      },
+      "MULTI_STRATEGY_OVERLAP": {
+        "priority_rank": 5,
+        "description": "Retrieved simultaneously by >= 2 independent candidate blocking strategies",
+        "population_size": 2954,
+        "population_share_pct": 0.4879,
+        "sample_size": 50,
+        "inclusion_probability": 0.016926,
+        "sampling_weight": 59.08,
+        "is_mutually_exclusive": true
+      },
+      "CATEGORY_ADJACENCY": {
+        "priority_rank": 6,
+        "description": "Semantically adjacent cross-domain categories (e.g. Sustenance <-> Hospitality)",
+        "population_size": 140685,
+        "population_share_pct": 23.2373,
+        "sample_size": 50,
+        "inclusion_probability": 0.000355,
+        "sampling_weight": 2813.7,
+        "is_mutually_exclusive": true
+      },
+      "MISSING_OR_GENERIC_NAME": {
+        "priority_rank": 7,
+        "description": "Incomplete, null, or generic uninformative short names (<= 3 chars)",
+        "population_size": 73377,
+        "population_share_pct": 12.1199,
+        "sample_size": 50,
+        "inclusion_probability": 0.000681,
+        "sampling_weight": 1467.54,
+        "is_mutually_exclusive": true
+      },
+      "CLOSE_SPATIAL_DISTINCT_NAMES": {
+        "priority_rank": 8,
+        "description": "Spatial co-location (<= 15m) with distinct non-matching names",
+        "population_size": 39550,
+        "population_share_pct": 6.5326,
+        "sample_size": 50,
+        "inclusion_probability": 0.001264,
+        "sampling_weight": 791.0,
+        "is_mutually_exclusive": true
+      },
+      "HIGH_DENSITY_HOTSPOTS": {
+        "priority_rank": 9,
+        "description": "Concentrated commercial hubs (Chickpet, MG Road, Indiranagar) in top 5 H3 res 9 cells",
+        "population_size": 18005,
+        "population_share_pct": 2.9739,
+        "sample_size": 50,
+        "inclusion_probability": 0.002777,
+        "sampling_weight": 360.1,
+        "is_mutually_exclusive": true
+      },
+      "SPATIAL_CLUSTER_RESIDUAL": {
+        "priority_rank": 10,
+        "description": "All remaining baseline spatial candidate pairs (distance <= 50m)",
+        "population_size": 205665,
+        "population_share_pct": 33.9702,
+        "sample_size": 50,
+        "inclusion_probability": 0.000243,
+        "sampling_weight": 4113.3,
+        "is_mutually_exclusive": true
+      }
+    }
+  },
+  "dataset_separation_audit": {
+    "dataset_a_original_queue": {
+      "description": "500-pair diagnostic difficulty-stratified sample from candidate universe",
+      "file_path": "data/processed/benchmark/annotation_queue.csv",
+      "total_records": 500,
+      "unique_pair_ids": 500,
+      "strata_balance": {
+        "KANNADA_TRANSLITERATION": 50,
+        "PHONETIC_VARIANTS": 50,
+        "LARGE_DISTANCE_CANDIDATES": 50,
+        "EXACT_NAME_MATCH": 50,
+        "MULTI_STRATEGY_OVERLAP": 50,
+        "CATEGORY_ADJACENCY": 50,
+        "MISSING_OR_GENERIC_NAME": 50,
+        "CLOSE_SPATIAL_DISTINCT_NAMES": 50,
+        "HIGH_DENSITY_HOTSPOTS": 50,
+        "SPATIAL_CLUSTER_RESIDUAL": 50
+      },
+      "sampling_nature": "Probability sample with known Horvitz-Thompson weights"
+    },
+    "dataset_b_m10_review_queue": {
+      "description": "1,033 targeted ambiguity cases from conflation graph connected components",
+      "file_path": "reports/review_prioritization_queue.json",
+      "total_items": 1032,
+      "sampling_nature": "Deterministic graph anomaly filter (Category Contradictions, Competing Edges, Spread)"
+    },
+    "dataset_c_m11_human_verified_benchmark": {
+      "description": "50 human-verified & adjudicated ground-truth cases from targeted review queue",
+      "file_path": "data/processed/benchmark/human_verified/benchmark_human_verified_v1.csv",
+      "total_records": 50,
+      "sampling_nature": "Targeted ambiguity benchmark (NOT population-representative sample)"
+    },
+    "overlap_analysis": {
+      "overlap_queue_a_and_review_b": 5,
+      "overlap_queue_a_and_benchmark_c": 0,
+      "overlap_review_b_and_benchmark_c": 50,
+      "conclusion": "Dataset A (500-pair queue) and Dataset C (M11 benchmark) are mutually disjoint. Targeted ambiguity cases must NEVER be pooled with population samples without Horvitz-Thompson adjustment."
+    }
+  },
+  "reproducibility_and_integrity": {
+    "sampling_seed": 42,
+    "hash_function": "SHA-256 deterministic key-seeded hash",
+    "duplicate_pair_count": 0,
+    "preservation_status": "Existing M5/M6 500-pair queue file preserved exactly without modification."
+  }
+}
