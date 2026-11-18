@@ -141,7 +141,9 @@ def main():
     parser.add_argument("--pilot", action="store_true", help="Annotate the 50-pair pilot batch specifically")
     parser.add_argument("--queue", type=str, default=None, help="Explicit path to queue CSV")
     parser.add_argument("--ai-assisted", action="store_true", help="Enable AI-assisted suggestions and review workflow")
+    parser.add_argument("--auto-adopt-ai", action="store_true", help="Automatically adopt AI suggestions non-interactively")
     parser.add_argument("--suggestions", type=str, default=None, help="Explicit path to AI suggestions JSONL")
+    parser.add_argument("--report", type=str, default="reports/pilot_auto_adoption_report.json", help="Path for adoption report JSON")
     args = parser.parse_args()
 
     if args.queue:
@@ -156,6 +158,64 @@ def main():
         queue_csv=queue_path,
         ai_suggestions_file=suggestions_path,
     )
+
+    # Automated adoption branch (non-interactive)
+    if args.auto_adopt_ai:
+        print("=" * 70)
+        print("POI CONFLATION BENCHMARK — AUTOMATED AI SUGGESTION ADOPTION")
+        print("=" * 70)
+        print(f"Queue File:           {queue_path}")
+        print(f"Suggestions Source:   {suggestions_path}")
+        print(f"Adopter ID:           {args.annotator}")
+        print(f"Provenance Mode:      AUTO_ADOPTED_AI (preserving HUMAN_VERIFIED)")
+        print("=" * 70)
+
+        report = workflow.auto_adopt_ai_suggestions(
+            annotator_id=args.annotator,
+            suggestions_path=suggestions_path,
+            report_path=args.report,
+        )
+
+        cov = report["dataset_coverage"]
+        print("\nADOPTION COVERAGE:")
+        print(f"  Total pilot pairs:                {cov['total_pilot_pairs']}")
+        print(f"  Available AI suggestions:         {cov['available_ai_suggestions']}")
+        print(f"  Total auto-adopted records:       {cov['successfully_auto_adopted_total']}")
+        print(f"    - Newly adopted this run:       {cov['newly_adopted_this_run']}")
+        print(f"    - Already adopted previously:   {cov['already_adopted_previously']}")
+        print(f"  Existing human records preserved: {cov['existing_human_annotations_preserved']}")
+        print(f"  Missing / invalid suggestions:    {cov['missing_or_invalid_suggestions_count']}")
+        print(f"  Conflicting annotations:          {cov['conflicting_annotations_count']}")
+        print(f"  Unannotated pairs remaining:      {cov['unannotated_pairs_count']}")
+
+        print("\nLABEL DISTRIBUTION:")
+        for lbl, data in sorted(report["label_distribution"].items()):
+            print(f"  {lbl:<20} {data['count']:>3} ({data['percentage']:>5.1f}%)")
+
+        print("\nCONFIDENCE DISTRIBUTION:")
+        for cnf, data in sorted(report["confidence_distribution"].items()):
+            print(f"  {cnf:<20} {data['count']:>3} ({data['percentage']:>5.1f}%)")
+
+        print("\nTOP EVIDENCE TYPES:")
+        for evd, data in sorted(report["evidence_type_distribution"].items(), key=lambda x: x[1]["count"], reverse=True):
+            print(f"  {evd:<35} {data['count']:>3} ({data['percentage']:>5.1f}%)")
+
+        err = report["error_and_risk_analysis"]
+        print("\nRISK & AMBIGUITY AUDIT:")
+        print(f"  Low confidence decisions:         {err['low_confidence_decisions']['count']}")
+        print(f"  Uncertain decisions:              {err['uncertain_decisions']['count']}")
+        print(f"  Cases requiring adjudication:     {err['cases_requiring_adjudication']['count']}")
+        print(f"  Potential false positive risks:   {err['potential_false_positive_risks']['count']}")
+        print(f"  Potential false negative risks:   {err['potential_false_negative_risks']['count']}")
+        print(f"  Transliteration-related pairs:    {err['transliteration_decisions']['count']}")
+        print(f"  Insufficient evidence pairs:      {err['insufficient_evidence_cases']['count']}")
+        print("=" * 70)
+        print(f"Automated pilot adoption report written to: {args.report}")
+        print("Consolidated pilot annotations written to: data/processed/benchmark/pilot_annotations_adopted.csv")
+        print("Lifecycle manifest updated to: AI_AUTO_ANNOTATED_PILOT")
+        print("Execution complete.")
+        return
+
     unannotated = workflow.get_unannotated_items(args.annotator)
     total_queue = len(workflow.load_queue())
     completed = total_queue - len(unannotated)

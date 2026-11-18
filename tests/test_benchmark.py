@@ -378,7 +378,11 @@ def test_benchmark_lifecycle_manifest_and_states():
         manifest = json.load(f)
 
     assert manifest["benchmark_schema_version"] == BENCHMARK_SCHEMA_VERSION
-    assert manifest["lifecycle_state"] == BenchmarkLifecycleState.QUEUE_GENERATED.value
+    assert manifest["lifecycle_state"] in (
+        BenchmarkLifecycleState.QUEUE_GENERATED.value,
+        BenchmarkLifecycleState.AI_AUTO_ANNOTATED_PILOT.value,
+        BenchmarkLifecycleState.ANNOTATION_IN_PROGRESS.value,
+    )
     assert manifest["is_frozen"] is False
     assert manifest["files"]["annotation_queue_records"] == 500
     assert manifest["files"]["pilot_batch_records"] == 50

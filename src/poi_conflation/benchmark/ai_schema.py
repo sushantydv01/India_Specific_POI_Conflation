@@ -24,6 +24,7 @@ class HumanAction(str, Enum):
     MODIFIED = "MODIFIED"       # Reviewer adjusted confidence, evidence type, or notes while keeping/changing label
     REJECTED = "REJECTED"       # Reviewer rejected the AI suggestion and chose an alternative label
     INDEPENDENT = "INDEPENDENT" # Review was conducted blindly without AI assistance (e.g. second reviewer)
+    AUTO_ADOPTED_AI = "AUTO_ADOPTED_AI" # Automated script adoption of AI suggestion
 
 
 @dataclass

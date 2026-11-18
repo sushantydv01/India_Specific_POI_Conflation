@@ -27,6 +27,7 @@ class BenchmarkLifecycleState(str, Enum):
     ADJUDICATION_PENDING = "ADJUDICATION_PENDING"
     ADJUDICATED = "ADJUDICATED"
     BENCHMARK_FROZEN = "BENCHMARK_FROZEN"
+    AI_AUTO_ANNOTATED_PILOT = "AI_AUTO_ANNOTATED_PILOT"
 
 
 class BenchmarkMetadataManager:
@@ -62,7 +63,9 @@ class BenchmarkMetadataManager:
         self,
         candidate_generation_commit: str = "2a1e60f",
         seed: int = 42,
-        notes: Optional[str] = None
+        notes: Optional[str] = None,
+        lifecycle_state: Optional[BenchmarkLifecycleState] = None,
+        annotation_metadata: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """Generate comprehensive benchmark metadata manifest with verifiable lifecycle state."""
         queue_csv = self.benchmark_dir / "annotation_queue.csv"
@@ -98,15 +101,15 @@ class BenchmarkMetadataManager:
                 cnt = max(0, sum(1 for _ in f) - 1)
             annotator_summary[af.stem] = cnt
 
-        lifecycle_state = self.determine_lifecycle_state(queue_count, adjudication_count, annotator_summary)
+        resolved_state = lifecycle_state or self.determine_lifecycle_state(queue_count, adjudication_count, annotator_summary)
 
         manifest = {
             "benchmark_schema_version": BENCHMARK_SCHEMA_VERSION,
             "manifest_timestamp": datetime.now(timezone.utc).isoformat(),
             "target_city": "Bengaluru (BBMP), Karnataka, India",
             "boundary_relation_id": 7902476,
-            "lifecycle_state": lifecycle_state.value,
-            "is_frozen": lifecycle_state == BenchmarkLifecycleState.BENCHMARK_FROZEN,
+            "lifecycle_state": resolved_state.value if isinstance(resolved_state, BenchmarkLifecycleState) else str(resolved_state),
+            "is_frozen": resolved_state == BenchmarkLifecycleState.BENCHMARK_FROZEN,
             "source_snapshots": {
                 "overture_places_release": "2026-10-21.0",
                 "osm_geofabrik_extract": "2026-11-16T21:22:36Z",
@@ -139,7 +142,8 @@ class BenchmarkMetadataManager:
                 "ANNOTATION_COMPLETED": "Full queue reviewed by primary annotator.",
                 "ADJUDICATION_PENDING": "Inter-annotator conflicts queued for adjudication.",
                 "ADJUDICATED": "All conflicts adjudicated by consensus.",
-                "BENCHMARK_FROZEN": "Benchmark locked and approved for model evaluation."
+                "BENCHMARK_FROZEN": "Benchmark locked and approved for model evaluation.",
+                "AI_AUTO_ANNOTATED_PILOT": "Pilot queue annotated via automated AI suggestion adoption; pending human verification."
             },
             "known_methodology_constraints": [
                 "The 500-pair queue is a diagnostic difficulty-stratified sample, NOT a representative estimate of natural candidate prevalence.",
@@ -148,6 +152,9 @@ class BenchmarkMetadataManager:
             ],
             "notes": notes or "Milestone 6 benchmark integrity, mutually exclusive stratification, and pilot batch preparation."
         }
+
+        if annotation_metadata:
+            manifest["pilot_automation_metadata"] = annotation_metadata
 
         with open(self.manifest_path, "w", encoding="utf-8") as f:
             json.dump(manifest, f, indent=2)

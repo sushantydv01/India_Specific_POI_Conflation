@@ -1,9 +1,9 @@
 {
   "benchmark_schema_version": "1.1.0",
-  "manifest_timestamp": "2026-11-17T09:32:47.888501+00:00",
+  "manifest_timestamp": "2026-11-18T10:03:23.026781+00:00",
   "target_city": "Bengaluru (BBMP), Karnataka, India",
   "boundary_relation_id": 7902476,
-  "lifecycle_state": "QUEUE_GENERATED",
+  "lifecycle_state": "AI_AUTO_ANNOTATED_PILOT",
   "is_frozen": false,
   "source_snapshots": {
     "overture_places_release": "2026-10-21.0",
@@ -29,7 +29,10 @@
     "adjudication_queue_records": 0,
     "missed_match_audit_csv": "data/processed/benchmark/missed_match_audit.csv",
     "missed_match_audit_records": 120,
-    "annotator_files": {}
+    "annotator_files": {
+      "annotations_reviewer_1": 1,
+      "annotations_ai_auto_adopter": 50
+    }
   },
   "lifecycle_definitions": {
     "QUEUE_GENERATED": "Review queue generated; awaiting human annotator review.",
@@ -37,12 +40,24 @@
     "ANNOTATION_COMPLETED": "Full queue reviewed by primary annotator.",
     "ADJUDICATION_PENDING": "Inter-annotator conflicts queued for adjudication.",
     "ADJUDICATED": "All conflicts adjudicated by consensus.",
-    "BENCHMARK_FROZEN": "Benchmark locked and approved for model evaluation."
+    "BENCHMARK_FROZEN": "Benchmark locked and approved for model evaluation.",
+    "AI_AUTO_ANNOTATED_PILOT": "Pilot queue annotated via automated AI suggestion adoption; pending human verification."
   },
   "known_methodology_constraints": [
     "The 500-pair queue is a diagnostic difficulty-stratified sample, NOT a representative estimate of natural candidate prevalence.",
     "Benchmark remains in QUEUE_GENERATED status until human annotator review commences.",
     "Missed-match diagnostic audit (120 records) cannot be extrapolated to a global blocking recall metric without complete universe verification."
   ],
-  "notes": "Milestone 6 benchmark integrity, mutually exclusive stratification, and pilot batch preparation."
+  "notes": "Milestone 8: Automated AI adoption of heuristic suggestions for 50-pair pilot queue.",
+  "pilot_automation_metadata": {
+    "annotation_method": "automated_heuristic_adoption",
+    "model_identifier": "heuristic_rule_v1",
+    "total_processed_pairs": 50,
+    "auto_adopted_pairs": 50,
+    "preserved_human_annotations": 1,
+    "provenance_breakdown": {
+      "AUTO_ADOPTED_AI": 50,
+      "HUMAN_VERIFIED": 1
+    }
+  }
 }

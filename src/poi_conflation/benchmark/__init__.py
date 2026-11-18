@@ -4,6 +4,7 @@ from src.poi_conflation.benchmark.schema import (
     LabelDecision,
     ConfidenceLevel,
     EvidenceType,
+    AnnotationProvenance,
     AnnotationQueueItem,
     AnnotationRecord,
 )
@@ -39,6 +40,7 @@ __all__ = [
     "LabelDecision",
     "ConfidenceLevel",
     "EvidenceType",
+    "AnnotationProvenance",
     "AnnotationQueueItem",
     "AnnotationRecord",
     "HumanAction",

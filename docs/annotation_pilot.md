@@ -44,11 +44,14 @@ Launch the terminal annotation CLI pointing to the pilot batch. You may run eith
 # Ensure virtual environment is active
 source .venv/bin/activate
 
-# Option A: AI-assisted review session (displays structured heuristics, accepts [a], modifies [m], rejects [r])
+# Option A: AI-assisted interactive review session (displays structured heuristics, accepts [a], modifies [m], rejects [r])
 python scripts/annotate.py --pilot --ai-assisted --annotator reviewer_1
 
 # Option B: Blind independent review session (standard human labelling without AI suggestions)
 python scripts/annotate.py --pilot --annotator reviewer_1
+
+# Option C: Fully automated AI adoption workflow (non-interactive adoption of heuristic suggestions)
+python scripts/annotate.py --pilot --auto-adopt-ai --annotator ai_auto_adopter
 ```
 
 For full details on the AI suggestion schema, heuristics, and audit logging, consult [ai_assisted_annotation.md](file:///Users/sushantydv01/Desktop/India_Specific_POI_Conflation/docs/ai_assisted_annotation.md).

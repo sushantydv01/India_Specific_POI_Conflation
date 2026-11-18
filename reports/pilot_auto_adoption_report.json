@@ -1,0 +1,304 @@
+{
+  "metadata": {
+    "report_timestamp": "2026-11-18T10:03:23.025463+00:00",
+    "queue_file": "data/processed/benchmark/pilot_batch_50.csv",
+    "annotator_id": "ai_auto_adopter",
+    "model_identifier": "heuristic_rule_v1",
+    "adoption_policy": "deterministic_heuristic_adoption_preserving_human_annotations"
+  },
+  "dataset_coverage": {
+    "total_pilot_pairs": 50,
+    "available_ai_suggestions": 50,
+    "successfully_auto_adopted_total": 50,
+    "newly_adopted_this_run": 0,
+    "already_adopted_previously": 50,
+    "existing_human_annotations_preserved": 1,
+    "missing_or_invalid_suggestions_count": 0,
+    "missing_or_invalid_details": [],
+    "conflicting_annotations_count": 0,
+    "conflicting_details": [],
+    "unannotated_pairs_count": 0
+  },
+  "label_distribution": {
+    "NON_MATCH": {
+      "count": 32,
+      "percentage": 64.0
+    },
+    "NEEDS_ADJUDICATION": {
+      "count": 3,
+      "percentage": 6.0
+    },
+    "MATCH": {
+      "count": 10,
+      "percentage": 20.0
+    },
+    "UNCERTAIN": {
+      "count": 5,
+      "percentage": 10.0
+    }
+  },
+  "confidence_distribution": {
+    "MEDIUM": {
+      "count": 15,
+      "percentage": 30.0
+    },
+    "HIGH": {
+      "count": 27,
+      "percentage": 54.0
+    },
+    "LOW": {
+      "count": 8,
+      "percentage": 16.0
+    }
+  },
+  "evidence_type_distribution": {
+    "CATEGORY_DISJOINT": {
+      "count": 13,
+      "percentage": 26.0
+    },
+    "SAME_BUILDING_DIFFERENT_BUSINESS": {
+      "count": 10,
+      "percentage": 20.0
+    },
+    "OTHER": {
+      "count": 7,
+      "percentage": 14.0
+    },
+    "SAME_BRAND_DIFFERENT_BRANCH": {
+      "count": 5,
+      "percentage": 10.0
+    },
+    "EXACT_NAME_AND_LOCATION": {
+      "count": 4,
+      "percentage": 8.0
+    },
+    "STREET_LEVEL_DISPLACEMENT": {
+      "count": 1,
+      "percentage": 2.0
+    },
+    "NAME_EXPANSION_OR_ACRONYM": {
+      "count": 5,
+      "percentage": 10.0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "count": 5,
+      "percentage": 10.0
+    }
+  },
+  "per_stratum_label_distribution": {
+    "KANNADA_TRANSLITERATION": {
+      "NON_MATCH": 5
+    },
+    "PHONETIC_VARIANTS": {
+      "NEEDS_ADJUDICATION": 1,
+      "NON_MATCH": 4
+    },
+    "LARGE_DISTANCE_CANDIDATES": {
+      "NON_MATCH": 3,
+      "NEEDS_ADJUDICATION": 2
+    },
+    "EXACT_NAME_MATCH": {
+      "MATCH": 5
+    },
+    "MULTI_STRATEGY_OVERLAP": {
+      "MATCH": 5
+    },
+    "CATEGORY_ADJACENCY": {
+      "NON_MATCH": 5
+    },
+    "MISSING_OR_GENERIC_NAME": {
+      "UNCERTAIN": 5
+    },
+    "CLOSE_SPATIAL_DISTINCT_NAMES": {
+      "NON_MATCH": 5
+    },
+    "HIGH_DENSITY_HOTSPOTS": {
+      "NON_MATCH": 5
+    },
+    "SPATIAL_CLUSTER_RESIDUAL": {
+      "NON_MATCH": 5
+    }
+  },
+  "distance_distribution_by_label": {
+    "NON_MATCH": {
+      "count": 32,
+      "min_meters": 1.68,
+      "max_meters": 1954.14,
+      "mean_meters": 239.88,
+      "median_meters": 35.27
+    },
+    "NEEDS_ADJUDICATION": {
+      "count": 3,
+      "min_meters": 41.15,
+      "max_meters": 84.21,
+      "mean_meters": 59.03,
+      "median_meters": 51.74
+    },
+    "MATCH": {
+      "count": 10,
+      "min_meters": 9.24,
+      "max_meters": 38.36,
+      "mean_meters": 21.87,
+      "median_meters": 21.12
+    },
+    "UNCERTAIN": {
+      "count": 5,
+      "min_meters": 17.94,
+      "max_meters": 37.12,
+      "mean_meters": 29.11,
+      "median_meters": 30.3
+    }
+  },
+  "category_compatibility_distribution": {
+    "COMPATIBLE_UNKNOWN": 26,
+    "POTENTIALLY_COMPATIBLE": 9,
+    "STRONGLY_COMPATIBLE": 15
+  },
+  "blocking_strategy_distribution": {
+    "spatial_50m": 43,
+    "exact_name": 10,
+    "token_containment_100m": 12
+  },
+  "error_and_risk_analysis": {
+    "low_confidence_decisions": {
+      "count": 8,
+      "pair_ids": [
+        "node/3477797065::46f1a8d8-9d79-49be-9c51-9659dc740fa5",
+        "way/27789854::a2b5308d-33f2-4e80-bec5-4ccb37943035",
+        "way/632111019::2fa239d2-c2a8-4d63-a9de-dcf2d7e54e62",
+        "node/12137671760::0b08e9b8-4447-4be7-83f3-acd7876922d9",
+        "way/1463856132::313cd3c3-17b2-4e6e-a879-404ea95294bb",
+        "node/1852668995::be7dc1f3-27bf-4197-a988-15e635c2e44d",
+        "node/4809112928::830a483d-8455-4e2a-9e3e-587dc7955f99",
+        "node/4691599028::3be62f5c-325b-4384-9990-60bb76dfbcb7"
+      ]
+    },
+    "uncertain_decisions": {
+      "count": 5,
+      "pair_ids": [
+        "node/12137671760::0b08e9b8-4447-4be7-83f3-acd7876922d9",
+        "way/1463856132::313cd3c3-17b2-4e6e-a879-404ea95294bb",
+        "node/1852668995::be7dc1f3-27bf-4197-a988-15e635c2e44d",
+        "node/4809112928::830a483d-8455-4e2a-9e3e-587dc7955f99",
+        "node/4691599028::3be62f5c-325b-4384-9990-60bb76dfbcb7"
+      ]
+    },
+    "cases_requiring_adjudication": {
+      "count": 3,
+      "pair_ids": [
+        "node/3477797065::46f1a8d8-9d79-49be-9c51-9659dc740fa5",
+        "way/27789854::a2b5308d-33f2-4e80-bec5-4ccb37943035",
+        "way/632111019::2fa239d2-c2a8-4d63-a9de-dcf2d7e54e62"
+      ]
+    },
+    "potential_false_positive_risks": {
+      "count": 3,
+      "details": [
+        {
+          "pair_id": "node/1928474895::9ccb8734-fcb8-4c2c-b0fa-6aaf47e25768",
+          "reason": "MATCH at distance 31.4m > 25m",
+          "osm_name": "Blossom Book House",
+          "ov_name": "Blossom Book House"
+        },
+        {
+          "pair_id": "way/1251508618::e0fe8698-fc89-40ee-836c-f77a47944c1f",
+          "reason": "MATCH at distance 38.4m > 25m",
+          "osm_name": "Our Lady of Lourdes",
+          "ov_name": "Our Lady of Lourdes Church"
+        },
+        {
+          "pair_id": "node/1085604375::9e117269-27c9-4259-8e17-f5452dc54de1",
+          "reason": "MATCH at distance 28.4m > 25m",
+          "osm_name": "NIAS",
+          "ov_name": "NIAS Gate"
+        }
+      ]
+    },
+    "potential_false_negative_risks": {
+      "count": 10,
+      "details": [
+        {
+          "pair_id": "node/6349331870::67171b51-51bf-4ca7-a7bd-473a46ff9dd0",
+          "reason": "NON_MATCH at close distance 2.1m <= 25m",
+          "osm_name": "GHPS Ibaloor",
+          "ov_name": "Meubles"
+        },
+        {
+          "pair_id": "node/11144493705::44417ba9-3cdf-4373-a4c5-a0c0f7241988",
+          "reason": "NON_MATCH at close distance 23.9m <= 25m",
+          "osm_name": "BHive Indiranagar",
+          "ov_name": "Sri Rakum School for the Blind"
+        },
+        {
+          "pair_id": "node/1825094198::77f614d0-25b7-49f7-8ac4-4f3268f5aaf4",
+          "reason": "NON_MATCH at close distance 14.2m <= 25m",
+          "osm_name": "Cakewalla",
+          "ov_name": "RV Institute of Management"
+        },
+        {
+          "pair_id": "node/12395928051::0a84c1ed-035a-4d9b-9242-4a7a23b2bbcb",
+          "reason": "NON_MATCH at close distance 1.7m <= 25m",
+          "osm_name": "Sunnys",
+          "ov_name": "Heads Up For Tails Pet Store & Spa - Jayanagar"
+        },
+        {
+          "pair_id": "node/13192098306::5b36184d-9c9b-489c-afa0-815aa064d43f",
+          "reason": "NON_MATCH at close distance 6.7m <= 25m",
+          "osm_name": "Etram Dance Academy",
+          "ov_name": "Dr. Sumit Talwar - HOD & Consultant - Bariatric Surgery, General Surgery"
+        },
+        {
+          "pair_id": "node/4386506594::f5c69dd8-c6e1-4043-9c74-79dfecf151c4",
+          "reason": "NON_MATCH at close distance 7.3m <= 25m",
+          "osm_name": "Mithai Ghar",
+          "ov_name": "NK Ceramics"
+        },
+        {
+          "pair_id": "node/4294260125::8f3f8622-fcc3-4e15-944d-5ab518da5d29",
+          "reason": "NON_MATCH at close distance 3.5m <= 25m",
+          "osm_name": "Chariot",
+          "ov_name": "My Bags"
+        },
+        {
+          "pair_id": "node/10685071180::ef926238-862b-4613-b20d-c7b0f7d023d1",
+          "reason": "NON_MATCH at close distance 16.2m <= 25m",
+          "osm_name": "Avantra by Trends",
+          "ov_name": "Dressage"
+        },
+        {
+          "pair_id": "node/4489987205::feeded25-20b6-41e6-8e8c-f051d858908b",
+          "reason": "NON_MATCH at close distance 22.7m <= 25m",
+          "osm_name": "O2 Spa",
+          "ov_name": "Mufti"
+        },
+        {
+          "pair_id": "node/3815223846::20a2537b-5489-49d2-8687-5eb313b6ed43",
+          "reason": "NON_MATCH at close distance 15.7m <= 25m",
+          "osm_name": "UTX Travel & Holidays",
+          "ov_name": "Mobizen Mobile Services"
+        }
+      ]
+    },
+    "transliteration_decisions": {
+      "count": 5,
+      "pair_ids": [
+        "node/3556214256::60fb9838-3834-454c-b357-c392aa019ddd",
+        "node/6349331870::67171b51-51bf-4ca7-a7bd-473a46ff9dd0",
+        "way/1217375998::2ced1cde-e823-4257-8fac-4f9529457173",
+        "node/1467149940::8fa2daaa-678f-4b4b-8503-ecd6d9eddd36",
+        "node/1468032545::0db473f0-6fc3-4705-82b7-bbfb8d679373"
+      ]
+    },
+    "insufficient_evidence_cases": {
+      "count": 5,
+      "pair_ids": [
+        "node/12137671760::0b08e9b8-4447-4be7-83f3-acd7876922d9",
+        "way/1463856132::313cd3c3-17b2-4e6e-a879-404ea95294bb",
+        "node/1852668995::be7dc1f3-27bf-4197-a988-15e635c2e44d",
+        "node/4809112928::830a483d-8455-4e2a-9e3e-587dc7955f99",
+        "node/4691599028::3be62f5c-325b-4384-9990-60bb76dfbcb7"
+      ]
+    },
+    "methodological_notice": "These risk indicators represent heuristic edge cases and classification sensitivity, NOT confirmed ground truth errors. No precision, recall, or F1 metrics are asserted without independent human validation."
+  }
+}

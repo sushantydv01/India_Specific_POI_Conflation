@@ -43,6 +43,13 @@ class EvidenceType(str, Enum):
     OTHER = "OTHER"
 
 
+class AnnotationProvenance(str, Enum):
+    """Provenance origin of an annotation record."""
+    AI_GENERATED = "AI_GENERATED"
+    AUTO_ADOPTED_AI = "AUTO_ADOPTED_AI"
+    HUMAN_VERIFIED = "HUMAN_VERIFIED"
+
+
 @dataclass
 class AnnotationQueueItem:
     """Represents an unlabelled candidate pair in the annotation queue."""
@@ -96,6 +103,7 @@ class AnnotationRecord:
     evidence_type: EvidenceType
     annotation_timestamp: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     notes: Optional[str] = None
+    provenance: str = AnnotationProvenance.HUMAN_VERIFIED.value
 
     def validate(self) -> List[str]:
         """Validate record integrity and return list of validation errors."""
@@ -129,6 +137,9 @@ class AnnotationRecord:
         if not self.annotator_id or not self.annotator_id.strip():
             errors.append("annotator_id is required and cannot be empty")
 
+        if self.provenance not in [e.value for e in AnnotationProvenance]:
+            errors.append(f"Invalid provenance '{self.provenance}'. Allowed: {[e.value for e in AnnotationProvenance]}")
+
         if not (-90.0 <= self.osm_latitude <= 90.0 and -180.0 <= self.osm_longitude <= 180.0):
             errors.append(f"Invalid OSM latitude/longitude coordinates: ({self.osm_latitude}, {self.osm_longitude})")
 
@@ -145,6 +156,7 @@ class AnnotationRecord:
         d["decision"] = self.decision.value if isinstance(self.decision, LabelDecision) else str(self.decision)
         d["confidence"] = self.confidence.value if isinstance(self.confidence, ConfidenceLevel) else str(self.confidence)
         d["evidence_type"] = self.evidence_type.value if isinstance(self.evidence_type, EvidenceType) else str(self.evidence_type)
+        d["provenance"] = self.provenance.value if isinstance(self.provenance, AnnotationProvenance) else str(self.provenance)
         return d
 
     @classmethod
@@ -158,4 +170,5 @@ class AnnotationRecord:
         d["osm_longitude"] = float(d["osm_longitude"])
         d["ov_latitude"] = float(d["ov_latitude"])
         d["ov_longitude"] = float(d["ov_longitude"])
+        d["provenance"] = d.get("provenance", AnnotationProvenance.HUMAN_VERIFIED.value)
         return cls(**d)

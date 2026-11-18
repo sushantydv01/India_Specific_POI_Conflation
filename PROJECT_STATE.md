@@ -6,8 +6,8 @@
 
 ## 1. Current Milestone
 
-- **Milestone:** Milestone 7 — AI-Assisted Human Annotation System
-- **Status:** **Milestone 7 Complete** (Structured AI Suggestion Schema, Deterministic Heuristic Pair Analyzer, Strict Storage Separation, CLI Human Interaction Actions, Complete Audit Trail Provenance, Second-Reviewer Blind Isolation, and 59 Passing Automated Tests)
+- **Milestone:** Milestone 8 — Fully Automated AI Annotation & Pilot Completion
+- **Status:** **Milestone 8 Complete** (Non-Interactive AI Suggestion Adoption Workflow, Three-Tier Provenance Taxonomy, Human Record Preservation, Consolidated Pilot Dataset, Idempotency Safeguards, Comprehensive Quality/Risk Analysis Report, and 73 Passing Automated Tests)
 - **Selected Target City:** **Bengaluru (Bruhat Bengaluru Mahanagara Palike — BBMP)**
   - *OSM Relation:* `7902476` (`admin_level=7`)
   - *Bounding Box:* `[77.4598797, 12.8334905, 77.7840639, 13.1426196]`
@@ -15,16 +15,17 @@
   - *Total Canonical Records:* **246,856** (197,820 Overture + 49,036 OSM)
   - *Candidate Pairs Universe:* **605,428 pairs** (`candidate_pairs_union.parquet`, 42.02 MB)
   - *Mutually Exclusive Stratified Partition:* 10 non-overlapping diagnostic strata summing to 605,428 pairs
-  - *Main Benchmark Queue:* **500 pairs** (50 pairs per stratum, `annotation_queue.csv`)
+  - *Main Benchmark Queue:* **500 pairs** (50 pairs per stratum, `annotation_queue.csv`, unreviewed)
   - *Annotation Pilot Batch:* **50 pairs** (5 pairs per stratum, `pilot_batch_50.csv`)
   - *AI Suggestions Generated:* **50 structured suggestions** (`pilot_ai_suggestions.jsonl`, `heuristic_rule_v1`)
-  - *Pilot Human Review:* Resumed session, Pair 1 verified persisted in `annotations_reviewer_1.csv`
-  - *Audit Trail:* `data/processed/benchmark/annotations/audit_trail.csv` tracking `ACCEPTED`, `MODIFIED`, `REJECTED`, `INDEPENDENT`
+  - *Pilot Adoption State:* **50/50 pairs processed** (49 `AUTO_ADOPTED_AI`, 1 preserved `HUMAN_VERIFIED`, 0 unannotated)
+  - *Consolidated Pilot Dataset:* `data/processed/benchmark/pilot_annotations_adopted.csv` (50 rows with exact provenance)
+  - *Audit Trail:* `data/processed/benchmark/annotations/audit_trail.csv` tracking `AUTO_ADOPTED_AI`, `ACCEPTED`, `MODIFIED`, `REJECTED`, `INDEPENDENT`
   - *Sampling Seed:* `42` (deterministic mutually exclusive pseudo-random sampling)
   - *Missed-Match Diagnostic Audit:* **120 unrepresented/weak OSM records** (`missed_match_audit.csv`, 47 `NO_COUNTERPART_FOUND_IN_SEARCH`, 24 `POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING`, 49 `INSUFFICIENT_EVIDENCE`)
   - *Category Pruning Audit:* **100-pair review sample** across 11 incompatible rules (`reports/category_pruned_sample.csv`)
-  - *Benchmark Manifest Version:* `1.1.0` (Lifecycle: `ANNOTATION_IN_PROGRESS`, `is_frozen = false`)
-  - *Test Suite Coverage:* **59 passing automated tests** (14 dedicated AI-assisted workflow tests)
+  - *Benchmark Manifest Version:* `1.1.0` (Lifecycle: `AI_AUTO_ANNOTATED_PILOT`, `is_frozen = false`)
+  - *Test Suite Coverage:* **73 passing automated tests** (14 new automated adoption & pilot tests)
 
 ---
 
@@ -122,10 +123,21 @@ All values recorded below are derived directly from system execution logs on 202
   - Expanded automated test suite to 59 passing tests (14 dedicated AI-assisted workflow tests).
   - Authored comprehensive documentation in `docs/ai_assisted_annotation.md` and updated `docs/annotation_pilot.md`.
 
+- [x] **Milestone 8 Implementation:** Fully Automated AI Annotation Adoption & Pilot Completion (`src/poi_conflation/benchmark/`):
+  - Formulated formal provenance taxonomy (`AnnotationProvenance`: `AI_GENERATED`, `AUTO_ADOPTED_AI`, `HUMAN_VERIFIED`).
+  - Implemented automated adoption engine in `AnnotationWorkflow.auto_adopt_ai_suggestions` with non-interactive CLI support (`--pilot --auto-adopt-ai`).
+  - Preserved existing human annotation for Pair 1 (`annotations_reviewer_1.csv`) while auto-adopting 49 remaining pilot pairs into `annotations_ai_auto_adopter.csv`.
+  - Created consolidated pilot dataset (`data/processed/benchmark/pilot_annotations_adopted.csv`, 50 rows) with row-level provenance markings.
+  - Implemented idempotency mechanisms ensuring zero duplicate rows upon repeated script execution.
+  - Generated comprehensive quality, distance, and ambiguity risk audit report (`reports/pilot_auto_adoption_report.json`).
+  - Transitioned benchmark lifecycle manifest to `AI_AUTO_ANNOTATED_PILOT` while keeping `is_frozen = false` and main 500-pair queue untouched.
+  - Expanded test suite to 73 passing automated tests (14 dedicated automated adoption tests).
+  - Authored comprehensive documentation in `docs/ai_assisted_annotation.md` and updated `docs/annotation_pilot.md`.
+
 ### Pending Tasks (Future Milestones)
-- [ ] Milestone 8: Human Pilot Review Completion, Inter-Annotator Agreement, and Adjudication Consensus.
 - [ ] Milestone 9: Pairwise Feature Engineering & Supervised Classification (Jaro-Winkler, Levenshtein, displacement vectors, category similarity matrix).
 - [ ] Milestone 10: Conflation Graph & Cluster-Based Canonical Resolution.
+- [ ] Milestone 11: Scaled Evaluation, Error Analysis, and Canonical Export.
 
 ---
 
@@ -155,3 +167,4 @@ All values recorded below are derived directly from system execution logs on 202
 | **ADR-020** | Category Pruning Auditability | Reconstruct and sample discarded category-incompatible candidate pairs (`category_pruned_sample.csv`) across all 11 disjoint rules for ongoing audit. | **Approved** | Replaces unverified absolute claims with empirical audit evidence, ensuring transparent tracking of cross-domain edge cases. |
 | **ADR-021** | AI-Assisted Annotation & Human-in-Command Integrity | Deploy an AI assistant providing explainable suggestions (label, confidence, evidence, missing attributes) while strictly barring AI suggestions from auto-committing to ground truth. | **Approved** | Enhances reviewer throughput while preserving the methodological integrity of human-verified benchmark labels. |
 | **ADR-022** | Storage Separation & Audit Trail for AI Recommendations | Separate storage of AI suggestions (`pilot_ai_suggestions.jsonl`), human annotations (`annotations_<reviewer>.csv`), and human actions (`audit_trail.csv`), while enforcing blind second-reviewer isolation. | **Approved** | Guarantees lossless auditability, transparent human-AI consensus tracking, and valid, uncompromised inter-annotator agreement baselines. |
+| **ADR-023** | Automated AI Suggestion Adoption & Provenance Taxonomy | Implement automated non-interactive adoption of heuristic suggestions for the 50-pair pilot queue while enforcing a three-tier provenance model (`AI_GENERATED`, `AUTO_ADOPTED_AI`, `HUMAN_VERIFIED`). | **Approved** | Enables rapid pipeline iteration and risk analysis while preserving existing human records and forbidding representation of AI outputs as human ground truth. |
