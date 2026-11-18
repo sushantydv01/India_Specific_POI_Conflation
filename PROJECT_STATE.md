@@ -6,26 +6,21 @@
 
 ## 1. Current Milestone
 
-- **Milestone:** Milestone 8 — Fully Automated AI Annotation & Pilot Completion
-- **Status:** **Milestone 8 Complete** (Non-Interactive AI Suggestion Adoption Workflow, Three-Tier Provenance Taxonomy, Human Record Preservation, Consolidated Pilot Dataset, Idempotency Safeguards, Comprehensive Quality/Risk Analysis Report, and 73 Passing Automated Tests)
+- **Milestone:** Milestone 9 — Pairwise Feature Engineering & Explainable POI Matching Engine
+- **Status:** **Milestone 9 Complete** (M8 Provenance & Manifest Reconciliation, 44-Dimensional Pairwise Feature Engineering Pipeline across 605,428 Candidate Pairs, Snappy-Compressed Parquet Storage, Explainable Rule Baseline v1 Engine with Contradiction Guardrails, Diagnostic Universe Evaluation, 93 Passing Automated Tests)
 - **Selected Target City:** **Bengaluru (Bruhat Bengaluru Mahanagara Palike — BBMP)**
   - *OSM Relation:* `7902476` (`admin_level=7`)
   - *Bounding Box:* `[77.4598797, 12.8334905, 77.7840639, 13.1426196]`
   - *BBMP Polygon Area:* **717.21 km²** (EPSG:32643 UTM 43N) / **716.37 km²** (WGS84 Spheroid)
   - *Total Canonical Records:* **246,856** (197,820 Overture + 49,036 OSM)
   - *Candidate Pairs Universe:* **605,428 pairs** (`candidate_pairs_union.parquet`, 42.02 MB)
-  - *Mutually Exclusive Stratified Partition:* 10 non-overlapping diagnostic strata summing to 605,428 pairs
-  - *Main Benchmark Queue:* **500 pairs** (50 pairs per stratum, `annotation_queue.csv`, unreviewed)
-  - *Annotation Pilot Batch:* **50 pairs** (5 pairs per stratum, `pilot_batch_50.csv`)
-  - *AI Suggestions Generated:* **50 structured suggestions** (`pilot_ai_suggestions.jsonl`, `heuristic_rule_v1`)
-  - *Pilot Adoption State:* **50/50 pairs processed** (49 `AUTO_ADOPTED_AI`, 1 preserved `HUMAN_VERIFIED`, 0 unannotated)
-  - *Consolidated Pilot Dataset:* `data/processed/benchmark/pilot_annotations_adopted.csv` (50 rows with exact provenance)
-  - *Audit Trail:* `data/processed/benchmark/annotations/audit_trail.csv` tracking `AUTO_ADOPTED_AI`, `ACCEPTED`, `MODIFIED`, `REJECTED`, `INDEPENDENT`
-  - *Sampling Seed:* `42` (deterministic mutually exclusive pseudo-random sampling)
-  - *Missed-Match Diagnostic Audit:* **120 unrepresented/weak OSM records** (`missed_match_audit.csv`, 47 `NO_COUNTERPART_FOUND_IN_SEARCH`, 24 `POTENTIAL_COUNTERPART_OUTSIDE_BLOCKING`, 49 `INSUFFICIENT_EVIDENCE`)
-  - *Category Pruning Audit:* **100-pair review sample** across 11 incompatible rules (`reports/category_pruned_sample.csv`)
-  - *Benchmark Manifest Version:* `1.1.0` (Lifecycle: `AI_AUTO_ANNOTATED_PILOT`, `is_frozen = false`)
-  - *Test Suite Coverage:* **73 passing automated tests** (14 new automated adoption & pilot tests)
+  - *Pairwise Features Extracted:* **605,428 records, 44 features** (`data/processed/features/pairwise_features.parquet`, 70.4 MB, schema v1.0.0)
+  - *Feature Extraction Runtime:* **19.58 seconds** (throughput: **30,922.6 pairs/sec**, peak memory: **855.77 MB**)
+  - *Explainable Matching Engine:* `explainable_rule_baseline_v1` (`configs/matching_baseline.yaml`)
+  - *Universe Decision Breakdown:* **5,543 MATCH** (0.92%), **523,003 NON_MATCH** (86.39%), **76,882 UNCERTAIN** (12.70%)
+  - *Matching Engine Runtime:* **4.07 seconds** across 605,428 pairs (**148,897.6 pairs/sec**)
+  - *Contradiction Guardrail Overrides:* **188,256 pairs** (`SAME_BUILDING_DIFFERENT_BUSINESS`: 95,544, `INSUFFICIENT_NAME_EVIDENCE`: 82,107, `SAME_BRAND_DIFFERENT_BRANCH`: 5,668, `EXCESSIVE_SPATIAL_SEPARATION`: 4,937)
+  - *Test Suite Coverage:* **93 passing automated tests** (20 new tests covering pairwise features, schema, and matching engine)
 
 ---
 
@@ -134,8 +129,20 @@ All values recorded below are derived directly from system execution logs on 202
   - Expanded test suite to 73 passing automated tests (14 dedicated automated adoption tests).
   - Authored comprehensive documentation in `docs/ai_assisted_annotation.md` and updated `docs/annotation_pilot.md`.
 
+- [x] **Milestone 9 Implementation:** Pairwise Feature Engineering & Explainable POI Matching Engine (`src/poi_conflation/features/`, `src/poi_conflation/matching/`):
+  - Resolved M8 adoption count discrepancy and provenance defaults (`UNKNOWN_LEGACY` fallback for historical unprovenanced records).
+  - Synchronized benchmark lifecycle manifests between `reports/` and `data/processed/`.
+  - Formulated 44-dimensional pairwise feature schema v1.0.0 (`src/poi_conflation/features/schema.py`) spanning lexical, Indic transliteration, EPSG:32643 spatial metrics, taxonomy compatibility, and blocking strategy provenance.
+  - Implemented streaming, memory-bounded batch extraction pipeline (`PairwiseFeatureExtractor`, `scripts/extract_pairwise_features.py`) processing all 605,428 candidate pairs in 19.58 seconds (~30,922 pairs/sec) with peak memory of 855.77 MB.
+  - Persisted Snappy-compressed feature store (`data/processed/features/pairwise_features.parquet`, 70.4 MB, 605,428 rows, 47 columns) with zero null values.
+  - Designed explainable, deterministic matching score engine (`ExplainableMatchingEngine`, `explainable_rule_baseline_v1`) configured via `configs/matching_baseline.yaml`.
+  - Enforced five contradiction guardrails: `CATEGORY_DISJOINT`, `SAME_BUILDING_DIFFERENT_BUSINESS` (95,544 overrides), `SAME_BRAND_DIFFERENT_BRANCH` (5,668 overrides), `EXCESSIVE_SPATIAL_SEPARATION` (4,937 overrides), and `INSUFFICIENT_NAME_EVIDENCE` (82,107 overrides).
+  - Executed universe evaluation across 605,428 pairs in 4.07 seconds (148,898 pairs/sec), categorizing 5,543 MATCH (0.92%), 523,003 NON_MATCH (86.39%), and 76,882 UNCERTAIN (12.70%).
+  - Produced comprehensive diagnostic report (`reports/matching_baseline_report.json`) and 25 representative structured evidence explanations (`reports/matching_sample_explanations.json`).
+  - Expanded test suite to 93 passing automated tests (20 dedicated feature engineering and matching engine tests).
+  - Authored comprehensive technical documentation in `docs/pairwise_features.md` and `docs/matching_baseline_evaluation.md`.
+
 ### Pending Tasks (Future Milestones)
-- [ ] Milestone 9: Pairwise Feature Engineering & Supervised Classification (Jaro-Winkler, Levenshtein, displacement vectors, category similarity matrix).
 - [ ] Milestone 10: Conflation Graph & Cluster-Based Canonical Resolution.
 - [ ] Milestone 11: Scaled Evaluation, Error Analysis, and Canonical Export.
 
@@ -168,3 +175,4 @@ All values recorded below are derived directly from system execution logs on 202
 | **ADR-021** | AI-Assisted Annotation & Human-in-Command Integrity | Deploy an AI assistant providing explainable suggestions (label, confidence, evidence, missing attributes) while strictly barring AI suggestions from auto-committing to ground truth. | **Approved** | Enhances reviewer throughput while preserving the methodological integrity of human-verified benchmark labels. |
 | **ADR-022** | Storage Separation & Audit Trail for AI Recommendations | Separate storage of AI suggestions (`pilot_ai_suggestions.jsonl`), human annotations (`annotations_<reviewer>.csv`), and human actions (`audit_trail.csv`), while enforcing blind second-reviewer isolation. | **Approved** | Guarantees lossless auditability, transparent human-AI consensus tracking, and valid, uncompromised inter-annotator agreement baselines. |
 | **ADR-023** | Automated AI Suggestion Adoption & Provenance Taxonomy | Implement automated non-interactive adoption of heuristic suggestions for the 50-pair pilot queue while enforcing a three-tier provenance model (`AI_GENERATED`, `AUTO_ADOPTED_AI`, `HUMAN_VERIFIED`). | **Approved** | Enables rapid pipeline iteration and risk analysis while preserving existing human records and forbidding representation of AI outputs as human ground truth. |
+| **ADR-024** | Pairwise Feature Engineering & Explainable Matching Baseline Engine | Extract 44-dimensional feature vector across all 605,428 pairs in streaming Parquet batches and evaluate against deterministic transparent weighted scoring with contradiction guardrails (`explainable_rule_baseline_v1`). | **Approved** | Provides high-throughput (148k pairs/s), auditable entity resolution with zero black-box hallucination, preserving memory within 855 MB on Apple Silicon M3. |

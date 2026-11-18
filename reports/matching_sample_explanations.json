@@ -1,0 +1,719 @@
+{
+  "schema_version": "1.0.0",
+  "sample_count": 25,
+  "samples": [
+    {
+      "candidate_pair_id": "node/10009285720::7c80a91c-c230-466c-a0e9-29638cb90b6f",
+      "osm_source_id": "node/10009285720",
+      "ov_source_id": "7c80a91c-c230-466c-a0e9-29638cb90b6f",
+      "evaluation": {
+        "final_score": 0.88,
+        "raw_score": 0.88,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact Indian English phonetic equivalence",
+          "Immediate co-location within 15m (13.2m)"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Unclassified or generic category pairing",
+        "spatial_evidence": "13.2m Euclidean distance in EPSG:32643 UTM 43N, bearing 272.5\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.3,
+          "category": 0.03,
+          "strategy": 0.05
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009305818::8290ebee-1679-4a17-b485-7e25d18edbd8",
+      "osm_source_id": "node/10009305818",
+      "ov_source_id": "8290ebee-1679-4a17-b485-7e25d18edbd8",
+      "evaluation": {
+        "final_score": 0.88,
+        "raw_score": 0.88,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact Indian English phonetic equivalence",
+          "Immediate co-location within 15m (5.3m)"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Unclassified or generic category pairing",
+        "spatial_evidence": "5.3m Euclidean distance in EPSG:32643 UTM 43N, bearing 47.9\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.3,
+          "category": 0.03,
+          "strategy": 0.05
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009335117::7584c9e1-c6f5-4d11-9741-9e4e2d2d1e6c",
+      "osm_source_id": "node/10009335117",
+      "ov_source_id": "7584c9e1-c6f5-4d11-9741-9e4e2d2d1e6c",
+      "evaluation": {
+        "final_score": 0.88,
+        "raw_score": 0.88,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact Indian English phonetic equivalence",
+          "Immediate co-location within 15m (1.3m)"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Unclassified or generic category pairing",
+        "spatial_evidence": "1.3m Euclidean distance in EPSG:32643 UTM 43N, bearing 295.2\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.3,
+          "category": 0.03,
+          "strategy": 0.05
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009343417::236f7ce1-6e69-42b2-b102-a80ce1d63a68",
+      "osm_source_id": "node/10009343417",
+      "ov_source_id": "236f7ce1-6e69-42b2-b102-a80ce1d63a68",
+      "evaluation": {
+        "final_score": 0.98,
+        "raw_score": 0.98,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact Indian English phonetic equivalence",
+          "Immediate co-location within 15m (11.0m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "11.0m Euclidean distance in EPSG:32643 UTM 43N, bearing 84.5\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.3,
+          "category": 0.15,
+          "strategy": 0.03
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009475717::59da3093-d0ab-4a66-a062-ee749835dc69",
+      "osm_source_id": "node/10009475717",
+      "ov_source_id": "59da3093-d0ab-4a66-a062-ee749835dc69",
+      "evaluation": {
+        "final_score": 0.88,
+        "raw_score": 0.88,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact Indian English phonetic equivalence",
+          "Close spatial proximity within 50m (22.1m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "22.1m Euclidean distance in EPSG:32643 UTM 43N, bearing 75.7\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.18,
+          "category": 0.15,
+          "strategy": 0.05
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::0defff6a-d5a0-44e3-984b-0093fe6fa2c8",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "0defff6a-d5a0-44e3-984b-0093fe6fa2c8",
+      "evaluation": {
+        "final_score": 0.4771,
+        "raw_score": 0.4771,
+        "decision": "UNCERTAIN",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Close spatial proximity within 50m (26.4m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [
+          "Low token similarity (0.32)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "26.4m Euclidean distance in EPSG:32643 UTM 43N, bearing 204.7\u00b0",
+        "feature_contributions": {
+          "name": 0.0891,
+          "transliteration": 0.048,
+          "spatial": 0.18,
+          "category": 0.15,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::25ca08ed-79f4-4c48-8265-d42f810da5e1",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "25ca08ed-79f4-4c48-8265-d42f810da5e1",
+      "evaluation": {
+        "final_score": 0.7056,
+        "raw_score": 0.7056,
+        "decision": "UNCERTAIN",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Immediate co-location within 15m (2.2m)"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Potentially compatible commercial domain",
+        "spatial_evidence": "2.2m Euclidean distance in EPSG:32643 UTM 43N, bearing 120.0\u00b0",
+        "feature_contributions": {
+          "name": 0.2265,
+          "transliteration": 0.1091,
+          "spatial": 0.3,
+          "category": 0.06,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::54f2a12b-c215-450c-867a-5983fd1c6866",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "54f2a12b-c215-450c-867a-5983fd1c6866",
+      "evaluation": {
+        "final_score": 0.5036,
+        "raw_score": 0.5036,
+        "decision": "UNCERTAIN",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Immediate co-location within 15m (9.1m)"
+        ],
+        "negative_evidence": [
+          "Low token similarity (0.31)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Potentially compatible commercial domain",
+        "spatial_evidence": "9.1m Euclidean distance in EPSG:32643 UTM 43N, bearing 170.7\u00b0",
+        "feature_contributions": {
+          "name": 0.0874,
+          "transliteration": 0.0462,
+          "spatial": 0.3,
+          "category": 0.06,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::812f5beb-d197-4cef-96a6-2f277c9f8ed5",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "812f5beb-d197-4cef-96a6-2f277c9f8ed5",
+      "evaluation": {
+        "final_score": 0.5238,
+        "raw_score": 0.5238,
+        "decision": "UNCERTAIN",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Immediate co-location within 15m (14.0m)"
+        ],
+        "negative_evidence": [
+          "Low token similarity (0.38)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Potentially compatible commercial domain",
+        "spatial_evidence": "14.0m Euclidean distance in EPSG:32643 UTM 43N, bearing 22.2\u00b0",
+        "feature_contributions": {
+          "name": 0.0961,
+          "transliteration": 0.0577,
+          "spatial": 0.3,
+          "category": 0.06,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::b87e9c28-3753-415e-83ac-182bf6999853",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "b87e9c28-3753-415e-83ac-182bf6999853",
+      "evaluation": {
+        "final_score": 0.4231,
+        "raw_score": 0.4231,
+        "decision": "UNCERTAIN",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Close spatial proximity within 50m (47.3m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "47.3m Euclidean distance in EPSG:32643 UTM 43N, bearing 342.6\u00b0",
+        "feature_contributions": {
+          "name": 0.1065,
+          "transliteration": 0.0667,
+          "spatial": 0.09,
+          "category": 0.15,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009310318::48d05a0c-ccf4-4047-9174-9dc17d40e372",
+      "osm_source_id": "node/10009310318",
+      "ov_source_id": "48d05a0c-ccf4-4047-9174-9dc17d40e372",
+      "evaluation": {
+        "final_score": 0.2,
+        "raw_score": 0.67,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "EXCESSIVE_SPATIAL_SEPARATION",
+          "SAME_BRAND_DIFFERENT_BRANCH"
+        ],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact match after Kannada-to-Latin transliteration",
+          "Exact Indian English phonetic equivalence",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [
+          "Substantial spatial separation (1820.2m)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "1820.2m Euclidean distance in EPSG:32643 UTM 43N, bearing 344.8\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.0,
+          "category": 0.15,
+          "strategy": 0.02
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009310318::f996564e-bb53-4459-b8d2-f05d951e2d6c",
+      "osm_source_id": "node/10009310318",
+      "ov_source_id": "f996564e-bb53-4459-b8d2-f05d951e2d6c",
+      "evaluation": {
+        "final_score": 0.2,
+        "raw_score": 0.67,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "EXCESSIVE_SPATIAL_SEPARATION",
+          "SAME_BRAND_DIFFERENT_BRANCH"
+        ],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact match after Kannada-to-Latin transliteration",
+          "Exact Indian English phonetic equivalence",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [
+          "Substantial spatial separation (1429.4m)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "1429.4m Euclidean distance in EPSG:32643 UTM 43N, bearing 303.5\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.0,
+          "category": 0.15,
+          "strategy": 0.02
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009334917::569b0686-61c1-4452-b4d9-d97aeff414fb",
+      "osm_source_id": "node/10009334917",
+      "ov_source_id": "569b0686-61c1-4452-b4d9-d97aeff414fb",
+      "evaluation": {
+        "final_score": 0.2,
+        "raw_score": 0.55,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "EXCESSIVE_SPATIAL_SEPARATION",
+          "SAME_BRAND_DIFFERENT_BRANCH"
+        ],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact Indian English phonetic equivalence"
+        ],
+        "negative_evidence": [
+          "Substantial spatial separation (1243.8m)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Unclassified or generic category pairing",
+        "spatial_evidence": "1243.8m Euclidean distance in EPSG:32643 UTM 43N, bearing 175.8\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.0,
+          "category": 0.03,
+          "strategy": 0.02
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009334917::8a5aecfa-fcab-4b21-8cf1-a2ff78d2964d",
+      "osm_source_id": "node/10009334917",
+      "ov_source_id": "8a5aecfa-fcab-4b21-8cf1-a2ff78d2964d",
+      "evaluation": {
+        "final_score": 0.2,
+        "raw_score": 0.55,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "EXCESSIVE_SPATIAL_SEPARATION",
+          "SAME_BRAND_DIFFERENT_BRANCH"
+        ],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact Indian English phonetic equivalence"
+        ],
+        "negative_evidence": [
+          "Substantial spatial separation (843.5m)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Unclassified or generic category pairing",
+        "spatial_evidence": "843.5m Euclidean distance in EPSG:32643 UTM 43N, bearing 151.4\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.0,
+          "category": 0.03,
+          "strategy": 0.02
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009335117::fecca5c6-49be-487e-adb5-01e557e32dd1",
+      "osm_source_id": "node/10009335117",
+      "ov_source_id": "fecca5c6-49be-487e-adb5-01e557e32dd1",
+      "evaluation": {
+        "final_score": 0.2,
+        "raw_score": 0.55,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "EXCESSIVE_SPATIAL_SEPARATION",
+          "SAME_BRAND_DIFFERENT_BRANCH"
+        ],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact Indian English phonetic equivalence"
+        ],
+        "negative_evidence": [
+          "Substantial spatial separation (500.4m)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Unclassified or generic category pairing",
+        "spatial_evidence": "500.4m Euclidean distance in EPSG:32643 UTM 43N, bearing 280.9\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.0,
+          "category": 0.03,
+          "strategy": 0.02
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::36aa5dfb-0db3-484f-9477-7fb8312ff899",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "36aa5dfb-0db3-484f-9477-7fb8312ff899",
+      "evaluation": {
+        "final_score": 0.35,
+        "raw_score": 0.4563,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "SAME_BUILDING_DIFFERENT_BUSINESS"
+        ],
+        "positive_evidence": [
+          "Immediate co-location within 15m (13.5m)"
+        ],
+        "negative_evidence": [
+          "Low token similarity (0.16)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Potentially compatible commercial domain",
+        "spatial_evidence": "13.5m Euclidean distance in EPSG:32643 UTM 43N, bearing 21.8\u00b0",
+        "feature_contributions": {
+          "name": 0.0623,
+          "transliteration": 0.024,
+          "spatial": 0.3,
+          "category": 0.06,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::4525033c-0728-401b-acf4-af1c5abc834e",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "4525033c-0728-401b-acf4-af1c5abc834e",
+      "evaluation": {
+        "final_score": 0.35,
+        "raw_score": 0.4675,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "SAME_BUILDING_DIFFERENT_BUSINESS"
+        ],
+        "positive_evidence": [
+          "Close spatial proximity within 50m (24.0m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [
+          "Low token similarity (0.29)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "24.0m Euclidean distance in EPSG:32643 UTM 43N, bearing 328.4\u00b0",
+        "feature_contributions": {
+          "name": 0.0836,
+          "transliteration": 0.0439,
+          "spatial": 0.18,
+          "category": 0.15,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::b09e82d8-658b-4512-8186-a53f01c2700a",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "b09e82d8-658b-4512-8186-a53f01c2700a",
+      "evaluation": {
+        "final_score": 0.35,
+        "raw_score": 0.4606,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "SAME_BUILDING_DIFFERENT_BUSINESS"
+        ],
+        "positive_evidence": [
+          "Immediate co-location within 15m (8.4m)"
+        ],
+        "negative_evidence": [
+          "Low token similarity (0.26)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Unclassified or generic category pairing",
+        "spatial_evidence": "8.4m Euclidean distance in EPSG:32643 UTM 43N, bearing 172.1\u00b0",
+        "feature_contributions": {
+          "name": 0.0818,
+          "transliteration": 0.0389,
+          "spatial": 0.3,
+          "category": 0.03,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::e1c94fc2-45a5-4800-b599-ed96e05fb0d2",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "e1c94fc2-45a5-4800-b599-ed96e05fb0d2",
+      "evaluation": {
+        "final_score": 0.3447,
+        "raw_score": 0.3447,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "SAME_BUILDING_DIFFERENT_BUSINESS"
+        ],
+        "positive_evidence": [
+          "Close spatial proximity within 50m (15.7m)"
+        ],
+        "negative_evidence": [
+          "Low token similarity (0.28)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Unclassified or generic category pairing",
+        "spatial_evidence": "15.7m Euclidean distance in EPSG:32643 UTM 43N, bearing 289.4\u00b0",
+        "feature_contributions": {
+          "name": 0.0827,
+          "transliteration": 0.042,
+          "spatial": 0.18,
+          "category": 0.03,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10006815594::e2b2c673-c081-4287-9e5c-1d6b69b19329",
+      "osm_source_id": "node/10006815594",
+      "ov_source_id": "e2b2c673-c081-4287-9e5c-1d6b69b19329",
+      "evaluation": {
+        "final_score": 0.35,
+        "raw_score": 0.4829,
+        "decision": "NON_MATCH",
+        "applied_guardrails": [
+          "SAME_BUILDING_DIFFERENT_BUSINESS"
+        ],
+        "positive_evidence": [
+          "Immediate co-location within 15m (5.7m)"
+        ],
+        "negative_evidence": [
+          "Low token similarity (0.25)"
+        ],
+        "missing_evidence": [],
+        "category_rule": "Potentially compatible commercial domain",
+        "spatial_evidence": "5.7m Euclidean distance in EPSG:32643 UTM 43N, bearing 225.1\u00b0",
+        "feature_contributions": {
+          "name": 0.0759,
+          "transliteration": 0.0369,
+          "spatial": 0.3,
+          "category": 0.06,
+          "strategy": 0.01
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009275922::1a0d1350-3654-4f58-b4c7-2d53843eca3e",
+      "osm_source_id": "node/10009275922",
+      "ov_source_id": "1a0d1350-3654-4f58-b4c7-2d53843eca3e",
+      "evaluation": {
+        "final_score": 0.8008,
+        "raw_score": 0.8008,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Strong transliteration similarity (0.91)",
+          "Immediate co-location within 15m (6.7m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "6.7m Euclidean distance in EPSG:32643 UTM 43N, bearing 195.6\u00b0",
+        "feature_contributions": {
+          "name": 0.2128,
+          "transliteration": 0.108,
+          "spatial": 0.3,
+          "category": 0.15,
+          "strategy": 0.03
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10009663793::90871870-715a-458d-8230-f94bde21112a",
+      "osm_source_id": "node/10009663793",
+      "ov_source_id": "90871870-715a-458d-8230-f94bde21112a",
+      "evaluation": {
+        "final_score": 0.861,
+        "raw_score": 0.861,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "High token sort similarity (0.90)",
+          "Strong transliteration similarity (0.97)",
+          "Immediate co-location within 15m (12.5m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "12.5m Euclidean distance in EPSG:32643 UTM 43N, bearing 253.4\u00b0",
+        "feature_contributions": {
+          "name": 0.2453,
+          "transliteration": 0.1357,
+          "spatial": 0.3,
+          "category": 0.15,
+          "strategy": 0.03
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/1001584630::1f2f0975-b289-45a8-80b2-a4531ae62f43",
+      "osm_source_id": "node/1001584630",
+      "ov_source_id": "1f2f0975-b289-45a8-80b2-a4531ae62f43",
+      "evaluation": {
+        "final_score": 0.801,
+        "raw_score": 0.801,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Strong transliteration similarity (0.91)",
+          "Immediate co-location within 15m (13.3m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "13.3m Euclidean distance in EPSG:32643 UTM 43N, bearing 171.5\u00b0",
+        "feature_contributions": {
+          "name": 0.2138,
+          "transliteration": 0.1071,
+          "spatial": 0.3,
+          "category": 0.15,
+          "strategy": 0.03
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/1001584630::a5f318c7-eb75-44aa-a9d3-490742afec52",
+      "osm_source_id": "node/1001584630",
+      "ov_source_id": "a5f318c7-eb75-44aa-a9d3-490742afec52",
+      "evaluation": {
+        "final_score": 1.0,
+        "raw_score": 1.0,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Exact normalized name match",
+          "Exact match after Kannada-to-Latin transliteration",
+          "Exact Indian English phonetic equivalence",
+          "Immediate co-location within 15m (4.2m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "4.2m Euclidean distance in EPSG:32643 UTM 43N, bearing 46.8\u00b0",
+        "feature_contributions": {
+          "name": 0.35,
+          "transliteration": 0.15,
+          "spatial": 0.3,
+          "category": 0.15,
+          "strategy": 0.05
+        }
+      }
+    },
+    {
+      "candidate_pair_id": "node/10033755416::95cab81e-ead5-4dd5-b2c4-b219181c86a1",
+      "osm_source_id": "node/10033755416",
+      "ov_source_id": "95cab81e-ead5-4dd5-b2c4-b219181c86a1",
+      "evaluation": {
+        "final_score": 0.7796,
+        "raw_score": 0.7796,
+        "decision": "MATCH",
+        "applied_guardrails": [],
+        "positive_evidence": [
+          "Strong transliteration similarity (0.90)",
+          "Immediate co-location within 15m (9.3m)",
+          "Identical canonical category"
+        ],
+        "negative_evidence": [],
+        "missing_evidence": [],
+        "category_rule": "Exact category agreement",
+        "spatial_evidence": "9.3m Euclidean distance in EPSG:32643 UTM 43N, bearing 123.1\u00b0",
+        "feature_contributions": {
+          "name": 0.2028,
+          "transliteration": 0.0968,
+          "spatial": 0.3,
+          "category": 0.15,
+          "strategy": 0.03
+        }
+      }
+    }
+  ]
+}

@@ -48,6 +48,7 @@ class AnnotationProvenance(str, Enum):
     AI_GENERATED = "AI_GENERATED"
     AUTO_ADOPTED_AI = "AUTO_ADOPTED_AI"
     HUMAN_VERIFIED = "HUMAN_VERIFIED"
+    UNKNOWN_LEGACY = "UNKNOWN_LEGACY"
 
 
 @dataclass
@@ -103,7 +104,7 @@ class AnnotationRecord:
     evidence_type: EvidenceType
     annotation_timestamp: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     notes: Optional[str] = None
-    provenance: str = AnnotationProvenance.HUMAN_VERIFIED.value
+    provenance: str = AnnotationProvenance.UNKNOWN_LEGACY.value
 
     def validate(self) -> List[str]:
         """Validate record integrity and return list of validation errors."""
@@ -170,5 +171,5 @@ class AnnotationRecord:
         d["osm_longitude"] = float(d["osm_longitude"])
         d["ov_latitude"] = float(d["ov_latitude"])
         d["ov_longitude"] = float(d["ov_longitude"])
-        d["provenance"] = d.get("provenance", AnnotationProvenance.HUMAN_VERIFIED.value)
+        d["provenance"] = d.get("provenance") or AnnotationProvenance.UNKNOWN_LEGACY.value
         return cls(**d)

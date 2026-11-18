@@ -1,0 +1,93 @@
+version: "1.0.0"
+model_name: "explainable_rule_baseline_v1"
+description: "Deterministic transparent weighted scoring baseline with contradiction guardrails"
+
+# Feature group weights (sum = 1.00)
+# These weights represent engineering hypotheses for BBMP POI conflation, NOT calibrated probabilities
+feature_group_weights:
+  name: 0.35
+  transliteration: 0.15
+  spatial: 0.30
+  category: 0.15
+  strategy: 0.05
+
+# Internal feature weights within groups (normalized per group)
+group_subweights:
+  name:
+    feat_exact_name_match: 0.25
+    feat_jaro_winkler: 0.25
+    feat_token_sort_ratio: 0.25
+    feat_token_set_ratio: 0.15
+    feat_char_3gram_jaccard: 0.10
+  transliteration:
+    feat_translit_exact_match: 0.40
+    feat_translit_sim: 0.30
+    feat_indic_phonetic_sim: 0.30
+  spatial:
+    # Proximity scoring based on metric distance bands
+    feat_dist_band_le15m: 0.40
+    feat_dist_band_le30m: 0.30
+    feat_dist_band_le50m: 0.20
+    feat_dist_band_le100m: 0.10
+  category:
+    feat_exact_category_match: 0.50
+    feat_category_strongly_compat: 0.30
+    feat_category_potentially_compat: 0.15
+    feat_category_unknown_compat: 0.05
+  strategy:
+    feat_strat_exact_name: 0.30
+    feat_strat_spatial_50m: 0.20
+    feat_strat_token_containment: 0.20
+    feat_strat_translit: 0.15
+    feat_strat_phonetic: 0.15
+
+# Decision thresholds
+thresholds:
+  match_min_score: 0.75
+  uncertain_min_score: 0.40
+  # Scores < 0.40 are classified as NON_MATCH
+
+# Deterministic Contradiction Guardrails
+guardrails:
+  # 1. Incompatible category guard:
+  # Incompatible categories (e.g. Hospital vs Restaurant) must NOT match regardless of name similarity
+  incompatible_category:
+    enabled: true
+    max_score: 0.35
+    force_decision: "NON_MATCH"
+    reason: "CATEGORY_DISJOINT"
+
+  # 2. Empty name guard:
+  # Pairs with missing names cannot produce a MATCH decision
+  empty_name:
+    enabled: true
+    max_decision: "UNCERTAIN"
+    reason: "INSUFFICIENT_NAME_EVIDENCE"
+
+  # 3. Same building different business guard:
+  # Very close spatial proximity (< 25m) with distinct non-matching names (< 0.30 token similarity)
+  same_building_different_business:
+    enabled: true
+    max_distance_meters: 25.0
+    max_token_similarity: 0.30
+    force_decision: "NON_MATCH"
+    reason: "SAME_BUILDING_DIFFERENT_BUSINESS"
+
+  # 4. Same brand different branch guard:
+  # Exact name match (e.g. Apollo Pharmacy, Cafe Coffee Day) separated by > 100m in urban area
+  same_brand_different_branch:
+    enabled: true
+    min_distance_meters: 100.0
+    min_name_similarity: 0.90
+    max_score: 0.35
+    force_decision: "NON_MATCH"
+    reason: "SAME_BRAND_DIFFERENT_BRANCH"
+
+  # 5. Excessive spatial separation guard:
+  # Candidates separated by > 500m are unlikely to be identical POIs
+  excessive_spatial_separation:
+    enabled: true
+    min_distance_meters: 500.0
+    max_score: 0.20
+    force_decision: "NON_MATCH"
+    reason: "EXCESSIVE_SPATIAL_SEPARATION"

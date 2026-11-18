@@ -506,8 +506,8 @@ def test_provenance_correctness():
         rows = list(csv.DictReader(f))
 
     assert len(rows) == 50
-    # First row is Pair 1 (human verified)
-    assert rows[0]["provenance"] == "HUMAN_VERIFIED"
+    # First row is Pair 1 (legacy human reviewer from M6 without explicit provenance tag -> UNKNOWN_LEGACY)
+    assert rows[0]["provenance"] == "UNKNOWN_LEGACY"
     assert rows[0]["annotator_id"] == "reviewer_1"
 
     # Remaining rows are auto-adopted
@@ -530,3 +530,100 @@ def test_cli_non_interactive_execution():
     assert result.returncode == 0
     assert "ADOPTION COVERAGE:" in result.stdout
     assert "Execution complete." in result.stdout
+
+
+def test_unknown_legacy_provenance_fallback():
+    """Verify that records with missing provenance default to UNKNOWN_LEGACY, not HUMAN_VERIFIED."""
+    raw_dict = {
+        "pair_id": "test_pair_001",
+        "annotator_id": "legacy_annotator",
+        "decision": "MATCH",
+        "confidence": "HIGH",
+        "evidence_type": "EXACT_NAME_AND_LOCATION",
+        "osm_source_id": "osm_1",
+        "ov_source_id": "ov_1",
+        "osm_name_raw": "Test POI",
+        "ov_name_raw": "Test POI",
+        "osm_name_normalized": "test poi",
+        "ov_name_normalized": "test poi",
+        "osm_category": "restaurant",
+        "ov_category": "restaurant",
+        "category_compatibility": "STRONGLY_COMPATIBLE",
+        "blocking_strategies": "exact_name",
+        "osm_latitude": "12.9716",
+        "osm_longitude": "77.5946",
+        "ov_latitude": "12.9716",
+        "ov_longitude": "77.5946",
+        "distance_meters": "0.0",
+        "sampling_stratum": "EXACT_NAME_HIGH_CONF",
+    }
+    rec = AnnotationRecord.from_dict(raw_dict)
+    assert rec.provenance == AnnotationProvenance.UNKNOWN_LEGACY.value
+
+    # Also verify dataclass default
+    rec_default = AnnotationRecord(
+        pair_id="test_pair_002",
+        osm_source_id="osm_1",
+        ov_source_id="ov_1",
+        osm_name_raw="Test POI",
+        ov_name_raw="Test POI",
+        osm_name_normalized="test poi",
+        ov_name_normalized="test poi",
+        osm_latitude=12.9716,
+        osm_longitude=77.5946,
+        ov_latitude=12.9716,
+        ov_longitude=77.5946,
+        distance_meters=0.0,
+        osm_category="restaurant",
+        ov_category="restaurant",
+        category_compatibility="STRONGLY_COMPATIBLE",
+        blocking_strategies="exact_name",
+        sampling_stratum="EXACT_NAME_HIGH_CONF",
+        annotator_id="legacy_annotator",
+        decision=LabelDecision.MATCH,
+        confidence=ConfidenceLevel.HIGH,
+        evidence_type=EvidenceType.EXACT_NAME_AND_LOCATION,
+    )
+    assert rec_default.provenance == AnnotationProvenance.UNKNOWN_LEGACY.value
+
+
+def test_manifest_consistency_reports_and_processed():
+    """Verify manifest consistency between reports/ and data/processed/ directories."""
+    rep_manifest = Path("reports/benchmark_metadata.json")
+    proc_manifest = Path("data/processed/benchmark/benchmark_metadata.json")
+    assert rep_manifest.exists()
+    assert proc_manifest.exists()
+
+    with open(rep_manifest, "r", encoding="utf-8") as f:
+        rep_data = json.load(f)
+    with open(proc_manifest, "r", encoding="utf-8") as f:
+        proc_data = json.load(f)
+
+    assert rep_data["benchmark_schema_version"] == proc_data["benchmark_schema_version"]
+    assert rep_data["lifecycle_state"] == proc_data["lifecycle_state"]
+    assert rep_data["target_city"] == proc_data["target_city"]
+    assert rep_data["boundary_relation_id"] == proc_data["boundary_relation_id"]
+    assert rep_data["files"] == proc_data["files"]
+
+
+def test_adoption_count_reconciliation():
+    """Verify reconciliation between adopter output and consolidated pilot dataset."""
+    adopter_path = Path("data/processed/benchmark/annotations/annotations_ai_auto_adopter.csv")
+    consolidated_path = Path("data/processed/benchmark/pilot_annotations_adopted.csv")
+
+    assert adopter_path.exists()
+    assert consolidated_path.exists()
+
+    with open(adopter_path, "r", encoding="utf-8") as f:
+        adopter_rows = list(csv.DictReader(f))
+    with open(consolidated_path, "r", encoding="utf-8") as f:
+        cons_rows = list(csv.DictReader(f))
+
+    # Adopter evaluated all 50 items
+    assert len(adopter_rows) == 50
+    # Consolidated queue has 50 items: 1 legacy human verified (Pair 1 preserved) + 49 adopted AI
+    assert len(cons_rows) == 50
+    legacy_count = sum(1 for r in cons_rows if r["provenance"] == "UNKNOWN_LEGACY")
+    ai_count = sum(1 for r in cons_rows if r["provenance"] == "AUTO_ADOPTED_AI")
+    assert legacy_count == 1
+    assert ai_count == 49

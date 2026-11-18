@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "model_identifier": "explainable_rule_baseline_v1",
+    "version": "1.0.0",
+    "description": "Deterministic transparent weighted scoring baseline with contradiction guardrails",
+    "timestamp": "2026-11-18T10:20:16Z",
+    "evaluation_universe": "BBMP Bengaluru OSM-Overture Conflation Candidate Pairs",
+    "weights": {
+      "name": 0.35,
+      "transliteration": 0.15,
+      "spatial": 0.3,
+      "category": 0.15,
+      "strategy": 0.05
+    },
+    "thresholds": {
+      "match_min_score": 0.75,
+      "uncertain_min_score": 0.4
+    }
+  },
+  "universe_summary": {
+    "total_candidate_pairs_evaluated": 605428,
+    "execution_time_seconds": 4.07,
+    "throughput_pairs_per_sec": 148897.6,
+    "peak_memory_mb": 616.36
+  },
+  "decision_distribution": {
+    "MATCH": {
+      "count": 5543,
+      "percentage": 0.92
+    },
+    "NON_MATCH": {
+      "count": 523003,
+      "percentage": 86.39
+    },
+    "UNCERTAIN": {
+      "count": 76882,
+      "percentage": 12.7
+    }
+  },
+  "score_statistics": {
+    "min": 0.04,
+    "p10": 0.2,
+    "p25": 0.25,
+    "p50_median": 0.3084,
+    "p75": 0.354,
+    "p90": 0.4409,
+    "max": 1.0,
+    "mean": 0.3167,
+    "std_dev": 0.1135
+  },
+  "guardrail_overrides": {
+    "total_guardrail_triggers": 188256,
+    "by_guardrail": {
+      "SAME_BUILDING_DIFFERENT_BUSINESS": 95544,
+      "INSUFFICIENT_NAME_EVIDENCE": 82107,
+      "EXCESSIVE_SPATIAL_SEPARATION": 4937,
+      "SAME_BRAND_DIFFERENT_BRANCH": 5668
+    }
+  },
+  "decisions_by_blocking_strategy": {
+    "spatial_50m": {
+      "MATCH": 5543,
+      "NON_MATCH": 516195,
+      "UNCERTAIN": 75957
+    },
+    "exact_name": {
+      "MATCH": 3893,
+      "NON_MATCH": 5667,
+      "UNCERTAIN": 731
+    },
+    "token_containment": {
+      "MATCH": 4794,
+      "NON_MATCH": 700,
+      "UNCERTAIN": 4444
+    },
+    "transliteration_phonetic": {
+      "MATCH": 115,
+      "NON_MATCH": 782,
+      "UNCERTAIN": 185
+    },
+    "multi_strategy": {
+      "MATCH": 4802,
+      "NON_MATCH": 333,
+      "UNCERTAIN": 4035
+    }
+  },
+  "methodological_caveats": [
+    "Baseline weights represent transparent engineering hypotheses, NOT statistically learned or calibrated probabilities.",
+    "Decision distributions reflect candidate-pair universe properties (candidate generation recall-oriented expansion), not random sampling prevalence.",
+    "Zero false precision/recall/F1 claims are made: no large-scale verified ground truth exists yet for independent supervised evaluation."
+  ]
+}

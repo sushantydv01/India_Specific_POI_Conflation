@@ -1,0 +1,21 @@
+{
+  "feature_schema_version": "1.0.0",
+  "total_candidate_pairs_processed": 605428,
+  "batches_executed": 13,
+  "batch_size": 50000,
+  "total_features_count": 44,
+  "output_file": "data/processed/features/pairwise_features.parquet",
+  "output_size_bytes": 73818663,
+  "output_size_mb": 70.4,
+  "execution_time_seconds": 19.58,
+  "processing_throughput_pairs_per_sec": 30922.6,
+  "initial_memory_mb": 64.33,
+  "peak_memory_mb": 855.77,
+  "feature_columns": {
+    "name_features": 10,
+    "translit_features": 8,
+    "spatial_features": 12,
+    "category_features": 7,
+    "strategy_features": 7
+  }
+}
