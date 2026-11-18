@@ -7,6 +7,15 @@ from src.poi_conflation.benchmark.schema import (
     AnnotationQueueItem,
     AnnotationRecord,
 )
+from src.poi_conflation.benchmark.ai_schema import (
+    HumanAction,
+    AIPairSuggestion,
+    AIAuditRecord,
+)
+from src.poi_conflation.benchmark.ai_analyzer import (
+    AISuggestionProvider,
+    HeuristicAIAnalyzer,
+)
 from src.poi_conflation.benchmark.sampling import (
     BenchmarkSampler,
     MUTUALLY_EXCLUSIVE_STRATA_ORDER,
@@ -32,6 +41,11 @@ __all__ = [
     "EvidenceType",
     "AnnotationQueueItem",
     "AnnotationRecord",
+    "HumanAction",
+    "AIPairSuggestion",
+    "AIAuditRecord",
+    "AISuggestionProvider",
+    "HeuristicAIAnalyzer",
     "BenchmarkSampler",
     "MUTUALLY_EXCLUSIVE_STRATA_ORDER",
     "TARGET_PER_STRATUM",

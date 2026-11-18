@@ -38,17 +38,30 @@ For each candidate pair presented in the review session, the following evidence 
 
 ## 3. How to Execute the Pilot Review Session
 
-Launch the terminal annotation CLI pointing to the pilot batch:
+Launch the terminal annotation CLI pointing to the pilot batch. You may run either with AI assistance enabled (for primary annotation) or in blind independent mode (for second-reviewer QC):
 
 ```bash
 # Ensure virtual environment is active
 source .venv/bin/activate
 
-# Launch pilot review session
-python scripts/annotate.py --pilot --annotator <your_name_or_id>
+# Option A: AI-assisted review session (displays structured heuristics, accepts [a], modifies [m], rejects [r])
+python scripts/annotate.py --pilot --ai-assisted --annotator reviewer_1
+
+# Option B: Blind independent review session (standard human labelling without AI suggestions)
+python scripts/annotate.py --pilot --annotator reviewer_1
 ```
 
-### Review Controls & Actions
+For full details on the AI suggestion schema, heuristics, and audit logging, consult [ai_assisted_annotation.md](file:///Users/sushantydv01/Desktop/India_Specific_POI_Conflation/docs/ai_assisted_annotation.md).
+
+### Review Controls & Actions (AI-Assisted Mode)
+1. **AI Action Prompts:**
+   - `a`: **Accept** suggestion verbatim (MATCH / NON_MATCH, confidence, and evidence reason).
+   - `m`: **Modify** suggestion (pre-populates suggestion, allows human adjustments).
+   - `r`: **Reject** suggestion (enter custom decision, confidence, and evidence).
+   - `s`: Skip current pair to review later.
+   - `q`: Save current progress atomically and exit cleanly.
+
+### Review Controls & Actions (Blind Manual Mode)
 1. **Decision Prompts:**
    - `1`: **`MATCH`** — The records refer to the same physical real-world POI.
    - `2`: **`NON_MATCH`** — The records denote distinct real-world entities.

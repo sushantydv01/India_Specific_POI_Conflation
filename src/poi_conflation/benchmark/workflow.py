@@ -23,6 +23,11 @@ from src.poi_conflation.benchmark.schema import (
     AnnotationQueueItem,
     AnnotationRecord,
 )
+from src.poi_conflation.benchmark.ai_schema import (
+    HumanAction,
+    AIPairSuggestion,
+    AIAuditRecord,
+)
 
 
 class AnnotationWorkflow:
@@ -32,11 +37,15 @@ class AnnotationWorkflow:
         self,
         queue_csv: str = "data/processed/benchmark/annotation_queue.csv",
         annotations_dir: str = "data/processed/benchmark/annotations",
-        adjudication_csv: str = "data/processed/benchmark/adjudication_queue.csv"
+        adjudication_csv: str = "data/processed/benchmark/adjudication_queue.csv",
+        audit_trail_csv: str = "data/processed/benchmark/annotations/audit_trail.csv",
+        ai_suggestions_file: str = "data/processed/benchmark/ai_suggestions/pilot_ai_suggestions.jsonl",
     ):
         self.queue_csv = Path(queue_csv)
         self.annotations_dir = Path(annotations_dir)
         self.adjudication_csv = Path(adjudication_csv)
+        self.audit_trail_csv = Path(audit_trail_csv)
+        self.ai_suggestions_file = Path(ai_suggestions_file)
         self.annotations_dir.mkdir(parents=True, exist_ok=True)
 
     def load_queue(self) -> List[AnnotationQueueItem]:
@@ -98,6 +107,34 @@ class AnnotationWorkflow:
         seen_pair_ids = {r.pair_id for r in existing}
         return [item for item in queue if item.pair_id not in seen_pair_ids]
 
+    def load_ai_suggestions(self, suggestions_path: Optional[str] = None) -> Dict[str, AIPairSuggestion]:
+        """Load AI suggestions from JSONL file keyed by pair_id."""
+        target_path = Path(suggestions_path) if suggestions_path else self.ai_suggestions_file
+        if not target_path.exists():
+            return {}
+
+        suggestions: Dict[str, AIPairSuggestion] = {}
+        with open(target_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    data = json.loads(line)
+                    sugg = AIPairSuggestion.from_dict(data)
+                    suggestions[sugg.pair_id] = sugg
+        return suggestions
+
+    def load_audit_trail(self) -> List[AIAuditRecord]:
+        """Load audit trail of human-AI review actions."""
+        if not self.audit_trail_csv.exists():
+            return []
+
+        records = []
+        with open(self.audit_trail_csv, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                records.append(AIAuditRecord.from_dict(row))
+        return records
+
     def record_decision(
         self,
         queue_item: AnnotationQueueItem,
@@ -105,9 +142,11 @@ class AnnotationWorkflow:
         annotator_id: str,
         confidence: ConfidenceLevel,
         evidence_type: EvidenceType,
-        notes: Optional[str] = None
+        notes: Optional[str] = None,
+        human_action: HumanAction = HumanAction.INDEPENDENT,
+        ai_suggestion: Optional[AIPairSuggestion] = None,
     ) -> AnnotationRecord:
-        """Create, validate, and append a human decision record."""
+        """Create, validate, and append a human decision record, and log human-AI audit trail."""
         record = AnnotationRecord(
             pair_id=queue_item.pair_id,
             osm_source_id=queue_item.osm_source_id,
@@ -148,11 +187,39 @@ class AnnotationWorkflow:
                 writer.writeheader()
             writer.writerow(record.to_dict())
 
+        # Log to audit trail
+        audit_record = AIAuditRecord(
+            pair_id=queue_item.pair_id,
+            annotator_id=annotator_id,
+            human_decision=decision,
+            human_confidence=confidence,
+            human_evidence_type=evidence_type,
+            human_action=human_action,
+            ai_suggested_label=ai_suggestion.suggested_label if ai_suggestion else None,
+            ai_suggested_confidence=ai_suggestion.suggested_confidence if ai_suggestion else None,
+            ai_evidence_type=ai_suggestion.suggested_evidence_type if ai_suggestion else None,
+            ai_model_id=ai_suggestion.model_identifier if ai_suggestion else None,
+            review_timestamp=record.annotation_timestamp,
+            notes=notes,
+        )
+        self._append_to_audit_trail(audit_record)
+
         # If decision is NEEDS_ADJUDICATION, also log to adjudication queue
         if decision == LabelDecision.NEEDS_ADJUDICATION:
             self._append_to_adjudication_queue(record)
 
         return record
+
+    def _append_to_audit_trail(self, audit_record: AIAuditRecord):
+        """Append record to audit_trail.csv."""
+        self.audit_trail_csv.parent.mkdir(parents=True, exist_ok=True)
+        file_exists = self.audit_trail_csv.exists()
+        fieldnames = list(audit_record.to_dict().keys())
+        with open(self.audit_trail_csv, "a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(audit_record.to_dict())
 
     def _append_to_adjudication_queue(self, record: AnnotationRecord):
         """Append record requiring adjudication to adjudication_queue.csv."""

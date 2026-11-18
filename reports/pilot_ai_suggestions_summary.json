@@ -1,0 +1,61 @@
+{
+  "queue_source": "data/processed/benchmark/pilot_batch_50.csv",
+  "total_pairs_evaluated": 50,
+  "model_identifier": "heuristic_rule_v1",
+  "suggested_label_distribution": {
+    "NON_MATCH": 32,
+    "NEEDS_ADJUDICATION": 3,
+    "MATCH": 10,
+    "UNCERTAIN": 5
+  },
+  "suggested_confidence_distribution": {
+    "MEDIUM": 15,
+    "HIGH": 27,
+    "LOW": 8
+  },
+  "suggested_evidence_distribution": {
+    "CATEGORY_DISJOINT": 13,
+    "SAME_BUILDING_DIFFERENT_BUSINESS": 10,
+    "OTHER": 7,
+    "SAME_BRAND_DIFFERENT_BRANCH": 5,
+    "EXACT_NAME_AND_LOCATION": 4,
+    "STREET_LEVEL_DISPLACEMENT": 1,
+    "NAME_EXPANSION_OR_ACRONYM": 5,
+    "INSUFFICIENT_EVIDENCE": 5
+  },
+  "adjudication_recommended_count": 3,
+  "stratum_breakdown": {
+    "KANNADA_TRANSLITERATION": {
+      "NON_MATCH": 5
+    },
+    "PHONETIC_VARIANTS": {
+      "NEEDS_ADJUDICATION": 1,
+      "NON_MATCH": 4
+    },
+    "LARGE_DISTANCE_CANDIDATES": {
+      "NON_MATCH": 3,
+      "NEEDS_ADJUDICATION": 2
+    },
+    "EXACT_NAME_MATCH": {
+      "MATCH": 5
+    },
+    "MULTI_STRATEGY_OVERLAP": {
+      "MATCH": 5
+    },
+    "CATEGORY_ADJACENCY": {
+      "NON_MATCH": 5
+    },
+    "MISSING_OR_GENERIC_NAME": {
+      "UNCERTAIN": 5
+    },
+    "CLOSE_SPATIAL_DISTINCT_NAMES": {
+      "NON_MATCH": 5
+    },
+    "HIGH_DENSITY_HOTSPOTS": {
+      "NON_MATCH": 5
+    },
+    "SPATIAL_CLUSTER_RESIDUAL": {
+      "NON_MATCH": 5
+    }
+  }
+}
