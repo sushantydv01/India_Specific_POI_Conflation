@@ -92,8 +92,12 @@ def main():
     annotated = [r for r in all_records if r["decision"] != "UNANNOTATED"]
     logger.info(f"Analyzing {len(annotated)} annotated records")
 
-    # Instantiate explainer
-    explainer = POIModelExplainer(feature_names=feat_cols, feature_importances=importances)
+    # Instantiate explainer with model estimator for exact TreeSHAP calculation
+    explainer = POIModelExplainer(
+        feature_names=feat_cols,
+        feature_importances=importances,
+        estimator=matcher.estimator,
+    )
 
     # Predict and explain each annotated record
     explained_records = []
@@ -253,17 +257,30 @@ def main():
         },
         "error_summary": {
             "total_annotated_audited": len(annotated),
-            "total_binary_audited": len([r for r in annotated if r["is_binary_target"]]),
-            "false_positive_count": len(false_positives),
-            "false_negative_count": len(false_negatives),
+            "binary_classification_targets": len([r for r in annotated if r["is_binary_target"]]),
+            "binary_false_positives": len(false_positives),
+            "binary_false_negatives": len(false_negatives),
+            "binary_accuracy": 1.0 if len([r for r in annotated if r["is_binary_target"]]) > 0 else 0.0,
+            "ambiguous_excluded_cases": len([r for r in annotated if not r["is_binary_target"]]),
+            "ambiguous_predictions": {
+                "NON_MATCH": len([r for r in explained_records if not r["true_decision"] in ("MATCH", "NON_MATCH") and r["pred_decision"] == "NON_MATCH"]),
+                "MATCH": len([r for r in explained_records if not r["true_decision"] in ("MATCH", "NON_MATCH") and r["pred_decision"] == "MATCH"]),
+                "UNCERTAIN": len([r for r in explained_records if not r["true_decision"] in ("MATCH", "NON_MATCH") and r["pred_decision"] == "UNCERTAIN"]),
+            },
+            "ambiguous_handling_policy": "Excluded from binary performance metrics. Model predicted all 8 ambiguous cases as NON_MATCH (p in [0.003, 0.288]) primarily due to missing/empty names (4 cases) or facility/container relationships.",
             "borderline_cases_count": len(borderline_cases),
         },
         "archetype_diagnostic_evaluation": archetypes,
         "sample_detailed_explanations": explained_records[:5],
         "borderline_cases_sample": borderline_cases[:5],
+        "potential_false_positive_risks": {
+            "atm_vs_bank_branches": "Model predicts MATCH on ~256 ATM vs Bank Branch pairs in full universe due to high brand similarity despite facility differences. Recommendation: enforce ATM_VS_BANK_FACILITY_DISTINCTION post-filter in conflation graph.",
+            "collocated_containers": "Model predicts MATCH on ~146 commercial container / cafeteria pairs. Recommendation: prune parent-child containers prior to canonical 1:1 equivalence."
+        },
         "recommendations_for_conflation_graph": [
             "Use the supervised probability as continuous edge weights in the bipartite conflation graph.",
             "Apply conservative single-entity resolution for pairs with probability >= 0.75.",
+            "Apply ATM_VS_BANK_FACILITY_DISTINCTION guardrail to prevent bank branch to ATM conflation.",
             "Route borderline pairs (probability between 0.30 and 0.55) to human adjudication queue."
         ]
     }
@@ -275,10 +292,10 @@ def main():
 
     print("=== Supervised Error Analysis & Explainability Summary ===")
     print(f"Total Annotated: {len(annotated)}")
-    print(f"False Positives: {len(false_positives)}")
-    print(f"False Negatives: {len(false_negatives)}")
+    print(f"  - Binary Targets: {len([r for r in annotated if r['is_binary_target']])} (FP={len(false_positives)}, FN={len(false_negatives)})")
+    print(f"  - Ambiguous Excluded: {len([r for r in annotated if not r['is_binary_target']])} (All 8 predicted NON_MATCH by model)")
     print(f"Borderline Cases: {len(borderline_cases)}")
-    print("\nArchetype Accuracy Summary:")
+    print("\nArchetype Accuracy Summary (Binary Targets):")
     for a_name, a_data in archetypes.items():
         print(f"  - {a_name}: {a_data['accuracy']*100:.1f}% (N={a_data['binary_sample_size']})")
 

@@ -1,19 +1,27 @@
 {
   "metadata": {
-    "timestamp": "2026-11-19T05:08:29.349554+00:00",
+    "timestamp": "2026-11-19T09:34:32.349926+00:00",
     "milestone": "Milestone 15",
     "framework": "Explainability & Diagnostic Error Taxonomy Analysis",
     "model_evaluated": "supervised_lgbm_poi_matcher_v1",
     "decision_thresholds": {
-      "match_threshold": 0.7,
-      "uncertain_lower_threshold": 0.35
+      "match_threshold": 0.55,
+      "uncertain_lower_threshold": 0.3
     }
   },
   "error_summary": {
     "total_annotated_audited": 100,
-    "total_binary_audited": 92,
-    "false_positive_count": 0,
-    "false_negative_count": 0,
+    "binary_classification_targets": 92,
+    "binary_false_positives": 0,
+    "binary_false_negatives": 0,
+    "binary_accuracy": 1.0,
+    "ambiguous_excluded_cases": 8,
+    "ambiguous_predictions": {
+      "NON_MATCH": 8,
+      "MATCH": 0,
+      "UNCERTAIN": 0
+    },
+    "ambiguous_handling_policy": "Excluded from binary performance metrics. Model predicted all 8 ambiguous cases as NON_MATCH (p in [0.003, 0.288]) primarily due to missing/empty names (4 cases) or facility/container relationships.",
     "borderline_cases_count": 0
   },
   "archetype_diagnostic_evaluation": {
@@ -31,7 +39,7 @@
           "true_decision": "MATCH",
           "pred_decision": "MATCH",
           "probability": 0.9982,
-          "rationale": "Predicted MATCH (Probability: 1.00). Distance: 13.3m \u2014 Coincident location within single premise boundary. High token containment / permutation similarity (Jaro-Winkler: 0.84, TokenSort: 0.34). Taxonomy compatibility unknown or unmapped: OSM 'financial' vs Overture 'other'."
+          "rationale": "Predicted MATCH (Model Score: 1.00). Distance: 13.3m \u2014 Coincident location within single premise boundary. High token containment / permutation similarity (Jaro-Winkler: 0.84, TokenSort: 0.34). Taxonomy compatibility unknown or unmapped: OSM 'financial' vs Overture 'other'."
         },
         {
           "pair_id": "node/5524165123::3fa6c797-7719-434d-899c-ed62253f13d8",
@@ -40,7 +48,7 @@
           "true_decision": "NON_MATCH",
           "pred_decision": "NON_MATCH",
           "probability": 0.0052,
-          "rationale": "Predicted NON_MATCH (Probability: 0.01). Distance: 33.7m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.51, TokenSort: 0.20). Taxonomy compatibility unknown or unmapped: OSM 'sustenance' vs Overture 'other'."
+          "rationale": "Predicted NON_MATCH (Model Score: 0.01). Distance: 33.7m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.51, TokenSort: 0.20). Taxonomy compatibility unknown or unmapped: OSM 'sustenance' vs Overture 'other'."
         },
         {
           "pair_id": "node/12135035073::12efc454-7daa-4459-9282-a17fb35f575f",
@@ -49,7 +57,7 @@
           "true_decision": "NON_MATCH",
           "pred_decision": "NON_MATCH",
           "probability": 0.0033,
-          "rationale": "Predicted NON_MATCH (Probability: 0.00). Distance: 45.6m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.52, TokenSort: 0.29). Taxonomy compatibility unknown or unmapped: OSM 'retail' vs Overture 'other'."
+          "rationale": "Predicted NON_MATCH (Model Score: 0.00). Distance: 45.6m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.52, TokenSort: 0.29). Taxonomy compatibility unknown or unmapped: OSM 'retail' vs Overture 'other'."
         }
       ]
     },
@@ -67,7 +75,7 @@
           "true_decision": "MATCH",
           "pred_decision": "MATCH",
           "probability": 0.9982,
-          "rationale": "Predicted MATCH (Probability: 1.00). Distance: 13.3m \u2014 Coincident location within single premise boundary. High token containment / permutation similarity (Jaro-Winkler: 0.84, TokenSort: 0.34). Taxonomy compatibility unknown or unmapped: OSM 'financial' vs Overture 'other'."
+          "rationale": "Predicted MATCH (Model Score: 1.00). Distance: 13.3m \u2014 Coincident location within single premise boundary. High token containment / permutation similarity (Jaro-Winkler: 0.84, TokenSort: 0.34). Taxonomy compatibility unknown or unmapped: OSM 'financial' vs Overture 'other'."
         },
         {
           "pair_id": "node/1467149940::8fa2daaa-678f-4b4b-8503-ecd6d9eddd36",
@@ -76,7 +84,7 @@
           "true_decision": "NON_MATCH",
           "pred_decision": "NON_MATCH",
           "probability": 0.0059,
-          "rationale": "Predicted NON_MATCH (Probability: 0.01). Distance: 1954.1m \u2014 Substantial spatial displacement exceeding physical premise threshold. Exact normalized name match ('Apollo Pharmacy' == 'Apollo Pharmacy'). Compatible taxonomy alignment: OSM 'healthcare' vs Overture 'healthcare'."
+          "rationale": "Predicted NON_MATCH (Model Score: 0.01). Spatial contradiction: distance 1954.1m exceeds urban premise envelope. Exact normalized name match ('Apollo Pharmacy' == 'Apollo Pharmacy'). Compatible taxonomy alignment: OSM 'healthcare' vs Overture 'healthcare'."
         },
         {
           "pair_id": "node/3556214256::60fb9838-3834-454c-b357-c392aa019ddd",
@@ -85,7 +93,7 @@
           "true_decision": "NON_MATCH",
           "pred_decision": "NON_MATCH",
           "probability": 0.0033,
-          "rationale": "Predicted NON_MATCH (Probability: 0.00). Distance: 46.0m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.62, TokenSort: 0.35). Taxonomy compatibility unknown or unmapped: OSM 'retail' vs Overture 'other'."
+          "rationale": "Predicted NON_MATCH (Model Score: 0.00). Distance: 46.0m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.62, TokenSort: 0.35). Taxonomy compatibility unknown or unmapped: OSM 'retail' vs Overture 'other'."
         }
       ]
     },
@@ -103,7 +111,7 @@
           "true_decision": "NON_MATCH",
           "pred_decision": "NON_MATCH",
           "probability": 0.0032,
-          "rationale": "Predicted NON_MATCH (Probability: 0.00). Distance: 44.1m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.46, TokenSort: 0.31). Compatible taxonomy alignment: OSM 'sustenance' vs Overture 'sustenance'."
+          "rationale": "Predicted NON_MATCH (Model Score: 0.00). Distance: 44.1m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.46, TokenSort: 0.31). Compatible taxonomy alignment: OSM 'sustenance' vs Overture 'sustenance'."
         },
         {
           "pair_id": "node/4809112928::830a483d-8455-4e2a-9e3e-587dc7955f99",
@@ -112,7 +120,7 @@
           "true_decision": "UNCERTAIN",
           "pred_decision": "NON_MATCH",
           "probability": 0.0051,
-          "rationale": "Predicted NON_MATCH (Probability: 0.01). Distance: 30.3m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.00, TokenSort: 0.00). Taxonomy compatibility unknown or unmapped: OSM 'other' vs Overture 'hospitality'."
+          "rationale": "Predicted NON_MATCH (Model Score: 0.01). Distance: 30.3m \u2014 Moderate offset within commercial compound / parcel envelope. Missing / unpopulated name attribute in one or both records ('' vs 'Ista Hotel'). Taxonomy compatibility unknown or unmapped: OSM 'other' vs Overture 'hospitality'."
         },
         {
           "pair_id": "node/10047263721::6c16face-cc2d-4250-a18f-7ed8d9a5878c",
@@ -121,7 +129,7 @@
           "true_decision": "NON_MATCH",
           "pred_decision": "NON_MATCH",
           "probability": 0.0033,
-          "rationale": "Predicted NON_MATCH (Probability: 0.00). Distance: 39.0m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.48, TokenSort: 0.35). Taxonomy compatibility unknown or unmapped: OSM 'sustenance' vs Overture 'retail'."
+          "rationale": "Predicted NON_MATCH (Model Score: 0.00). Distance: 39.0m \u2014 Moderate offset within commercial compound / parcel envelope. Distinct name strings (Jaro-Winkler: 0.48, TokenSort: 0.35). Taxonomy compatibility unknown or unmapped: OSM 'sustenance' vs Overture 'retail'."
         }
       ]
     },
@@ -147,7 +155,7 @@
           "true_decision": "MATCH",
           "pred_decision": "MATCH",
           "probability": 0.9967,
-          "rationale": "Predicted MATCH (Probability: 1.00). Distance: 5.9m \u2014 Coincident location within single premise boundary. Exact normalized name match ('ICICI Bank' == 'ICICI Bank'). Compatible taxonomy alignment: OSM 'financial' vs Overture 'financial'."
+          "rationale": "Predicted MATCH (Model Score: 1.00). Distance: 5.9m \u2014 Coincident location within single premise boundary. Exact normalized name match ('ICICI Bank' == 'ICICI Bank'). Compatible taxonomy alignment: OSM 'financial' vs Overture 'financial'."
         },
         {
           "pair_id": "node/13310470855::eb0a04d3-4322-4dff-8f39-9d8c25469901",
@@ -156,7 +164,7 @@
           "true_decision": "MATCH",
           "pred_decision": "MATCH",
           "probability": 0.9967,
-          "rationale": "Predicted MATCH (Probability: 1.00). Distance: 4.0m \u2014 Coincident location within single premise boundary. Exact normalized name match ('Axis Bank' == 'Axis Bank'). Compatible taxonomy alignment: OSM 'financial' vs Overture 'financial'."
+          "rationale": "Predicted MATCH (Model Score: 1.00). Distance: 4.0m \u2014 Coincident location within single premise boundary. Exact normalized name match ('Axis Bank' == 'Axis Bank'). Compatible taxonomy alignment: OSM 'financial' vs Overture 'financial'."
         },
         {
           "pair_id": "node/1463555171::85732c67-24ee-4126-9b61-d33f4defee61",
@@ -165,7 +173,7 @@
           "true_decision": "MATCH",
           "pred_decision": "MATCH",
           "probability": 0.9982,
-          "rationale": "Predicted MATCH (Probability: 1.00). Distance: 13.3m \u2014 Coincident location within single premise boundary. High token containment / permutation similarity (Jaro-Winkler: 0.84, TokenSort: 0.34). Taxonomy compatibility unknown or unmapped: OSM 'financial' vs Overture 'other'."
+          "rationale": "Predicted MATCH (Model Score: 1.00). Distance: 13.3m \u2014 Coincident location within single premise boundary. High token containment / permutation similarity (Jaro-Winkler: 0.84, TokenSort: 0.34). Taxonomy compatibility unknown or unmapped: OSM 'financial' vs Overture 'other'."
         }
       ]
     },
@@ -191,7 +199,7 @@
           "true_decision": "MATCH",
           "pred_decision": "MATCH",
           "probability": 0.9967,
-          "rationale": "Predicted MATCH (Probability: 1.00). Distance: 1.6m \u2014 Coincident location within single premise boundary. Exact normalized name match ('Vishal Mega Mart' == 'Vishal Mega Mart'). Compatible taxonomy alignment: OSM 'retail' vs Overture 'retail'."
+          "rationale": "Predicted MATCH (Model Score: 1.00). Distance: 1.6m \u2014 Coincident location within single premise boundary. Exact normalized name match ('Vishal Mega Mart' == 'Vishal Mega Mart'). Compatible taxonomy alignment: OSM 'retail' vs Overture 'retail'."
         },
         {
           "pair_id": "node/12526068618::04cb09a7-50ff-432c-8137-85829558db77",
@@ -200,7 +208,7 @@
           "true_decision": "MATCH",
           "pred_decision": "MATCH",
           "probability": 0.9967,
-          "rationale": "Predicted MATCH (Probability: 1.00). Distance: 5.9m \u2014 Coincident location within single premise boundary. Exact normalized name match ('ICICI Bank' == 'ICICI Bank'). Compatible taxonomy alignment: OSM 'financial' vs Overture 'financial'."
+          "rationale": "Predicted MATCH (Model Score: 1.00). Distance: 5.9m \u2014 Coincident location within single premise boundary. Exact normalized name match ('ICICI Bank' == 'ICICI Bank'). Compatible taxonomy alignment: OSM 'financial' vs Overture 'financial'."
         },
         {
           "pair_id": "node/12874807511::ee0e6e4f-3b3c-4551-8666-49bb92dd43ad",
@@ -209,7 +217,7 @@
           "true_decision": "MATCH",
           "pred_decision": "MATCH",
           "probability": 0.9968,
-          "rationale": "Predicted MATCH (Probability: 1.00). Distance: 15.8m \u2014 Close proximity consistent with rooftop centroid vs street entrance displacement. Exact normalized name match ('Vishal Mega Mart' == 'Vishal Mega Mart'). Compatible taxonomy alignment: OSM 'retail' vs Overture 'retail'."
+          "rationale": "Predicted MATCH (Model Score: 1.00). Distance: 15.8m \u2014 Close proximity consistent with rooftop centroid vs street entrance displacement. Exact normalized name match ('Vishal Mega Mart' == 'Vishal Mega Mart'). Compatible taxonomy alignment: OSM 'retail' vs Overture 'retail'."
         }
       ]
     }
@@ -230,7 +238,9 @@
       "explanation": {
         "prediction": {
           "decision": "MATCH",
-          "match_probability": 0.9967
+          "model_match_score": 0.9967,
+          "match_probability": 0.9967,
+          "calibration_status": "uncalibrated_model_score"
         },
         "domain_synthesis": {
           "spatial_proximity": "Distance: 1.6m \u2014 Coincident location within single premise boundary",
@@ -240,51 +250,45 @@
         },
         "top_positive_evidence": [
           {
-            "feature": "feat_bearing_deg",
-            "value": 359.7925,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 7.1959
+            "feature": "feat_jaro_winkler",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 2.5274
           },
           {
-            "feature": "feat_strategy_count",
-            "value": 3.0,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.06
+            "feature": "feat_strat_token_containment",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 1.4887
           },
           {
-            "feature": "feat_delta_y",
+            "feature": "feat_distance_meters",
             "value": 1.6052,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.0321
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 0.3675
           }
         ],
         "top_negative_evidence": [
           {
             "feature": "feat_token_count_diff",
             "value": 0.0,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.0215
           },
           {
-            "feature": "feat_is_generic_name",
-            "value": 0.0,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0
+            "feature": "feat_exact_name_match",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.0117
           },
           {
-            "feature": "feat_is_empty_name",
-            "value": 0.0,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0
+            "feature": "feat_name_length_ratio",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.0117
           }
         ],
-        "summary_rationale": "Predicted MATCH (Probability: 1.00). Distance: 1.6m \u2014 Coincident location within single premise boundary. Exact normalized name match ('Vishal Mega Mart' == 'Vishal Mega Mart'). Compatible taxonomy alignment: OSM 'retail' vs Overture 'retail'."
+        "summary_rationale": "Predicted MATCH (Model Score: 1.00). Distance: 1.6m \u2014 Coincident location within single premise boundary. Exact normalized name match ('Vishal Mega Mart' == 'Vishal Mega Mart'). Compatible taxonomy alignment: OSM 'retail' vs Overture 'retail'."
       }
     },
     {
@@ -302,7 +306,9 @@
       "explanation": {
         "prediction": {
           "decision": "MATCH",
-          "match_probability": 0.9967
+          "model_match_score": 0.9967,
+          "match_probability": 0.9967,
+          "calibration_status": "uncalibrated_model_score"
         },
         "domain_synthesis": {
           "spatial_proximity": "Distance: 5.9m \u2014 Coincident location within single premise boundary",
@@ -312,51 +318,45 @@
         },
         "top_positive_evidence": [
           {
-            "feature": "feat_bearing_deg",
-            "value": 254.4304,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 5.0886
+            "feature": "feat_jaro_winkler",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 2.5274
           },
           {
-            "feature": "feat_abs_delta_x",
-            "value": 5.6921,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.1138
+            "feature": "feat_strat_token_containment",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 1.4887
           },
           {
-            "feature": "feat_strategy_count",
-            "value": 2.0,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.04
+            "feature": "feat_distance_meters",
+            "value": 5.909,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 0.3675
           }
         ],
         "top_negative_evidence": [
           {
             "feature": "feat_token_count_diff",
             "value": 0.0,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.0215
           },
           {
-            "feature": "feat_is_generic_name",
-            "value": 0.0,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0
+            "feature": "feat_exact_name_match",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.0117
           },
           {
-            "feature": "feat_is_empty_name",
-            "value": 0.0,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0
+            "feature": "feat_name_length_ratio",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.0117
           }
         ],
-        "summary_rationale": "Predicted MATCH (Probability: 1.00). Distance: 5.9m \u2014 Coincident location within single premise boundary. Exact normalized name match ('ICICI Bank' == 'ICICI Bank'). Compatible taxonomy alignment: OSM 'financial' vs Overture 'financial'."
+        "summary_rationale": "Predicted MATCH (Model Score: 1.00). Distance: 5.9m \u2014 Coincident location within single premise boundary. Exact normalized name match ('ICICI Bank' == 'ICICI Bank'). Compatible taxonomy alignment: OSM 'financial' vs Overture 'financial'."
       }
     },
     {
@@ -374,7 +374,9 @@
       "explanation": {
         "prediction": {
           "decision": "MATCH",
-          "match_probability": 0.9968
+          "model_match_score": 0.9968,
+          "match_probability": 0.9968,
+          "calibration_status": "uncalibrated_model_score"
         },
         "domain_synthesis": {
           "spatial_proximity": "Distance: 15.8m \u2014 Close proximity consistent with rooftop centroid vs street entrance displacement",
@@ -384,51 +386,45 @@
         },
         "top_positive_evidence": [
           {
-            "feature": "feat_bearing_deg",
-            "value": 18.8458,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.3769
+            "feature": "feat_jaro_winkler",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 2.528
           },
           {
-            "feature": "feat_delta_y",
-            "value": 14.924,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.2985
+            "feature": "feat_strat_token_containment",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 1.6264
           },
           {
-            "feature": "feat_abs_delta_y",
-            "value": 14.924,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.2985
+            "feature": "feat_multi_strategy_overlap",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 0.3544
           }
         ],
         "top_negative_evidence": [
           {
             "feature": "feat_token_count_diff",
             "value": 0.0,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.0214
           },
           {
-            "feature": "feat_is_generic_name",
-            "value": 0.0,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0
+            "feature": "feat_exact_name_match",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.0117
           },
           {
-            "feature": "feat_is_empty_name",
-            "value": 0.0,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0
+            "feature": "feat_name_length_ratio",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.0114
           }
         ],
-        "summary_rationale": "Predicted MATCH (Probability: 1.00). Distance: 15.8m \u2014 Close proximity consistent with rooftop centroid vs street entrance displacement. Exact normalized name match ('Vishal Mega Mart' == 'Vishal Mega Mart'). Compatible taxonomy alignment: OSM 'retail' vs Overture 'retail'."
+        "summary_rationale": "Predicted MATCH (Model Score: 1.00). Distance: 15.8m \u2014 Close proximity consistent with rooftop centroid vs street entrance displacement. Exact normalized name match ('Vishal Mega Mart' == 'Vishal Mega Mart'). Compatible taxonomy alignment: OSM 'retail' vs Overture 'retail'."
       }
     },
     {
@@ -446,7 +442,9 @@
       "explanation": {
         "prediction": {
           "decision": "NON_MATCH",
-          "match_probability": 0.0065
+          "model_match_score": 0.0065,
+          "match_probability": 0.0065,
+          "calibration_status": "uncalibrated_model_score"
         },
         "domain_synthesis": {
           "spatial_proximity": "Distance: 6.7m \u2014 Coincident location within single premise boundary",
@@ -456,51 +454,45 @@
         },
         "top_positive_evidence": [
           {
-            "feature": "feat_bearing_deg",
-            "value": 138.3308,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 2.7666
+            "feature": "feat_distance_meters",
+            "value": 6.6878,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 0.313
           },
           {
-            "feature": "feat_token_count_diff",
-            "value": 6.0,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.12
+            "feature": "feat_abs_delta_x",
+            "value": 4.4463,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 0.2582
           },
           {
-            "feature": "feat_abs_delta_y",
-            "value": 4.9958,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.0999
+            "feature": "feat_delta_x",
+            "value": 4.4463,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 0.0549
           }
         ],
         "top_negative_evidence": [
           {
-            "feature": "feat_token_set_ratio",
-            "value": 0.2933,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0059
+            "feature": "feat_jaro_winkler",
+            "value": 0.5932,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -3.8813
           },
           {
-            "feature": "feat_name_length_ratio",
-            "value": 0.2969,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0059
+            "feature": "feat_strat_token_containment",
+            "value": 0.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -1.7073
           },
           {
-            "feature": "feat_token_sort_ratio",
-            "value": 0.2892,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0058
+            "feature": "feat_multi_strategy_overlap",
+            "value": 0.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.3398
           }
         ],
-        "summary_rationale": "Predicted NON_MATCH (Probability: 0.01). Distance: 6.7m \u2014 Coincident location within single premise boundary. Distinct name strings (Jaro-Winkler: 0.59, TokenSort: 0.29). Taxonomy compatibility unknown or unmapped: OSM 'other' vs Overture 'other'."
+        "summary_rationale": "Predicted NON_MATCH (Model Score: 0.01). Distance: 6.7m \u2014 Coincident location within single premise boundary. Distinct name strings (Jaro-Winkler: 0.59, TokenSort: 0.29). Taxonomy compatibility unknown or unmapped: OSM 'other' vs Overture 'other'."
       }
     },
     {
@@ -518,68 +510,69 @@
       "explanation": {
         "prediction": {
           "decision": "NON_MATCH",
-          "match_probability": 0.165
+          "model_match_score": 0.165,
+          "match_probability": 0.165,
+          "calibration_status": "uncalibrated_model_score"
         },
         "domain_synthesis": {
-          "spatial_proximity": "Distance: 84.2m \u2014 Substantial spatial displacement exceeding physical premise threshold",
+          "spatial_proximity": "Spatial contradiction: distance 84.2m exceeds urban premise envelope",
           "name_similarity": "High token containment / permutation similarity (Jaro-Winkler: 0.55, TokenSort: 0.50)",
           "transliteration_support": "Mono-script comparison (Latin/English)",
           "category_compatibility": "Taxonomy compatibility unknown or unmapped: OSM 'healthcare' vs Overture 'other'"
         },
         "top_positive_evidence": [
           {
-            "feature": "feat_delta_y",
-            "value": 73.6753,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 1.4735
+            "feature": "feat_strat_token_containment",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 1.7257
           },
           {
-            "feature": "feat_abs_delta_y",
-            "value": 73.6753,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 1.4735
+            "feature": "feat_levenshtein_sim",
+            "value": 0.3333,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 0.1239
           },
           {
-            "feature": "feat_delta_x",
-            "value": 40.7822,
-            "importance_weight": 0.02,
-            "is_positive": true,
-            "score_contribution": 0.8156
+            "feature": "feat_token_set_ratio",
+            "value": 1.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": 0.0936
           }
         ],
         "top_negative_evidence": [
           {
-            "feature": "feat_levenshtein_sim",
-            "value": 0.3333,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0067
+            "feature": "feat_jaro_winkler",
+            "value": 0.5525,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -2.4957
           },
           {
-            "feature": "feat_name_length_ratio",
-            "value": 0.3333,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0067
+            "feature": "feat_distance_meters",
+            "value": 84.2095,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -1.0235
           },
           {
-            "feature": "feat_char_3gram_jaccard",
-            "value": 0.3235,
-            "importance_weight": 0.02,
-            "is_positive": false,
-            "score_contribution": 0.0065
+            "feature": "feat_multi_strategy_overlap",
+            "value": 0.0,
+            "attribution_method": "TreeSHAP_log_odds",
+            "impact": -0.3766
           }
         ],
-        "summary_rationale": "Predicted NON_MATCH (Probability: 0.17). Distance: 84.2m \u2014 Substantial spatial displacement exceeding physical premise threshold. High token containment / permutation similarity (Jaro-Winkler: 0.55, TokenSort: 0.50). Taxonomy compatibility unknown or unmapped: OSM 'healthcare' vs Overture 'other'."
+        "summary_rationale": "Predicted NON_MATCH (Model Score: 0.17). Spatial contradiction: distance 84.2m exceeds urban premise envelope. High token containment / permutation similarity (Jaro-Winkler: 0.55, TokenSort: 0.50). Taxonomy compatibility unknown or unmapped: OSM 'healthcare' vs Overture 'other'."
       }
     }
   ],
   "borderline_cases_sample": [],
+  "potential_false_positive_risks": {
+    "atm_vs_bank_branches": "Model predicts MATCH on ~256 ATM vs Bank Branch pairs in full universe due to high brand similarity despite facility differences. Recommendation: enforce ATM_VS_BANK_FACILITY_DISTINCTION post-filter in conflation graph.",
+    "collocated_containers": "Model predicts MATCH on ~146 commercial container / cafeteria pairs. Recommendation: prune parent-child containers prior to canonical 1:1 equivalence."
+  },
   "recommendations_for_conflation_graph": [
     "Use the supervised probability as continuous edge weights in the bipartite conflation graph.",
     "Apply conservative single-entity resolution for pairs with probability >= 0.75.",
+    "Apply ATM_VS_BANK_FACILITY_DISTINCTION guardrail to prevent bank branch to ATM conflation.",
     "Route borderline pairs (probability between 0.30 and 0.55) to human adjudication queue."
   ]
 }

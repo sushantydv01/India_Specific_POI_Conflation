@@ -31,7 +31,9 @@ class BatchInferencePipeline:
         model_path: str = "models/supervised_poi_matcher_v1.joblib",
         batch_size: int = 50000,
     ):
+        t0 = time.perf_counter()
         self.matcher = SupervisedPOIMatcher.load(model_path)
+        self.model_load_time_seconds = time.perf_counter() - t0
         self.batch_size = batch_size
         self.feature_cols = self.matcher.feature_names
         self.match_threshold = self.matcher.thresholds.get("match_threshold", 0.55)
@@ -163,6 +165,11 @@ class BatchInferencePipeline:
             },
             "performance": {
                 "total_candidate_pairs": total_processed,
+                "model_loading_seconds": round(self.model_load_time_seconds, 3),
+                "streaming_scoring_writing_seconds": round(total_elapsed, 3),
+                "total_end_to_end_seconds": round(total_elapsed + self.model_load_time_seconds, 3),
+                "streaming_throughput_pairs_per_sec": round(overall_throughput, 1),
+                "end_to_end_throughput_pairs_per_sec": round(total_processed / max(1e-6, total_elapsed + self.model_load_time_seconds), 1),
                 "execution_time_seconds": round(total_elapsed, 3),
                 "throughput_pairs_per_sec": round(overall_throughput, 1),
                 "peak_memory_mb": round(peak_mem_mb, 2),
@@ -185,6 +192,7 @@ class BatchInferencePipeline:
             "score_statistics": {
                 "mean_match_probability": round(mean_prob, 4),
                 "std_match_probability": round(std_prob, 4),
+                "calibration_status": "uncalibrated_model_scores",
             },
             "comparison_against_m9_baseline": {
                 "m9_rule_v1_matches": 5543,
@@ -193,7 +201,7 @@ class BatchInferencePipeline:
                 "supervised_uncertain": uncertain_count,
                 "m9_rule_v1_non_matches": 523003,
                 "supervised_non_matches": non_match_count,
-                "conflation_precision_gain": "Supervised model provides continuous calibrated probabilities instead of discrete heuristic sums",
+                "conflation_precision_gain": "Supervised model provides continuous non-linear decision boundary instead of discrete heuristic sums",
             },
         }
 
