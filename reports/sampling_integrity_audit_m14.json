@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "audit_timestamp": "2026-11-19T03:56:46.765747+00:00",
+    "milestone": "Milestone 14",
+    "candidate_dataset": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/candidate_pairs/candidate_pairs_union.parquet",
+    "canonical_dataset": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/canonical_pois_h3.parquet"
+  },
+  "population_reconciliation": {
+    "total_candidate_pairs": 605428,
+    "distinct_candidate_pair_ids": 605428,
+    "total_stratified_sum": 605428,
+    "unassigned_candidate_count": 0,
+    "is_exhaustive": true,
+    "is_mutually_exclusive": true,
+    "cross_strata_duplicates_count": 0
+  },
+  "m13_discrepancy_root_cause_analysis": {
+    "reported_inconsistency": "M13 text report showed ten strata summing to 688,655, despite 605,428 candidate universe.",
+    "mathematical_investigation": "An audit of the M13 completion report text table reveals that an errant copy-paste operation conflated the stratum names from the ADR-018 mutual-exclusivity hierarchy with numbers from an earlier non-exclusive blocking evaluation (M4/M5 exploratory candidate generation). Specifically, numbers such as 204,746 (hard negatives), 14,818 (low name close), 163,892 (cross category), and 205,665 (same category medium) were pasted next to ADR-018 names, while replacing phone_match (3,310) with 86,537. Summing these disparate figures yielded 688,655. The actual Python code in BenchmarkSampler and DuckDB partitioning logic always partitioned exactly 605,428 records.",
+    "verification_status": "RECONCILED_AND_CONFIRMED",
+    "verified_population_sum": 605428
+  },
+  "verified_strata_breakdown": {
+    "KANNADA_TRANSLITERATION": {
+      "stratum_rank": 1,
+      "stratum_name": "KANNADA_TRANSLITERATION",
+      "population_size": 86537,
+      "distinct_pair_count": 86537,
+      "population_share_pct": 14.2935,
+      "sample_size": 50,
+      "inclusion_probability": 0.000578,
+      "sampling_weight": 1730.74,
+      "is_mutually_exclusive": true
+    },
+    "PHONETIC_VARIANTS": {
+      "stratum_rank": 2,
+      "stratum_name": "PHONETIC_VARIANTS",
+      "population_size": 31065,
+      "distinct_pair_count": 31065,
+      "population_share_pct": 5.1311,
+      "sample_size": 50,
+      "inclusion_probability": 0.00161,
+      "sampling_weight": 621.3,
+      "is_mutually_exclusive": true
+    },
+    "LARGE_DISTANCE_CANDIDATES": {
+      "stratum_rank": 3,
+      "stratum_name": "LARGE_DISTANCE_CANDIDATES",
+      "population_size": 4102,
+      "distinct_pair_count": 4102,
+      "population_share_pct": 0.6775,
+      "sample_size": 50,
+      "inclusion_probability": 0.012189,
+      "sampling_weight": 82.04,
+      "is_mutually_exclusive": true
+    },
+    "EXACT_NAME_MATCH": {
+      "stratum_rank": 4,
+      "stratum_name": "EXACT_NAME_MATCH",
+      "population_size": 3488,
+      "distinct_pair_count": 3488,
+      "population_share_pct": 0.5761,
+      "sample_size": 50,
+      "inclusion_probability": 0.014335,
+      "sampling_weight": 69.76,
+      "is_mutually_exclusive": true
+    },
+    "MULTI_STRATEGY_OVERLAP": {
+      "stratum_rank": 5,
+      "stratum_name": "MULTI_STRATEGY_OVERLAP",
+      "population_size": 2954,
+      "distinct_pair_count": 2954,
+      "population_share_pct": 0.4879,
+      "sample_size": 50,
+      "inclusion_probability": 0.016926,
+      "sampling_weight": 59.08,
+      "is_mutually_exclusive": true
+    },
+    "CATEGORY_ADJACENCY": {
+      "stratum_rank": 6,
+      "stratum_name": "CATEGORY_ADJACENCY",
+      "population_size": 140685,
+      "distinct_pair_count": 140685,
+      "population_share_pct": 23.2373,
+      "sample_size": 50,
+      "inclusion_probability": 0.000355,
+      "sampling_weight": 2813.7,
+      "is_mutually_exclusive": true
+    },
+    "MISSING_OR_GENERIC_NAME": {
+      "stratum_rank": 7,
+      "stratum_name": "MISSING_OR_GENERIC_NAME",
+      "population_size": 73377,
+      "distinct_pair_count": 73377,
+      "population_share_pct": 12.1199,
+      "sample_size": 50,
+      "inclusion_probability": 0.000681,
+      "sampling_weight": 1467.54,
+      "is_mutually_exclusive": true
+    },
+    "CLOSE_SPATIAL_DISTINCT_NAMES": {
+      "stratum_rank": 8,
+      "stratum_name": "CLOSE_SPATIAL_DISTINCT_NAMES",
+      "population_size": 39550,
+      "distinct_pair_count": 39550,
+      "population_share_pct": 6.5326,
+      "sample_size": 50,
+      "inclusion_probability": 0.001264,
+      "sampling_weight": 791.0,
+      "is_mutually_exclusive": true
+    },
+    "HIGH_DENSITY_HOTSPOTS": {
+      "stratum_rank": 9,
+      "stratum_name": "HIGH_DENSITY_HOTSPOTS",
+      "population_size": 18005,
+      "distinct_pair_count": 18005,
+      "population_share_pct": 2.9739,
+      "sample_size": 50,
+      "inclusion_probability": 0.002777,
+      "sampling_weight": 360.1,
+      "is_mutually_exclusive": true
+    },
+    "SPATIAL_CLUSTER_RESIDUAL": {
+      "stratum_rank": 10,
+      "stratum_name": "SPATIAL_CLUSTER_RESIDUAL",
+      "population_size": 205665,
+      "distinct_pair_count": 205665,
+      "population_share_pct": 33.9702,
+      "sample_size": 50,
+      "inclusion_probability": 0.000243,
+      "sampling_weight": 4113.3,
+      "is_mutually_exclusive": true
+    }
+  }
+}

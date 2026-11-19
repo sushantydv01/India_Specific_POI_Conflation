@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "audit_timestamp": "2026-11-19T03:57:11.173301+00:00",
+    "milestone": "Milestone 14",
+    "dataset_name": "Dataset A (Representative Stratified Sample, 500 pairs)",
+    "queue_file": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/benchmark/annotation_queue.csv"
+  },
+  "inventory_summary": {
+    "total_sampled_pairs": 500,
+    "human_verified_pairs_count": 1,
+    "ai_adopted_diagnostic_pairs_count": 49,
+    "unannotated_pending_pairs_count": 450,
+    "remaining_genuine_human_reviews_required": 499,
+    "human_completion_percentage": 0.2,
+    "scientific_integrity_guarantee": "In strict adherence to empirical research standards, artificial human reviews were NOT fabricated. AI-adopted pilot labels remain explicitly categorized as AUTO_ADOPTED_AI and are strictly quarantined from human ground truth. Dataset C (50 pairs from targeted ambiguity) is confirmed to have zero overlap (0.0%) with Dataset A."
+  },
+  "strata_completion_breakdown": {
+    "KANNADA_TRANSLITERATION": {
+      "target_sample": 50,
+      "human_verified_completed": 1,
+      "ai_adopted_diagnostic": 4,
+      "unannotated_pending": 45
+    },
+    "PHONETIC_VARIANTS": {
+      "target_sample": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "unannotated_pending": 45
+    },
+    "LARGE_DISTANCE_CANDIDATES": {
+      "target_sample": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "unannotated_pending": 45
+    },
+    "EXACT_NAME_MATCH": {
+      "target_sample": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "unannotated_pending": 45
+    },
+    "MULTI_STRATEGY_OVERLAP": {
+      "target_sample": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "unannotated_pending": 45
+    },
+    "CATEGORY_ADJACENCY": {
+      "target_sample": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "unannotated_pending": 45
+    },
+    "MISSING_OR_GENERIC_NAME": {
+      "target_sample": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "unannotated_pending": 45
+    },
+    "CLOSE_SPATIAL_DISTINCT_NAMES": {
+      "target_sample": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "unannotated_pending": 45
+    },
+    "HIGH_DENSITY_HOTSPOTS": {
+      "target_sample": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "unannotated_pending": 45
+    },
+    "SPATIAL_CLUSTER_RESIDUAL": {
+      "target_sample": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "unannotated_pending": 45
+    }
+  },
+  "human_annotation_workflow_instructions": {
+    "command": "python scripts/annotate.py --annotator <reviewer_name> --ai-assisted",
+    "protocol_reference": "docs/human_annotation_protocol.md",
+    "audit_trail_file": "data/processed/benchmark/annotations/audit_trail.csv",
+    "notes": "Reviewers are presented candidate pairs with contextual attributes, aerial distances, and optional heuristic AI suggestions, but must independently select decision, confidence, and evidence reason."
+  }
+}

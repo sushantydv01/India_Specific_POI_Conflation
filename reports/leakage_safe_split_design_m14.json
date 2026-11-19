@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "design_timestamp": "2026-11-19T03:59:14.454281+00:00",
+    "milestone": "Milestone 14",
+    "architecture_title": "Component-Blocked Geographically Aware Evaluation Partitioning"
+  },
+  "partition_sizes_and_shares": {
+    "total_partitioned_pairs": 500,
+    "train_partition": {
+      "pair_count": 274,
+      "share_pct": 54.8,
+      "file": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/benchmark/partitions/train_partition.csv",
+      "status": "ACTIVE_TRAINING"
+    },
+    "validation_partition": {
+      "pair_count": 158,
+      "share_pct": 31.6,
+      "file": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/benchmark/partitions/validation_partition.csv",
+      "status": "ACTIVE_VALIDATION"
+    },
+    "test_partition": {
+      "pair_count": 68,
+      "share_pct": 13.6,
+      "file": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/benchmark/partitions/test_partition.csv",
+      "status": "STRICTLY_FROZEN_UNTOUCHED"
+    }
+  },
+  "leakage_audit_and_isolation_guarantee": {
+    "shared_osm_nodes": {
+      "train_vs_val": 0,
+      "train_vs_test": 0,
+      "val_vs_test": 0,
+      "leakage_free": true
+    },
+    "shared_overture_nodes": {
+      "train_vs_val": 0,
+      "train_vs_test": 0,
+      "val_vs_test": 0,
+      "leakage_free": true
+    },
+    "connected_components_precedence": "Connected component precedence is enforced: all candidate pairs that share an OSM node, an Overture node, or form part of a multi-edge bipartite cluster are grouped atomically. No connected component crosses a split boundary."
+  },
+  "spatial_vs_category_tradeoff_analysis": {
+    "dilemma_description": "In POI entity resolution, pure spatial partitioning (e.g., dividing Bengaluru into northern vs. southern quadrants) creates severe category representation imbalance. Commercial categories are not uniformly distributed: IT and corporate offices are heavily concentrated in the eastern and southeastern corridors (Whitefield, Bellandur, Electronic City), whereas traditional jewelry, wholesale textile, and religious POIs are concentrated in the historic central core (Chickpet, Pete, Basavanagudi). A strict regional split results in test sets lacking major economic categories present in training.",
+    "chosen_hybrid_solution": "Component-Blocked H3 Resolution 7 Clustering: Candidates are clustered at H3 Resolution 7 (~1.2 km radius cells), which provides local spatial isolation between micro-neighborhoods while ensuring all major commercial categories appear in balanced proportions across train, validation, and test splits.",
+    "category_representation_across_splits": {
+      "train": {
+        "retail": 93,
+        "healthcare": 21,
+        "commercial_services": 14,
+        "financial": 10,
+        "other": 33,
+        "education": 12,
+        "sustenance": 70,
+        "hospitality": 8,
+        "civic_religious": 4,
+        "leisure_tourism": 9
+      },
+      "validation": {
+        "education": 6,
+        "retail": 62,
+        "financial": 16,
+        "civic_religious": 3,
+        "sustenance": 39,
+        "hospitality": 2,
+        "other": 13,
+        "leisure_tourism": 3,
+        "commercial_services": 7,
+        "healthcare": 7
+      },
+      "test": {
+        "retail": 22,
+        "financial": 4,
+        "healthcare": 6,
+        "commercial_services": 6,
+        "civic_religious": 3,
+        "education": 2,
+        "sustenance": 18,
+        "other": 4,
+        "leisure_tourism": 2,
+        "hospitality": 1
+      }
+    }
+  },
+  "sampling_weights_preservation": "Because partitioning operates on the representative 500-pair sample (which has known stratum inclusion probabilities), all evaluation and subsequent supervised training pipelines preserve stratum identity and Horvitz-Thompson sampling weights."
+}

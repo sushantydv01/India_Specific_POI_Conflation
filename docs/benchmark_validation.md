@@ -183,3 +183,40 @@ Documented in `reports/rule_engine_error_analysis_v2.json` and `reports/baseline
 ### 9.5 Final Readiness Verdict
 * **Quality Gate Decision:** **`NOT_READY_FOR_SUPERVISED_TRAINING` (CONDITIONAL_BLOCKED)**
 * **Conditions for Unblocking:** Genuine human completion of the remaining 499 pairs in Dataset A representative queue, dual-review completion on the 100-pair QC queue, and inter-annotator agreement $\kappa \ge 0.70$.
+
+---
+
+## 10. Milestone 14 Sampling Integrity Repair, In-Sample Leakage Reclassification & Component Partitioning
+
+### 10.1 Sampling Integrity Audit & Population Reconciliation
+Milestone 14 conducted an exhaustive database audit (`reports/sampling_integrity_audit_m14.json`), directly querying `candidate_pairs_union.parquet` and `canonical_pois_h3.parquet`:
+- **Universe Reconstruction:** All 605,428 candidate pairs partition into the ten primary diagnostic strata with **0 unassigned records** and **0 duplicate pair IDs**.
+- **Mutually Exclusive Populations:**
+  - `SPATIAL_CLUSTER_RESIDUAL`: 205,665 (33.97%, $w_k = 4,113.30$)
+  - `CATEGORY_ADJACENCY`: 140,685 (23.24%, $w_k = 2,813.70$)
+  - `KANNADA_TRANSLITERATION`: 86,537 (14.29%, $w_k = 1,730.74$)
+  - `MISSING_OR_GENERIC_NAME`: 73,377 (12.12%, $w_k = 1,467.54$)
+  - `CLOSE_SPATIAL_DISTINCT_NAMES`: 39,550 (6.53%, $w_k = 791.00$)
+  - `PHONETIC_VARIANTS`: 31,065 (5.13%, $w_k = 621.30$)
+  - `HIGH_DENSITY_HOTSPOTS`: 18,005 (2.97%, $w_k = 360.10$)
+  - `LARGE_DISTANCE_CANDIDATES`: 4,102 (0.68%, $w_k = 82.04$)
+  - `EXACT_NAME_MATCH`: 3,488 (0.58%, $w_k = 69.76$)
+  - `MULTI_STRATEGY_OVERLAP`: 2,954 (0.49%, $w_k = 59.08$)
+  - **Total Sum:** **605,428** ($100.00\%$)
+- **Root Cause of M13 Table Discrepancy (688,655):** An errant text copy-paste operation in the M13 report narrative conflated ADR-018 stratum names with counts from an earlier exploratory blocking table (e.g., hard negatives 204,746, low name close 14,818, cross category 163,892). The underlying implementation in `BenchmarkSampler` always strictly partitioned 605,428 records.
+
+### 10.2 In-Sample Development Leakage Reclassification
+To prevent methodological over-optimism:
+- **Leakage Finding:** All 4 diagnostic false negatives used to engineer V2 rules (`Karnataka Chitrakala Parishath`, `ICICI Bank RR Nagar`, `ICICI Bank Marathalli`, `Ujjivan Bank`) belong to Dataset C (`benchmark_human_verified_v1.csv`).
+- **Reclassification:** Evaluating V2 on Dataset C is formally designated as **`DEVELOPMENT_SET_DIAGNOSTIC`** rather than independent evaluation.
+- **Scientific Embargo:** V2 remains strictly experimental. Model superiority over frozen V1 must NOT be asserted until evaluated on an untouched, out-of-sample test partition.
+
+### 10.3 Component-Blocked Spatial Evaluation Split Design
+Documented in `reports/leakage_safe_split_design_m14.json`:
+- **Connected Component Precedence:** All pairs sharing an OSM or Overture node are grouped into transitive connected components. All constituent pairs are assigned atomically to a single split, guaranteeing **0 shared OSM nodes, 0 shared Overture nodes, and 0 cross-split components**.
+- **Spatial vs. Category Trade-off:** H3 Resolution 7 clustering (~1.2 km radius cells) achieves local spatial isolation while preserving commercial category representation across splits (avoiding regional economic skews such as Whitefield IT corridors vs. Chickpet traditional markets).
+- **Partition Manifests:** Train: 274 pairs (54.8%), Validation: 158 pairs (31.6%), Test: 68 pairs (13.6%, strictly frozen and untouched).
+
+### 10.4 Benchmark Readiness Gate Verdict
+* **Final Verdict:** **`NOT_READY_FOR_SUPERVISED_TRAINING` (CONDITIONAL_BLOCKED)**
+* **Justification:** While infrastructure, evaluation mathematics, and sampling partitions are fully verified, supervised training remains blocked until the 499 remaining human reviews in Dataset A and the 100-pair blind QC queue are completed by human reviewers.

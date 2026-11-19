@@ -184,3 +184,18 @@ Annotators operating in Bengaluru must adhere to the following domain-specific r
 ### 6.5 Rooftop Centroid vs. Street Entrance Spatial Displacement
 * **Guidance:** In Bengaluru's dense commercial corridors, large office complexes, malls, and bank branches frequently exhibit 15m–45m Euclidean displacement between OSM node points (often street entrances) and Overture polygon centroids (often building rooftops).
 * **Rule:** When core entity names match strongly and categories are compatible, displacement up to 50m is acceptable as `EVD_SPATIAL_PROX` (street-level displacement). Conversely, in multi-tenant commercial complexes (e.g., Pathi Market), distinct storefronts separated by 10m–25m must receive `NON_MATCH`.
+
+---
+
+## 7. Milestone 14 Representative Benchmark Protocol & Quality Control Safeguards
+
+### 7.1 Dataset Separation & Provenance Quarantine
+* **Dataset A (Representative Sample, 500 pairs):** Population-stratified benchmark representing the unconditional candidate universe across all 10 mutually exclusive strata with known inclusion probabilities ($\pi_k \in [0.000243, 0.033422]$).
+* **Dataset C (Targeted Ambiguity Gold Standard, 50 pairs):** Formed from Dataset B (targeted graph review queue) focusing on high-uncertainty structural anomalies.
+* **Non-Conflation Rule:** Annotators, evaluators, and training scripts must maintain absolute separation between Dataset A and Dataset C (0.0% overlap). AI-adopted pilot annotations are quarantined under `AUTO_ADOPTED_AI` and strictly excluded from human ground truth.
+
+### 7.2 Independent Blind Second Review Constraints
+* **Queue:** 100 candidate pairs (10 pairs per stratum) assigned in `assigned_representative_qc_representative_reviewer_2.csv`.
+* **Blindness Guarantee:** The secondary reviewer interface suppresses primary reviewer labels, confidences, and rationale notes. AI recommendations are hidden unless specifically audited.
+* **Non-Fabrication Rule:** Inter-annotator agreement metrics (exact agreement, Cohen's kappa, Krippendorff's alpha) must NOT be computed or reported as finalized prior to actual human submissions.
+* **Sample Size & Precision Notice:** While $N=20$ dual reviews in Dataset C yielded $\kappa = 0.7000$ (95% CI $[0.387, 1.000]$), conclusive statistical reliability requires completing the 100-pair representative QC queue to achieve narrow confidence bounds ($\pm 0.14$).
