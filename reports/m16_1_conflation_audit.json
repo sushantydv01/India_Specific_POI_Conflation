@@ -1,0 +1,474 @@
+{
+  "metadata": {
+    "milestone": "Milestone 16.1",
+    "audit_title": "Independent Graph Conflation Audit & Canonical Dataset Validation",
+    "audit_timestamp": "2026-11-19T10:09:43Z",
+    "execution_duration_seconds": 0.4,
+    "peak_rss_mb": 324.17,
+    "formal_audit_verdict": "AUDIT_PASSED_WITH_CORRECTIONS"
+  },
+  "source_accounting_audit": {
+    "expected_osm_records": 49036,
+    "accounted_osm_records": 49036,
+    "unique_osm_records": 49036,
+    "osm_missing_count": 0,
+    "osm_duplicate_assignment_count": 0,
+    "expected_overture_records": 197820,
+    "accounted_overture_records": 197820,
+    "unique_overture_records": 197820,
+    "overture_missing_count": 0,
+    "overture_duplicate_assignment_count": 0,
+    "total_source_records": 246856,
+    "total_accounted_records": 246856,
+    "accounting_completeness_pct": 100.0,
+    "total_canonical_entities": 238083,
+    "unique_canonical_entities": 238083,
+    "canonical_uuid_collisions": 0,
+    "verdict": "PASSED"
+  },
+  "singleton_reconciliation_audit": {
+    "decisions_breakdown": {
+      "RESOLVED_EQUIVALENCE": {
+        "canonical_entities": 8773,
+        "osm_records": 8773,
+        "overture_records": 8773
+      },
+      "UNRESOLVED_AMBIGUOUS": {
+        "canonical_entities": 2485,
+        "osm_records": 1156,
+        "overture_records": 1329
+      },
+      "DISAMBIGUATED_SINGLETON": {
+        "canonical_entities": 226825,
+        "osm_records": 39107,
+        "overture_records": 187718
+      }
+    },
+    "single_source_composition": {
+      "disambiguated_singleton_osm": 39107,
+      "disambiguated_singleton_overture": 187718,
+      "disambiguated_singleton_total": 226825,
+      "unresolved_ambiguous_osm": 1156,
+      "unresolved_ambiguous_overture": 1329,
+      "unresolved_ambiguous_total": 2485,
+      "total_osm_only_entities": 40263,
+      "total_overture_only_entities": 189047,
+      "total_single_source_entities": 229310,
+      "multi_source_equivalence_entities": 8773,
+      "sum_canonical_entities": 238083
+    },
+    "terminology_reconciliation_note": "The M16 summary report reported osm_only_entity_count=40,263 and overture_only_entity_count=189,047. Audit confirms these numbers represent the exact sum of pure singletons plus ambiguous unmerged nodes: OSM: 39,107 (disambiguated) + 1,156 (ambiguous) = 40,263. Overture: 187,718 (disambiguated) + 1,329 (ambiguous) = 189,047. Total single-source entities = 229,310 (226,825 disambiguated + 2,485 ambiguous). Adding 8,773 multi-source equivalences yields exactly 238,083 canonical entities.",
+    "verdict": "RECONCILED"
+  },
+  "topology_reconciliation_audit": {
+    "cluster_patterns_in_resolved_equivalence": {
+      "ONE_TO_ONE": 8662,
+      "ONE_TO_MANY": 69,
+      "MANY_TO_ONE": 42
+    },
+    "cluster_patterns_in_unresolved_ambiguous": {
+      "AMBIGUOUS_CLUSTER": 1797,
+      "ONE_TO_MANY": 456,
+      "MANY_TO_MANY": 53,
+      "MANY_TO_ONE": 179
+    },
+    "component_accounting": {
+      "total_one_to_one_components": 8662,
+      "resolved_one_to_one_equivalences": 8662,
+      "total_one_to_many_stars": 219,
+      "resolved_one_to_many_dominant_winners": 69,
+      "ambiguous_one_to_many_stars": 150,
+      "ambiguous_one_to_many_constituent_entities": 456,
+      "total_many_to_one_stars": 101,
+      "resolved_many_to_one_dominant_winners": 42,
+      "ambiguous_many_to_one_stars": 59,
+      "ambiguous_many_to_one_constituent_entities": 179,
+      "total_many_to_many_components": 13,
+      "ambiguous_many_to_many_constituent_entities": 53,
+      "total_ambiguous_clusters": 537,
+      "ambiguous_clusters_constituent_entities": 1797,
+      "sum_resolved_equivalences": 8773,
+      "sum_ambiguous_entities": 2485
+    },
+    "verdict": "RECONCILED"
+  },
+  "atm_facility_audit": {
+    "atm_edges_intercepted": 365,
+    "disposition_breakdown": {
+      "REJECTED": 3,
+      "PARENT_CHILD": 362
+    },
+    "facility_atm_relationships_exported": 362,
+    "rejected_atm_edges_count": 3,
+    "rejected_atm_edges_details": [
+      {
+        "candidate_pair_id": "node/4365624394::8c48c76a-a02b-4ec2-89fe-97b4a910828d",
+        "osm_name": "Canara Bank",
+        "ov_name": "Canada Bank Atm",
+        "reason": "Failed brand sharing verification"
+      },
+      {
+        "candidate_pair_id": "node/2339551591::66ffbca6-4a40-4ec3-bfed-6ceb23485da5",
+        "osm_name": "Corporation Bank",
+        "ov_name": "Corp Bank ATM",
+        "reason": "Abbreviation mismatch in exact brand sharing"
+      },
+      {
+        "candidate_pair_id": "node/3259780194::d17a7a8b-c1dc-40e7-a121-7d6ef48b59c9",
+        "osm_name": "Apex Bank",
+        "ov_name": "Axis Bank ATM",
+        "reason": "Completely different bank brands (Apex vs Axis)"
+      }
+    ],
+    "prohibited_atm_bank_merges_in_canonical_equivalence": 0,
+    "verdict": "PASSED"
+  },
+  "container_facility_audit": {
+    "container_edges_intercepted": 623,
+    "disposition_breakdown": {
+      "PARENT_CHILD": 623
+    },
+    "exported_relationships_by_type": {
+      "PARENT_CHILD": 420,
+      "CAMPUS_FACILITY": 203,
+      "FACILITY_ATM": 362
+    },
+    "prohibited_container_merges": 0,
+    "verdict": "PASSED"
+  },
+  "edge_disposition_audit": {
+    "total_candidate_edges": 605428,
+    "mutually_exclusive_dispositions": {
+      "REJECTED": 592828,
+      "ACCEPTED_EQUIVALENCE": 10659,
+      "REVIEW": 956,
+      "PARENT_CHILD": 985
+    },
+    "sum_dispositions": 605428,
+    "diagnostic_safeguard_triggers": {
+      "MISSING_OR_EMPTY_NAME": 82107,
+      "PARENT_CHILD_CONTAINER": 623,
+      "EXCESSIVE_SPATIAL_SEPARATION": 382,
+      "ATM_VS_BANK_FACILITY_DISTINCTION": 365,
+      "GENERIC_NAME_COLLISION": 188,
+      "SAME_BRAND_DIFFERENT_BRANCH": 1
+    },
+    "disposition_accounting_exact": true,
+    "verdict": "PASSED"
+  },
+  "dataset_integrity_audit": {
+    "file_inventory": {
+      "data/processed/canonical/canonical_pois.parquet": {
+        "exists": true,
+        "size_bytes": 24498781,
+        "size_formatted": "23.36 MB"
+      },
+      "data/processed/canonical/canonical_pois.geojson": {
+        "exists": true,
+        "size_bytes": 89891681,
+        "size_formatted": "85.73 MB"
+      },
+      "data/processed/canonical/conflation_edges.parquet": {
+        "exists": true,
+        "size_bytes": 32627185,
+        "size_formatted": "31.12 MB"
+      },
+      "data/processed/canonical/unresolved_pairs.parquet": {
+        "exists": true,
+        "size_bytes": 224726,
+        "size_formatted": "0.21 MB"
+      },
+      "data/processed/canonical/poi_relationships.parquet": {
+        "exists": true,
+        "size_bytes": 140388,
+        "size_formatted": "0.13 MB"
+      }
+    },
+    "coordinate_bounding_box": {
+      "min_longitude": 77.46165504285715,
+      "max_longitude": 77.776207,
+      "min_latitude": 12.83507493,
+      "max_latitude": 13.13901215,
+      "bbmp_containment_verified": true
+    },
+    "verdict": "PASSED"
+  },
+  "qualitative_samples": {
+    "clean_1_to_1_equivalences": [
+      {
+        "canonical_entity_id": "0f337b29-cb8b-544a-a633-80b11d71f8ee",
+        "primary_name": "Indian Oil Corporation Ltd.",
+        "osm_name": "Indian Oil",
+        "ov_name": "Indian Oil Corporation Ltd.",
+        "distance_meters": 15.06,
+        "confidence_score": 0.997610330581665
+      },
+      {
+        "canonical_entity_id": "863a93e4-511f-5605-932b-807e7216cd5a",
+        "primary_name": "Allamandas House Of Children",
+        "osm_name": "Allamandas School",
+        "ov_name": "Allamandas House Of Children",
+        "distance_meters": 22.35,
+        "confidence_score": 0.9280324578285217
+      },
+      {
+        "canonical_entity_id": "d8cf922f-cb55-534a-a5da-1b996d22b2c2",
+        "primary_name": "Kanti Sweets",
+        "osm_name": "Kanti Sweets",
+        "ov_name": "Kanti Sweets",
+        "distance_meters": 5.08,
+        "confidence_score": 0.9966863989830017
+      },
+      {
+        "canonical_entity_id": "8475db82-59de-5cd6-a16f-b9cbf335d782",
+        "primary_name": "St Mira's High School",
+        "osm_name": "St. Mira's School",
+        "ov_name": "St Mira's High School",
+        "distance_meters": 18.41,
+        "confidence_score": 0.921283483505249
+      },
+      {
+        "canonical_entity_id": "e5836f32-0a09-5adb-9c05-07c5c39c0f5e",
+        "primary_name": "Orchids The International School, BTM",
+        "osm_name": "Orchids The International School, BTM",
+        "ov_name": "Orchids The International School",
+        "distance_meters": 25.04,
+        "confidence_score": 0.9973227381706238
+      }
+    ],
+    "dominant_star_winners": [
+      {
+        "canonical_entity_id": "cd54705d-295b-5e74-85c5-cf2591ef3036",
+        "primary_name": "Stanza Living Seattle House | Coliving PG in Bellandur",
+        "osm_name": "Stanza Living Seattle House",
+        "ov_name": "Stanza Living Seattle House | Coliving PG in Bellandur",
+        "distance_meters": 5.41,
+        "confidence_score": 0.9981658458709717
+      },
+      {
+        "canonical_entity_id": "53ddbe73-359f-57eb-a8f0-9807c492fbee",
+        "primary_name": "The Yard, Whitefield",
+        "osm_name": "The Yard, Whitefield",
+        "ov_name": "The Yard, Whitefield",
+        "distance_meters": 13.58,
+        "confidence_score": 0.9964972734451294
+      },
+      {
+        "canonical_entity_id": "34a3e2c0-c8d1-51f6-9e44-372566dd06ea",
+        "primary_name": "Nehru Park",
+        "osm_name": "Nehru Park",
+        "ov_name": "Nehru Park",
+        "distance_meters": 7.51,
+        "confidence_score": 0.996681809425354
+      },
+      {
+        "canonical_entity_id": "2acf40ce-00e2-5830-b228-b6d080eebe39",
+        "primary_name": "Sri Lakshmi Multi Speciality Hospital",
+        "osm_name": "Sri Lakshmi Multi Speciality Hospital",
+        "ov_name": "Sri Lakshmi Multi Speciality Hospital",
+        "distance_meters": 16.41,
+        "confidence_score": 0.9967364072799683
+      },
+      {
+        "canonical_entity_id": "81137a16-e1d5-59ba-ba7e-2d61154310b2",
+        "primary_name": "Anupama Hospital",
+        "osm_name": "Anupama Hospital",
+        "ov_name": "Anupama Hospital",
+        "distance_meters": 6.75,
+        "confidence_score": 0.9966819286346436
+      }
+    ],
+    "atm_relationships": [
+      {
+        "relationship_id": "rel-node/1338091641::facc010b-7903-4c57-ac43-fa42d75ead7b",
+        "relationship_type": "FACILITY_ATM",
+        "parent_name": "ICICI Bank",
+        "child_name": "ICICI Bank Sarjapur Road, Bangalore-Branch & ATM",
+        "distance_meters": 2.08,
+        "confidence_score": 0.9981628060340881
+      },
+      {
+        "relationship_id": "rel-node/4446527432::34fd95cb-f632-4b4a-9999-fce403b855d6",
+        "relationship_type": "FACILITY_ATM",
+        "parent_name": "State Bank of India",
+        "child_name": "State Bank Of India ATM",
+        "distance_meters": 32.52,
+        "confidence_score": 0.9960585236549377
+      },
+      {
+        "relationship_id": "rel-node/4530000597::ecbfaf01-64be-41d5-bb98-df94abc2de56",
+        "relationship_type": "FACILITY_ATM",
+        "parent_name": "ICICI Bank",
+        "child_name": "ICICI Bank Margosa Road, Bangalore-Branch & ATM",
+        "distance_meters": 18.58,
+        "confidence_score": 0.9901980757713318
+      },
+      {
+        "relationship_id": "rel-node/5003288807::05d3bffa-f615-4a2c-9bbd-aa89959956de",
+        "relationship_type": "FACILITY_ATM",
+        "parent_name": "ICICI Bank",
+        "child_name": "ICICI Bank ATM",
+        "distance_meters": 6.53,
+        "confidence_score": 0.9972494840621948
+      },
+      {
+        "relationship_id": "rel-node/12459951921::958588ad-0efa-40f7-93ad-869c73e30d0b",
+        "relationship_type": "FACILITY_ATM",
+        "parent_name": "Punjab National Bank",
+        "child_name": "Punjab National Bank - ATM",
+        "distance_meters": 9.8,
+        "confidence_score": 0.997255265712738
+      }
+    ],
+    "container_relationships": [
+      {
+        "relationship_id": "rel-way/1176579523::1f441163-2981-429a-8a95-858e89b30346",
+        "relationship_type": "PARENT_CHILD",
+        "parent_name": "Konanakunte Police Station",
+        "child_name": "Konanakunte",
+        "distance_meters": 58.04,
+        "confidence_score": 0.6939235329627991
+      },
+      {
+        "relationship_id": "rel-node/9983607329::0b8767bd-aeab-484c-8e73-c3a3b3f95b25",
+        "relationship_type": "PARENT_CHILD",
+        "parent_name": "HSR ACADEMY great learning center",
+        "child_name": "Great Learning",
+        "distance_meters": 20.2,
+        "confidence_score": 0.31188246607780457
+      },
+      {
+        "relationship_id": "rel-node/5295004543::0c6cf86c-6d02-4619-8213-844c1f8a4732",
+        "relationship_type": "PARENT_CHILD",
+        "parent_name": "Domino's Pizza | Elements Mall\u201d, Bangalore",
+        "child_name": "Domino's",
+        "distance_meters": 41.23,
+        "confidence_score": 0.9724451303482056
+      },
+      {
+        "relationship_id": "rel-way/665219925::026cd634-c188-426e-9bdc-609a7f3e05ab",
+        "relationship_type": "PARENT_CHILD",
+        "parent_name": "White Palace Convention Centre",
+        "child_name": "White Palace",
+        "distance_meters": 37.51,
+        "confidence_score": 0.9972413778305054
+      },
+      {
+        "relationship_id": "rel-way/1299785703::b5d106b2-1694-4aaa-bd0b-5b91295ac5ed",
+        "relationship_type": "PARENT_CHILD",
+        "parent_name": "Shell Recharge Charging Station",
+        "child_name": "Shell",
+        "distance_meters": 40.83,
+        "confidence_score": 0.9719468951225281
+      }
+    ]
+  },
+  "vulnerability_analysis": {
+    "vulnerability_name": "SHARED_HONORIFIC_DISJOINT_BRAND_COLLOCATION",
+    "description": "Pairs sharing honorifics (Sri, The, Hotel, Doctor) but differing in unique brand tokens at distances <= 45m",
+    "estimated_affected_pairs": 10,
+    "sample_cases": [
+      {
+        "candidate_pair_id": "node/4766266156::da8f0a5a-9227-4fe0-af64-430c04f93539",
+        "osm_name": "Kushals",
+        "ov_name": "Kushal's Fashion Jewellery - Kormangala",
+        "osm_category": "retail",
+        "ov_category": "retail",
+        "distance_meters": 5.61,
+        "token_set_ratio": 0.3181818181818181,
+        "model_score": 0.9105798602104187
+      },
+      {
+        "candidate_pair_id": "node/5623433263::c502c134-4d58-46e9-bf1a-3f0d325e393e",
+        "osm_name": "Sri Vasavi Gram Gold",
+        "ov_name": "Sri Lalitha Tours & Travels",
+        "osm_category": "retail",
+        "ov_category": "other",
+        "distance_meters": 7.38,
+        "token_set_ratio": 0.4444444444444444,
+        "model_score": 0.947954535484314
+      },
+      {
+        "candidate_pair_id": "way/503382150::0661a50e-ea65-46db-8b50-75f3d57f35c1",
+        "osm_name": "Breads & Banter",
+        "ov_name": "breadsnbanter",
+        "osm_category": "sustenance",
+        "ov_category": "sustenance",
+        "distance_meters": 12.87,
+        "token_set_ratio": 0.4615384615384615,
+        "model_score": 0.8956008553504944
+      },
+      {
+        "candidate_pair_id": "node/4766266155::245dfd9d-6ac3-43c3-8693-b0d676fd8b23",
+        "osm_name": "SOCH",
+        "ov_name": "Sodio Technologies",
+        "osm_category": "retail",
+        "ov_category": "other",
+        "distance_meters": 22.5,
+        "token_set_ratio": 0.36363636363636365,
+        "model_score": 0.877112865447998
+      },
+      {
+        "candidate_pair_id": "node/12948883251::85dbfe48-e0ea-41bc-9536-f584bd196f96",
+        "osm_name": "Specs Makers",
+        "ov_name": "Specsmakers - Whitefield",
+        "osm_category": "retail",
+        "ov_category": "other",
+        "distance_meters": 7.77,
+        "token_set_ratio": 0.4705882352941177,
+        "model_score": 0.9404048323631287
+      },
+      {
+        "candidate_pair_id": "node/4140677508::2fed15fc-19d5-4786-8e42-f477951b4073",
+        "osm_name": "The Kabab Company",
+        "ov_name": "The Himalayan Inn",
+        "osm_category": "sustenance",
+        "ov_category": "sustenance",
+        "distance_meters": 45.69,
+        "token_set_ratio": 0.4705882352941177,
+        "model_score": 0.6762470602989197
+      },
+      {
+        "candidate_pair_id": "node/2247460569::be0ca784-75b8-4994-b258-809f36d0be0d",
+        "osm_name": "Nandini palace",
+        "ov_name": "Nandhini Deluxe",
+        "osm_category": "sustenance",
+        "ov_category": "sustenance",
+        "distance_meters": 33.43,
+        "token_set_ratio": 0.48275862068965514,
+        "model_score": 0.7738991975784302
+      },
+      {
+        "candidate_pair_id": "node/9874033654::7026bba6-408a-4c95-925a-0661d1c7e139",
+        "osm_name": "Crom\u0101",
+        "ov_name": "Croma - Gunjur",
+        "osm_category": "retail",
+        "ov_category": "retail",
+        "distance_meters": 27.15,
+        "token_set_ratio": 0.4705882352941177,
+        "model_score": 0.5978727340698242
+      },
+      {
+        "candidate_pair_id": "node/11291647616::503478b4-54ac-4a1e-a45e-dba656df67d1",
+        "osm_name": "Just Dance",
+        "ov_name": "Justbake Btm",
+        "osm_category": "other",
+        "ov_category": "other",
+        "distance_meters": 14.79,
+        "token_set_ratio": 0.45454545454545453,
+        "model_score": 0.810244083404541
+      },
+      {
+        "candidate_pair_id": "node/6419006086::b29bf5e5-624b-45ec-909d-9f5a312112fc",
+        "osm_name": "Sri Anand Electricals",
+        "ov_name": "Sri Sai Enterprises",
+        "osm_category": "retail",
+        "ov_category": "other",
+        "distance_meters": 16.69,
+        "token_set_ratio": 0.45,
+        "model_score": 0.8940415382385254
+      }
+    ],
+    "recommended_mitigation": "Add SHARED_HONORIFIC_DISJOINT_BRAND safeguard in Milestone 17 production conflation pipeline"
+  }
+}
