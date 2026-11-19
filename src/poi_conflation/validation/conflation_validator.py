@@ -183,6 +183,26 @@ class ContinuousConflationValidator:
             details={"min_lat": bounds[0], "max_lat": bounds[1], "min_lon": bounds[2], "max_lon": bounds[3]},
         ))
 
+        # 4b. True Point-in-Polygon Containment against official BBMP boundary
+        bbmp_poly_path = Path("configs/bbmp_boundary.geojson")
+        if bbmp_poly_path.exists():
+            try:
+                con.execute("INSTALL spatial; LOAD spatial; SET geometry_always_xy = true;")
+                outside_count = con.execute(f"""
+                    SELECT count(*)
+                    FROM '{canonical_pois_path}', ST_Read('{bbmp_poly_path}')
+                    WHERE NOT ST_Within(ST_Point(longitude, latitude), geom)
+                """).fetchone()[0]
+                checks.append(ValidationCheck(
+                    name="canonical_bbmp_polygon_containment",
+                    category="canonical",
+                    status=ValidationStatus.PASSED if outside_count == 0 else ValidationStatus.FAILED,
+                    message=f"Entities strictly within BBMP boundary polygon: {total_entities - outside_count}/{total_entities} (Outside: {outside_count})",
+                    details={"total_entities": total_entities, "outside_polygon": outside_count},
+                ))
+            except Exception as e:
+                logger.warning(f"Polygon containment validation skipped: {e}")
+
         # 5. Prohibited Cross-Entity ATM-Bank Merges
         atm_bank_cross_merges = 0
         atm_pattern = re.compile(r"\b(atm|cdm|automated teller machine|cash point)\b", re.IGNORECASE)

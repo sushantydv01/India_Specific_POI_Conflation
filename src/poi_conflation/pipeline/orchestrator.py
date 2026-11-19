@@ -398,7 +398,7 @@ class ProductionPipelineOrchestrator:
     ) -> Tuple[BipartiteConflationGraph, List[POIRelationship], Dict[str, int]]:
         """Construct graph and evaluate all candidate edges against safeguards."""
         con = duckdb.connect()
-        con.execute("INSTALL spatial; LOAD spatial;")
+        con.execute("INSTALL spatial; LOAD spatial; SET geometry_always_xy = true;")
 
         # Load graph nodes from canonical_pois_h3
         nodes_rows = con.execute(f"""
@@ -514,41 +514,22 @@ class ProductionPipelineOrchestrator:
 
                 # Record non-equivalence relationship if identified
                 if res.disposition == EdgeDisposition.PARENT_CHILD and res.relationship_type is not None:
-                    parent_id = ov_id if res.parent_source == "OVERTURE" else osm_id
-                    child_id = osm_id if res.parent_source == "OVERTURE" else ov_id
+                    parent_id = osm_id if res.parent_source == "OSM" else ov_id
+                    child_id = ov_id if res.parent_source == "OSM" else osm_id
+                    parent_name = osm_name if res.parent_source == "OSM" else ov_name
+                    child_name = ov_name if res.parent_source == "OSM" else osm_name
                     rel = POIRelationship(
-                        parent_source_id=parent_id,
-                        child_source_id=child_id,
+                        relationship_id=f"rel-{pair_id}",
                         relationship_type=res.relationship_type,
-                        distance_meters=dist_m,
-                        evidence_notes=res.evidence_notes,
-                    )
-                    relationships.append(rel)
-
-                # Construct GraphEdge
-                edge = GraphEdge(
-                    pair_id=pair_id,
-                    osm_source_id=osm_id,
-                    ov_source_id=ov_id,
-                    supervised_score=prob,
-                    supervised_decision=decision,
-                    distance_meters=dist_m,
-                    disposition=res.disposition,
-                    disposition_reason=res.disposition_reason,
-                    safeguards_triggered=res.safeguards_triggered,
-                )
-                graph.add_edge(edge)
-
-                # Record non-equivalence relationship if identified
-                if res.disposition == EdgeDisposition.PARENT_CHILD and res.relationship_type is not None:
-                    parent_id = ov_id if res.parent_source == "OVERTURE" else osm_id
-                    child_id = osm_id if res.parent_source == "OVERTURE" else ov_id
-                    rel = POIRelationship(
+                        parent_canonical_id="",
                         parent_source_id=parent_id,
+                        child_canonical_id="",
                         child_source_id=child_id,
-                        relationship_type=res.relationship_type,
+                        parent_name=parent_name,
+                        child_name=child_name,
                         distance_meters=dist_m,
-                        evidence_notes=res.evidence_notes,
+                        confidence_score=prob,
+                        evidence=res.evidence_notes,
                     )
                     relationships.append(rel)
 

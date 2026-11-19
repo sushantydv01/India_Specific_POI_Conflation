@@ -31,7 +31,7 @@ class PipelineConfig:
     staging_dir: Path = Path("data/processed/staging")
     snapshots_dir: Path = Path("data/processed/snapshots")
     reports_dir: Path = Path("reports")
-    lineage_path: Path = Path("data/processed/lineage/canonical_entity_lineage.parquet")
+    lineage_path: Path = Path("data/processed/canonical/canonical_entity_lineage.parquet")
 
     # Thresholds and parameters
     match_threshold: float = 0.55

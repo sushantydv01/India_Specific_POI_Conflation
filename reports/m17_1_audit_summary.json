@@ -1,0 +1,52 @@
+{
+  "audit_id": "m17_1_production_pipeline_audit",
+  "audit_timestamp": "2026-11-19T10:48:00Z",
+  "verdict": "AUDIT_PASSED_WITH_CORRECTIONS",
+  "test_suite_status": {
+    "total_tests": 219,
+    "passed_tests": 219,
+    "failed_tests": 0,
+    "duration_seconds": 12.61
+  },
+  "shared_honorific_safeguard": {
+    "total_candidate_pairs": 605428,
+    "flagged_pairs_count": 94,
+    "reclassified_from_accepted_to_review": 73,
+    "already_review_count": 21,
+    "remaining_accepted_count": 0,
+    "precision_evaluation": "Preserves legitimate brand matches (e.g. Dr. Batra's) while reclassifying false merges of distinct commercial entities sharing honorific prefixes (e.g. Sri, Shri, St, Dr)"
+  },
+  "reconciled_disposition_totals": {
+    "rejected": 592828,
+    "accepted_equivalence": 10586,
+    "parent_child": 985,
+    "review": 1029,
+    "total": 605428
+  },
+  "bbmp_polygon_containment": {
+    "polygon_source": "configs/bbmp_boundary.geojson",
+    "total_canonical_entities": 238083,
+    "entities_inside": 238083,
+    "entities_outside": 0,
+    "containment_rate": 1.0
+  },
+  "atm_bank_cross_merges": {
+    "resolved_equivalence_entities_audited": 8773,
+    "prohibited_cross_merges_detected": 0
+  },
+  "incremental_vs_full_rebuild": {
+    "scenarios_evaluated": 8,
+    "scenarios_passed": 8,
+    "semantic_equivalence": true
+  },
+  "atomic_staging_and_promotion": {
+    "canary_protection_verified": true,
+    "validation_gate_isolation": true,
+    "boundary_consistency_lineage_and_exports": true
+  },
+  "performance_reconciliation": {
+    "reported_full_run_duration_seconds": 28.45,
+    "reported_peak_rss_mb": 512.4,
+    "reconciliation_verdict": "CONFIRMED"
+  }
+}
