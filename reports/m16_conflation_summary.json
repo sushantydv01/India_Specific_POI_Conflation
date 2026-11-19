@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "milestone": "Milestone 16",
+    "timestamp": "2026-11-19T09:59:45Z",
+    "schema_version": "2.0.0",
+    "policy_version": "supervised_conflation_v1",
+    "target_city": "Bengaluru (BBMP), Karnataka, India",
+    "execution_time_seconds": 17.74,
+    "peak_memory_mb": 1776.47
+  },
+  "source_inventory": {
+    "total_canonical_records": 246856,
+    "osm_record_count": 49036,
+    "overture_record_count": 197820,
+    "accounted_source_count": 246856,
+    "unaccounted_source_count": 0,
+    "accounting_completeness_pct": 100.0
+  },
+  "edge_evaluation": {
+    "total_candidate_edges": 605428,
+    "accepted_equivalence_count": 10659,
+    "parent_child_count": 985,
+    "review_count": 956,
+    "rejected_count": 592828,
+    "safeguards_triggered": {
+      "MISSING_OR_EMPTY_NAME": 82107,
+      "GENERIC_NAME_COLLISION": 188,
+      "EXCESSIVE_SPATIAL_SEPARATION": 382,
+      "PARENT_CHILD_CONTAINER": 623,
+      "ATM_VS_BANK_FACILITY_DISTINCTION": 365,
+      "SAME_BRAND_DIFFERENT_BRANCH": 1
+    }
+  },
+  "cluster_topology": {
+    "total_equivalence_clusters": 9532,
+    "pattern_distribution": {
+      "ONE_TO_ONE": 8662,
+      "AMBIGUOUS_CLUSTER": 537,
+      "ONE_TO_MANY": 219,
+      "MANY_TO_MANY": 13,
+      "MANY_TO_ONE": 101
+    },
+    "average_cluster_size": 2.11,
+    "max_cluster_size": 39,
+    "invalid_cluster_count": 0
+  },
+  "canonical_entity_summary": {
+    "total_canonical_entities": 238083,
+    "multi_source_entity_count": 8773,
+    "osm_only_entity_count": 40263,
+    "overture_only_entity_count": 189047,
+    "resolution_decisions": {
+      "RESOLVED_EQUIVALENCE": 8773,
+      "UNRESOLVED_AMBIGUOUS": 2485,
+      "DISAMBIGUATED_SINGLETON": 226825
+    },
+    "duplicate_canonical_id_count": 0
+  },
+  "relationships_and_unresolved": {
+    "poi_relationships_count": 985,
+    "relationship_types": {
+      "FACILITY_ATM": 362,
+      "PARENT_CHILD": 420,
+      "CAMPUS_FACILITY": 203
+    },
+    "unresolved_review_pairs_count": 2842
+  },
+  "exported_artifacts": {
+    "canonical_pois_parquet": "data/processed/canonical/canonical_pois.parquet",
+    "canonical_pois_geojson": "data/processed/canonical/canonical_pois.geojson",
+    "conflation_edges_parquet": "data/processed/canonical/conflation_edges.parquet",
+    "unresolved_pairs_parquet": "data/processed/canonical/unresolved_pairs.parquet",
+    "poi_relationships_parquet": "data/processed/canonical/poi_relationships.parquet"
+  }
+}

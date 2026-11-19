@@ -16,6 +16,18 @@ from src.poi_conflation.graph.schema import (
     EntityCluster,
     CanonicalEntity,
     PrioritizedReviewItem,
+    EdgeDisposition,
+    POIRelationshipType,
+    SafeguardType,
+    POIRelationship,
+    UnresolvedPair,
+)
+from src.poi_conflation.graph.safeguards import (
+    ConflationSafeguardValidator,
+    SafeguardResult,
+)
+from src.poi_conflation.graph.supervised_resolver import (
+    SupervisedCanonicalResolver,
 )
 from src.poi_conflation.graph.edge_classifier import (
     EdgeClassifier,
@@ -41,6 +53,14 @@ __all__ = [
     "EntityCluster",
     "CanonicalEntity",
     "PrioritizedReviewItem",
+    "EdgeDisposition",
+    "POIRelationshipType",
+    "SafeguardType",
+    "POIRelationship",
+    "UnresolvedPair",
+    "ConflationSafeguardValidator",
+    "SafeguardResult",
+    "SupervisedCanonicalResolver",
     "CANONICAL_ENTITY_NAMESPACE",
     "generate_canonical_uuid",
     "EdgeClassifier",

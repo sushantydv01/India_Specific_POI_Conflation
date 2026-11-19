@@ -9,8 +9,35 @@ from dataclasses import dataclass, field, asdict
 from typing import Dict, Any, List, Set, Optional, Tuple
 
 
-GRAPH_SCHEMA_VERSION = "1.0.0"
-CANONICAL_RESOLUTION_POLICY_VERSION = "canonical_resolution_v1"
+GRAPH_SCHEMA_VERSION = "2.0.0"
+CANONICAL_RESOLUTION_POLICY_VERSION = "supervised_conflation_v1"
+
+
+class EdgeDisposition(str, Enum):
+    """Final edge resolution disposition after graph consistency & domain safeguards."""
+    ACCEPTED_EQUIVALENCE = "ACCEPTED_EQUIVALENCE"
+    PARENT_CHILD = "PARENT_CHILD"
+    REVIEW = "REVIEW"
+    REJECTED = "REJECTED"
+
+
+class POIRelationshipType(str, Enum):
+    """Types of non-equivalence relationships between distinct POI entities."""
+    PARENT_CHILD = "PARENT_CHILD"
+    FACILITY_ATM = "FACILITY_ATM"
+    CAMPUS_FACILITY = "CAMPUS_FACILITY"
+
+
+class SafeguardType(str, Enum):
+    """Domain-specific conflation safeguards preventing invalid pairwise merges."""
+    ATM_VS_BANK_FACILITY_DISTINCTION = "ATM_VS_BANK_FACILITY_DISTINCTION"
+    PARENT_CHILD_CONTAINER = "PARENT_CHILD_CONTAINER"
+    SAME_BRAND_DIFFERENT_BRANCH = "SAME_BRAND_DIFFERENT_BRANCH"
+    GENERIC_NAME_COLLISION = "GENERIC_NAME_COLLISION"
+    CATEGORY_INCOMPATIBLE = "CATEGORY_INCOMPATIBLE"
+    EXCESSIVE_SPATIAL_SEPARATION = "EXCESSIVE_SPATIAL_SEPARATION"
+    MISSING_OR_EMPTY_NAME = "MISSING_OR_EMPTY_NAME"
+    SOURCE_NODE_COLLISION = "SOURCE_NODE_COLLISION"
 
 
 class GraphEdgeClassification(str, Enum):
@@ -85,10 +112,19 @@ class GraphEdge:
     blocking_strategies: List[str] = field(default_factory=list)
     positive_evidence: List[str] = field(default_factory=list)
     negative_evidence: List[str] = field(default_factory=list)
+    model_version: str = "supervised_lgbm_poi_matcher_v1"
+    supervised_model_score: Optional[float] = None
+    supervised_decision: Optional[str] = None
+    disposition: Optional[EdgeDisposition] = None
+    disposition_reason: Optional[str] = None
+    safeguards: List[str] = field(default_factory=list)
+    explanation_summary: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
         d["classification"] = self.classification.value
+        if self.disposition:
+            d["disposition"] = self.disposition.value if hasattr(self.disposition, "value") else str(self.disposition)
         return d
 
 
@@ -125,7 +161,7 @@ class CanonicalEntity:
     """A resolved canonical Point of Interest representing a physical establishment."""
     canonical_entity_id: str          # Stable deterministic UUIDv5 identifier
     resolution_decision: CanonicalResolutionDecision
-    resolution_policy: str            # Version string, e.g. 'canonical_resolution_v1'
+    resolution_policy: str            # Version string, e.g. 'supervised_conflation_v1'
     contributing_osm_ids: List[str]
     contributing_ov_ids: List[str]
     primary_name: str
@@ -141,11 +177,58 @@ class CanonicalEntity:
     parent_entity_id: Optional[str] = None
     resolution_evidence: List[str] = field(default_factory=list)
     conflict_notes: List[str] = field(default_factory=list)
+    source_coordinates: Dict[str, Dict[str, float]] = field(default_factory=dict)
+    address_locality: Optional[str] = None
+    address_postcode: Optional[str] = None
+    confidence_score: float = 1.0
+    alternate_names: List[str] = field(default_factory=list)
 
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
         d["resolution_decision"] = self.resolution_decision.value
         return d
+
+
+@dataclass
+class POIRelationship:
+    """A non-equivalence relationship between distinct POI entities."""
+    relationship_id: str
+    relationship_type: POIRelationshipType
+    parent_canonical_id: str
+    parent_source_id: str
+    child_canonical_id: str
+    child_source_id: str
+    parent_name: str
+    child_name: str
+    distance_meters: float
+    confidence_score: float
+    evidence: List[str] = field(default_factory=list)
+
+    def to_dict(self) -> Dict[str, Any]:
+        d = asdict(self)
+        d["relationship_type"] = self.relationship_type.value
+        return d
+
+
+@dataclass
+class UnresolvedPair:
+    """A candidate relationship held in review or unresolved status."""
+    candidate_pair_id: str
+    osm_source_id: str
+    ov_source_id: str
+    osm_name: str
+    ov_name: str
+    osm_category: str
+    ov_category: str
+    distance_meters: float
+    supervised_model_score: float
+    supervised_decision: str
+    safeguards_triggered: List[str] = field(default_factory=list)
+    review_reason: str = ""
+    priority_rank: int = 3
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
 
 
 @dataclass

@@ -46,10 +46,17 @@ class BipartiteConflationGraph:
         self.adj[osm_id][ov_id] = edge.pair_id
         self.adj[ov_id][osm_id] = edge.pair_id
 
-        if edge.classification in (
+        is_active = False
+        if edge.disposition is not None:
+            disp_val = edge.disposition.value if hasattr(edge.disposition, "value") else str(edge.disposition)
+            is_active = (disp_val == "ACCEPTED_EQUIVALENCE")
+        elif edge.classification in (
             GraphEdgeClassification.STRONG_MATCH_CANDIDATE,
             GraphEdgeClassification.POSSIBLE_MATCH,
         ):
+            is_active = True
+
+        if is_active:
             self.active_adj[osm_id][ov_id] = edge.pair_id
             self.active_adj[ov_id][osm_id] = edge.pair_id
 
