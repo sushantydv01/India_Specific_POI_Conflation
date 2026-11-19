@@ -103,7 +103,7 @@ Applying the supervised model across the complete Bengaluru candidate universe y
 
 ## 4. Confidence & Uncertainty Profiling
 
-1. **Bimodality of Candidate Features:** The vast majority of candidates ($97.70\%$) have near-zero match scores ($s < 0.10$) due to orthogonal blocking strategies retrieving non-collocated or distinct category pairs. True matches cluster heavily at $s \ge 0.95$.
+1. **Bimodality of Candidate Features:** The vast majority of candidates (97.70%) have near-zero match scores ($s < 0.10$) due to orthogonal blocking strategies retrieving non-collocated or distinct category pairs. True matches cluster heavily at $s \ge 0.95$.
 2. **Uncertainty Band Sizing:** Exactly **916 candidate pairs** fall into the uncertain score zone $[0.30, 0.55)$. These pairs represent genuine edge cases (name variations, partial token overlap, or spatial offsets of 30m–50m) where automated merging is risky.
 3. **Production Safeguard Intervention:** When LightGBM scores an edge $\ge 0.55$, domain safeguards intercept **73 honorific false-matches**, **362 ATM facilities**, and **623 commercial container parent-child relations**, converting potential false positives into human reviews or non-equivalence relationships.
 

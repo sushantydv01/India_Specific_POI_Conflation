@@ -4,17 +4,14 @@ Computes mathematically rigorous classification metrics, threshold sweeps, uncer
 and agreement matrices with strict provenance stratification.
 """
 
-from dataclasses import dataclass, field, asdict
-from enum import Enum
-import json
+from dataclasses import dataclass
 import logging
 import math
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Set, Tuple
+from typing import Dict, Any, List, Optional, Tuple
 import pyarrow.parquet as pq
-import joblib
 
-from src.poi_conflation.benchmark.provenance import EvaluationProvenance, EvaluationRecord
+from src.poi_conflation.benchmark.provenance import EvaluationRecord
 from src.poi_conflation.matching.engine import ExplainableMatchingEngine
 from src.poi_conflation.matching.engine_v2 import ExplainableMatchingEngineV2
 from src.poi_conflation.matching.supervised_model import SupervisedPOIMatcher
@@ -170,9 +167,6 @@ class ConflationQualityEvaluator:
         if feat_path.exists():
             # Load candidate features in streaming batches to protect memory
             tbl = pq.read_table(feat_path)
-            # Read columns
-            p_ids = tbl["candidate_pair_id"].to_pylist()
-            p_set = set(p_ids)
             # Convert to dict for fast lookup
             feature_cols = [c for c in tbl.column_names if c.startswith("feat_")]
             # Only store rows matching benchmark/pool pairs

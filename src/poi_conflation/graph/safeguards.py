@@ -12,7 +12,7 @@ Implements rigorous domain guardrails preventing erroneous pairwise merges:
 
 import re
 from dataclasses import dataclass, field
-from typing import Dict, Any, List, Optional, Tuple, Set
+from typing import Dict, List, Optional, Tuple
 
 from src.poi_conflation.graph.schema import (
     EdgeDisposition,
@@ -301,8 +301,6 @@ class ConflationSafeguardValidator:
 
         osm_has_container = any(k in name_osm for k in CONTAINER_KEYWORDS)
         ov_has_container = any(k in name_ov for k in CONTAINER_KEYWORDS)
-        osm_has_child = any(k in name_osm for k in CHILD_FACILITY_KEYWORDS)
-        ov_has_child = any(k in name_ov for k in CHILD_FACILITY_KEYWORDS)
 
         # Case A: OSM is container, Overture is internal tenant/facility
         if osm_has_container and not ov_has_container:

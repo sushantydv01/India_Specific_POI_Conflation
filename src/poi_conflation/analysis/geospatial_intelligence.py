@@ -5,11 +5,9 @@ and category-level source discrepancies within the official BBMP boundary polygo
 Generates reproducible static analytical visualization figures via Matplotlib.
 """
 
-from dataclasses import dataclass, field
-import json
 import logging
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Tuple
+from typing import Dict, Any, Optional
 import duckdb
 
 import matplotlib
@@ -247,6 +245,7 @@ class GeospatialIntelligenceAnalyzer:
         ax.set_yscale("log")
         ax.set_title("Candidate Pair Score Distribution (Log Scale, N=605,428)", fontsize=13, fontweight="bold")
         ax.set_ylabel("Pair Count (Log Scale)", fontsize=11)
+        ax.set_xticks(range(len(bands)))
         ax.set_xticklabels(bands, rotation=25, ha="right")
         ax.grid(True, linestyle="--", alpha=0.5, axis="y")
         fig.tight_layout()

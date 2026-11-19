@@ -5,11 +5,9 @@ phonetic similarity, and brand token dynamics across Bengaluru POIs.
 Prepares dedicated human review expansion queues for vernacular evaluation.
 """
 
-from dataclasses import dataclass, field
-import json
 import logging
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Tuple
+from typing import Dict, Any, Optional
 import duckdb
 
 logger = logging.getLogger("indic_language_intelligence")

@@ -541,3 +541,13 @@ def test_scenario_16_honorific_prefix_safeguard_evaluation():
     )
     assert res2.disposition == EdgeDisposition.REVIEW
     assert SafeguardType.SHARED_HONORIFIC_DISJOINT_BRAND in res2.safeguards_triggered
+
+
+def test_scenario_17_orchestrator_edge_classification_import():
+    """Scenario 17: ProductionPipelineOrchestrator correctly imports and utilizes GraphEdgeClassification."""
+    from src.poi_conflation.pipeline.orchestrator import GraphEdgeClassification
+    assert GraphEdgeClassification.STRONG_MATCH_CANDIDATE.value == "STRONG_MATCH_CANDIDATE"
+    assert GraphEdgeClassification.POSSIBLE_MATCH.value == "POSSIBLE_MATCH"
+    assert GraphEdgeClassification.UNCERTAIN.value == "UNCERTAIN"
+    assert GraphEdgeClassification.REJECTED.value == "REJECTED"
+

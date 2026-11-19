@@ -9,13 +9,12 @@ Establishes strict, uncompromised provenance tracking for all candidate pair ann
 - UNREVIEWED: Unannotated candidate pairs from population or queues.
 """
 
-from dataclasses import dataclass, field, asdict
-from datetime import datetime, timezone
+from dataclasses import dataclass, field
 from enum import Enum
 import json
 import logging
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Set, Tuple
+from typing import Dict, Any, List, Optional
 import duckdb
 import pyarrow as pa
 import pyarrow.parquet as pq

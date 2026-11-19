@@ -6,10 +6,9 @@ Designed for memory-bounded execution on Apple Silicon (8 GB RAM).
 """
 
 import time
-import os
 import resource
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Iterator, Tuple
+from typing import Dict, Any, List
 import duckdb
 import pyarrow as pa
 import pyarrow.parquet as pq
@@ -17,7 +16,6 @@ import pyarrow.parquet as pq
 from src.poi_conflation.features.schema import (
     FEATURE_SCHEMA_VERSION,
     ALL_COLUMNS,
-    ID_COLUMNS,
     ALL_FEATURE_COLUMNS,
     NAME_FEATURE_COLUMNS,
     TRANSLIT_FEATURE_COLUMNS,
@@ -165,7 +163,6 @@ class PairwiseFeatureExtractor:
 
         total_processed = 0
         batch_count = 0
-        feature_stats: Dict[str, Dict[str, float]] = {}
 
         col_names = [desc[0] for desc in rel.description]
 

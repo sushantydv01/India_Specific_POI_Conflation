@@ -4,6 +4,11 @@ Outputs reports/m18_indic_language_analysis.md and data/processed/benchmark/eval
 """
 
 import logging
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from src.poi_conflation.analysis.indic_language_intelligence import IndicLanguageIntelligenceAnalyzer
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")

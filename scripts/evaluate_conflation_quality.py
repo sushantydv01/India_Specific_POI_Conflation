@@ -9,7 +9,10 @@ from datetime import datetime, timezone
 import json
 import logging
 from pathlib import Path
+import sys
 import duckdb
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.poi_conflation.benchmark.provenance import BenchmarkProvenanceAuditor
 from src.poi_conflation.matching.quality_evaluator import ConflationQualityEvaluator

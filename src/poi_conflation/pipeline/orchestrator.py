@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 import shutil
 import time
-from typing import Dict, Any, List, Optional, Set, Tuple
+from typing import Dict, Any, List, Optional, Tuple
 import duckdb
 import pyarrow as pa
 import pyarrow.parquet as pq
@@ -22,11 +22,9 @@ import pyarrow.parquet as pq
 from src.poi_conflation.pipeline.config import PipelineConfig, PipelineMode
 from src.poi_conflation.delta.snapshot import (
     SourceSnapshotManifest,
-    compute_record_content_hash,
     build_snapshot_from_records,
 )
 from src.poi_conflation.delta.detector import (
-    RecordDeltaType,
     SourceDeltaDetector,
     SnapshotDeltaSummary,
 )
@@ -36,19 +34,16 @@ from src.poi_conflation.lineage.ledger import (
 )
 from src.poi_conflation.validation.conflation_validator import (
     ContinuousConflationValidator,
-    ValidationReport,
     ValidationStatus,
 )
 from src.poi_conflation.graph.schema import (
     GraphNode,
     GraphEdge,
-    EntityCluster,
+    GraphEdgeClassification,
     CanonicalEntity,
     POIRelationship,
     UnresolvedPair,
     EdgeDisposition,
-    POIRelationshipType,
-    SafeguardType,
     CANONICAL_RESOLUTION_POLICY_VERSION,
 )
 from src.poi_conflation.graph.safeguards import ConflationSafeguardValidator

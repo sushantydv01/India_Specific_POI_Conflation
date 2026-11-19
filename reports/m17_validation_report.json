@@ -1,10 +1,10 @@
 {
   "run_id": "manual_validation",
   "overall_status": "PASSED",
-  "passed_count": 6,
+  "passed_count": 7,
   "failed_count": 0,
   "warning_count": 0,
-  "total_checks": 6,
+  "total_checks": 7,
   "checks": [
     {
       "name": "canonical_entity_null_checks",
@@ -51,6 +51,16 @@
         "max_lat": 13.13901215,
         "min_lon": 77.46165504285715,
         "max_lon": 77.776207
+      }
+    },
+    {
+      "name": "canonical_bbmp_polygon_containment",
+      "category": "canonical",
+      "status": "PASSED",
+      "message": "Entities strictly within BBMP boundary polygon: 238083/238083 (Outside: 0)",
+      "details": {
+        "total_entities": 238083,
+        "outside_polygon": 0
       }
     },
     {

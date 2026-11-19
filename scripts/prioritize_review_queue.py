@@ -7,6 +7,11 @@ Ranks the 2,842 unresolved pairs into explainable tiers and produces:
 """
 
 import logging
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from src.poi_conflation.matching.review_prioritizer import ReviewQueuePrioritizer
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")

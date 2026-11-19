@@ -8,7 +8,7 @@ Ranks unresolved candidate pairs and review edges using multi-factor information
 - Spatial distance transition perimeter
 """
 
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, field
 from enum import Enum
 import json
 import logging

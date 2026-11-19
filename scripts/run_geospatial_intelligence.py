@@ -5,6 +5,11 @@ Produces reports/m18_geospatial_analysis.md and figures in reports/figures/.
 """
 
 import logging
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from src.poi_conflation.analysis.geospatial_intelligence import GeospatialIntelligenceAnalyzer
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
