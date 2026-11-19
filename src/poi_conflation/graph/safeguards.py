@@ -60,6 +60,12 @@ GENERIC_BUSINESS_NAMES = {
     "gym", "fitness centre", "atm", "school", "college", "office"
 }
 
+# Honorific and generic Indian business prefixes
+HONORIFIC_PREFIX_PATTERN = re.compile(
+    r"^(sri|shree|shri|sree|the|dr\.?|saint|st\.?|hotel|m/s|smt)\b",
+    re.IGNORECASE,
+)
+
 # Standardized Bengaluru urban locality tokens for branch distinction
 LOCALITY_MAPPINGS: Dict[str, str] = {
     "koramangala": "koramangala",
@@ -121,11 +127,13 @@ class ConflationSafeguardValidator:
         max_absolute_distance: float = 80.0,
         uncertain_threshold: float = 0.30,
         match_threshold: float = 0.55,
+        enable_honorific_safeguard: bool = True,
     ):
         self.max_equivalence_distance = max_equivalence_distance
         self.max_absolute_distance = max_absolute_distance
         self.uncertain_threshold = uncertain_threshold
         self.match_threshold = match_threshold
+        self.enable_honorific_safeguard = enable_honorific_safeguard
         self.cat_classifier = CategoryCompatibilityClassifier()
 
     def validate_candidate_edge(
@@ -227,7 +235,19 @@ class ConflationSafeguardValidator:
             result.evidence_notes.append(gen_reason)
             return result
 
-        # 8. Check Excessive Spatial Separation
+        # 8. Check Shared Honorific Prefix with Disjoint Brand
+        if self.enable_honorific_safeguard:
+            is_honorific_disjoint, honorific_reason = self._detect_shared_honorific_disjoint_brand(
+                norm_osm, norm_ov
+            )
+            if is_honorific_disjoint:
+                result.safeguards_triggered.append(SafeguardType.SHARED_HONORIFIC_DISJOINT_BRAND)
+                result.disposition = EdgeDisposition.REVIEW
+                result.disposition_reason = f"Prohibited merge: {honorific_reason}"
+                result.evidence_notes.append(honorific_reason)
+                return result
+
+        # 9. Check Excessive Spatial Separation
         exact_match = (norm_osm == norm_ov) or (features.get("feat_exact_name_match", 0.0) == 1.0)
         if distance_meters > self.max_absolute_distance:
             result.safeguards_triggered.append(SafeguardType.EXCESSIVE_SPATIAL_SEPARATION)
@@ -364,3 +384,51 @@ class ConflationSafeguardValidator:
         ca = re.sub(r"[^\w]", "", a.lower())
         cb = re.sub(r"[^\w]", "", b.lower())
         return ca == cb
+
+    def _detect_shared_honorific_disjoint_brand(
+        self,
+        name_osm: str,
+        name_ov: str,
+    ) -> Tuple[bool, Optional[str]]:
+        """Detect pairs with shared honorific/generic prefix but disjoint brand cores."""
+        clean_osm = name_osm.strip().lower()
+        clean_ov = name_ov.strip().lower()
+
+        # If identical, not a disjoint brand
+        if self._is_exact_equivalent(clean_osm, clean_ov):
+            return False, None
+
+        m_osm = HONORIFIC_PREFIX_PATTERN.match(clean_osm)
+        m_ov = HONORIFIC_PREFIX_PATTERN.match(clean_ov)
+
+        if m_osm and m_ov:
+            p_osm = m_osm.group(0).rstrip(".")
+            p_ov = m_ov.group(0).rstrip(".")
+            # Normalize religious honorific variants
+            norm_a = "sri" if p_osm in {"sri", "shri", "shree", "sree"} else p_osm
+            norm_b = "sri" if p_ov in {"sri", "shri", "shree", "sree"} else p_ov
+
+            if norm_a == norm_b:
+                core_osm = clean_osm[len(m_osm.group(0)):].strip()
+                core_ov = clean_ov[len(m_ov.group(0)):].strip()
+
+                if len(core_osm) >= 3 and len(core_ov) >= 3:
+                    # Normalize punctuation to detect shared brand words
+                    c_osm = re.sub(r"[^\w\s]", " ", core_osm).strip()
+                    c_ov = re.sub(r"[^\w\s]", " ", core_ov).strip()
+                    tokens_osm = {t for t in c_osm.split() if len(t) >= 3}
+                    tokens_ov = {t for t in c_ov.split() if len(t) >= 3}
+                    common = tokens_osm & tokens_ov
+
+                    # If significant brand token is shared, or one is substring of other, not disjoint
+                    if common or c_osm in c_ov or c_ov in c_osm:
+                        return False, None
+
+                    from rapidfuzz import fuzz
+                    r1 = fuzz.ratio(core_osm, core_ov)
+                    r2 = fuzz.token_set_ratio(core_osm, core_ov)
+
+                    if (len(common) == 0 and r2 < 65.0) or (r1 < 50.0 and r2 < 60.0):
+                        return True, f"Distinct establishments sharing honorific prefix '{m_osm.group(0)}' but disjoint brand cores ('{core_osm}' vs '{core_ov}')"
+
+        return False, None

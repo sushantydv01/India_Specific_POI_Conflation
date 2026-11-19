@@ -1,0 +1,76 @@
+{
+  "run_id": "manual_validation",
+  "overall_status": "PASSED",
+  "passed_count": 6,
+  "failed_count": 0,
+  "warning_count": 0,
+  "total_checks": 6,
+  "checks": [
+    {
+      "name": "canonical_entity_null_checks",
+      "category": "canonical",
+      "status": "PASSED",
+      "message": "Total entities: 238083, Null IDs: 0, Null names: 0",
+      "details": {
+        "total_entities": 238083,
+        "null_ids": 0,
+        "null_names": 0
+      }
+    },
+    {
+      "name": "canonical_id_uniqueness",
+      "category": "canonical",
+      "status": "PASSED",
+      "message": "Unique canonical IDs: 238083/238083 (Collisions: 0)",
+      "details": {
+        "unique_ids": 238083,
+        "collisions": 0
+      }
+    },
+    {
+      "name": "source_inventory_accounting",
+      "category": "graph",
+      "status": "PASSED",
+      "message": "Accounted OSM: 49036, Accounted Overture: 197820, Total: 246856. Duplicate assignments: OSM=0, Overture=0",
+      "details": {
+        "accounted_osm": 49036,
+        "accounted_overture": 197820,
+        "total_accounted": 246856,
+        "duplicate_osm": 0,
+        "duplicate_overture": 0,
+        "expected_total": null
+      }
+    },
+    {
+      "name": "canonical_coordinate_bounds",
+      "category": "canonical",
+      "status": "PASSED",
+      "message": "Latitude: [12.8351, 13.1390], Longitude: [77.4617, 77.7762]",
+      "details": {
+        "min_lat": 12.83507493,
+        "max_lat": 13.13901215,
+        "min_lon": 77.46165504285715,
+        "max_lon": 77.776207
+      }
+    },
+    {
+      "name": "prohibited_atm_bank_merges",
+      "category": "graph",
+      "status": "PASSED",
+      "message": "Cross-entity ATM-to-bank merges detected in RESOLVED_EQUIVALENCE: 0",
+      "details": {
+        "cross_merges": 0
+      }
+    },
+    {
+      "name": "relationship_integrity",
+      "category": "relationship",
+      "status": "PASSED",
+      "message": "Total relationships: 985, Null endpoints: 0",
+      "details": {
+        "total_relationships": 985,
+        "null_endpoints": 0
+      }
+    }
+  ]
+}

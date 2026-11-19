@@ -1,0 +1,30 @@
+{
+  "run_id": "run_20261119_103113",
+  "run_mode": "FULL",
+  "status": "FAILED",
+  "start_timestamp": "2026-11-19T10:31:13.559934+00:00",
+  "end_timestamp": "2026-11-19T10:31:13.566498+00:00",
+  "total_duration_seconds": 0.007,
+  "config": {
+    "mode": "full",
+    "run_id": null,
+    "osm_source_path": "data/raw/osm/bengaluru_osm_pois.parquet",
+    "overture_source_path": "data/raw/overture/bengaluru_overture_places.parquet",
+    "production_dir": "/var/folders/v0/w4hqfk8s2_ld9xw97zpsvrm80000gn/T/tmpl10fmno0/canonical",
+    "staging_dir": "/var/folders/v0/w4hqfk8s2_ld9xw97zpsvrm80000gn/T/tmpl10fmno0/staging",
+    "match_threshold": 0.55,
+    "uncertain_threshold": 0.3,
+    "dominance_margin_threshold": 0.15,
+    "enable_honorific_safeguard": true
+  },
+  "stages": [],
+  "source_change_counts": {},
+  "candidate_edge_counts": {},
+  "edge_disposition_counts": {},
+  "canonical_entity_counts": {},
+  "relationship_counts": {},
+  "lineage_event_counts": {},
+  "validation_status": "UNKNOWN",
+  "output_paths": {},
+  "output_checksums": {}
+}
