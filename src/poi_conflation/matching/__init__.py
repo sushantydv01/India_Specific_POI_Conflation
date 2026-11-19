@@ -12,6 +12,9 @@ from src.poi_conflation.matching.engine import (
 from src.poi_conflation.matching.engine_v2 import ExplainableMatchingEngineV2
 from src.poi_conflation.matching.normalization import EnhancedNameNormalizer
 from src.poi_conflation.matching.evaluator import BaselineEvaluator
+from src.poi_conflation.matching.supervised_model import SupervisedPOIMatcher
+from src.poi_conflation.matching.explainability import POIModelExplainer
+from src.poi_conflation.matching.batch_inference import BatchInferencePipeline
 
 __all__ = [
     "MatchingConfig",
@@ -20,4 +23,7 @@ __all__ = [
     "ExplainableMatchingEngineV2",
     "EnhancedNameNormalizer",
     "BaselineEvaluator",
+    "SupervisedPOIMatcher",
+    "POIModelExplainer",
+    "BatchInferencePipeline",
 ]

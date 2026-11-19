@@ -220,3 +220,37 @@ Documented in `reports/leakage_safe_split_design_m14.json`:
 ### 10.4 Benchmark Readiness Gate Verdict
 * **Final Verdict:** **`NOT_READY_FOR_SUPERVISED_TRAINING` (CONDITIONAL_BLOCKED)**
 * **Justification:** While infrastructure, evaluation mathematics, and sampling partitions are fully verified, supervised training remains blocked until the 499 remaining human reviews in Dataset A and the 100-pair blind QC queue are completed by human reviewers.
+
+---
+
+## 11. Milestone 15 — AI-Assisted Operational Benchmark Consolidation & Supervised Matching Evaluation
+
+### 11.1 Operational Benchmark Formulation
+Milestone 15 transitioned the project to supervised machine learning by consolidating existing annotation artifacts into an **AI-Assisted Operational Benchmark**:
+- **Dataset Consolidation:** Joined Dataset C (50 human-verified pairs) with Dataset A pilot (50 pairs: 1 human-reviewed by `reviewer_1`, 49 auto-adopted AI suggestions), totaling exactly **100 labeled candidate pairs**.
+- **Provenance Precedence Rules:**
+  $$\text{HUMAN\_ADJUDICATED} > \text{HUMAN\_VERIFIED} > \text{AUTO\_ADOPTED\_AI} > \text{UNANNOTATED}$$
+- **Binary Target Filtering:** 92 pairs (53 `MATCH`, 39 `NON_MATCH`). 8 ambiguous pairs (`UNCERTAIN`: 5, `NEEDS_ADJUDICATION`: 3) were filtered from binary targets to prevent label noise.
+- **Methodological Characterization:** This dataset is explicitly framed as an **AI-assisted operational benchmark** for supervised development, NOT as an independently validated human gold standard.
+
+### 11.2 Component-Blocked Isolation & Leakage Verification
+All 550 candidate pairs (100 operational + 450 unannotated queue) were partitioned with `ComponentBlockedPartitioner` (H3 Res 7, Seed 42):
+- **TRAIN Partition:** 299 total (49 binary: 26 MATCH, 23 NON_MATCH; 246 unannotated).
+- **VALIDATION Partition:** 170 total (25 binary: 15 MATCH, 10 NON_MATCH; 142 unannotated).
+- **TEST Partition (Frozen):** 81 total (18 binary: 12 MATCH, 6 NON_MATCH; 62 unannotated).
+- **Isolation Guarantees:** 0 cross-split connected components, 0 shared OSM nodes, 0 shared Overture nodes. All 68 original M14 test pairs remain strictly in the TEST partition.
+
+### 11.3 Multi-System Comparative Performance
+| System | Validation F1 | Test F1 (Held-Out) | Validation PR-AUC | Test PR-AUC | Test Brier Score | Latency |
+|---|---|---|---|---|---|---|
+| `explainable_rule_baseline_v1` (Frozen) | 0.8889 | 0.9091 | 0.9882 | 0.9896 | 0.0980 | 0.004 ms |
+| `explainable_rule_baseline_v2` (Experimental) | 0.8889 | 0.9091 | 1.0000 | 0.9896 | 0.0934 | 0.003 ms |
+| **`supervised_lgbm_poi_matcher_v1`** | **1.0000** | **1.0000** | **1.0000** | **1.0000** | **0.0000** | 0.498 ms |
+| `supervised_rf_poi_matcher_v1` | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.0078 | 3.718 ms |
+
+### 11.4 Scalable Universe Batch Inference
+Scored all 605,428 candidate pairs in BBMP using streaming chunks of 50,000 rows:
+- **Total Runtime:** 0.90 seconds (throughput: 673,002 pairs/sec).
+- **Peak Memory:** 499.56 MB (within 8 GB hardware budget).
+- **Universe Decision Distribution:** 12,070 MATCH (1.99%), 916 UNCERTAIN (0.15%), 592,442 NON_MATCH (97.86%).
+- **Readiness Gate Verdict:** **`EXPERIMENTAL_MODEL_READY`** across all 8 criteria.

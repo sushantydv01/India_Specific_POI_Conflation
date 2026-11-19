@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "assessment_timestamp": "2026-11-19T05:10:25.267772+00:00",
+    "milestone": "Milestone 15",
+    "framework": "Supervised Model Readiness & Downstream Progression Assessment",
+    "formal_verdict": "EXPERIMENTAL_MODEL_READY"
+  },
+  "criteria_checklist": {
+    "1_operational_benchmark_consolidation": {
+      "name": "Operational Benchmark Consolidation & Provenance",
+      "passed": true,
+      "details": "100 labeled pairs consolidated (51 human-reviewed, 49 auto-adopted AI). Strict precedence enforced: HUMAN_ADJUDICATED > HUMAN_VERIFIED > AUTO_ADOPTED_AI. 8 uncertain/unadjudicated cases filtered from binary targets."
+    },
+    "2_leakage_prevention_isolation": {
+      "name": "Component-Blocked Leakage Isolation",
+      "passed": true,
+      "details": "Zero cross-split connected components, zero shared OSM nodes, zero shared OV nodes. M14 frozen test partition (68 pairs) preserved 100% intact."
+    },
+    "3_feature_completeness": {
+      "name": "Pairwise Feature Completeness (44 Features)",
+      "passed": true,
+      "details": "44 features extracted across all candidate pairs with 0 null values (100% completeness)."
+    },
+    "4_model_performance_vs_baseline": {
+      "name": "Model Performance Superiority",
+      "passed": true,
+      "details": "Supervised LightGBM achieves Validation F1=1.0000 (ROC-AUC=1.0000, Brier=0.0003) vs Rule V1 F1=0.8889 (ROC-AUC=0.9733, Brier=0.0800), and Test F1=1.0000 vs Rule V1 F1=0.9091."
+    },
+    "5_explainability_transparency": {
+      "name": "Explainability & Domain Synthesis",
+      "passed": true,
+      "details": "Individual predictions provide structured synthesis of spatial proximity, name similarity, Kannada transliteration support, and category compatibility, with top positive/negative feature drivers."
+    },
+    "6_scalable_universe_inference": {
+      "name": "Scalable Universe Batch Inference",
+      "passed": true,
+      "details": "Successfully scored all 605,428 pairs in 0.9s (673002 pairs/sec) with peak memory 499.56 MB on Apple Silicon M3 (8 GB RAM constraint met)."
+    },
+    "7_error_characterization": {
+      "name": "Diagnostic Error Archetype Characterization",
+      "passed": true,
+      "details": "Evaluated across 7 Indian archetypes: corporate suffixes, Kannada transliterations, Indian English, banks/ATMs, coordinate displacements."
+    },
+    "8_ground_truth_caveats": {
+      "name": "Ground-Truth Provenance Framing & Caveats",
+      "passed": true,
+      "details": "Model is explicitly designated as trained on an AI-assisted operational benchmark, preserving clear distinction from independent human-adjudicated gold truth."
+    }
+  },
+  "conflation_graph_recommendations": [
+    "Continuous Edge Weighting: Replace binary candidate edges with calibrated match probabilities (match_probability).",
+    "Confidence Pruning: Edges with match_probability < 0.30 can be safely pruned prior to graph component expansion, reducing graph edge count by ~97.8%.",
+    "Conservative Auto-Resolution: Bipartite connected components with unique reciprocal edges having match_probability >= 0.75 qualify for automated canonical entity generation.",
+    "Triage Queue: Components with conflicting high-probability edges (e.g. 1 OSM node matching 2 Overture POIs with probability > 0.50) should be routed to human adjudication."
+  ],
+  "active_learning_recommendations": [
+    "Borderline Uncertainty Sampling: Query annotators for pairs with match_probability in the [0.35, 0.65] window.",
+    "High-Loss Representative Sampling: Focus annotation on remaining 450 unannotated pairs from Dataset A to complete the representative benchmark."
+  ],
+  "threshold_policy": {
+    "high_precision_production": 0.75,
+    "balanced_operational": 0.55,
+    "uncertain_review_band": [
+      0.3,
+      0.55
+    ],
+    "hard_negative_cutoff": 0.3
+  }
+}

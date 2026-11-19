@@ -1,0 +1,248 @@
+{
+  "metadata": {
+    "timestamp": "2026-11-19T05:06:00.870428+00:00",
+    "model_type": "lightgbm",
+    "n_train_samples": 49,
+    "n_features": 44
+  },
+  "top_10_features": [
+    {
+      "rank": 1,
+      "feature": "feat_distance_meters",
+      "normalized_importance": 0.20991735537190082,
+      "raw_importance": 127.0
+    },
+    {
+      "rank": 2,
+      "feature": "feat_jaro_winkler",
+      "normalized_importance": 0.11735537190082644,
+      "raw_importance": 71.0
+    },
+    {
+      "rank": 3,
+      "feature": "feat_strat_token_containment",
+      "normalized_importance": 0.09917355371900827,
+      "raw_importance": 60.0
+    },
+    {
+      "rank": 4,
+      "feature": "feat_levenshtein_sim",
+      "normalized_importance": 0.06776859504132231,
+      "raw_importance": 41.0
+    },
+    {
+      "rank": 5,
+      "feature": "feat_abs_delta_x",
+      "normalized_importance": 0.06776859504132231,
+      "raw_importance": 41.0
+    },
+    {
+      "rank": 6,
+      "feature": "feat_dist_band_le30m",
+      "normalized_importance": 0.06446280991735537,
+      "raw_importance": 39.0
+    },
+    {
+      "rank": 7,
+      "feature": "feat_token_count_diff",
+      "normalized_importance": 0.05289256198347107,
+      "raw_importance": 32.0
+    },
+    {
+      "rank": 8,
+      "feature": "feat_delta_y",
+      "normalized_importance": 0.05289256198347107,
+      "raw_importance": 32.0
+    },
+    {
+      "rank": 9,
+      "feature": "feat_token_sort_ratio",
+      "normalized_importance": 0.0512396694214876,
+      "raw_importance": 31.0
+    },
+    {
+      "rank": 10,
+      "feature": "feat_delta_x",
+      "normalized_importance": 0.04132231404958678,
+      "raw_importance": 25.0
+    }
+  ],
+  "all_feature_importances": {
+    "feat_distance_meters": {
+      "raw_importance": 127.0,
+      "normalized_importance": 0.20991735537190082
+    },
+    "feat_jaro_winkler": {
+      "raw_importance": 71.0,
+      "normalized_importance": 0.11735537190082644
+    },
+    "feat_strat_token_containment": {
+      "raw_importance": 60.0,
+      "normalized_importance": 0.09917355371900827
+    },
+    "feat_levenshtein_sim": {
+      "raw_importance": 41.0,
+      "normalized_importance": 0.06776859504132231
+    },
+    "feat_abs_delta_x": {
+      "raw_importance": 41.0,
+      "normalized_importance": 0.06776859504132231
+    },
+    "feat_dist_band_le30m": {
+      "raw_importance": 39.0,
+      "normalized_importance": 0.06446280991735537
+    },
+    "feat_token_count_diff": {
+      "raw_importance": 32.0,
+      "normalized_importance": 0.05289256198347107
+    },
+    "feat_delta_y": {
+      "raw_importance": 32.0,
+      "normalized_importance": 0.05289256198347107
+    },
+    "feat_token_sort_ratio": {
+      "raw_importance": 31.0,
+      "normalized_importance": 0.0512396694214876
+    },
+    "feat_delta_x": {
+      "raw_importance": 25.0,
+      "normalized_importance": 0.04132231404958678
+    },
+    "feat_abs_delta_y": {
+      "raw_importance": 20.0,
+      "normalized_importance": 0.03305785123966942
+    },
+    "feat_multi_strategy_overlap": {
+      "raw_importance": 17.0,
+      "normalized_importance": 0.02809917355371901
+    },
+    "feat_name_length_ratio": {
+      "raw_importance": 14.0,
+      "normalized_importance": 0.023140495867768594
+    },
+    "feat_translit_sim": {
+      "raw_importance": 10.0,
+      "normalized_importance": 0.01652892561983471
+    },
+    "feat_token_set_ratio": {
+      "raw_importance": 9.0,
+      "normalized_importance": 0.01487603305785124
+    },
+    "feat_dist_band_le15m": {
+      "raw_importance": 8.0,
+      "normalized_importance": 0.013223140495867768
+    },
+    "feat_log_distance": {
+      "raw_importance": 8.0,
+      "normalized_importance": 0.013223140495867768
+    },
+    "feat_char_3gram_jaccard": {
+      "raw_importance": 6.0,
+      "normalized_importance": 0.009917355371900827
+    },
+    "feat_bearing_deg": {
+      "raw_importance": 5.0,
+      "normalized_importance": 0.008264462809917356
+    },
+    "feat_exact_name_match": {
+      "raw_importance": 3.0,
+      "normalized_importance": 0.0049586776859504135
+    },
+    "feat_exact_category_match": {
+      "raw_importance": 3.0,
+      "normalized_importance": 0.0049586776859504135
+    },
+    "feat_indic_phonetic_sim": {
+      "raw_importance": 2.0,
+      "normalized_importance": 0.003305785123966942
+    },
+    "feat_osm_has_kannada": {
+      "raw_importance": 1.0,
+      "normalized_importance": 0.001652892561983471
+    },
+    "feat_is_generic_name": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_is_empty_name": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_ov_has_kannada": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_osm_has_latin": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_ov_has_latin": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_translit_available": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_translit_exact_match": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_dist_band_le50m": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_dist_band_le100m": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_missing_coords": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_category_strongly_compat": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_category_potentially_compat": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_category_unknown_compat": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_category_incompatible": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_osm_category_missing": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_ov_category_missing": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_strat_spatial_50m": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_strat_exact_name": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_strat_translit": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_strat_phonetic": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    },
+    "feat_strategy_count": {
+      "raw_importance": 0.0,
+      "normalized_importance": 0.0
+    }
+  }
+}

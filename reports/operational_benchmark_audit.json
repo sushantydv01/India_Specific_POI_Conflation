@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "audit_timestamp": "2026-11-19T05:03:17.862694+00:00",
+    "milestone": "Milestone 15",
+    "framework": "Operational Benchmark Consolidation",
+    "operational_characterization": "AI-Assisted Operational Benchmark for Supervised POI Matching",
+    "independent_human_gold_standard": false,
+    "notes": "Combines Dataset C (50 human-verified pairs) with Dataset A pilot (49 AI-adopted + 1 human-verified pairs). Excludes ambiguous/uncertain labels from binary targets. Precedence strictly enforced."
+  },
+  "inventory": {
+    "total_labeled_pairs": 100,
+    "total_unannotated_pairs": 450,
+    "total_combined_sample": 550,
+    "binary_classification_targets": {
+      "total_binary_pairs": 92,
+      "MATCH": 53,
+      "NON_MATCH": 39,
+      "class_balance_match_pct": 57.61,
+      "class_balance_non_match_pct": 42.39
+    },
+    "excluded_non_binary_pairs": {
+      "total_excluded": 8,
+      "UNCERTAIN": 5,
+      "NEEDS_ADJUDICATION": 3,
+      "handling_policy": "Excluded from binary target training/evaluation to prevent target pollution"
+    },
+    "provenance_breakdown": {
+      "HUMAN_ADJUDICATED": 3,
+      "HUMAN_VERIFIED": 48,
+      "AUTO_ADOPTED_AI": 49,
+      "human_verified_total": 51,
+      "human_verified_pct": 51.0,
+      "ai_adopted_pct": 49.0
+    },
+    "source_benchmark_breakdown": {
+      "DATASET_C_TARGETED_GOLD": 50,
+      "DATASET_A_REPRESENTATIVE_PILOT": 50
+    }
+  },
+  "precedence_rules_applied": [
+    "HUMAN_ADJUDICATED supersedes HUMAN_VERIFIED, AUTO_ADOPTED_AI, and UNANNOTATED",
+    "HUMAN_VERIFIED supersedes AUTO_ADOPTED_AI and UNANNOTATED (e.g. node/3556214256 reviewed by reviewer_1)",
+    "AUTO_ADOPTED_AI supersedes UNANNOTATED",
+    "Ambiguous/uncertain decisions (UNCERTAIN, NEEDS_ADJUDICATION) retain provenance but have is_binary_target=False and binary_label=None"
+  ]
+}

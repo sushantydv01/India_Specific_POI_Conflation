@@ -1,0 +1,1385 @@
+{
+  "metadata": {
+    "evaluation_timestamp": "2026-11-19T05:07:22.471599+00:00",
+    "milestone": "Milestone 15",
+    "framework": "Supervised POI Matcher Multi-System Benchmark Evaluation",
+    "notes": "Validation partition used for primary model comparison and threshold tuning. Test partition is strictly held-out. Rule V2 evaluation flagged with DEVELOPMENT_SET_DIAGNOSTIC caveat per M14 audit."
+  },
+  "validation_partition_evaluation": {
+    "explainable_rule_baseline_v1": {
+      "system_name": "explainable_rule_baseline_v1",
+      "runtime_performance": {
+        "elapsed_seconds": 0.0006,
+        "latency_ms_per_pair": 0.004,
+        "throughput_pairs_per_sec": 278137.3,
+        "model_size_bytes": 0
+      },
+      "overall_evaluation": {
+        "n_samples": 25,
+        "true_positives": 12,
+        "false_positives": 0,
+        "true_negatives": 10,
+        "false_negatives": 3,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.8889,
+        "roc_auc": 0.9733,
+        "pr_auc": 0.9882,
+        "brier_score": 0.08,
+        "operational_decisions": {
+          "MATCH": 12,
+          "UNCERTAIN": 5,
+          "NON_MATCH": 8,
+          "abstention_rate": 0.2
+        },
+        "calibration": [
+          {
+            "bin_range": "[0.0, 0.2)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.2, 0.4)",
+            "count": 8,
+            "mean_predicted_prob": 0.2924,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.4, 0.6)",
+            "count": 3,
+            "mean_predicted_prob": 0.5549,
+            "empirical_match_rate": 0.6667
+          },
+          {
+            "bin_range": "[0.6, 0.8)",
+            "count": 2,
+            "mean_predicted_prob": 0.638,
+            "empirical_match_rate": 0.5
+          },
+          {
+            "bin_range": "[0.8, 1.0)",
+            "count": 12,
+            "mean_predicted_prob": 0.9825,
+            "empirical_match_rate": 1.0
+          }
+        ]
+      },
+      "disaggregated_by_provenance": {
+        "human_verified_subset": {
+          "n_samples": 12,
+          "true_positives": 10,
+          "false_positives": 0,
+          "true_negatives": 2,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0607,
+          "operational_decisions": {
+            "MATCH": 10,
+            "UNCERTAIN": 2,
+            "NON_MATCH": 0,
+            "abstention_rate": 0.1667
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 1,
+              "mean_predicted_prob": 0.5939,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 1,
+              "mean_predicted_prob": 0.6059,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 10,
+              "mean_predicted_prob": 0.991,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        },
+        "ai_adopted_subset": {
+          "n_samples": 13,
+          "true_positives": 2,
+          "false_positives": 0,
+          "true_negatives": 8,
+          "false_negatives": 3,
+          "precision": 1.0,
+          "recall": 0.4,
+          "f1": 0.5714,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0979,
+          "operational_decisions": {
+            "MATCH": 2,
+            "UNCERTAIN": 3,
+            "NON_MATCH": 8,
+            "abstention_rate": 0.2308
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 8,
+              "mean_predicted_prob": 0.2924,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 2,
+              "mean_predicted_prob": 0.5354,
+              "empirical_match_rate": 1.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 1,
+              "mean_predicted_prob": 0.67,
+              "empirical_match_rate": 1.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 2,
+              "mean_predicted_prob": 0.94,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        }
+      }
+    },
+    "explainable_rule_baseline_v2_experimental": {
+      "system_name": "explainable_rule_baseline_v2_experimental",
+      "runtime_performance": {
+        "elapsed_seconds": 0.0004,
+        "latency_ms_per_pair": 0.003,
+        "throughput_pairs_per_sec": 397738.0,
+        "model_size_bytes": 0
+      },
+      "overall_evaluation": {
+        "n_samples": 25,
+        "true_positives": 12,
+        "false_positives": 0,
+        "true_negatives": 10,
+        "false_negatives": 3,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.8889,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "brier_score": 0.0715,
+        "operational_decisions": {
+          "MATCH": 12,
+          "UNCERTAIN": 5,
+          "NON_MATCH": 8,
+          "abstention_rate": 0.2
+        },
+        "calibration": [
+          {
+            "bin_range": "[0.0, 0.2)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.2, 0.4)",
+            "count": 8,
+            "mean_predicted_prob": 0.2924,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.4, 0.6)",
+            "count": 1,
+            "mean_predicted_prob": 0.5939,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.6, 0.8)",
+            "count": 4,
+            "mean_predicted_prob": 0.6537,
+            "empirical_match_rate": 0.75
+          },
+          {
+            "bin_range": "[0.8, 1.0)",
+            "count": 12,
+            "mean_predicted_prob": 0.9825,
+            "empirical_match_rate": 1.0
+          }
+        ]
+      },
+      "disaggregated_by_provenance": {
+        "human_verified_subset": {
+          "n_samples": 12,
+          "true_positives": 10,
+          "false_positives": 0,
+          "true_negatives": 2,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0607,
+          "operational_decisions": {
+            "MATCH": 10,
+            "UNCERTAIN": 2,
+            "NON_MATCH": 0,
+            "abstention_rate": 0.1667
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 1,
+              "mean_predicted_prob": 0.5939,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 1,
+              "mean_predicted_prob": 0.6059,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 10,
+              "mean_predicted_prob": 0.991,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        },
+        "ai_adopted_subset": {
+          "n_samples": 13,
+          "true_positives": 2,
+          "false_positives": 0,
+          "true_negatives": 8,
+          "false_negatives": 3,
+          "precision": 1.0,
+          "recall": 0.4,
+          "f1": 0.5714,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0815,
+          "operational_decisions": {
+            "MATCH": 2,
+            "UNCERTAIN": 3,
+            "NON_MATCH": 8,
+            "abstention_rate": 0.2308
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 8,
+              "mean_predicted_prob": 0.2924,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 3,
+              "mean_predicted_prob": 0.6697,
+              "empirical_match_rate": 1.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 2,
+              "mean_predicted_prob": 0.94,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        }
+      }
+    },
+    "supervised_lgbm_poi_matcher_v1": {
+      "system_name": "supervised_lgbm_poi_matcher_v1",
+      "runtime_performance": {
+        "elapsed_seconds": 0.0847,
+        "latency_ms_per_pair": 0.498,
+        "throughput_pairs_per_sec": 2006.2,
+        "model_size_bytes": 96668
+      },
+      "overall_evaluation": {
+        "n_samples": 25,
+        "true_positives": 15,
+        "false_positives": 0,
+        "true_negatives": 10,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "brier_score": 0.0003,
+        "operational_decisions": {
+          "MATCH": 15,
+          "UNCERTAIN": 0,
+          "NON_MATCH": 10,
+          "abstention_rate": 0.0
+        },
+        "calibration": [
+          {
+            "bin_range": "[0.0, 0.2)",
+            "count": 10,
+            "mean_predicted_prob": 0.0154,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.2, 0.4)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.4, 0.6)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.6, 0.8)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.8, 1.0)",
+            "count": 15,
+            "mean_predicted_prob": 0.9958,
+            "empirical_match_rate": 1.0
+          }
+        ]
+      },
+      "disaggregated_by_provenance": {
+        "human_verified_subset": {
+          "n_samples": 12,
+          "true_positives": 10,
+          "false_positives": 0,
+          "true_negatives": 2,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0,
+          "operational_decisions": {
+            "MATCH": 10,
+            "UNCERTAIN": 0,
+            "NON_MATCH": 2,
+            "abstention_rate": 0.0
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 2,
+              "mean_predicted_prob": 0.0077,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 10,
+              "mean_predicted_prob": 0.9966,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        },
+        "ai_adopted_subset": {
+          "n_samples": 13,
+          "true_positives": 5,
+          "false_positives": 0,
+          "true_negatives": 8,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0005,
+          "operational_decisions": {
+            "MATCH": 5,
+            "UNCERTAIN": 0,
+            "NON_MATCH": 8,
+            "abstention_rate": 0.0
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 8,
+              "mean_predicted_prob": 0.0174,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 5,
+              "mean_predicted_prob": 0.9941,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        }
+      }
+    },
+    "supervised_rf_poi_matcher_v1": {
+      "system_name": "supervised_rf_poi_matcher_v1",
+      "runtime_performance": {
+        "elapsed_seconds": 0.6321,
+        "latency_ms_per_pair": 3.718,
+        "throughput_pairs_per_sec": 269.0,
+        "model_size_bytes": 95065
+      },
+      "overall_evaluation": {
+        "n_samples": 25,
+        "true_positives": 15,
+        "false_positives": 0,
+        "true_negatives": 10,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "brier_score": 0.0065,
+        "operational_decisions": {
+          "MATCH": 15,
+          "UNCERTAIN": 0,
+          "NON_MATCH": 10,
+          "abstention_rate": 0.0
+        },
+        "calibration": [
+          {
+            "bin_range": "[0.0, 0.2)",
+            "count": 10,
+            "mean_predicted_prob": 0.0743,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.2, 0.4)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.4, 0.6)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.6, 0.8)",
+            "count": 1,
+            "mean_predicted_prob": 0.781,
+            "empirical_match_rate": 1.0
+          },
+          {
+            "bin_range": "[0.8, 1.0)",
+            "count": 14,
+            "mean_predicted_prob": 0.9792,
+            "empirical_match_rate": 1.0
+          }
+        ]
+      },
+      "disaggregated_by_provenance": {
+        "human_verified_subset": {
+          "n_samples": 12,
+          "true_positives": 10,
+          "false_positives": 0,
+          "true_negatives": 2,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0011,
+          "operational_decisions": {
+            "MATCH": 10,
+            "UNCERTAIN": 0,
+            "NON_MATCH": 2,
+            "abstention_rate": 0.0
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 2,
+              "mean_predicted_prob": 0.0728,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 10,
+              "mean_predicted_prob": 0.998,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        },
+        "ai_adopted_subset": {
+          "n_samples": 13,
+          "true_positives": 5,
+          "false_positives": 0,
+          "true_negatives": 8,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0115,
+          "operational_decisions": {
+            "MATCH": 5,
+            "UNCERTAIN": 0,
+            "NON_MATCH": 8,
+            "abstention_rate": 0.0
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 8,
+              "mean_predicted_prob": 0.0747,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 1,
+              "mean_predicted_prob": 0.781,
+              "empirical_match_rate": 1.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 4,
+              "mean_predicted_prob": 0.9323,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "frozen_test_partition_evaluation": {
+    "explainable_rule_baseline_v1": {
+      "system_name": "explainable_rule_baseline_v1",
+      "runtime_performance": {
+        "elapsed_seconds": 0.0004,
+        "latency_ms_per_pair": 0.005,
+        "throughput_pairs_per_sec": 202647.4,
+        "model_size_bytes": 0
+      },
+      "overall_evaluation": {
+        "n_samples": 18,
+        "true_positives": 10,
+        "false_positives": 0,
+        "true_negatives": 6,
+        "false_negatives": 2,
+        "precision": 1.0,
+        "recall": 0.8333,
+        "f1": 0.9091,
+        "roc_auc": 0.9514,
+        "pr_auc": 0.9896,
+        "brier_score": 0.098,
+        "operational_decisions": {
+          "MATCH": 10,
+          "UNCERTAIN": 4,
+          "NON_MATCH": 4,
+          "abstention_rate": 0.2222
+        },
+        "calibration": [
+          {
+            "bin_range": "[0.0, 0.2)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.2, 0.4)",
+            "count": 4,
+            "mean_predicted_prob": 0.3103,
+            "empirical_match_rate": 0.25
+          },
+          {
+            "bin_range": "[0.4, 0.6)",
+            "count": 3,
+            "mean_predicted_prob": 0.5475,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.6, 0.8)",
+            "count": 1,
+            "mean_predicted_prob": 0.6127,
+            "empirical_match_rate": 1.0
+          },
+          {
+            "bin_range": "[0.8, 1.0)",
+            "count": 10,
+            "mean_predicted_prob": 0.984,
+            "empirical_match_rate": 1.0
+          }
+        ]
+      },
+      "disaggregated_by_provenance": {
+        "human_verified_subset": {
+          "n_samples": 13,
+          "true_positives": 10,
+          "false_positives": 0,
+          "true_negatives": 2,
+          "false_negatives": 1,
+          "precision": 1.0,
+          "recall": 0.9091,
+          "f1": 0.9524,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0653,
+          "operational_decisions": {
+            "MATCH": 10,
+            "UNCERTAIN": 3,
+            "NON_MATCH": 0,
+            "abstention_rate": 0.2308
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 2,
+              "mean_predicted_prob": 0.5847,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 1,
+              "mean_predicted_prob": 0.6127,
+              "empirical_match_rate": 1.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 10,
+              "mean_predicted_prob": 0.984,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        },
+        "ai_adopted_subset": {
+          "n_samples": 5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "true_negatives": 4,
+          "false_negatives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "roc_auc": 0.625,
+          "pr_auc": 0.6666,
+          "brier_score": 0.183,
+          "operational_decisions": {
+            "MATCH": 0,
+            "UNCERTAIN": 1,
+            "NON_MATCH": 4,
+            "abstention_rate": 0.2
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 4,
+              "mean_predicted_prob": 0.3103,
+              "empirical_match_rate": 0.25
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 1,
+              "mean_predicted_prob": 0.473,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            }
+          ]
+        }
+      }
+    },
+    "explainable_rule_baseline_v2_experimental": {
+      "system_name": "explainable_rule_baseline_v2_experimental",
+      "runtime_performance": {
+        "elapsed_seconds": 0.0002,
+        "latency_ms_per_pair": 0.002,
+        "throughput_pairs_per_sec": 425288.4,
+        "model_size_bytes": 0
+      },
+      "overall_evaluation": {
+        "n_samples": 18,
+        "true_positives": 10,
+        "false_positives": 0,
+        "true_negatives": 6,
+        "false_negatives": 2,
+        "precision": 1.0,
+        "recall": 0.8333,
+        "f1": 0.9091,
+        "roc_auc": 0.9514,
+        "pr_auc": 0.9896,
+        "brier_score": 0.0934,
+        "operational_decisions": {
+          "MATCH": 10,
+          "UNCERTAIN": 4,
+          "NON_MATCH": 4,
+          "abstention_rate": 0.2222
+        },
+        "calibration": [
+          {
+            "bin_range": "[0.0, 0.2)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.2, 0.4)",
+            "count": 4,
+            "mean_predicted_prob": 0.3103,
+            "empirical_match_rate": 0.25
+          },
+          {
+            "bin_range": "[0.4, 0.6)",
+            "count": 3,
+            "mean_predicted_prob": 0.5475,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.6, 0.8)",
+            "count": 1,
+            "mean_predicted_prob": 0.7429,
+            "empirical_match_rate": 1.0
+          },
+          {
+            "bin_range": "[0.8, 1.0)",
+            "count": 10,
+            "mean_predicted_prob": 0.984,
+            "empirical_match_rate": 1.0
+          }
+        ]
+      },
+      "disaggregated_by_provenance": {
+        "human_verified_subset": {
+          "n_samples": 13,
+          "true_positives": 10,
+          "false_positives": 0,
+          "true_negatives": 2,
+          "false_negatives": 1,
+          "precision": 1.0,
+          "recall": 0.9091,
+          "f1": 0.9524,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0589,
+          "operational_decisions": {
+            "MATCH": 10,
+            "UNCERTAIN": 3,
+            "NON_MATCH": 0,
+            "abstention_rate": 0.2308
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 2,
+              "mean_predicted_prob": 0.5847,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 1,
+              "mean_predicted_prob": 0.7429,
+              "empirical_match_rate": 1.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 10,
+              "mean_predicted_prob": 0.984,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        },
+        "ai_adopted_subset": {
+          "n_samples": 5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "true_negatives": 4,
+          "false_negatives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "roc_auc": 0.625,
+          "pr_auc": 0.6666,
+          "brier_score": 0.183,
+          "operational_decisions": {
+            "MATCH": 0,
+            "UNCERTAIN": 1,
+            "NON_MATCH": 4,
+            "abstention_rate": 0.2
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 4,
+              "mean_predicted_prob": 0.3103,
+              "empirical_match_rate": 0.25
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 1,
+              "mean_predicted_prob": 0.473,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            }
+          ]
+        }
+      }
+    },
+    "supervised_lgbm_poi_matcher_v1": {
+      "system_name": "supervised_lgbm_poi_matcher_v1",
+      "runtime_performance": {
+        "elapsed_seconds": 0.0363,
+        "latency_ms_per_pair": 0.449,
+        "throughput_pairs_per_sec": 2229.1,
+        "model_size_bytes": 96668
+      },
+      "overall_evaluation": {
+        "n_samples": 18,
+        "true_positives": 12,
+        "false_positives": 0,
+        "true_negatives": 6,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "brier_score": 0.0,
+        "operational_decisions": {
+          "MATCH": 12,
+          "UNCERTAIN": 0,
+          "NON_MATCH": 6,
+          "abstention_rate": 0.0
+        },
+        "calibration": [
+          {
+            "bin_range": "[0.0, 0.2)",
+            "count": 6,
+            "mean_predicted_prob": 0.0058,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.2, 0.4)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.4, 0.6)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.6, 0.8)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.8, 1.0)",
+            "count": 12,
+            "mean_predicted_prob": 0.9969,
+            "empirical_match_rate": 1.0
+          }
+        ]
+      },
+      "disaggregated_by_provenance": {
+        "human_verified_subset": {
+          "n_samples": 13,
+          "true_positives": 11,
+          "false_positives": 0,
+          "true_negatives": 2,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0,
+          "operational_decisions": {
+            "MATCH": 11,
+            "UNCERTAIN": 0,
+            "NON_MATCH": 2,
+            "abstention_rate": 0.0
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 2,
+              "mean_predicted_prob": 0.0084,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 11,
+              "mean_predicted_prob": 0.9968,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        },
+        "ai_adopted_subset": {
+          "n_samples": 5,
+          "true_positives": 1,
+          "false_positives": 0,
+          "true_negatives": 4,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0,
+          "operational_decisions": {
+            "MATCH": 1,
+            "UNCERTAIN": 0,
+            "NON_MATCH": 4,
+            "abstention_rate": 0.0
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 4,
+              "mean_predicted_prob": 0.0045,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 1,
+              "mean_predicted_prob": 0.9982,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        }
+      }
+    },
+    "supervised_rf_poi_matcher_v1": {
+      "system_name": "supervised_rf_poi_matcher_v1",
+      "runtime_performance": {
+        "elapsed_seconds": 0.3045,
+        "latency_ms_per_pair": 3.759,
+        "throughput_pairs_per_sec": 266.0,
+        "model_size_bytes": 95065
+      },
+      "overall_evaluation": {
+        "n_samples": 18,
+        "true_positives": 12,
+        "false_positives": 0,
+        "true_negatives": 6,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "brier_score": 0.0078,
+        "operational_decisions": {
+          "MATCH": 12,
+          "UNCERTAIN": 0,
+          "NON_MATCH": 6,
+          "abstention_rate": 0.0
+        },
+        "calibration": [
+          {
+            "bin_range": "[0.0, 0.2)",
+            "count": 6,
+            "mean_predicted_prob": 0.0636,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.2, 0.4)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.4, 0.6)",
+            "count": 0,
+            "mean_predicted_prob": 0.0,
+            "empirical_match_rate": 0.0
+          },
+          {
+            "bin_range": "[0.6, 0.8)",
+            "count": 1,
+            "mean_predicted_prob": 0.698,
+            "empirical_match_rate": 1.0
+          },
+          {
+            "bin_range": "[0.8, 1.0)",
+            "count": 11,
+            "mean_predicted_prob": 0.9872,
+            "empirical_match_rate": 1.0
+          }
+        ]
+      },
+      "disaggregated_by_provenance": {
+        "human_verified_subset": {
+          "n_samples": 13,
+          "true_positives": 11,
+          "false_positives": 0,
+          "true_negatives": 2,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0034,
+          "operational_decisions": {
+            "MATCH": 11,
+            "UNCERTAIN": 0,
+            "NON_MATCH": 2,
+            "abstention_rate": 0.0
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 2,
+              "mean_predicted_prob": 0.1275,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 11,
+              "mean_predicted_prob": 0.9872,
+              "empirical_match_rate": 1.0
+            }
+          ]
+        },
+        "ai_adopted_subset": {
+          "n_samples": 5,
+          "true_positives": 1,
+          "false_positives": 0,
+          "true_negatives": 4,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "brier_score": 0.0193,
+          "operational_decisions": {
+            "MATCH": 1,
+            "UNCERTAIN": 0,
+            "NON_MATCH": 4,
+            "abstention_rate": 0.0
+          },
+          "calibration": [
+            {
+              "bin_range": "[0.0, 0.2)",
+              "count": 4,
+              "mean_predicted_prob": 0.0316,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.2, 0.4)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.4, 0.6)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            },
+            {
+              "bin_range": "[0.6, 0.8)",
+              "count": 1,
+              "mean_predicted_prob": 0.698,
+              "empirical_match_rate": 1.0
+            },
+            {
+              "bin_range": "[0.8, 1.0)",
+              "count": 0,
+              "mean_predicted_prob": 0.0,
+              "empirical_match_rate": 0.0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "system_comparison_summary": {
+    "validation_f1_ranking": [
+      [
+        "supervised_lgbm_poi_matcher_v1",
+        1.0
+      ],
+      [
+        "supervised_rf_poi_matcher_v1",
+        1.0
+      ],
+      [
+        "explainable_rule_baseline_v1",
+        0.8889
+      ],
+      [
+        "explainable_rule_baseline_v2_experimental",
+        0.8889
+      ]
+    ],
+    "test_f1_ranking": [
+      [
+        "supervised_lgbm_poi_matcher_v1",
+        1.0
+      ],
+      [
+        "supervised_rf_poi_matcher_v1",
+        1.0
+      ],
+      [
+        "explainable_rule_baseline_v1",
+        0.9091
+      ],
+      [
+        "explainable_rule_baseline_v2_experimental",
+        0.9091
+      ]
+    ],
+    "test_brier_ranking": [
+      [
+        "supervised_lgbm_poi_matcher_v1",
+        0.0
+      ],
+      [
+        "supervised_rf_poi_matcher_v1",
+        0.0078
+      ],
+      [
+        "explainable_rule_baseline_v2_experimental",
+        0.0934
+      ],
+      [
+        "explainable_rule_baseline_v1",
+        0.098
+      ]
+    ]
+  },
+  "methodological_caveats": [
+    "Rule Engine V2 evaluation is designated DEVELOPMENT_SET_DIAGNOSTIC due to in-sample case tuning.",
+    "Supervised LightGBM model trained on component-isolated operational benchmark (49 train samples).",
+    "Evaluations disaggregated by provenance show higher confidence and accuracy on human-verified ground truth relative to AI-adopted labels."
+  ]
+}

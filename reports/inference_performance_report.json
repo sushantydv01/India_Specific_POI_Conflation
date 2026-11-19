@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "inference_timestamp": "2026-11-19T05:09:55.301122+00:00",
+    "milestone": "Milestone 15",
+    "model_identifier": "lightgbm",
+    "input_features": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/features/pairwise_features.parquet",
+    "output_predictions": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/predictions/supervised_predictions_universe.parquet",
+    "batch_size": 50000,
+    "thresholds": {
+      "match_threshold": 0.55,
+      "uncertain_threshold": 0.3
+    }
+  },
+  "performance": {
+    "total_candidate_pairs": 605428,
+    "execution_time_seconds": 0.9,
+    "throughput_pairs_per_sec": 673002.2,
+    "peak_memory_mb": 499.56,
+    "latency_microsec_per_pair": 1.49
+  },
+  "decision_distribution": {
+    "MATCH": {
+      "count": 12070,
+      "percentage": 1.99
+    },
+    "UNCERTAIN": {
+      "count": 916,
+      "percentage": 0.15
+    },
+    "NON_MATCH": {
+      "count": 592442,
+      "percentage": 97.86
+    }
+  },
+  "score_statistics": {
+    "mean_match_probability": 0.0242,
+    "std_match_probability": 0.1335
+  },
+  "comparison_against_m9_baseline": {
+    "m9_rule_v1_matches": 5543,
+    "supervised_matches": 12070,
+    "m9_rule_v1_uncertain": 76882,
+    "supervised_uncertain": 916,
+    "m9_rule_v1_non_matches": 523003,
+    "supervised_non_matches": 592442,
+    "conflation_precision_gain": "Supervised model provides continuous calibrated probabilities instead of discrete heuristic sums"
+  }
+}
