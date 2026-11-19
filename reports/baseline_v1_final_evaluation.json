@@ -1,0 +1,171 @@
+{
+  "evaluation_metadata": {
+    "generated_at": "2026-11-19T03:25:50.531561+00:00",
+    "benchmark_name": "human_verified_benchmark_v1",
+    "benchmark_file": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/benchmark/human_verified/benchmark_human_verified_v1.csv",
+    "total_evaluated_records": 50,
+    "baseline_model": "explainable_rule_baseline_v1",
+    "match_threshold": 0.75,
+    "uncertain_threshold": 0.4
+  },
+  "overall_performance": {
+    "selective_prediction_mode": {
+      "description": "Evaluates only cases where model emitted definite MATCH or NON_MATCH (excluding UNCERTAIN abstentions)",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "definite_cases_evaluated": 39,
+      "coverage_pct": 78.0,
+      "abstention_rate_pct": 22.0
+    },
+    "strict_binary_mode": {
+      "description": "Treats UNCERTAIN abstentions as Non-Match (coverage-penalized evaluation)",
+      "precision": 1.0,
+      "recall": 0.907,
+      "f1_score": 0.9512,
+      "roc_auc": 0.9801,
+      "pr_auc": 0.9977
+    },
+    "brier_score_analysis": {
+      "raw_brier_score": 0.0598,
+      "methodological_caveat": "The baseline score [0, 1] is a heuristic weighted aggregation, NOT a calibrated posterior probability P(Match|x). The uncalibrated Brier score reflects heuristic error rather than probabilistic miscalibration."
+    }
+  },
+  "confusion_matrices": {
+    "three_way_decision_matrix": {
+      "MATCH": {
+        "MATCH": 39,
+        "NON_MATCH": 0,
+        "UNCERTAIN": 4
+      },
+      "NON_MATCH": {
+        "MATCH": 0,
+        "NON_MATCH": 0,
+        "UNCERTAIN": 7
+      }
+    },
+    "binary_contingency": {
+      "true_positives": 39,
+      "false_positives": 0,
+      "false_negatives_strict": 4,
+      "true_negatives_strict": 7,
+      "model_abstentions_uncertain": 11
+    }
+  },
+  "subgroup_performance": {
+    "by_distance_band": {
+      "15m_to_30m": {
+        "sample_count": 5,
+        "true_matches": 2,
+        "predicted_matches": 0,
+        "uncertain_abstentions": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0
+      },
+      "30m_to_50m": {
+        "sample_count": 3,
+        "true_matches": 2,
+        "predicted_matches": 1,
+        "uncertain_abstentions": 2,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1_score": 0.6667
+      },
+      "le_15m": {
+        "sample_count": 40,
+        "true_matches": 39,
+        "predicted_matches": 38,
+        "uncertain_abstentions": 2,
+        "precision": 1.0,
+        "recall": 0.9744,
+        "f1_score": 0.987
+      },
+      "gt_50m": {
+        "sample_count": 2,
+        "true_matches": 0,
+        "predicted_matches": 0,
+        "uncertain_abstentions": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0
+      }
+    },
+    "by_kannada_script": {
+      "latin_only": {
+        "sample_count": 38,
+        "true_matches": 31,
+        "predicted_matches": 30,
+        "uncertain_abstentions": 8,
+        "precision": 1.0,
+        "recall": 0.9677,
+        "f1_score": 0.9836
+      },
+      "kannada_present": {
+        "sample_count": 12,
+        "true_matches": 12,
+        "predicted_matches": 9,
+        "uncertain_abstentions": 3,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1_score": 0.8571
+      }
+    },
+    "by_transliteration_status": {
+      "no_translit": {
+        "sample_count": 38,
+        "true_matches": 31,
+        "predicted_matches": 30,
+        "uncertain_abstentions": 8,
+        "precision": 1.0,
+        "recall": 0.9677,
+        "f1_score": 0.9836
+      },
+      "translit_available": {
+        "sample_count": 12,
+        "true_matches": 12,
+        "predicted_matches": 9,
+        "uncertain_abstentions": 3,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1_score": 0.8571
+      }
+    },
+    "by_name_nature": {
+      "distinctive_name": {
+        "sample_count": 50,
+        "true_matches": 43,
+        "predicted_matches": 39,
+        "uncertain_abstentions": 11,
+        "precision": 1.0,
+        "recall": 0.907,
+        "f1_score": 0.9512
+      }
+    },
+    "by_sampling_stratum": {
+      "REVIEW_TIER_1_CATEGORY_CONTRADICTION": {
+        "sample_count": 12,
+        "true_matches": 5,
+        "predicted_matches": 1,
+        "uncertain_abstentions": 11,
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1_score": 0.3333
+      },
+      "REVIEW_TIER_2_COMPETING_HIGH_SCORE_EDGES": {
+        "sample_count": 38,
+        "true_matches": 38,
+        "predicted_matches": 38,
+        "uncertain_abstentions": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      }
+    }
+  },
+  "horvitz_thompson_estimation_notes": {
+    "target_population": "BBMP Candidate Universe (605,428 pairs)",
+    "sampling_nature": "Targeted Graph Ambiguity Benchmark (M11)",
+    "methodology_warning": "The benchmark contains targeted structural ambiguity cases. Sample proportions must NOT be interpreted as city-wide population prevalence without Horvitz-Thompson adjustment."
+  }
+}

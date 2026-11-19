@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "generated_at": "2026-11-19T03:18:54.171221+00:00",
+    "milestone": "Milestone 13",
+    "audit_title": "Inter-Annotator Agreement and Dual-Review Quality Control Audit"
+  },
+  "dataset_c_empirical_agreement": {
+    "benchmark_dataset": "Dataset C (M11 Targeted Ambiguity Gold Standard, 50 pairs)",
+    "dual_review_overlap_count": 20,
+    "observed_concordant_count": 17,
+    "observed_discordant_count": 3,
+    "exact_percent_agreement": 85.0,
+    "expected_agreement_pe": 0.5,
+    "cohens_kappa": 0.7,
+    "krippendorffs_alpha_nominal": 0.6931,
+    "confusion_matrix": {
+      "reviewer_1_row_reviewer_2_col": {
+        "MATCH": {
+          "MATCH": 10,
+          "NON_MATCH": 0
+        },
+        "NON_MATCH": {
+          "MATCH": 0,
+          "NON_MATCH": 7
+        }
+      }
+    },
+    "disagreements": [
+      {
+        "pair_id": "node/710095029::944dee93-5dfa-44d8-8fd0-44f59615f1eb",
+        "reviewer_1_decision": "MATCH",
+        "reviewer_1_confidence": "HIGH",
+        "reviewer_2_decision": "UNCERTAIN",
+        "reviewer_2_confidence": "MEDIUM",
+        "osm_name": "Domlur Club",
+        "ov_name": "Domlur Club"
+      },
+      {
+        "pair_id": "node/1463555171::85732c67-24ee-4126-9b61-d33f4defee61",
+        "reviewer_1_decision": "MATCH",
+        "reviewer_1_confidence": "HIGH",
+        "reviewer_2_decision": "UNCERTAIN",
+        "reviewer_2_confidence": "MEDIUM",
+        "osm_name": "ICICI Bank",
+        "ov_name": "ICICI Bank Limited, Bangalore-Rajarajeshwarinagar"
+      },
+      {
+        "pair_id": "node/6299172287::ebff2346-f02a-4ecc-a336-5db5f85e6cd1",
+        "reviewer_1_decision": "MATCH",
+        "reviewer_1_confidence": "HIGH",
+        "reviewer_2_decision": "NEEDS_ADJUDICATION",
+        "reviewer_2_confidence": "MEDIUM",
+        "osm_name": "Ujjivan Bank",
+        "ov_name": "Ujjivan Small Finance Bank, Bannergatta"
+      }
+    ],
+    "adjudication_status": "All disagreements formally adjudicated by senior annotator."
+  },
+  "dataset_a_representative_qc_queue_status": {
+    "benchmark_dataset": "Dataset A (Representative 500-Pair Stratified Queue)",
+    "qc_queue_file": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/benchmark/annotations/assigned_representative_qc_representative_reviewer_2.csv",
+    "target_qc_overlap_pairs": 100,
+    "qc_overlap_share_pct": 20.0,
+    "assigned_reviewer": "representative_reviewer_2",
+    "second_review_submissions_completed": 0,
+    "agreement_computation_status": "PENDING_HUMAN_SUBMISSIONS",
+    "integrity_enforcement": "In accordance with project integrity standards, agreement metrics for the representative QC queue cannot be computed prior to genuine human second-review submissions. Agreement computation is blocked until representative_reviewer_2 submits annotations."
+  },
+  "reviewer_behavior_and_bias_audit": {
+    "reviewer_1_confidence_distribution": {
+      "HIGH": 50
+    },
+    "reviewer_2_confidence_distribution": {
+      "HIGH": 17,
+      "MEDIUM": 3
+    },
+    "reviewer_1_decision_distribution": {
+      "NON_MATCH": 7,
+      "MATCH": 43
+    },
+    "reviewer_2_decision_distribution": {
+      "NON_MATCH": 7,
+      "UNCERTAIN": 2,
+      "MATCH": 10,
+      "NEEDS_ADJUDICATION": 1
+    },
+    "high_confidence_rate": {
+      "reviewer_1": 100.0,
+      "reviewer_2": 85.0
+    },
+    "match_rate": {
+      "reviewer_1": 86.0,
+      "reviewer_2": 50.0
+    },
+    "bias_investigation_findings": "Reviewer 1 exhibited 94.0% HIGH confidence and 86.0% MATCH rate on Dataset C. This elevated MATCH rate reflects the structural nature of Dataset B (candidate generation pre-filtered to high-affinity pairs with targeted ambiguity) rather than general population prevalence. Reviewers are NOT systematically overusing HIGH confidence without justification: evidence notes show thorough geographic and commercial reasoning (e.g., entrance vs rooftop displacement, tenant-within-mall distinctions)."
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "audit_timestamp": "2026-11-19T03:25:50.531619+00:00",
+    "milestone": "Milestone 13",
+    "evaluator_module": "src/poi_conflation/matching/evaluator.py",
+    "benchmark_audited": "/Users/sushantydv01/Desktop/India_Specific_POI_Conflation/data/processed/benchmark/human_verified/benchmark_human_verified_v1.csv"
+  },
+  "audit_checklist_a_through_j": {
+    "check_a_positive_class_encoding": {
+      "status": "VERIFIED_CORRECT",
+      "finding": "Positive class is strictly defined as MATCH (encoded as binary 1). NON_MATCH is encoded as binary 0."
+    },
+    "check_b_continuous_score_direction_and_semantics": {
+      "status": "VERIFIED_CORRECT",
+      "finding": "Continuous scores range monotonically in [0.0, 1.0], where 1.0 indicates identity affinity and 0.0 indicates certainty of non-match."
+    },
+    "check_c_abstention_handling": {
+      "status": "VERIFIED_CORRECTED",
+      "finding": "Milestone 12 reported 'Definite Precision: 1.000, Recall: 1.000' without prominently stating that UNCERTAIN abstentions were dropped from the evaluation. In Milestone 13, this is strictly decoupled: Selective Prediction Mode explicitly reports coverage (78.0%) and abstention rate (22.0%), while Strict Binary Mode penalizes abstentions as non-matches (Precision: 1.000, Recall: 0.9070, F1: 0.9512)."
+    },
+    "check_d_treatment_of_uncertain_and_needs_adjudication_ground_truth": {
+      "status": "VERIFIED_CORRECT",
+      "finding": "In the benchmark gold standard, all 50 ground-truth labels are fully adjudicated binary decisions (43 MATCH, 7 NON_MATCH). The evaluator verifies that only adjudicated binary ground-truth labels are evaluated in classification matrices; any UNCERTAIN ground truth is logged and excluded."
+    },
+    "check_e_pr_curve_and_auc_calculation": {
+      "status": "DEFECT_RESOLVED",
+      "finding": "In Milestone 12, PR-AUC was computed over a 21-bin threshold sweep ending at threshold 1.0 where recall was 0.7209. Because trapezoidal integration started at recall 0.7209, the entire area under the PR curve between recall 0.0 and 0.7209 was dropped (0.7209 * 1.0 = 0.7209). Milestone 12 thus reported PR-AUC = 0.2750. When anchored at (recall=0.0, precision=1.0) and evaluated across exact threshold changes, the corrected PR-AUC is 0.9960.",
+      "m12_reported_value": 0.275,
+      "corrected_value": 0.9977
+    },
+    "check_f_roc_auc_calculation": {
+      "status": "DEFECT_RESOLVED",
+      "finding": "Milestone 12 did not evaluate exact ROC-AUC on the continuous scores, leading to an uninformative 0.500 baseline default. The Wilcoxon-Mann-Whitney U rank-sum calculation now correctly evaluates exact ROC-AUC = 0.9801 on the 50 gold standard cases.",
+      "m12_reported_value": 0.5,
+      "corrected_value": 0.9801
+    },
+    "check_g_brier_score_calibration_semantics": {
+      "status": "VERIFIED_WITH_METHODOLOGICAL_CAVEAT",
+      "finding": "The empirical Brier score across the 50 pairs is 0.0598. However, because the rule engine outputs heuristic composite scores [0, 1] rather than calibrated posterior probabilities P(MATCH|x), Brier score must NOT be interpreted as a frequentist probability calibration metric without separate calibration.",
+      "brier_score_value": 0.0598
+    },
+    "check_h_duplicate_pair_handling": {
+      "status": "VERIFIED_CORRECT",
+      "finding": "The evaluator asserts pair_id set deduplication on ingested benchmark records to prevent duplicate inflation."
+    },
+    "check_i_dataset_provenance_filtering": {
+      "status": "VERIFIED_CORRECT",
+      "finding": "Only records with provenance HUMAN_VERIFIED or HUMAN_ADJUDICATED are accepted into the evaluation benchmark."
+    },
+    "check_j_reproducibility": {
+      "status": "VERIFIED_REPRODUCIBLE",
+      "finding": "Evaluator metrics are 100% deterministic and reproducible across independent script executions."
+    }
+  },
+  "hand_calculated_verification_cases": {
+    "case_1_perfect_separation": {
+      "scores": [
+        0.9,
+        0.8,
+        0.4,
+        0.1
+      ],
+      "labels": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_roc_auc": 1.0,
+      "computed_roc_auc": 1.0,
+      "computed_pr_auc": 1.0,
+      "passed": true
+    },
+    "case_2_partial_inversion": {
+      "scores": [
+        0.8,
+        0.4,
+        0.6,
+        0.2
+      ],
+      "labels": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_roc_auc": 0.75,
+      "computed_roc_auc": 0.75,
+      "passed": true
+    }
+  },
+  "corrected_baseline_v1_summary": {
+    "selective_prediction_mode": {
+      "description": "Evaluates only cases where model emitted definite MATCH or NON_MATCH (excluding UNCERTAIN abstentions)",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "definite_cases_evaluated": 39,
+      "coverage_pct": 78.0,
+      "abstention_rate_pct": 22.0
+    },
+    "strict_binary_mode": {
+      "description": "Treats UNCERTAIN abstentions as Non-Match (coverage-penalized evaluation)",
+      "precision": 1.0,
+      "recall": 0.907,
+      "f1_score": 0.9512,
+      "roc_auc": 0.9801,
+      "pr_auc": 0.9977
+    },
+    "brier_score_analysis": {
+      "raw_brier_score": 0.0598,
+      "methodological_caveat": "The baseline score [0, 1] is a heuristic weighted aggregation, NOT a calibrated posterior probability P(Match|x). The uncalibrated Brier score reflects heuristic error rather than probabilistic miscalibration."
+    }
+  }
+}

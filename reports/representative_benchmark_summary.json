@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "audit_timestamp": "2026-11-18T13:18:23.417480+00:00",
+    "audit_timestamp": "2026-11-19T03:27:44.799796+00:00",
     "queue_file": "data/processed/benchmark/annotation_queue.csv",
     "total_target_records": 500,
     "sampling_design": "10-Strata Mutually Exclusive Population Sample"

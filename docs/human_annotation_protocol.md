@@ -161,3 +161,26 @@ Annotators operating in Bengaluru must adhere to the following domain-specific r
 ### 5.4 Adjudication
 - Disagreements between Reviewer 1 and Reviewer 2, as well as pairs labeled `NEEDS_ADJUDICATION`, are reviewed by a senior adjudicator.
 - The adjudicator inspects both reviews, feature vectors, and bipartite graph context, recording a definitive final decision and an audit rationale.
+
+---
+
+## 6. Milestone 13 India-Specific Domain Annotation Guidelines
+
+### 6.1 Corporate Legal Entity Suffixes
+* **Guidance:** In India, business records often append registered legal entity designations (e.g., `Limited`, `Ltd`, `Private Limited`, `Pvt Ltd`, `LLP`, `PLC`). When one source lists the core trade name (e.g., `ICICI Bank`) and the other includes the legal corporate suffix (e.g., `ICICI Bank Limited`), annotators must treat these as equivalent trade name variants rather than distinct entities, provided spatial proximity and commercial category align.
+
+### 6.2 Locality and Branch Qualifiers
+* **Guidance:** In Bengaluru, source names frequently append branch localities (e.g., `, Bangalore-Rajarajeshwarinagar`, `Bangalore-Marathalli`, `Bannergatta`).
+* **Rule:** If the locality qualifier describes the physical location where both records are located ($\le 50$m), this is a legitimate match. However, if the locality terms indicate different neighborhoods (e.g., `Indiranagar` vs `Marathahalli`) or distance $> 100$m, annotators must label `NON_MATCH` (`SAME_BRAND_DIFFERENT_BRANCH`).
+
+### 6.3 Event and Temporal Qualifiers
+* **Guidance:** Venues frequently host temporary exhibitions or seasonal festivals that appear in listings with year qualifiers (e.g., `Karnataka Chitrakala Parishath Annual show 2017`).
+* **Rule:** An ephemeral event named after its permanent venue host represents an event taking place at that venue. For permanent POI conflation, if the record refers to the institution itself, annotators confirm identity while logging temporal evidence. If the record describes a temporary one-off booth with distinct organizers, classify as `UNCERTAIN` or `NON_MATCH`.
+
+### 6.4 ATM versus Bank Facility Policy
+* **Guidance:** An ATM is a self-service automated banking terminal, whereas a Bank is a full-service financial branch.
+* **Rule:** An ATM and a full bank branch located in the same building are related facilities (parent-child), but represent **distinct POI entities**. Annotators must NOT label an ATM and a full bank branch as `MATCH`; they must receive `NON_MATCH` (or `UNCERTAIN` under facility relation) with evidence `SAME_BUILDING_DIFFERENT_BUSINESS` or `ATM_VS_BANK_FACILITY`.
+
+### 6.5 Rooftop Centroid vs. Street Entrance Spatial Displacement
+* **Guidance:** In Bengaluru's dense commercial corridors, large office complexes, malls, and bank branches frequently exhibit 15m–45m Euclidean displacement between OSM node points (often street entrances) and Overture polygon centroids (often building rooftops).
+* **Rule:** When core entity names match strongly and categories are compatible, displacement up to 50m is acceptable as `EVD_SPATIAL_PROX` (street-level displacement). Conversely, in multi-tenant commercial complexes (e.g., Pathi Market), distinct storefronts separated by 10m–25m must receive `NON_MATCH`.

@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "generated_at": "2026-11-19T03:18:20.943749+00:00",
+    "milestone": "Milestone 13",
+    "dataset": "Dataset A: Population-Based Stratified Representative Benchmark (500 pairs)",
+    "queue_file": "data/processed/benchmark/annotation_queue.csv"
+  },
+  "actual_completion_status": {
+    "total_representative_sample": 500,
+    "human_verified_count": 1,
+    "human_completion_percentage": 0.2,
+    "ai_adopted_diagnostic_count": 49,
+    "pending_unannotated_count": 450,
+    "remaining_human_reviews_required": 499,
+    "readiness_verdict": "NOT_READY_FOR_SUPERVISED_TRAINING",
+    "explanation": "Only 1 pair in the 500-pair representative sample is human-verified. In accordance with project integrity standards, artificial human reviews were NOT fabricated. Supervised training remains conditionally blocked until human reviews are executed across the full representative queue."
+  },
+  "strata_breakdown": {
+    "KANNADA_TRANSLITERATION": {
+      "stratum_name": "KANNADA_TRANSLITERATION",
+      "target_sample_size": 50,
+      "human_verified_completed": 1,
+      "ai_adopted_diagnostic": 4,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.000578,
+      "sampling_weight": 1730.74
+    },
+    "PHONETIC_VARIANTS": {
+      "stratum_name": "PHONETIC_VARIANTS",
+      "target_sample_size": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.00161,
+      "sampling_weight": 621.3
+    },
+    "LARGE_DISTANCE_CANDIDATES": {
+      "stratum_name": "LARGE_DISTANCE_CANDIDATES",
+      "target_sample_size": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.012189,
+      "sampling_weight": 82.04
+    },
+    "EXACT_NAME_MATCH": {
+      "stratum_name": "EXACT_NAME_MATCH",
+      "target_sample_size": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.014335,
+      "sampling_weight": 69.76
+    },
+    "MULTI_STRATEGY_OVERLAP": {
+      "stratum_name": "MULTI_STRATEGY_OVERLAP",
+      "target_sample_size": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.016926,
+      "sampling_weight": 59.08
+    },
+    "CATEGORY_ADJACENCY": {
+      "stratum_name": "CATEGORY_ADJACENCY",
+      "target_sample_size": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.000355,
+      "sampling_weight": 2813.7
+    },
+    "MISSING_OR_GENERIC_NAME": {
+      "stratum_name": "MISSING_OR_GENERIC_NAME",
+      "target_sample_size": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.000681,
+      "sampling_weight": 1467.54
+    },
+    "CLOSE_SPATIAL_DISTINCT_NAMES": {
+      "stratum_name": "CLOSE_SPATIAL_DISTINCT_NAMES",
+      "target_sample_size": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.001264,
+      "sampling_weight": 791.0
+    },
+    "HIGH_DENSITY_HOTSPOTS": {
+      "stratum_name": "HIGH_DENSITY_HOTSPOTS",
+      "target_sample_size": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.002777,
+      "sampling_weight": 360.1
+    },
+    "SPATIAL_CLUSTER_RESIDUAL": {
+      "stratum_name": "SPATIAL_CLUSTER_RESIDUAL",
+      "target_sample_size": 50,
+      "human_verified_completed": 0,
+      "ai_adopted_diagnostic": 5,
+      "pending_human_annotation": 45,
+      "sampling_probability": 0.000243,
+      "sampling_weight": 4113.3
+    }
+  }
+}

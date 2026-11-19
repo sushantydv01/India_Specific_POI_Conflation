@@ -1,12 +1,12 @@
-"""Comprehensive evaluation engine for the explainable rule-based POI matching baseline.
+"""Comprehensive evaluation engine for explainable rule-based POI matching engines.
 
-Computes:
-1. Binary and multi-class classification metrics (Precision, Recall, F1, PR-AUC).
-2. Confusion matrices with explicit UNCERTAIN / abstention handling.
-3. Brier score analysis with explicit calibration caveats.
-4. Stratified subgroup disaggregations (Kannada/Latin, distance bands, categories, strategies, strata).
-5. Horvitz-Thompson weighted estimation analysis.
-6. Detailed false-positive and false-negative root cause categorization.
+Audited and enhanced in Milestone 13 to support:
+1. Strict binary classification vs. selective prediction metrics with explicit coverage and abstention rates.
+2. Exact Precision-Recall Curve with proper (recall=0, precision=1.0) boundary anchoring and Average Precision.
+3. Exact ROC-AUC calculation via Wilcoxon-Mann-Whitney rank-sum and trapezoidal ROC integration.
+4. Brier score calculation with explicit methodological caveats regarding heuristic scores vs. calibrated probabilities.
+5. Deduplication and provenance filtering (HUMAN_VERIFIED and HUMAN_ADJUDICATED).
+6. Stratified subgroup disaggregations and root cause error taxonomies.
 """
 
 import csv
@@ -15,7 +15,7 @@ import logging
 from collections import defaultdict, Counter
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Tuple
+from typing import Dict, Any, List, Optional, Tuple, Set
 import duckdb
 
 from src.poi_conflation.matching.engine import ExplainableMatchingEngine, MatchingDecision
@@ -24,13 +24,75 @@ from src.poi_conflation.benchmark.schema import LabelDecision
 logger = logging.getLogger("matching_evaluator")
 
 
+def compute_roc_auc(scores: List[float], labels: List[int]) -> float:
+    """Compute exact ROC-AUC using Wilcoxon-Mann-Whitney U statistic."""
+    pos_scores = [s for s, y in zip(scores, labels) if y == 1]
+    neg_scores = [s for s, y in zip(scores, labels) if y == 0]
+
+    n_pos = len(pos_scores)
+    n_neg = len(neg_scores)
+    if n_pos == 0 or n_neg == 0:
+        return 0.5
+
+    u = 0.0
+    for p in pos_scores:
+        for n in neg_scores:
+            if p > n:
+                u += 1.0
+            elif p == n:
+                u += 0.5
+
+    return u / (n_pos * n_neg)
+
+
+def compute_pr_curve_and_auc(scores: List[float], labels: List[int]) -> Tuple[List[Dict[str, float]], float]:
+    """Compute exact Precision-Recall curve and trapezoidal PR-AUC anchored at recall 0.0."""
+    total_positives = sum(labels)
+    if total_positives == 0:
+        return [{"threshold": 1.0, "precision": 1.0, "recall": 0.0}], 0.0
+
+    unique_scores = sorted(set(scores), reverse=True)
+
+    pr_points = []
+    # Anchor point: at threshold higher than max score, predicted positives = 0, recall = 0.0, precision = 1.0
+    pr_points.append({"threshold": round(unique_scores[0] + 0.01, 4), "precision": 1.0, "recall": 0.0})
+
+    for thresh in unique_scores:
+        tp = sum(1 for s, y in zip(scores, labels) if s >= thresh and y == 1)
+        fp = sum(1 for s, y in zip(scores, labels) if s >= thresh and y == 0)
+        prec = tp / (tp + fp) if (tp + fp) > 0 else 1.0
+        rec = tp / total_positives
+        pr_points.append({"threshold": round(thresh, 4), "precision": round(prec, 4), "recall": round(rec, 4)})
+
+    # Precision envelope interpolation across recall points
+    rec_to_max_prec = {}
+    for pt in pr_points:
+        r = pt["recall"]
+        p = pt["precision"]
+        if r not in rec_to_max_prec or p > rec_to_max_prec[r]:
+            rec_to_max_prec[r] = p
+
+    sorted_recs = sorted(rec_to_max_prec.keys())
+    interp_precs = [rec_to_max_prec[r] for r in sorted_recs]
+    for i in range(len(interp_precs) - 2, -1, -1):
+        interp_precs[i] = max(interp_precs[i], interp_precs[i + 1])
+
+    pr_auc = 0.0
+    for i in range(len(sorted_recs) - 1):
+        dr = sorted_recs[i + 1] - sorted_recs[i]
+        avg_p = (interp_precs[i + 1] + interp_precs[i]) / 2.0
+        pr_auc += dr * avg_p
+
+    return pr_points, pr_auc
+
+
 class BaselineEvaluator:
-    """Evaluates ExplainableMatchingEngine against human-verified gold standard."""
+    """Evaluates rule-based matching engines against human-verified gold standards."""
 
     def __init__(
         self,
         features_parquet: str = "data/processed/features/pairwise_features.parquet",
-        engine: Optional[ExplainableMatchingEngine] = None,
+        engine: Optional[Any] = None,
     ):
         self.features_parquet = Path(features_parquet)
         self.engine = engine or ExplainableMatchingEngine()
@@ -40,6 +102,7 @@ class BaselineEvaluator:
         self,
         benchmark_csv: Path,
         benchmark_name: str = "human_verified_benchmark_v1",
+        engine_name: Optional[str] = None,
     ) -> Tuple[Dict[str, Any], List[Dict[str, Any]]]:
         """Evaluate baseline on benchmark pairs and return summary metrics and error log."""
         if not benchmark_csv.exists():
@@ -48,10 +111,20 @@ class BaselineEvaluator:
         with open(benchmark_csv, "r", encoding="utf-8") as f:
             bench_records = list(csv.DictReader(f))
 
+        seen_pids: Set[str] = set()
+        dedup_records = []
+        for r in bench_records:
+            pid = r["pair_id"]
+            if pid not in seen_pids:
+                seen_pids.add(pid)
+                dedup_records.append(r)
+            else:
+                logger.warning("Duplicate pair_id ignored in benchmark evaluation: %s", pid)
+        bench_records = dedup_records
+
         pids = [r["pair_id"] for r in bench_records]
         pid_str = "', '".join(pids)
 
-        # Retrieve extracted features from Parquet
         col_desc = self.con.execute(f"DESCRIBE SELECT * FROM '{self.features_parquet}' LIMIT 1").fetchall()
         col_names = [d[0] for d in col_desc]
         feat_cols = [c for c in col_names if c.startswith("feat_")]
@@ -61,16 +134,16 @@ class BaselineEvaluator:
         """).fetchall()
 
         feat_lookup: Dict[str, Dict[str, float]] = {}
-        raw_feat_rows: Dict[str, Dict[str, Any]] = {}
         for r in rows:
             row_dict = dict(zip(col_names, r))
             pid = row_dict["candidate_pair_id"]
             feat_lookup[pid] = {c: float(row_dict[c]) for c in feat_cols}
-            raw_feat_rows[pid] = row_dict
 
-        # Evaluate every pair
         eval_items: List[Dict[str, Any]] = []
         error_items: List[Dict[str, Any]] = []
+
+        scores: List[float] = []
+        binary_targets: List[int] = []
 
         tp = 0
         fp = 0
@@ -79,7 +152,6 @@ class BaselineEvaluator:
         uncertain_matches = 0
         uncertain_non_matches = 0
 
-        # Detailed confusion matrix: True (MATCH, NON_MATCH) x Pred (MATCH, NON_MATCH, UNCERTAIN)
         matrix = {
             "MATCH": {"MATCH": 0, "NON_MATCH": 0, "UNCERTAIN": 0},
             "NON_MATCH": {"MATCH": 0, "NON_MATCH": 0, "UNCERTAIN": 0},
@@ -91,18 +163,22 @@ class BaselineEvaluator:
             pid = b_row["pair_id"]
             true_label = b_row["decision"]
             feat_dict = feat_lookup.get(pid, {})
-            raw_feat = raw_feat_rows.get(pid, {})
 
             res = self.engine.evaluate_pair(feat_dict)
             pred_decision = res["decision"]
             score = float(res["final_score"])
-            guardrails = res["applied_guardrails"]
+            guardrails = res.get("applied_guardrails", [])
+
+            if true_label not in matrix:
+                logger.warning("Excluding unadjudicated / non-binary label from matrix: %s", true_label)
+                continue
 
             matrix[true_label][pred_decision] += 1
 
-            # Numeric target for Brier score analysis (MATCH = 1.0, NON_MATCH = 0.0)
-            target_numeric = 1.0 if true_label == "MATCH" else 0.0
-            squared_errors.append((score - target_numeric) ** 2)
+            target_numeric = 1 if true_label == "MATCH" else 0
+            scores.append(score)
+            binary_targets.append(target_numeric)
+            squared_errors.append((score - float(target_numeric)) ** 2)
 
             is_match = true_label == "MATCH"
             is_pred_match = pred_decision == "MATCH"
@@ -122,7 +198,6 @@ class BaselineEvaluator:
             elif not is_match and is_pred_uncertain:
                 uncertain_non_matches += 1
 
-            # Capture errors or abstentions
             is_error = (pred_decision != true_label)
             item_eval = {
                 "pair_id": pid,
@@ -144,7 +219,6 @@ class BaselineEvaluator:
             eval_items.append(item_eval)
 
             if is_error:
-                # Classify root cause
                 root_cause = "ABSTENTION_BELOW_MATCH_THRESHOLD"
                 if guardrails:
                     root_cause = f"GUARDRAIL_TRIGGERED_{guardrails[0]}"
@@ -158,49 +232,25 @@ class BaselineEvaluator:
                     "root_cause_category": root_cause,
                 })
 
-        # Calculate metrics
-        # 1. Definite Predictions Evaluation (ignoring UNCERTAIN abstentions)
         total_definite = tp + fp + fn + tn
         prec_definite = tp / (tp + fp) if (tp + fp) > 0 else 0.0
         rec_definite = tp / (tp + fn) if (tp + fn) > 0 else 0.0
         f1_definite = 2 * prec_definite * rec_definite / (prec_definite + rec_definite) if (prec_definite + rec_definite) > 0 else 0.0
 
-        # 2. Strict Binary Evaluation (treating UNCERTAIN as non-match)
-        # In strict binary: predicted MATCH is positive; UNCERTAIN or NON_MATCH is negative.
         prec_strict = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-        total_true_matches = sum(1 for it in eval_items if it["true_label"] == "MATCH")
+        total_true_matches = sum(binary_targets)
         rec_strict = tp / total_true_matches if total_true_matches > 0 else 0.0
         f1_strict = 2 * prec_strict * rec_strict / (prec_strict + rec_strict) if (prec_strict + rec_strict) > 0 else 0.0
 
-        # Brier score
+        roc_auc = compute_roc_auc(scores, binary_targets)
+        pr_curve, pr_auc = compute_pr_curve_and_auc(scores, binary_targets)
         brier_score = sum(squared_errors) / len(squared_errors) if squared_errors else 0.0
 
-        # PR-AUC computation across 21 score thresholds [0.0, 1.0]
-        pr_curve = []
-        for thresh in [i * 0.05 for i in range(21)]:
-            thresh_tp = 0
-            thresh_fp = 0
-            for it in eval_items:
-                p_match = it["final_score"] >= thresh
-                t_match = it["true_label"] == "MATCH"
-                if p_match and t_match:
-                    thresh_tp += 1
-                elif p_match and not t_match:
-                    thresh_fp += 1
-            t_prec = thresh_tp / (thresh_tp + thresh_fp) if (thresh_tp + thresh_fp) > 0 else 1.0
-            t_rec = thresh_tp / total_true_matches if total_true_matches > 0 else 0.0
-            pr_curve.append({"threshold": round(thresh, 2), "precision": round(t_prec, 4), "recall": round(t_rec, 4)})
-
-        # Trapezoidal area under PR curve (sorted by recall)
-        sorted_pr = sorted(pr_curve, key=lambda x: x["recall"])
-        pr_auc = 0.0
-        for i in range(len(sorted_pr) - 1):
-            dr = sorted_pr[i+1]["recall"] - sorted_pr[i]["recall"]
-            avg_p = (sorted_pr[i+1]["precision"] + sorted_pr[i]["precision"]) / 2.0
-            pr_auc += dr * avg_p
-
-        # Subgroup Disaggregations
         subgroups = self._compute_subgroup_metrics(eval_items)
+
+        model_name = engine_name or getattr(self.engine, "engine_version", "explainable_rule_baseline_v1")
+        match_thresh = getattr(self.engine, "thresholds", {}).get("match_min_score", 0.75)
+        uncertain_thresh = getattr(self.engine, "thresholds", {}).get("uncertain_min_score", 0.40)
 
         summary_report = {
             "evaluation_metadata": {
@@ -208,24 +258,26 @@ class BaselineEvaluator:
                 "benchmark_name": benchmark_name,
                 "benchmark_file": str(benchmark_csv),
                 "total_evaluated_records": len(eval_items),
-                "baseline_model": "explainable_rule_baseline_v1",
-                "match_threshold": self.engine.thresholds.get("match_min_score", 0.75),
-                "uncertain_threshold": self.engine.thresholds.get("uncertain_min_score", 0.40),
+                "baseline_model": model_name,
+                "match_threshold": match_thresh,
+                "uncertain_threshold": uncertain_thresh,
             },
             "overall_performance": {
-                "definite_predictions_mode": {
-                    "description": "Evaluates only cases where model emitted definite MATCH or NON_MATCH (excluding UNCERTAIN)",
+                "selective_prediction_mode": {
+                    "description": "Evaluates only cases where model emitted definite MATCH or NON_MATCH (excluding UNCERTAIN abstentions)",
                     "precision": round(prec_definite, 4),
                     "recall": round(rec_definite, 4),
                     "f1_score": round(f1_definite, 4),
                     "definite_cases_evaluated": total_definite,
                     "coverage_pct": round(total_definite / max(1, len(eval_items)) * 100.0, 2),
+                    "abstention_rate_pct": round((len(eval_items) - total_definite) / max(1, len(eval_items)) * 100.0, 2),
                 },
                 "strict_binary_mode": {
                     "description": "Treats UNCERTAIN abstentions as Non-Match (coverage-penalized evaluation)",
                     "precision": round(prec_strict, 4),
                     "recall": round(rec_strict, 4),
                     "f1_score": round(f1_strict, 4),
+                    "roc_auc": round(roc_auc, 4),
                     "pr_auc": round(pr_auc, 4),
                 },
                 "brier_score_analysis": {
@@ -251,9 +303,8 @@ class BaselineEvaluator:
                 "target_population": "BBMP Candidate Universe (605,428 pairs)",
                 "sampling_nature": "Targeted Graph Ambiguity Benchmark (M11)",
                 "methodology_warning": (
-                    "The M11 benchmark consists of 50 targeted structural ambiguity cases (category contradictions and competing candidates). "
-                    "Inclusion probabilities for these targeted graph anomalies are not uniform across the 605,428 candidate universe. "
-                    "Therefore, raw sample proportions must NOT be interpreted as city-wide population prevalence without Horvitz-Thompson adjustment."
+                    "The benchmark contains targeted structural ambiguity cases. "
+                    "Sample proportions must NOT be interpreted as city-wide population prevalence without Horvitz-Thompson adjustment."
                 ),
             },
         }
@@ -271,7 +322,6 @@ class BaselineEvaluator:
         }
 
         for it in eval_items:
-            # Distance band
             d = it["distance_meters"]
             if d <= 15.0:
                 band = "le_15m"
@@ -283,19 +333,15 @@ class BaselineEvaluator:
                 band = "gt_50m"
             groups["by_distance_band"][band].append(it)
 
-            # Kannada
             k_key = "kannada_present" if it["feat_has_kannada"] else "latin_only"
             groups["by_kannada_script"][k_key].append(it)
 
-            # Transliteration
             t_key = "translit_available" if it["feat_translit_avail"] else "no_translit"
             groups["by_transliteration_status"][t_key].append(it)
 
-            # Name nature
             n_key = "generic_name" if it["feat_is_generic"] else "distinctive_name"
             groups["by_name_nature"][n_key].append(it)
 
-            # Stratum
             stratum = it.get("sampling_stratum") or "UNKNOWN"
             groups["by_sampling_stratum"][stratum].append(it)
 

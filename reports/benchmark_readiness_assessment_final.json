@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "assessment_timestamp": "2026-11-19T03:25:50.810997+00:00",
+    "milestone": "Milestone 13",
+    "evaluation_scope": "BBMP, Bengaluru POI Conflation"
+  },
+  "formal_decision": {
+    "verdict": "NOT_READY_FOR_SUPERVISED_TRAINING",
+    "secondary_operational_status": "CONDITIONALLY_READY_FOR_RULE_BASELINES_ONLY",
+    "total_criteria_evaluated": 9,
+    "criteria_met": 6,
+    "criteria_unmet_or_pending": 3,
+    "executive_summary": "The project has established verified evaluation infrastructure, leakage-free spatial partitioning, audited metric calculations, and an optimized explainable rule baseline. However, genuine human annotation of the 500-pair representative stratified queue remains incomplete (1 / 500 human-verified). Training a supervised classifier (e.g. LightGBM, XGBoost) solely on the 50 targeted ambiguity cases would introduce catastrophic selection bias (86% positive prevalence, high anomaly density) and severe population misalignment. Therefore, supervised model training is formally blocked until the 500-pair representative sample is human-annotated and QC-validated.",
+    "unblocking_requirements": [
+      "1. Complete human annotation of the remaining 499 pairs in the representative queue (assigned_sample_500.csv).",
+      "2. Complete independent blind second review on the 100-pair QC queue (assigned_representative_qc_representative_reviewer_2.csv).",
+      "3. Verify empirical inter-annotator agreement on the representative queue achieves Cohen's kappa >= 0.70 and Krippendorff's alpha >= 0.70.",
+      "4. Maintain strict component-blocked spatial partitioning and train using Horvitz-Thompson sampling weights."
+    ]
+  },
+  "checklist": [
+    {
+      "criterion": "Human-verified representative benchmark completed",
+      "target": "500 pairs (100% human-verified across 10 strata)",
+      "actual": "1 / 500 pairs (0.2%)",
+      "status": "NOT_MET",
+      "blocking_impact": "CRITICAL_BLOCKER_FOR_SUPERVISED_ML"
+    },
+    {
+      "criterion": "Targeted ambiguity benchmark adjudicated (Dataset C)",
+      "target": ">= 50 pairs",
+      "actual": "50 pairs fully verified and adjudicated",
+      "status": "MET",
+      "blocking_impact": "NONE"
+    },
+    {
+      "criterion": "Representative blind dual-review QC queue executed",
+      "target": ">= 20% (100 pairs) reviewed by independent second annotator",
+      "actual": "100 pairs assigned to representative_reviewer_2; 0 submissions completed",
+      "status": "NOT_MET",
+      "blocking_impact": "BLOCKER_FOR_RELIABILITY_CONFIRMATION"
+    },
+    {
+      "criterion": "Inter-annotator agreement on representative QC queue",
+      "target": "Cohen's kappa >= 0.70, Krippendorff's alpha >= 0.70",
+      "actual": "Pending second-review submissions (Dataset C achieved kappa = 0.818)",
+      "status": "PENDING",
+      "blocking_impact": "BLOCKER_FOR_RELIABILITY_CONFIRMATION"
+    },
+    {
+      "criterion": "Leakage-safe component-blocked spatial partitioning",
+      "target": "0 cross-split nodes, 0 cross-split components",
+      "actual": "0 shared OSM nodes, 0 shared Overture nodes, 0 cross-split components",
+      "status": "MET",
+      "blocking_impact": "NONE"
+    },
+    {
+      "criterion": "Frozen evaluation test set isolated and preserved",
+      "target": "Strict freeze, no tuning on test partition",
+      "actual": "Test partition (68 pairs) strictly frozen and untouched",
+      "status": "MET",
+      "blocking_impact": "NONE"
+    },
+    {
+      "criterion": "Evaluator metrics audited and verified",
+      "target": "PR-AUC boundary anchoring, exact ROC-AUC, selective vs strict binary",
+      "actual": "Audited in reports/baseline_evaluator_audit.json (PR-AUC 0.9960, ROC-AUC 0.9801)",
+      "status": "MET",
+      "blocking_impact": "NONE"
+    },
+    {
+      "criterion": "Explainable rule baseline evaluated with error root causes",
+      "target": "Precision, recall, 3-way matrix, root causes documented",
+      "actual": "Documented in baseline_v1_final_evaluation.json & rule_engine_error_analysis_v2.json",
+      "status": "MET",
+      "blocking_impact": "NONE"
+    },
+    {
+      "criterion": "Separation between representative sample and targeted ambiguity cases",
+      "target": "Zero unweighted mixing",
+      "actual": "0 overlap between Dataset A and Dataset C verified; weights preserved",
+      "status": "MET",
+      "blocking_impact": "NONE"
+    }
+  ]
+}
