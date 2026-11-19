@@ -1,0 +1,81 @@
+{
+  "milestone_id": "M18",
+  "milestone_name": "Conflation Quality Evaluation & Geospatial Intelligence",
+  "verdict": "M18_COMPLETE_WITH_LIMITATIONS",
+  "timestamp": "2026-11-19T11:12:00Z",
+  "datasets": {
+    "osm_source_pois": 49036,
+    "overture_source_pois": 197820,
+    "total_source_pois": 246856,
+    "candidate_pairs_universe": 605428,
+    "canonical_entities_resolved": 238083,
+    "unresolved_pairs_backlog": 2842,
+    "relationships_classified": 985
+  },
+  "label_provenance": {
+    "total_pool_records": 550,
+    "human_dual_reviewed": 20,
+    "human_reviewed": 31,
+    "ai_adopted": 49,
+    "unreviewed_queue": 450,
+    "gold_standard_size": 51,
+    "challenge_case_size": 13,
+    "operational_benchmark_size": 100
+  },
+  "metrics_gold_standard": {
+    "rule_baseline_v1": {
+      "precision": 1.0,
+      "recall": 0.907,
+      "f1_score": 0.9512,
+      "accuracy": 0.9216
+    },
+    "rule_baseline_v2": {
+      "precision": 1.0,
+      "recall": 0.9302,
+      "f1_score": 0.9639,
+      "accuracy": 0.9412
+    },
+    "supervised_lightgbm": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "accuracy": 1.0
+    },
+    "production_pipeline": {
+      "precision": 1.0,
+      "recall": 0.9767,
+      "f1_score": 0.9882,
+      "accuracy": 0.9804
+    }
+  },
+  "geospatial_intelligence": {
+    "bbmp_polygon_containment": 1.0,
+    "canonical_entities_inside": 238083,
+    "canonical_entities_outside": 0,
+    "median_accepted_distance_meters": 13.72,
+    "median_review_distance_meters": 31.1,
+    "p90_accepted_distance_meters": 36.22,
+    "top_commercial_h3_res8": "8860145b5dfffff"
+  },
+  "indic_language_intelligence": {
+    "osm_kannada_pois": 6212,
+    "osm_kannada_pct": 12.67,
+    "overture_kannada_pois": 400,
+    "overture_kannada_pct": 0.2,
+    "transliteration_available_pairs": 87126,
+    "transliteration_exact_match_pairs": 3635,
+    "kannada_expansion_queue_size": 45
+  },
+  "review_prioritization": {
+    "total_unresolved_ranked": 2842,
+    "p1_critical_count": 29,
+    "p2_high_count": 323,
+    "p3_medium_count": 2123,
+    "p4_low_count": 367
+  },
+  "test_suite": {
+    "total_tests": 234,
+    "passed_tests": 234,
+    "failed_tests": 0
+  }
+}

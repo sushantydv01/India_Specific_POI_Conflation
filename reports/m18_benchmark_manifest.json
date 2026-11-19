@@ -1,0 +1,32 @@
+{
+  "manifest_id": "m18_benchmark_manifest_v1",
+  "timestamp": "2026-11-19T10:57:51.944038+00:00",
+  "target_city": "Bengaluru (BBMP), Karnataka, India",
+  "total_pool_records": 550,
+  "provenance_counts": {
+    "UNREVIEWED": 450,
+    "AI_ADOPTED": 49,
+    "HUMAN_REVIEWED": 31,
+    "HUMAN_DUAL_REVIEWED": 20
+  },
+  "ground_truth_decision_counts": {
+    "MATCH": 53,
+    "NON_MATCH": 39,
+    "UNCERTAIN": 5,
+    "NEEDS_ADJUDICATION": 3
+  },
+  "gold_human_standard_count": 51,
+  "challenge_case_count": 13,
+  "operational_benchmark_count": 100,
+  "unreviewed_expansion_queue_count": 450,
+  "split_breakdown": {
+    "train": 0,
+    "validation": 0,
+    "test": 0
+  },
+  "leakage_audit": {
+    "pair_level_leakage": 0,
+    "component_level_leakage": 0,
+    "verdict": "PASSED_ZERO_LEAKAGE"
+  }
+}
